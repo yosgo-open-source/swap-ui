@@ -4,6 +4,11 @@ import SWAP from "./SWAP";
 export default {
   title: "SWAP LOGO",
   component: SWAP,
+  parameters: {
+    docs: {
+      page: () => <>Welcome to SWAP UI</>,
+    },
+  },
 };
 
 export const 預設 = () => <SWAP />;

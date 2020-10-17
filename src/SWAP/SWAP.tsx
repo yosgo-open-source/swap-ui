@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { SWAPProps } from "./SWAP.types";
 
 const SWAP: React.FC<SWAPProps> = ({ size, color }) => (
-  <div data-testid="SWAP" className="swap">
+  <div>
     <SWAPWrap>
       <img
         className={`logo_size_${size ? size : "medium"}`}

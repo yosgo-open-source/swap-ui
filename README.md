@@ -16,14 +16,20 @@ $ yarn add @yosgo/swap-ui
 
 # 開發
 
+開發元件
+
 ```
+$ yarn generate NewComponentName
 $ yarn storybook
 ```
+
+發佈
 
 ```
 $ npm publish
 ```
 
-#  參考資料
+# 參考資料
 
 - [Creating a React Component Library using Rollup, Typescript, Sass and Storybook](https://blog.harveydelaney.com/creating-your-own-react-component-library/)
+- [Material-ui and Typescript error when bundling #29](https://github.com/transitive-bullshit/react-modern-library-boilerplate/issues/29#issuecomment-635883117)

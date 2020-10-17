@@ -23,22 +23,12 @@ export default {
   plugins: [
     peerDepsExternal(),
     resolve(),
-    commonjs(
-      /**
-       * Relative issue
-       * https://github.com/transitive-bullshit/react-modern-library-boilerplate/issues/29#issuecomment-635883117
-       */
-      {
-        include: "node_modules/**",
-        namedExports: {
-          "node_modules/react-is/index.js": [
-            "ForwardRef",
-            "Memo",
-            "isFragment",
-          ],
-        },
-      }
-    ),
+    commonjs({
+      include: "node_modules/**",
+      namedExports: {
+        "node_modules/react-is/index.js": ["ForwardRef", "Memo", "isFragment"],
+      },
+    }),
     typescript({ useTsconfigDeclarationDir: true }),
   ],
 };

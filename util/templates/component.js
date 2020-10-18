@@ -1,5 +1,5 @@
 module.exports = (componentName) => ({
-  content: `// Generated with util/create-component.js
+  content: `
 import React from "react";
 import styled from "styled-components";
 

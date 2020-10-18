@@ -1,5 +1,6 @@
-// Generated with util/create-component.js
 import { Typography } from "@material-ui/core";
+import SWAPTheme from "../SWAPTheme/SWAPTheme";
+
 import React from "react";
 import Space from "./Space";
 
@@ -8,31 +9,31 @@ export default {
 };
 
 export const Small = () => (
-  <div>
+  <SWAPTheme>
     <Typography variant="h5">這是標題</Typography>
     <Space size="small" />
     <Typography variant="body2" color="textSecondary">
       這是副標題(中間間隔是 Space 元件)
     </Typography>
-  </div>
+  </SWAPTheme>
 );
 
 export const Medium = () => (
-  <div>
+  <SWAPTheme>
     <Typography variant="h5">這是標題</Typography>
     <Space size="medium" />
     <Typography variant="body2" color="textSecondary">
       這是副標題(中間間隔是 Space 元件)
     </Typography>
-  </div>
+  </SWAPTheme>
 );
 
 export const Large = () => (
-  <div>
+  <SWAPTheme>
     <Typography variant="h5">這是標題</Typography>
     <Space size="large" />
     <Typography variant="body2" color="textSecondary">
       這是副標題(中間間隔是 Space 元件)
     </Typography>
-  </div>
+  </SWAPTheme>
 );

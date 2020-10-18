@@ -1,4 +1,3 @@
-// Generated with util/create-component.js
 import React from "react";
 import { render } from "@testing-library/react";
 
@@ -10,7 +9,7 @@ describe("Test Component", () => {
 
   beforeEach(() => {
     props = {
-      foo: "bar"
+      foo: "bar",
     };
   });
 

@@ -1,7 +1,7 @@
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import React, { useState } from "react";
-import SWAPTheme from "../SWAPTheme/SWAPTheme";
 
+import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import SWAPModal from "./SWAPModal";
 
 export default {
@@ -32,11 +32,14 @@ export const Default = () => {
         }}
       >
         <div style={{ height: "1800px" }}>
+          <Typography variant="body2">
           視窗內容放置於此：
-          <br />
-          1. 電腦版，視窗置中，由中往上下延伸。
-          <br />
-          2. 手機版，視窗置底，由下往上延伸。
+          </Typography>
+          <Typography variant="body2" color="textPrimary">
+            1. 電腦版，視窗置中，由中往上下延伸。</Typography>
+          <Typography variant="body2">
+            2. 手機版，視窗置底，由下往上延伸。
+          </Typography>
           <br />
         </div>
       </SWAPModal>

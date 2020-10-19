@@ -16,7 +16,6 @@ import CloseIcon from "@material-ui/icons/Close";
 
 import { SWAPModalProps } from "./SWAPModal.types";
 import Space from "../Space/Space";
-import SWAPTheme from "../SWAPTheme/SWAPTheme";
 
 const SWAPModal: React.FC<SWAPModalProps> = ({
   open,
@@ -52,89 +51,87 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
     }
   };
   return (
-    <SWAPTheme>
-      <Modal open={open} onRendered={() => handleModalSize()}>
-        <Fade in={open}>
-          <SWAPModalWrap id="modal_wrap">
-            <Paper className="modal_inner" id="modal_inner">
-              <div className="modal_inner_header" id="modal_header">
-                <Container maxWidth="lg">
-                  <Space size="medium" />
-                  <Grid
-                    container
-                    wrap="nowrap"
-                    alignItems="center"
-                    spacing={1}
-                    justify="space-between"
-                  >
-                    <Grid item>
-                      <Typography variant="h5">{title}</Typography>
-                      {helpText ? (
-                        <Typography variant="body2" color="textSecondary">
-                          {helpText}
-                        </Typography>
-                      ) : null}
-                    </Grid>
-                    <Grid item>
-                      <IconButton onClick={() => onClose()}>
-                        <CloseIcon fontSize="large" />
-                      </IconButton>
-                    </Grid>
+    <Modal open={open} onRendered={() => handleModalSize()}>
+      <Fade in={open}>
+        <SWAPModalWrap id="modal_wrap">
+          <Paper className="modal_inner" id="modal_inner">
+            <div className="modal_inner_header" id="modal_header">
+              <Container maxWidth="lg">
+                <Space size="medium" />
+                <Grid
+                  container
+                  wrap="nowrap"
+                  alignItems="center"
+                  spacing={1}
+                  justify="space-between"
+                >
+                  <Grid item>
+                    <Typography variant="h5">{title}</Typography>
+                    {helpText ? (
+                      <Typography variant="body2" color="textSecondary">
+                        {helpText}
+                      </Typography>
+                    ) : null}
                   </Grid>
-                  <Space size="medium" />
-                </Container>
-                <Divider />
-              </div>
-              <div className="modal_inner_body" id="modal_body">
-                <Container maxWidth="lg">
-                  <Space size="medium" />
-                  <div>{children}</div>
-                  <Space size="medium" />
-                </Container>
-              </div>
-              <div className="modal_inner_bottom" id="modal_bottom">
-                <Divider />
-                <Container maxWidth="lg">
-                  <Space size="medium" />
-                  <Grid
-                    container
-                    wrap="nowrap"
-                    alignItems="center"
-                    spacing={1}
-                    justify="flex-end"
-                  >
-                    <Grid item>
-                      {secondaryButton.title ? (
-                        <Button
-                          variant="outlined"
-                          size="large"
-                          onClick={() => secondaryButton.onClick()}
-                          disabled={secondaryButton.disabled}
-                        >
-                          返回
-                        </Button>
-                      ) : null}
-                    </Grid>
-                    <Grid item>
+                  <Grid item>
+                    <IconButton onClick={() => onClose()}>
+                      <CloseIcon fontSize="large" />
+                    </IconButton>
+                  </Grid>
+                </Grid>
+                <Space size="medium" />
+              </Container>
+              <Divider />
+            </div>
+            <div className="modal_inner_body" id="modal_body">
+              <Container maxWidth="lg">
+                <Space size="medium" />
+                <div>{children}</div>
+                <Space size="medium" />
+              </Container>
+            </div>
+            <div className="modal_inner_bottom" id="modal_bottom">
+              <Divider />
+              <Container maxWidth="lg">
+                <Space size="medium" />
+                <Grid
+                  container
+                  wrap="nowrap"
+                  alignItems="center"
+                  spacing={1}
+                  justify="flex-end"
+                >
+                  <Grid item>
+                    {secondaryButton.title ? (
                       <Button
-                        variant="contained"
+                        variant="outlined"
                         size="large"
-                        color="primary"
-                        onClick={() => primaryButton.onClick()}
-                        disabled={primaryButton.disabled}
+                        onClick={() => secondaryButton.onClick()}
+                        disabled={secondaryButton.disabled}
                       >
-                        {primaryButton.title}
+                        返回
                       </Button>
-                    </Grid>
+                    ) : null}
                   </Grid>
-                  <Space size="medium" />
-                </Container>
-              </div>
-            </Paper>
-          </SWAPModalWrap>
-        </Fade>
-      </Modal>
-    </SWAPTheme>
+                  <Grid item>
+                    <Button
+                      variant="contained"
+                      size="large"
+                      color="primary"
+                      onClick={() => primaryButton.onClick()}
+                      disabled={primaryButton.disabled}
+                    >
+                      {primaryButton.title}
+                    </Button>
+                  </Grid>
+                </Grid>
+                <Space size="medium" />
+              </Container>
+            </div>
+          </Paper>
+        </SWAPModalWrap>
+      </Fade>
+    </Modal>
   );
 };
 

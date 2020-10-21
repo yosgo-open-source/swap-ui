@@ -1,6 +1,8 @@
 import { Button, Typography } from "@material-ui/core";
 import React, { useState } from "react";
+import { Story } from "@storybook/react/types-6-0";
 
+import { SWAPModalProps } from "../SWAPModal/SWAPModal.types";
 import SWAPSpace from "../SWAPSpace/SWAPSpace";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import SWAPModal from "./SWAPModal";
@@ -17,43 +19,36 @@ export default {
   },
 };
 
-export const 認識 = () => {
-  const [open, setOpen] = useState(false);
+const Demo: Story<SWAPModalProps> = (args) => {
   return (
     <SWAPTheme>
-      <div>
-        <Button
-          onClick={() => setOpen(true)}
-          variant="contained"
-          color="primary"
-        >
-          點我示意
-        </Button>
-        <SWAPModal
-          title="視窗的標題"
-          helpText="視窗的說明文字"
-          open={open}
-          onClose={() => setOpen(false)}
-          primaryButton={{
-            title: "主要操作按鈕",
-            onClick: () => alert("主要按鈕功能被點擊"),
-            disabled: false,
-          }}
-          secondaryButton={{
-            title: "次按鈕",
-            onClick: () => alert("次要按鈕功能被點擊"),
-            disabled: false,
-          }}
-        >
-          <div>
-            <SWAPSpace />
-            視窗內容
-            <SWAPSpace />
-          </div>
-        </SWAPModal>
-      </div>
+      <Typography variant="subtitle1">Modal 平常就像個隱形人</Typography>
+      <Typography variant="body2" color="textSecondary">
+        請將下方 Open 屬性調整為 true，以開啟視窗。
+      </Typography>
+      <SWAPModal {...args} />
     </SWAPTheme>
   );
+};
+export const 認識 = Demo.bind({});
+認識.args = {
+  title: "視窗標題",
+  helpText: "輔助說明文字",
+  open: false,
+  onClose: () => alert("呼叫關閉視窗函式"),
+  primaryButton: {
+    title: "主按鈕",
+    onClick: () => alert("點擊主按鈕"),
+    disabled: false,
+  },
+  children: "備註：因為沒有 State 控制，請重新整理頁面來關閉 Modal",
+  secondaryButton: {
+    title: "次要按鈕",
+    onClick: () => alert("點擊次要按鈕"),
+    disabled: false,
+  },
+  successMessage: "這裡顯示操作相關的成功提示",
+  errorMessage: "這裡顯示操作相關的錯誤提示",
 };
 
 export const 內容多寡 = () => {

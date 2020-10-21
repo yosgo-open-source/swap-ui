@@ -75,7 +75,7 @@ export const 中區間 = () => {
       >
         <div>
           <SWAPSpace />
-          視窗內容
+          下方操作按鈕區域，按鈕上下的區間為中區間
           <SWAPSpace />
         </div>
       </SWAPModal>

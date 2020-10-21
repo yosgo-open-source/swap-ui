@@ -11,7 +11,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "讓用戶透過視窗的方式完成某件事情",
+        component: "用戶在蓋板視窗內完成某一件事情",
       },
     },
   },

@@ -11,7 +11,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "以 .svg 的檔案格式所呈現的 SWAP 相關 LOGO",
+        component: "以 .svg 檔案格式，呈現的 SWAP LOGO",
       },
     },
   },

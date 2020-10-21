@@ -8,7 +8,7 @@
 想要參考 swap-ui 可以透過以下方式：
 
 1. 直接訪問 swap 的網站 [www.swap.work](www.swap.work)
-2. 瀏覽 [Storkbook](https://yosgo-open-source.github.io/swap-ui/)
+2. 瀏覽 [Storkbook](http://localhost:6006/?path=/docs/swaplogo--%E8%AA%8D%E8%AD%98)
 
 # 安裝
 

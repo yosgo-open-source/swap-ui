@@ -24,7 +24,7 @@ const Demo: Story<SWAPModalProps> = (args) => {
     <SWAPTheme>
       <Typography variant="subtitle1">Modal 平常就像個隱形人</Typography>
       <Typography variant="body2" color="textSecondary">
-        請將下方 Open 屬性調整為 true，以開啟視窗。
+        請將下方 open 屬性調整為 true，以開啟視窗。
       </Typography>
       <SWAPModal {...args} />
     </SWAPTheme>

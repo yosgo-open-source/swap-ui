@@ -1,14 +1,16 @@
+<img src="https://raw.githubusercontent.com/yosgo-open-source/swap-ui/master/src/SWAPLogo/SWAP_LOGO_01.svg" width="150" />
+
 # 關於 SWAP-UI
 
 基於 [@material-ui/core](https://material-ui.com/) 的前端框架來開發 SWAP 專屬的介面框架，這個框架的特性如下：
 
-1. 標準化元件。封裝常用的元件，減少開發時重新定義相同的佈局、函式...，讓介面保持一致
-2. 易於使用。儘量不需要再寫額外的輔助函式或是過於多層的元件包裝就能使用
+1. 標準化元件。封裝 SWAP 服務內常見的介面場景，減少開發時重新定義相同的佈局、函式...並讓介面保持一致
+2. 易於使用。儘量不需要再寫額外的輔助函式或是過於多層的元件包裝就能使用，避免 Material-ui 多層包裝的缺點
 
 想要參考 swap-ui 可以透過以下方式：
 
 1. 直接訪問 swap 的網站 [www.swap.work](www.swap.work)
-2. 瀏覽 [Storkbook](http://localhost:6006/?path=/docs/swaplogo--%E8%AA%8D%E8%AD%98)
+2. 瀏覽 <a href="https://yosgo-open-source.github.io/swap-ui/?path=/docs/swaplogo--%E8%AA%8D%E8%AD%98" target="_blank">Storybook</a>
 
 # 安裝
 

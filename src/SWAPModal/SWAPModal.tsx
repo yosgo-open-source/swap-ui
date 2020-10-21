@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import {
   Container,
@@ -12,10 +12,12 @@ import {
   Fade,
 } from "@material-ui/core";
 
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import CloseIcon from "@material-ui/icons/Close";
+import WarningIcon from "@material-ui/icons/Warning";
 
 import { SWAPModalProps } from "./SWAPModal.types";
-import Space from "../Space/Space";
+import SWAPSpace from "../SWAPSpace/SWAPSpace";
 
 const SWAPModal: React.FC<SWAPModalProps> = ({
   open,
@@ -25,6 +27,10 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
   primaryButton,
   secondaryButton,
   children,
+  successMessage,
+  errorMessage,
+  closeWindowOnSuccessMessage,
+  reloadOnWindowClose,
 }) => {
   const handleModalSize = () => {
     const clientHeight = `${document.documentElement.clientHeight}px`;
@@ -50,6 +56,25 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
       console.log("Error");
     }
   };
+
+  const modalCloseWindow = () => {
+    onClose();
+    if (reloadOnWindowClose) {
+      window.location.reload();
+    }
+  };
+
+  useEffect(() => {
+    /**視窗中的相關內容變動時調整視窗大小 */
+    handleModalSize();
+    /**收到成功訊息後關閉視窗 */
+    if (successMessage && closeWindowOnSuccessMessage) {
+      setTimeout(() => {
+        modalCloseWindow();
+      }, 1000);
+    }
+  }, [successMessage, errorMessage, children]);
+
   return (
     <Modal open={open} onRendered={() => handleModalSize()}>
       <Fade in={open}>
@@ -57,7 +82,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
           <Paper className="modal_inner" id="modal_inner">
             <div className="modal_inner_header" id="modal_header">
               <Container maxWidth="lg">
-                <Space size="medium" />
+                <SWAPSpace size="middle" />
                 <Grid
                   container
                   wrap="nowrap"
@@ -74,26 +99,53 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                     ) : null}
                   </Grid>
                   <Grid item>
-                    <IconButton onClick={() => onClose()}>
+                    <IconButton onClick={() => modalCloseWindow()}>
                       <CloseIcon fontSize="large" />
                     </IconButton>
                   </Grid>
                 </Grid>
-                <Space size="medium" />
+                <SWAPSpace size="middle" />
               </Container>
               <Divider />
             </div>
             <div className="modal_inner_body" id="modal_body">
               <Container maxWidth="lg">
-                <Space size="medium" />
+                <SWAPSpace size="middle" />
                 <div>{children}</div>
-                <Space size="medium" />
+                <SWAPSpace size="middle" />
               </Container>
             </div>
             <div className="modal_inner_bottom" id="modal_bottom">
               <Divider />
               <Container maxWidth="lg">
-                <Space size="medium" />
+                <SWAPSpace size="middle" />
+                {(successMessage && successMessage.length > 0) ||
+                (errorMessage && errorMessage.length > 0) ? (
+                  <Fade in>
+                    <div>
+                      <Grid
+                        container
+                        wrap="nowrap"
+                        alignItems="center"
+                        justify="flex-end"
+                      >
+                        <Grid item style={{ margin: "0 6px -6px 0" }}>
+                          {successMessage ? (
+                            <CheckCircleIcon color="primary" />
+                          ) : (
+                            <WarningIcon color="secondary" />
+                          )}
+                        </Grid>
+                        <Grid item>
+                          <Typography variant="body1">
+                            {successMessage ? successMessage : errorMessage}
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                      <SWAPSpace size="small" />
+                    </div>
+                  </Fade>
+                ) : null}
                 <Grid
                   container
                   wrap="nowrap"
@@ -102,14 +154,14 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                   justify="flex-end"
                 >
                   <Grid item>
-                    {secondaryButton.title ? (
+                    {secondaryButton && secondaryButton.title ? (
                       <Button
                         variant="outlined"
                         size="large"
                         onClick={() => secondaryButton.onClick()}
                         disabled={secondaryButton.disabled}
                       >
-                        返回
+                        {secondaryButton.title}
                       </Button>
                     ) : null}
                   </Grid>
@@ -125,7 +177,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                     </Button>
                   </Grid>
                 </Grid>
-                <Space size="medium" />
+                <SWAPSpace size="middle" />
               </Container>
             </div>
           </Paper>

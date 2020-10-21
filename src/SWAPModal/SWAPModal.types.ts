@@ -14,4 +14,8 @@ export interface SWAPModalProps {
     disabled: boolean;
   };
   children: React.ReactNode;
+  successMessage?: string;
+  errorMessage?: string;
+  closeWindowOnSuccessMessage?: boolean;
+  reloadOnWindowClose?: boolean;
 }

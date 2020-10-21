@@ -1,6 +1,6 @@
 {
   "name": "@yosgo/swap-ui",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "main": "build/index.js",
   "module": "build/index.esm.js",
   "files": [
@@ -15,7 +15,8 @@
     "storybook": "start-storybook -p 6006",
     "storybook:export": "build-storybook",
     "generate": "node ./util/create-component",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "repository": {
     "type": "git",
@@ -38,11 +39,11 @@
   },
   "homepage": "https://github.com/yosgo-open-source/swap-ui",
   "peerDependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
-    "styled-components": ">=^5.2.0",
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1"
+    "styled-components": ">=^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",

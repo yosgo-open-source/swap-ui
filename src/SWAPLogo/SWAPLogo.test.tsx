@@ -1,25 +1,26 @@
+
 import React from "react";
 import { render } from "@testing-library/react";
 
-import SWAP from "./SWAP";
-import { SWAPProps } from "./SWAP.types";
+import SWAPLogo from "./SWAPLogo";
+import { SWAPLogoProps } from "./SWAPLogo.types";
 
 describe("Test Component", () => {
-  let props: SWAPProps;
+  let props: SWAPLogoProps;
 
   beforeEach(() => {
     props = {
-      foo: "bar",
+      foo: "bar"
     };
   });
 
-  const renderComponent = () => render(<SWAP {...props} />);
+  const renderComponent = () => render(<SWAPLogo {...props} />);
 
   it("should render foo text correctly", () => {
     props.foo = "harvey was here";
     const { getByTestId } = renderComponent();
 
-    const component = getByTestId("SWAP");
+    const component = getByTestId("SWAPLogo");
 
     expect(component).toHaveTextContent("harvey was here");
   });

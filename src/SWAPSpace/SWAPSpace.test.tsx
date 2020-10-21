@@ -1,25 +1,26 @@
+
 import React from "react";
 import { render } from "@testing-library/react";
 
-import Space from "./Space";
-import { SpaceProps } from "./Space.types";
+import SWAPSpace from "./SWAPSpace";
+import { SWAPSpaceProps } from "./SWAPSpace.types";
 
 describe("Test Component", () => {
-  let props: SpaceProps;
+  let props: SWAPSpaceProps;
 
   beforeEach(() => {
     props = {
-      foo: "bar",
+      foo: "bar"
     };
   });
 
-  const renderComponent = () => render(<Space {...props} />);
+  const renderComponent = () => render(<SWAPSpace {...props} />);
 
   it("should render foo text correctly", () => {
     props.foo = "harvey was here";
     const { getByTestId } = renderComponent();
 
-    const component = getByTestId("Space");
+    const component = getByTestId("SWAPSpace");
 
     expect(component).toHaveTextContent("harvey was here");
   });

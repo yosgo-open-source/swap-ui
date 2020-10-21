@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import SWAPSpace from "./SWAPSpace";
-
+import { Story } from "@storybook/react/types-6-0";
 import { Button, Divider, Typography } from "@material-ui/core";
+
+import { SWAPSpaceProps } from "../SWAPSpace/SWAPSpace.types";
+import SWAPSpace from "./SWAPSpace";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import SWAPModal from "../SWAPModal/SWAPModal";
 
@@ -17,20 +19,24 @@ export default {
   },
 };
 
-export const 認識 = () => {
+const Demo: Story<SWAPSpaceProps> = (args) => {
   return (
     <SWAPTheme>
       <Typography variant="h4">區間的配置</Typography>
       <SWAPSpace size="small" />
       <Typography variant="body1">
-        我是一段描述，與上下方元件有著特定的區間
+        &nbsp;我是一段描述，與上下方元件有著特定的區間
       </Typography>
-      <SWAPSpace size="large" />
+      <SWAPSpace {...args} />
       <Button color="primary" variant="contained">
         我是按鈕
       </Button>
     </SWAPTheme>
   );
+};
+export const 認識 = Demo.bind({});
+認識.args = {
+  size: "large",
 };
 
 export const 小區間 = () => {

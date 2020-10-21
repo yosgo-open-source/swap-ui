@@ -21,49 +21,51 @@ const TypographyBodyShared:
   letterSpacing: "0.9px",
 };
 
+export const SWAPDefaultTheme = {
+  typography: {
+    fontFamily: [
+      "Noto Sans TC",
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(","),
+  },
+  overrides: {
+    MuiCard: {
+      root: {
+        borderRadius: "18px",
+        border: "1px solid rgba(0, 0, 0, 0.13)",
+      },
+    },
+    MuiPaper: {
+      rounded: {
+        borderRadius: "15px",
+      },
+    },
+    MuiTypography: {
+      h1: TypographyHeadShared,
+      h2: TypographyHeadShared,
+      h3: TypographyHeadShared,
+      h4: TypographyHeadShared,
+      h5: TypographyHeadShared,
+      h6: TypographyHeadShared,
+      body1: TypographyBodyShared,
+      body2: TypographyBodyShared,
+    },
+  },
+};
+
 const SWAPTheme: React.FC<SWAPThemeProps> = ({ themeOptions, children }) => {
   const theme = themeOptions
     ? createMuiTheme(themeOptions)
-    : createMuiTheme({
-        typography: {
-          fontFamily: [
-            "Noto Sans TC",
-            "-apple-system",
-            "BlinkMacSystemFont",
-            '"Segoe UI"',
-            "Roboto",
-            '"Helvetica Neue"',
-            "Arial",
-            "sans-serif",
-            '"Apple Color Emoji"',
-            '"Segoe UI Emoji"',
-            '"Segoe UI Symbol"',
-          ].join(","),
-        },
-        overrides: {
-          MuiCard: {
-            root: {
-              borderRadius: "18px",
-              border: "1px solid rgba(0, 0, 0, 0.13)",
-            },
-          },
-          MuiPaper: {
-            rounded: {
-              borderRadius: "15px",
-            },
-          },
-          MuiTypography: {
-            h1: TypographyHeadShared,
-            h2: TypographyHeadShared,
-            h3: TypographyHeadShared,
-            h4: TypographyHeadShared,
-            h5: TypographyHeadShared,
-            h6: TypographyHeadShared,
-            body1: TypographyBodyShared,
-            body2: TypographyBodyShared,
-          },
-        },
-      });
+    : createMuiTheme(SWAPDefaultTheme);
   return (
     <div>
       <ThemeProvider theme={theme}>

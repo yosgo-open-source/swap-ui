@@ -117,56 +117,60 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
                     </Grid>
                   </Grid>
                   {/**手機版顯示 */}
-                  <IconButton
-                    onClick={(e) => handleClick(e)}
-                    aria-label="menue"
-                    color="primary"
-                    className="mobile_show"
-                  >
-                    <MenuIcon />
-                  </IconButton>
-                  <Menu
-                    id="simple-menu"
-                    anchorEl={anchorEl}
-                    keepMounted
-                    open={Boolean(anchorEl)}
-                    onClose={() => handleClose()}
-                  >
-                    {navigations &&
-                      navigations.length > 0 &&
-                      navigations.map((item, index) => (
-                        <MenuItem
-                          key={`mobile_page_${index}_pages`}
-                          disabled={item.disabled}
-                          onClick={() => item.onClick()}
-                        >
-                          {item.title}
-                        </MenuItem>
-                      ))}
-                    <SWAPSpace size="small" />
-                    <Divider />
-                    <SWAPSpace size="small" />
-                    {primaryButton &&
-                    primaryButton.title &&
-                    primaryButton.title.length > 0 ? (
-                      <MenuItem
-                        disabled={primaryButton.disabled}
-                        onClick={() => primaryButton.onClick()}
+                  <Grid container justify="flex-end">
+                    <Grid item>
+                      <IconButton
+                        onClick={(e) => handleClick(e)}
+                        aria-label="menue"
+                        color="primary"
+                        className="mobile_show"
                       >
-                        {primaryButton.title}
-                      </MenuItem>
-                    ) : null}
-                    {secondaryButton &&
-                    secondaryButton.title &&
-                    secondaryButton.title.length > 0 ? (
-                      <MenuItem
-                        disabled={secondaryButton.disabled}
-                        onClick={() => secondaryButton.onClick()}
+                        <MenuIcon />
+                      </IconButton>
+                      <Menu
+                        id="simple-menu"
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={() => handleClose()}
                       >
-                        {secondaryButton.title}
-                      </MenuItem>
-                    ) : null}
-                  </Menu>
+                        {navigations &&
+                          navigations.length > 0 &&
+                          navigations.map((item, index) => (
+                            <MenuItem
+                              key={`mobile_page_${index}_pages`}
+                              disabled={item.disabled}
+                              onClick={() => item.onClick()}
+                            >
+                              {item.title}
+                            </MenuItem>
+                          ))}
+                        <SWAPSpace size="small" />
+                        <Divider />
+                        <SWAPSpace size="small" />
+                        {primaryButton &&
+                        primaryButton.title &&
+                        primaryButton.title.length > 0 ? (
+                          <MenuItem
+                            disabled={primaryButton.disabled}
+                            onClick={() => primaryButton.onClick()}
+                          >
+                            {primaryButton.title}
+                          </MenuItem>
+                        ) : null}
+                        {secondaryButton &&
+                        secondaryButton.title &&
+                        secondaryButton.title.length > 0 ? (
+                          <MenuItem
+                            disabled={secondaryButton.disabled}
+                            onClick={() => secondaryButton.onClick()}
+                          >
+                            {secondaryButton.title}
+                          </MenuItem>
+                        ) : null}
+                      </Menu>
+                    </Grid>
+                  </Grid>
                 </Grid>
               </Grid>
               <SWAPSpace size="small" />

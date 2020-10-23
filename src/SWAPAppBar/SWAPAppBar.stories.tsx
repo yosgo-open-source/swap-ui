@@ -42,8 +42,8 @@ export const 認識 = Demo.bind({});
     [`onClick`]: () => alert("次按鈕"),
   },
   navigations: [
-    { title: "分頁一", onClick: () => alert("分頁一"), disabled: true },
-    { title: "分頁二", onClick: () => alert("分頁二") },
-    { title: "分頁三", onClick: () => alert("分頁三") },
+    { title: "我四個字", onClick: () => alert("我四個字"), disabled: true },
+    { title: "三個字", onClick: () => alert("分頁二") },
+    { title: "兩字", onClick: () => alert("分頁三") },
   ],
 };

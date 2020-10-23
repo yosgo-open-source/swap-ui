@@ -25,16 +25,10 @@ export const SWAPDefaultTheme = {
   typography: {
     fontFamily: [
       "Noto Sans TC",
-      "-apple-system",
-      "BlinkMacSystemFont",
-      '"Segoe UI"',
-      "Roboto",
-      '"Helvetica Neue"',
+      '"STHeiti"',
+      '"SimHei"',
       "Arial",
       "sans-serif",
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
     ].join(","),
   },
   overrides: {

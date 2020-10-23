@@ -47,8 +47,13 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
           <Toolbar>
             <Container maxWidth="md">
               <SWAPSpace size="small" />
-              <Grid container alignItems="center" justify="space-between">
-                <Grid item>
+              <Grid
+                container
+                alignItems="center"
+                justify="space-between"
+                wrap="nowrap"
+              >
+                <Grid item style={{ flexGrow: 1, flexBasis: "auto" }}>
                   <Grid container spacing={3} alignItems="center" wrap="nowrap">
                     <Grid
                       item
@@ -77,11 +82,12 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
                       ))}
                   </Grid>
                 </Grid>
-                <Grid item>
+                <Grid item style={{ flexGrow: 1, flexBasis: "auto" }}>
                   {/**電腦版顯示 */}
                   <Grid
                     container
                     spacing={1}
+                    justify="flex-end"
                     alignItems="center"
                     className="mobile_hide"
                   >

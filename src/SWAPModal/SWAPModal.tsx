@@ -75,8 +75,6 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
       wrap.setAttribute("style", `height: ${clientHeight};`);
       inner.setAttribute("style", `padding: ${innerPadding};`);
       body.setAttribute("style", `max-height: ${bodyMaxHeight};`);
-    } else {
-      console.log("Error");
     }
   };
 

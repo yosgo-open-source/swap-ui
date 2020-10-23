@@ -3,9 +3,9 @@ import styled from "styled-components";
 
 import { SWAPLogoProps } from "./SWAPLogo.types";
 
-const logo01 = require("./SWAP_LOGO_01.svg") as string;
-const logo02 = require("./SWAP_LOGO_02.svg") as string;
-const logo03 = require("./SWAP_LOGO_03.svg") as string;
+import logo01 from "./SWAP_LOGO_01.svg";
+import logo02 from "./SWAP_LOGO_02.svg";
+import logo03 from "./SWAP_LOGO_03.svg";
 
 const SWAPLogo: React.FC<SWAPLogoProps> = ({
   business = false,

@@ -5,13 +5,11 @@ export interface SWAPAppBarProps {
     onClick: () => void;
     disabled?: boolean;
   };
-  navigations?: [
-    {
-      title: string;
-      onClick: () => void;
-      disabled?: boolean;
-    }
-  ];
+  navigations?: Array<{
+    title: string;
+    onClick: () => void;
+    disabled?: boolean;
+  }>;
   secondaryButton?: {
     title: string;
     onClick: () => void;

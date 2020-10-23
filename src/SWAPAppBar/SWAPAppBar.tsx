@@ -49,7 +49,7 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
               <SWAPSpace size="small" />
               <Grid container alignItems="center" justify="space-between">
                 <Grid item>
-                  <Grid container spacing={1} alignItems="center" wrap="nowrap">
+                  <Grid container spacing={3} alignItems="center" wrap="nowrap">
                     <Grid
                       item
                       style={{
@@ -58,7 +58,7 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
                         justifyContent: "center",
                       }}
                     >
-                      {logo ? logo : <SWAPLogo />}
+                      {logo ? logo : <SWAPLogo size="large" />}
                     </Grid>
                     {/**電腦版顯示 */}
                     {navigations &&
@@ -90,7 +90,6 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
                       secondaryButton.title &&
                       secondaryButton.title.length > 0 ? (
                         <Button
-                          size="large"
                           color="primary"
                           variant="outlined"
                           onClick={() => secondaryButton.onClick()}
@@ -102,7 +101,6 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
                     </Grid>
                     <Grid item>
                       <Button
-                        size="large"
                         color="primary"
                         variant="contained"
                         onClick={() => primaryButton.onClick()}

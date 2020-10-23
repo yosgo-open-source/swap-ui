@@ -1,6 +1,6 @@
 {
   "name": "@yosgo/swap-ui",
-  "version": "1.0.6",
+  "version": "1.0.21",
   "main": "build/index.js",
   "module": "build/index.esm.js",
   "files": [
@@ -68,6 +68,7 @@
     "react-dom": "^16.13.1",
     "rollup": "^1.27.4",
     "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-typescript2": "^0.27.0",
     "sass-loader": "^8.0.0",
     "styled-components": "^5.2.0",

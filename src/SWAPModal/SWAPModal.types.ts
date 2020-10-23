@@ -6,12 +6,12 @@ export interface SWAPModalProps {
   primaryButton: {
     title: string;
     onClick: () => void;
-    disabled: boolean;
+    disabled?: boolean;
   };
   secondaryButton?: {
     title: string;
     onClick: () => void;
-    disabled: boolean;
+    disabled?: boolean;
   };
   children: React.ReactNode;
   successMessage?: string;

@@ -3,6 +3,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
 import svg from "rollup-plugin-svg";
+import nodePolyfills from "rollup-plugin-node-polyfills";
 
 const packageJson = require("./package.json");
 
@@ -34,5 +35,6 @@ export default {
     svg({
       base64: true,
     }),
+    nodePolyfills(),
   ],
 };

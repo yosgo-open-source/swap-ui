@@ -34,71 +34,73 @@ const SWAPDialog: React.FC<SWAPDialogProps> = ({
           style: { maxWidth: "auto", margin: "6px" },
         }}
       >
-        <Fade in={open}>
+        <Fade in={open} timeout={{ enter: 300, exit: 300 }}>
           <SWAPDialogWrap>
-            <Paper className="dialog_inner" id="dialog_inner">
-              <div className="dialog_inner_head">
-                {status === "success" ? <div className="s_bar bar" /> : null}
-                {status === "warning" ? <div className="w_bar bar" /> : null}
-                {status === "critical" ? <div className="c_bar bar" /> : null}
-                <Container maxWidth="lg">
-                  <SWAPSpace size="small" />
-                  <Typography variant="h5">{title}</Typography>
-                  {helpText ? (
-                    <Typography variant="body2">{helpText}</Typography>
-                  ) : null}
-                  <SWAPSpace size="small" />
-                </Container>
-                {children ? <Divider /> : null}
-              </div>
-              {children ? (
-                <div className="dialog_inner_body">
+            <Fade in={open} timeout={{ enter: 300, exit: 300 }}>
+              <Paper className="dialog_inner" id="dialog_inner">
+                <div className="dialog_inner_head">
+                  {status === "success" ? <div className="s_bar bar" /> : null}
+                  {status === "warning" ? <div className="w_bar bar" /> : null}
+                  {status === "critical" ? <div className="c_bar bar" /> : null}
                   <Container maxWidth="lg">
-                    <SWAPSpace size="middle" />
-                    <div>{children}</div>
-                    <SWAPSpace size="middle" />
+                    <SWAPSpace size="small" />
+                    <Typography variant="h5">{title}</Typography>
+                    {helpText ? (
+                      <Typography variant="body2">{helpText}</Typography>
+                    ) : null}
+                    <SWAPSpace size="small" />
                   </Container>
+                  {children ? <Divider /> : null}
                 </div>
-              ) : null}
-              <div className="dialog_inner_footer">
-                <Divider />
-                <Container maxWidth="lg">
-                  <SWAPSpace size="small" />
-                  <Grid
-                    container
-                    wrap="nowrap"
-                    alignItems="center"
-                    spacing={3}
-                    justify="flex-end"
-                  >
-                    <Grid item>
-                      {secondaryButton &&
-                      secondaryButton.title &&
-                      secondaryButton.title.length > 0 ? (
+                {children ? (
+                  <div className="dialog_inner_body">
+                    <Container maxWidth="lg">
+                      <SWAPSpace size="middle" />
+                      <div>{children}</div>
+                      <SWAPSpace size="middle" />
+                    </Container>
+                  </div>
+                ) : null}
+                <div className="dialog_inner_footer">
+                  <Divider />
+                  <Container maxWidth="lg">
+                    <SWAPSpace size="small" />
+                    <Grid
+                      container
+                      wrap="nowrap"
+                      alignItems="center"
+                      spacing={3}
+                      justify="flex-end"
+                    >
+                      <Grid item>
+                        {secondaryButton &&
+                        secondaryButton.title &&
+                        secondaryButton.title.length > 0 ? (
+                          <Button
+                            size="large"
+                            onClick={() => secondaryButton.onClick()}
+                            disabled={secondaryButton.disabled}
+                            color="default"
+                          >
+                            {secondaryButton.title}
+                          </Button>
+                        ) : null}
+                      </Grid>
+                      <Grid item>
                         <Button
                           size="large"
-                          onClick={() => secondaryButton.onClick()}
-                          disabled={secondaryButton.disabled}
-                          color="default"
+                          onClick={() => primaryButton.onClick()}
+                          disabled={primaryButton.disabled}
                         >
-                          {secondaryButton.title}
+                          {primaryButton.title}
                         </Button>
-                      ) : null}
+                      </Grid>
                     </Grid>
-                    <Grid item>
-                      <Button
-                        size="large"
-                        onClick={() => primaryButton.onClick()}
-                        disabled={primaryButton.disabled}
-                      >
-                        {primaryButton.title}
-                      </Button>
-                    </Grid>
-                  </Grid>
-                  <SWAPSpace size="small" />
-                </Container>
-              </div>
-            </Paper>
+                    <SWAPSpace size="small" />
+                  </Container>
+                </div>
+              </Paper>
+            </Fade>
           </SWAPDialogWrap>
         </Fade>
       </Dialog>
@@ -109,7 +111,7 @@ const SWAPDialog: React.FC<SWAPDialogProps> = ({
 const SWAPDialogWrap = styled.div`
   box-sizing: border-box;
   .bar {
-    height: 15px;
+    height: 12px;
     &.s_bar {
       background: #3f51b5;
     }
@@ -122,7 +124,7 @@ const SWAPDialogWrap = styled.div`
   }
   .dialog_inner {
     box-sizing: border-box;
-    width: 45vw;
+    width: 36vw;
     min-width: 310px;
   }
 `;

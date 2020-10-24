@@ -28,11 +28,17 @@ const ModalOpenEffect = (props: {
   return (
     <>
       {props.sm ? (
-        <Slide in={props.in} direction="up" mountOnEnter unmountOnExit>
+        <Slide
+          in={props.in}
+          direction="up"
+          mountOnEnter
+          unmountOnExit
+          timeout={{ enter: 300, exit: 300 }}
+        >
           <div>{props.children}</div>
         </Slide>
       ) : (
-        <Fade in={props.in}>
+        <Fade in={props.in} timeout={{ enter: 300, exit: 300 }}>
           <div>{props.children}</div>
         </Fade>
       )}
@@ -107,7 +113,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
       onRendered={() => handleModalSize()}
       onClose={() => onClose()}
     >
-      <Fade in={open}>
+      <Fade in={open} timeout={{ enter: 300, exit: 300 }}>
         <SWAPModalWrap id="modal_wrap">
           <ModalOpenEffect in={open} sm={sm}>
             <Paper className="modal_inner" id="modal_inner">

@@ -4,8 +4,17 @@ import { Story } from "@storybook/react/types-6-0";
 import SWAPDialog from "./SWAPDialog";
 import { SWAPDialogProps } from "../SWAPDialog/SWAPDialog.types";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
-import { Button, Typography } from "@material-ui/core";
+import {
+  Button,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormLabel,
+  Typography,
+} from "@material-ui/core";
 import SWAPSpace from "../SWAPSpace/SWAPSpace";
+import SWAPModal from "../SWAPModal/SWAPModal";
 
 export default {
   title: "SWAPDialog",
@@ -217,6 +226,106 @@ export const 內容多寡 = () => {
               </Typography>
             </div>
           }
+        />
+      </div>
+    </SWAPTheme>
+  );
+};
+
+export const 整合應用 = () => {
+  const [modal, setModal] = useState(false);
+  const [dia, setDia] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleFunc = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setMsg("套用成功");
+      setTimeout(() => {
+        setModal(false);
+        setDia(true);
+      }, 1000);
+    }, 3000);
+  };
+
+  return (
+    <SWAPTheme>
+      <div>
+        <Typography variant="subtitle1">整合 SWAPModal</Typography>
+        <Typography variant="body2" color="textSecondary">
+          SWAPModal 完成某件事情後，使用 SWAPDialog 傳達事情的狀態與後續行動。
+        </Typography>
+        <SWAPSpace />
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setModal(true)}
+        >
+          點我示意
+        </Button>
+        <SWAPModal
+          title="請挑選你喜歡的造型風格"
+          helpText="俗話說人要衣裝，佛要金裝，挑選合適的風格成為把妹達人"
+          onClose={() => setModal(false)}
+          open={modal}
+          primaryButton={{
+            title: loading ? "套用風格中..." : "確認此風格",
+            onClick: () => handleFunc(),
+            disabled: loading,
+          }}
+          successMessage={msg}
+          closeWindowOnSuccessMessage
+        >
+          <div>
+            <FormControl component="fieldset">
+              <FormLabel component="legend">
+                選擇一個風格，開始你的把妹旅程
+              </FormLabel>
+              <SWAPSpace />
+              <FormGroup>
+                <FormControlLabel
+                  control={<Checkbox name="gilad" color="primary" />}
+                  label="時尚猛男風"
+                />
+                <FormControlLabel
+                  control={<Checkbox name="jason" color="primary" />}
+                  label="土豪乞丐風"
+                />
+                <FormControlLabel
+                  control={<Checkbox name="antoine" color="primary" />}
+                  label="陰柔美男風"
+                />
+              </FormGroup>
+            </FormControl>
+          </div>
+        </SWAPModal>
+        <SWAPDialog
+          status="success"
+          open={dia}
+          title="你已成為時尚猛男"
+          helpText="若要變更風格，請練到 30 等後再來改變風格"
+          children={
+            <div>
+              <Typography variant="subtitle1">接下來你可以？</Typography>
+              <SWAPSpace />
+              <Typography variant="body2">
+                1. 花錢課金，直接變成萬人迷
+              </Typography>
+              <SWAPSpace size="small" />
+              <Typography variant="body2">2. 前往把妹新手村</Typography>
+              <SWAPSpace size="small" />
+              <Typography variant="body2">3. 刪帳號</Typography>
+            </div>
+          }
+          primaryButton={{
+            title: "課金",
+            onClick: () => window.location.reload(),
+          }}
+          secondaryButton={{
+            title: "前往新手村",
+            onClick: () => window.location.reload(),
+          }}
         />
       </div>
     </SWAPTheme>

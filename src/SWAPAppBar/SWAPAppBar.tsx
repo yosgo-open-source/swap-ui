@@ -148,16 +148,6 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
                         <SWAPSpace size="small" />
                         <Divider />
                         <SWAPSpace size="small" />
-                        {primaryButton &&
-                        primaryButton.title &&
-                        primaryButton.title.length > 0 ? (
-                          <MenuItem
-                            disabled={primaryButton.disabled}
-                            onClick={() => primaryButton.onClick()}
-                          >
-                            {primaryButton.title}
-                          </MenuItem>
-                        ) : null}
                         {secondaryButton &&
                         secondaryButton.title &&
                         secondaryButton.title.length > 0 ? (
@@ -166,6 +156,16 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
                             onClick={() => secondaryButton.onClick()}
                           >
                             {secondaryButton.title}
+                          </MenuItem>
+                        ) : null}
+                        {primaryButton &&
+                        primaryButton.title &&
+                        primaryButton.title.length > 0 ? (
+                          <MenuItem
+                            disabled={primaryButton.disabled}
+                            onClick={() => primaryButton.onClick()}
+                          >
+                            {primaryButton.title}
                           </MenuItem>
                         ) : null}
                       </Menu>

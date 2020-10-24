@@ -13,7 +13,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "用戶透過社群媒體、Email 來分享某個網址",
+        component:
+          "用戶透過社群媒體、Email 來分享某個網址。若在 iframe 內使用可能會有分享頁面打不開的問題",
       },
     },
   },
@@ -31,9 +32,9 @@ export const 網址 = () => {
   return (
     <SWAPTheme>
       <div>
-        <Typography variant="subtitle1">自動讀取元件目前的網址</Typography>
+        <Typography variant="subtitle1">讀取目前的網址</Typography>
         <Typography variant="body2" color="textSecondary">
-          整個元件可以不需要傳入任何 props
+          SWAPShare 可以不需要傳入任何 props
         </Typography>
         <SWAPSpace />
         <SWAPShare />
@@ -64,7 +65,7 @@ export const 網址框 = () => {
       <div>
         <Typography variant="subtitle1">自定義輸入框</Typography>
         <Typography variant="body2" color="textSecondary">
-          可自訂網址輸入框的標籤、欄位提示以及複製按鈕名稱
+          可自訂網址框的標籤、欄位提示以及複製按鈕名稱
         </Typography>
         <SWAPSpace />
         <SWAPShare

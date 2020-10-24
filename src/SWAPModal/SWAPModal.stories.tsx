@@ -24,7 +24,7 @@ const Demo: Story<SWAPModalProps> = (args) => {
     <SWAPTheme>
       <Typography variant="subtitle1">Modal 平常就像個隱形人</Typography>
       <Typography variant="body2" color="textSecondary">
-        請將下方 open 屬性調整為 true，以開啟視窗。
+        請將下方 open 屬性調整為 true，以開啟 Modal。
       </Typography>
       <SWAPModal {...args} />
     </SWAPTheme>
@@ -153,7 +153,7 @@ export const 訊息提示 = () => {
           onClose={() => setModal1(false)}
           primaryButton={{
             title: "確認轉帳",
-            onClick: () => setMessage1("你的提領請求已經成功送出"),
+            onClick: () => setMessage1("轉帳完成"),
             disabled: false,
           }}
           successMessage={message1}

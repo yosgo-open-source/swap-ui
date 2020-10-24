@@ -105,7 +105,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
     <Modal
       open={open}
       onRendered={() => handleModalSize()}
-      style={{ zIndex: 2147483647 }}
+      onClose={() => onClose()}
     >
       <Fade in={open}>
         <SWAPModalWrap id="modal_wrap">

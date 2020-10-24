@@ -51,7 +51,7 @@ export const 狀態 = () => {
       <div>
         <Typography variant="subtitle1">成功狀態</Typography>
         <Typography variant="body2" color="textSecondary">
-          成功後的確認與引導
+          確認成功狀態並可引導後續步驟
         </Typography>
         <SWAPSpace />
         <Button

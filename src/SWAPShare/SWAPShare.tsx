@@ -37,7 +37,7 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
   const [csm, setCsm] = useState("");
 
   useEffect(() => {
-    if (url) {
+    if (url && url.length > 0) {
       setSharedUrl(url);
     } else {
       setSharedUrl(window.location.href);
@@ -60,7 +60,7 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
      * https://stackoverflow.com/questions/34675419/share-url-in-facebook-messenger-from-web#
      */
     const appId = 549090209290719;
-    const mobileDevide = document.documentElement.clientWidth < 960;
+    const mobileDevide = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     const mobile =
       "fb-messenger://share?link=" +
       encodeURIComponent(`${sharedUrl}`) +

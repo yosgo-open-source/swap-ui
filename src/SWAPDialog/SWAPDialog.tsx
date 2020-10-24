@@ -123,11 +123,7 @@ const SWAPDialogWrap = styled.div`
   .dialog_inner {
     box-sizing: border-box;
     width: 45vw;
-  }
-  @media screen and (max-width: 960px) {
-    .dialog_inner {
-      width: auto;
-    }
+    min-width: 310px;
   }
 `;
 

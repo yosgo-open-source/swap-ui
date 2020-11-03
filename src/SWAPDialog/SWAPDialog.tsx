@@ -87,13 +87,15 @@ const SWAPDialog: React.FC<SWAPDialogProps> = ({
                         ) : null}
                       </Grid>
                       <Grid item>
-                        <Button
-                          size="large"
-                          onClick={() => primaryButton.onClick()}
-                          disabled={primaryButton.disabled}
-                        >
-                          {primaryButton.title}
-                        </Button>
+                        {primaryButton && primaryButton.title ? (
+                          <Button
+                            size="large"
+                            onClick={() => primaryButton.onClick()}
+                            disabled={primaryButton.disabled}
+                          >
+                            {primaryButton.title}
+                          </Button>
+                        ) : null}
                       </Grid>
                     </Grid>
                     <SWAPSpace size="small" />

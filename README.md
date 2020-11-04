@@ -12,6 +12,13 @@
 1. 直接訪問 swap 的網站 [www.swap.work](www.swap.work)
 2. 瀏覽 <a href="https://yosgo-open-source.github.io/swap-ui/?path=/docs/swaplogo--%E8%AA%8D%E8%AD%98" target="_blank">Storybook</a>
 
+即將新增
+
+1. SWAPModal: 增加支援多步驟的 Modal 視窗 
+2. SWAPBanner: 顯示於頁面上的警示訊息
+3. SWAPPage: 讓用戶在完整的頁面中完成某件事情
+4. SWAPAnnotatedLayout: 用於帳戶設定頁面中，解釋各類型設定
+
 # 安裝
 
 ```

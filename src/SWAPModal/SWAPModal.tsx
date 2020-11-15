@@ -11,6 +11,7 @@ import {
   Button,
   Fade,
   Slide,
+  Breadcrumbs,
 } from "@material-ui/core";
 
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
@@ -54,12 +55,14 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
   primaryButton,
   secondaryButton,
   children,
+  steps,
   successMessage,
   errorMessage,
   closeWindowOnSuccessMessage,
   reloadOnWindowClose,
 }) => {
   const [sm, setSm] = useState(false);
+  const [stepIndex, setStepIndex] = useState(0);
 
   const handleModalSize = () => {
     const clientHeight = `${document.documentElement.clientHeight}px`;
@@ -91,6 +94,18 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
     }
   };
 
+  const handleStepButton = (type: "next" | "prev") => {
+    if (type === "next") {
+      let value = stepIndex + 1 > steps.length - 1 ? 0 : stepIndex + 1;
+      setStepIndex(value);
+    } else if (type === "prev") {
+      let value = stepIndex - 1 < 0 ? 0 : stepIndex - 1;
+      setStepIndex(value);
+    } else {
+      setStepIndex(stepIndex);
+    }
+  };
+
   useEffect(() => {
     /**視窗中的相關內容變動時調整視窗大小 */
     handleModalSize();
@@ -98,7 +113,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
     if (successMessage && closeWindowOnSuccessMessage) {
       setTimeout(() => {
         modalCloseWindow();
-      }, 1000);
+      }, 1500);
     }
     /**一開始偵測視窗大小，決定 modal 效果 */
     const clientWidth = document.documentElement.clientWidth;
@@ -117,6 +132,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
         <SWAPModalWrap id="modal_wrap">
           <ModalOpenEffect in={open} sm={sm}>
             <Paper className="modal_inner" id="modal_inner">
+              {/**視窗標題區域 */}
               <div className="modal_inner_header" id="modal_header">
                 <Container maxWidth="lg">
                   <SWAPSpace size="middle" />
@@ -145,13 +161,35 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                 </Container>
                 <Divider />
               </div>
+              {/**視窗內容區域 */}
               <div className="modal_inner_body" id="modal_body">
                 <Container maxWidth="lg">
                   <SWAPSpace size="middle" />
-                  <div>{children}</div>
+                  {/**步驟視窗的內容 */}
+                  {steps && steps.length > 0 ? (
+                    <div>
+                      <Breadcrumbs separator="›" style={{ marginLeft: "-9px" }}>
+                        {steps.map((s, i) => (
+                          <Button
+                            key={`step_breadcrumb_${i}`}
+                            color={i === stepIndex ? "primary" : "default"}
+                            onClick={() => setStepIndex(i)}
+                            size={sm ? "small" : "medium"}
+                          >
+                            {i + 1}.{s.stepTitle}
+                          </Button>
+                        ))}
+                      </Breadcrumbs>
+                      <SWAPSpace size="middle" />
+                      <div>{steps[stepIndex].stepChildren}</div>
+                    </div>
+                  ) : null}
+                  {/**原始視窗的內容 */}
+                  {children ? <div>{children}</div> : null}
                   <SWAPSpace size="middle" />
                 </Container>
               </div>
+              {/**視窗底端 */}
               <div className="modal_inner_bottom" id="modal_bottom">
                 <Divider />
                 <Container maxWidth="lg">
@@ -183,39 +221,95 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                       </div>
                     </Fade>
                   ) : null}
-                  <Grid
-                    container
-                    wrap="nowrap"
-                    alignItems="center"
-                    spacing={1}
-                    justify="flex-end"
-                  >
-                    <Grid item>
-                      {secondaryButton &&
-                      secondaryButton.title &&
-                      secondaryButton.title.length > 0 ? (
-                        <Button
-                          variant="outlined"
-                          size="large"
-                          onClick={() => secondaryButton.onClick()}
-                          disabled={secondaryButton.disabled}
-                        >
-                          {secondaryButton.title}
-                        </Button>
-                      ) : null}
-                    </Grid>
-                    <Grid item>
-                      <Button
-                        variant="contained"
-                        size="large"
-                        color="primary"
-                        onClick={() => primaryButton.onClick()}
-                        disabled={primaryButton.disabled}
+                  {/**
+                   * 顯示主要與次要按鈕
+                   * 1. 當沒有 steps 屬性時顯示
+                   * 2. 當有 step 屬性且為最後一步驟時顯示
+                   * 其餘狀態顯示步驟的上下步驟按鈕
+                   */}
+                  {!steps ||
+                  (steps &&
+                    steps.length > 0 &&
+                    stepIndex === steps.length - 1) ? (
+                    <Fade in timeout={{ enter: 300, exit: 300 }}>
+                      <Grid
+                        container
+                        wrap="nowrap"
+                        alignItems="center"
+                        spacing={sm ? 1 : 2}
+                        justify="flex-end"
                       >
-                        {primaryButton.title}
-                      </Button>
-                    </Grid>
-                  </Grid>
+                        {/**有 steps 屬性且為最後一步驟時，顯示上一步驟的按鈕 */}
+                        {steps &&
+                        steps.length > 0 &&
+                        stepIndex === steps.length - 1 ? (
+                          <Button
+                            variant="text"
+                            size={sm ? "medium" : "large"}
+                            onClick={() => handleStepButton("prev")}
+                          >
+                            {steps[stepIndex].prevStepText || "上一步"}
+                          </Button>
+                        ) : null}
+                        <Grid item>
+                          {secondaryButton &&
+                          secondaryButton.title &&
+                          secondaryButton.title.length > 0 ? (
+                            <Button
+                              variant="outlined"
+                              size={sm ? "medium" : "large"}
+                              onClick={() => secondaryButton.onClick()}
+                              disabled={secondaryButton.disabled}
+                            >
+                              {secondaryButton.title}
+                            </Button>
+                          ) : null}
+                        </Grid>
+                        <Grid item>
+                          <Button
+                            variant="contained"
+                            size={sm ? "medium" : "large"}
+                            color="primary"
+                            onClick={() => primaryButton.onClick()}
+                            disabled={primaryButton.disabled}
+                          >
+                            {primaryButton.title}
+                          </Button>
+                        </Grid>
+                      </Grid>
+                    </Fade>
+                  ) : (
+                    <Fade in timeout={{ enter: 300, exit: 300 }}>
+                      <Grid
+                        container
+                        wrap="nowrap"
+                        alignItems="center"
+                        spacing={sm ? 1 : 2}
+                        justify="flex-end"
+                      >
+                        <Grid item>
+                          {stepIndex > 0 ? (
+                            <Button
+                              variant="text"
+                              size={sm ? "medium" : "large"}
+                              onClick={() => handleStepButton("prev")}
+                            >
+                              {steps[stepIndex].prevStepText || "上一步"}
+                            </Button>
+                          ) : null}
+                        </Grid>
+                        <Grid item>
+                          <Button
+                            variant="text"
+                            size={sm ? "medium" : "large"}
+                            onClick={() => handleStepButton("next")}
+                          >
+                            {steps[stepIndex].nextStepText || "下一步"}
+                          </Button>
+                        </Grid>
+                      </Grid>
+                    </Fade>
+                  )}
                   <SWAPSpace size="middle" />
                 </Container>
               </div>

@@ -324,3 +324,87 @@ export const 次按鈕 = () => {
     </SWAPTheme>
   );
 };
+
+export const 多步驟視窗 = () => {
+  const [modal, setModal] = useState(false);
+  const [msg, setMsg] = useState("");
+  return (
+    <SWAPTheme>
+      <Typography variant="subtitle1">多步驟視窗</Typography>
+      <Typography variant="body2" color="textSecondary">
+        某件事需要切分多個步驟來完成
+      </Typography>
+      <SWAPSpace />
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => setModal(true)}
+      >
+        點我示意
+      </Button>
+      <SWAPModal
+        title="Space SWAP 發射火箭到太空"
+        helpText="這是一個多個步驟的視窗示意，原本 children 的屬性將顯示於 stepChildren 的下方。primaryButton 與 secondaryButton 將顯示於最後一步驟"
+        open={modal}
+        onClose={() => setModal(false)}
+        primaryButton={{
+          title: "確認發射",
+          onClick: () => setMsg("系統已安排發射火箭"),
+        }}
+        secondaryButton={{
+          title: "取消",
+          onClick: () => setModal(false),
+        }}
+        successMessage={msg}
+        closeWindowOnSuccessMessage
+        reloadOnWindowClose
+        steps={[
+          {
+            stepTitle: "挑選火箭",
+            stepChildren: (
+              <div>
+                <Typography variant="body1">◻️ 可回收型</Typography>
+                <SWAPSpace size="large" />
+                <Typography variant="body1">◻️ 低耗能續航型</Typography>
+                <SWAPSpace size="large" />
+                <Typography variant="body1">◻️ 高乘載運輸型</Typography>
+              </div>
+            ),
+            nextStepText: "下一步，選擇星球",
+          },
+          {
+            stepTitle: "選擇星球",
+            stepChildren: (
+              <div>
+                <Typography variant="body1">◻️ 火星</Typography>
+                <SWAPSpace size="large" />
+                <Typography variant="body1">◻️ 金星</Typography>
+                <SWAPSpace size="large" />
+                <Typography variant="body1">◻️ 土星</Typography>
+                <SWAPSpace size="large" />
+                <Typography variant="body1">◻️ 水星</Typography>
+                <SWAPSpace size="large" />
+                <Typography variant="body1">◻️ 冥王星</Typography>
+              </div>
+            ),
+            nextStepText: "下一步，設定發射時間",
+          },
+          {
+            stepTitle: "發射時間",
+            stepChildren: (
+              <div>
+                <Typography variant="body1">️️◻️ 立即</Typography>
+                <SWAPSpace size="large" />
+                <Typography variant="body1">◻️ 一天後</Typography>
+                <SWAPSpace size="large" />
+                <Typography variant="body1">◻️ 三天後</Typography>
+                <SWAPSpace size="large" />
+                <Typography variant="body1">◻️ 七天後</Typography>
+              </div>
+            ),
+          },
+        ]}
+      />
+    </SWAPTheme>
+  );
+};

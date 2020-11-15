@@ -13,7 +13,13 @@ export interface SWAPModalProps {
     onClick: () => void;
     disabled?: boolean;
   };
-  children: React.ReactNode;
+  steps?: Array<{
+    stepTitle: string;
+    stepChildren?: React.ReactNode;
+    prevStepText?: string;
+    nextStepText?: string;
+  }>;
+  children?: React.ReactNode;
   successMessage?: string;
   errorMessage?: string;
   closeWindowOnSuccessMessage?: boolean;

@@ -239,9 +239,14 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                         spacing={sm ? 1 : 2}
                         justify="flex-end"
                       >
-                        {/**有 steps 屬性且為最後一步驟時，顯示上一步驟的按鈕 */}
+                        {/**
+                         * 顯示上一步驟的按鈕
+                         * 1. 有 steps 屬性
+                         * 2. 為最後一步驟時，
+                         * 3. steps 的長度要大於一
+                         * */}
                         {steps &&
-                        steps.length > 0 &&
+                        steps.length > 1 &&
                         stepIndex === steps.length - 1 ? (
                           <Button
                             variant="text"

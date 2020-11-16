@@ -13,7 +13,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "",
+        component: "網頁上方的導覽列",
       },
     },
   },

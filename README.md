@@ -14,10 +14,12 @@
 
 即將新增
 
-1. SWAPModal: 增加支援多步驟的 Modal 視窗 
-2. SWAPBanner: 顯示於頁面上的警示訊息
-3. SWAPPage: 讓用戶在完整的頁面中完成某件事情
-4. SWAPAnnotatedLayout: 用於帳戶設定頁面中，解釋各類型設定
+1. SWAPModal: 增加支援多步驟的 Modal 視窗
+1. SWAPBanner: 顯示於頁面上的警示訊息
+1. SWAPCopyField：可複製文字至剪貼簿的輸入框
+1. SWAPIncomeTypeFiled：依據工作內容提供所得類型的建議
+1. SWAPPage: 讓用戶在完整的頁面中完成某件事情
+1. SWAPAnnotatedLayout: 用於帳戶設定頁面中，解釋各類型設定
 
 # 安裝
 

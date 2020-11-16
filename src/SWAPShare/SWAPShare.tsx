@@ -16,7 +16,7 @@ import {
   TelegramIcon,
   TelegramShareButton,
 } from "react-share";
-import { Button, Fade, Grid, IconButton, TextField } from "@material-ui/core";
+import { Button, Fade, Grid, TextField } from "@material-ui/core";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 import CheckIcon from "@material-ui/icons/Check";
@@ -80,9 +80,13 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
           {[
             {
               el: (
-                <IconButton size="small" onClick={() => handleEmailOnClick()}>
-                  <EmailIcon round size={size} iconFillColor="white" />
-                </IconButton>
+                <EmailIcon
+                  className="swap_share_icon"
+                  round
+                  size={size}
+                  iconFillColor="white"
+                  onClick={() => handleEmailOnClick()}
+                />
               ),
             },
             {
@@ -91,57 +95,48 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
                 //   url={sharedUrl}
                 //   appId="549090209290719"
                 // >
-                <IconButton
-                  size="small"
+
+                <FacebookMessengerIcon
+                  className="swap_share_icon"
+                  round
+                  size={size}
                   onClick={() => handleMessengerOnClick()}
-                >
-                  <FacebookMessengerIcon round size={size} />
-                </IconButton>
+                />
                 // </FacebookMessengerShareButton>
               ),
             },
             {
               el: (
                 <FacebookShareButton url={sharedUrl} quote={sharedContent}>
-                  <IconButton size="small">
-                    <FacebookIcon round size={size} />
-                  </IconButton>
+                  <FacebookIcon round size={size} className="swap_share_icon" />
                 </FacebookShareButton>
               ),
             },
             {
               el: (
                 <LineShareButton url={sharedUrl} title={sharedContent}>
-                  <IconButton size="small">
-                    <LineIcon round size={size} />
-                  </IconButton>
+                  <LineIcon round size={size} className="swap_share_icon" />
                 </LineShareButton>
               ),
             },
             {
               el: (
                 <WhatsappShareButton url={sharedUrl} title={sharedContent}>
-                  <IconButton size="small">
-                    <WhatsappIcon round size={size} />
-                  </IconButton>
+                  <WhatsappIcon round size={size} className="swap_share_icon" />
                 </WhatsappShareButton>
               ),
             },
             {
               el: (
                 <TwitterShareButton url={sharedUrl} title={sharedContent}>
-                  <IconButton size="small">
-                    <TwitterIcon round size={size} />
-                  </IconButton>
+                  <TwitterIcon round size={size} className="swap_share_icon" />
                 </TwitterShareButton>
               ),
             },
             {
               el: (
                 <TelegramShareButton url={sharedUrl} title={sharedContent}>
-                  <IconButton size="small">
-                    <TelegramIcon round size={size} />
-                  </IconButton>
+                  <TelegramIcon round size={size} className="swap_share_icon" />
                 </TelegramShareButton>
               ),
             },
@@ -196,6 +191,18 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
 
 const SWAPShareWrap = styled.div`
   display: inline-block;
+  .swap_share_icon {
+    display: inline-block;
+    margin: 0 6px 0 0;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 50%;
+    outline: 0px;
+    &:hover {
+      transform: scale(1.09);
+      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+    }
+  }
 `;
 
 export default SWAPShare;

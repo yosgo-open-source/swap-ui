@@ -1,5 +1,6 @@
 import SWAPAppBar from "./SWAPAppBar/SWAPAppBar";
 import SWAPBanner from "./SWAPBanner/SWAPBanner";
+import SWAPCopyField from "./SWAPCopyField/SWAPCopyField";
 import SWAPDialog from "./SWAPDialog/SWAPDialog";
 import SWAPLogo from "./SWAPLogo/SWAPLogo";
 import SWAPModal from "./SWAPModal/SWAPModal";
@@ -10,6 +11,7 @@ import SWAPTheme from "./SWAPTheme/SWAPTheme";
 export {
   SWAPAppBar,
   SWAPBanner,
+  SWAPCopyField,
   SWAPDialog,
   SWAPLogo,
   SWAPModal,

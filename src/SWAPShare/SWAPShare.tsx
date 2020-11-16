@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
-  // EmailShareButton,
   EmailIcon,
   LineShareButton,
   LineIcon,
-  // FacebookMessengerShareButton,
   FacebookMessengerIcon,
   FacebookShareButton,
   FacebookIcon,
@@ -16,25 +14,17 @@ import {
   TelegramIcon,
   TelegramShareButton,
 } from "react-share";
-import { Button, Fade, Grid, TextField } from "@material-ui/core";
-import CopyToClipboard from "react-copy-to-clipboard";
-
-import CheckIcon from "@material-ui/icons/Check";
+import { Grid } from "@material-ui/core";
 
 import { SWAPShareProps } from "./SWAPShare.types";
-import SWAPSpace from "../SWAPSpace/SWAPSpace";
 
 const SWAPShare: React.FC<SWAPShareProps> = ({
   url,
   size = 36,
-  copyInputLabel = "複製網址",
-  copyButtonText = "複製",
-  copySuccessMessage = "成功複製網址，請轉貼至你想分享的地方",
   emailSubject = "",
   sharedContent = "",
 }) => {
   const [sharedUrl, setSharedUrl] = useState("");
-  const [csm, setCsm] = useState("");
 
   useEffect(() => {
     if (url && url.length > 0) {
@@ -91,18 +81,12 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
             },
             {
               el: (
-                // <FacebookMessengerShareButton
-                //   url={sharedUrl}
-                //   appId="549090209290719"
-                // >
-
                 <FacebookMessengerIcon
                   className="swap_share_icon"
                   round
                   size={size}
                   onClick={() => handleMessengerOnClick()}
                 />
-                // </FacebookMessengerShareButton>
               ),
             },
             {
@@ -146,44 +130,6 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
             </Grid>
           ))}
         </Grid>
-        <SWAPSpace size="middle" />
-        <TextField
-          label={copyInputLabel}
-          value={sharedUrl}
-          variant="outlined"
-          helperText={
-            csm && csm.length > 0 ? (
-              <Fade in>
-                <Grid container alignItems="center" spacing={1} wrap="nowrap">
-                  <Grid item>
-                    <CheckIcon color="primary" fontSize="small" />
-                  </Grid>
-                  <Grid item>{csm}</Grid>
-                </Grid>
-              </Fade>
-            ) : null
-          }
-          style={{ width: "100%" }}
-          InputProps={{
-            endAdornment: (
-              <div>
-                <CopyToClipboard
-                  text={sharedUrl}
-                  onCopy={() => {
-                    setCsm("");
-                    setTimeout(() => setCsm(copySuccessMessage), 200);
-                  }}
-                >
-                  <div>
-                    <Button>
-                      <small>{copyButtonText}</small>
-                    </Button>
-                  </div>
-                </CopyToClipboard>
-              </div>
-            ),
-          }}
-        />
       </SWAPShareWrap>
     </div>
   );

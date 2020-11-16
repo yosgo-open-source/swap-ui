@@ -3,7 +3,4 @@ export interface SWAPShareProps {
   emailSubject?: string;
   sharedContent?: string;
   size?: number;
-  copyInputLabel?: string;
-  copyButtonText?: string;
-  copySuccessMessage?: string;
 }

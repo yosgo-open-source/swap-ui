@@ -58,22 +58,3 @@ export const 分享訊息 = () => {
     </SWAPTheme>
   );
 };
-
-export const 網址框 = () => {
-  return (
-    <SWAPTheme>
-      <div>
-        <Typography variant="subtitle1">自定義輸入框</Typography>
-        <Typography variant="body2" color="textSecondary">
-          可自訂網址框的標籤、欄位提示以及複製按鈕名稱
-        </Typography>
-        <SWAPSpace />
-        <SWAPShare
-          copyButtonText="拷貝"
-          copyInputLabel="拷貝請款單網址"
-          copySuccessMessage="拷貝完成，可以開始討錢拉！"
-        />
-      </div>
-    </SWAPTheme>
-  );
-};

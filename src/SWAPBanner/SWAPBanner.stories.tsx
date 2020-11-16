@@ -55,7 +55,7 @@ export const 狀態 = () => {
       <SWAPSpace size="large" />
       <Typography variant="subtitle1">注意狀態</Typography>
       <Typography variant="body2" color="textSecondary">
-        告訴用戶事情已經完成
+        提醒用戶要注意某一件事情
       </Typography>
       <SWAPSpace />
       <SWAPBanner
@@ -70,7 +70,7 @@ export const 狀態 = () => {
       <SWAPSpace size="large" />
       <Typography variant="subtitle1">注意狀態</Typography>
       <Typography variant="body2" color="textSecondary">
-        告訴用戶事情已經完成
+        告知用戶要儘快處理，避免產生負面影響
       </Typography>
       <SWAPSpace />
       <SWAPBanner
@@ -83,6 +83,34 @@ export const 狀態 = () => {
         }}
       />
       <SWAPSpace size="large" />
+    </SWAPTheme>
+  );
+};
+
+export const 禁止點擊 = () => {
+  return (
+    <SWAPTheme>
+      <Typography variant="subtitle1">禁止點擊</Typography>
+      <Typography variant="body2" color="textSecondary">
+        Banner 上的按鈕可設定禁止點擊
+      </Typography>
+      <SWAPSpace />
+      <SWAPBanner
+        title="資料已儲存"
+        content="您的實名驗證資料已經儲存，SWAP 人員將於 1 個工作日完成審核"
+        status="success"
+        primaryButton={{
+          title: "返回首頁",
+          onClick: () => {},
+          disabled: true,
+        }}
+        secondaryButton={{
+          title: "聯繫線上客服",
+          onClick: () => {},
+          disabled: false,
+        }}
+        focus
+      />
     </SWAPTheme>
   );
 };

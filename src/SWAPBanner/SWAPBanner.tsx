@@ -56,6 +56,7 @@ const SWAPBanner: React.FC<SWAPBannerProps> = ({
                       <Button
                         variant="outlined"
                         onClick={() => primaryButton.onClick()}
+                        disabled={primaryButton.disabled}
                       >
                         {primaryButton.title}
                       </Button>
@@ -69,6 +70,7 @@ const SWAPBanner: React.FC<SWAPBannerProps> = ({
                       <Button
                         variant="text"
                         onClick={() => secondaryButton.onClick()}
+                        disabled={secondaryButton.disabled}
                       >
                         {secondaryButton.title}
                       </Button>

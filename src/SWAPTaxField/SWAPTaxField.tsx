@@ -15,7 +15,7 @@ import {
   IncomeCodeProps,
 } from "./SWAPTaxField.types";
 
-const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChnage }) => {
+const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
   const fieldLabel = "案件分類";
   const [option, setOption] = useState("");
 
@@ -47,7 +47,7 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChnage }) => {
         incomeLabel,
         expenseLabel,
       };
-      onChnage(value);
+      onChange(value);
     }
   };
 

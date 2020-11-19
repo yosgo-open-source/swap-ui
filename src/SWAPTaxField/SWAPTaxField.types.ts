@@ -5,7 +5,7 @@ export type TaxFiledValueProps = {
   expenseLabel: string;
 };
 export interface SWAPTaxFieldProps {
-  onChnage?: (value: TaxFiledValueProps) => void;
+  onChange?: (value: TaxFiledValueProps) => void;
 }
 
 export type IncomeCodeProps = "9A" | "9B" | "50";

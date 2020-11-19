@@ -75,7 +75,7 @@ export const 完整示意 = () => {
               <div>
                 <Grid container spacing={1}>
                   <Grid item xs={4} sm={4} md={4} lg={4}>
-                    <SWAPTaxField onChnage={(value) => setValue(value)} />
+                    <SWAPTaxField onChange={(value) => setValue(value)} />
                   </Grid>
                   <Grid item xs={8} sm={8} md={8} lg={8}>
                     <TextField
@@ -131,7 +131,7 @@ export const 取得代碼 = () => {
       <SWAPSpace size="large" />
       <Grid container spacing={1} alignItems="center">
         <Grid item xs={3} sm={3} md={3} lg={3}>
-          <SWAPTaxField onChnage={(value) => setValue(value)} />
+          <SWAPTaxField onChange={(value) => setValue(value)} />
         </Grid>
       </Grid>
       <SWAPSpace />

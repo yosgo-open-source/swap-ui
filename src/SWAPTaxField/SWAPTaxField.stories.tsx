@@ -53,7 +53,7 @@ export const 完整示意 = () => {
     <SWAPTheme>
       <Typography variant="subtitle1">完整示意</Typography>
       <Typography variant="body2" color="textSecondary">
-        用戶選擇案件後提示對應所得類別與費用類別的說明
+        用戶選擇案件分類後提示對應的申報類別
       </Typography>
       <SWAPSpace />
       <Button

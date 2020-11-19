@@ -26,7 +26,7 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
      */
     setOption(optionLabel);
     let sourceOption = options.filter((i) => i[0] === optionLabel)[0];
-    if (sourceOption) {
+    if (sourceOption && onChange) {
       let incomeCode = sourceOption[1];
       let expenseCode = sourceOption[2];
       let incomeLabel =

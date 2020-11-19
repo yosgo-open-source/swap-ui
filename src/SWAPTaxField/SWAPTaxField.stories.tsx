@@ -28,14 +28,7 @@ export default {
 
 const Demo: Story<SWAPTaxFieldProps> = (args) => <SWAPTaxField {...args} />;
 export const 認識 = Demo.bind({});
-認識.args = {
-  onChange: (value: any) =>
-    alert(
-      `所得類別代碼: ${value?.incomeType || "無"}，費用類別代碼: ${
-        value?.expenseType || "無"
-      }`
-    ),
-};
+認識.args = {};
 
 export const 完整示意 = () => {
   const [modal, setModal] = useState(false);

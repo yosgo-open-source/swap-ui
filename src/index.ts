@@ -6,6 +6,7 @@ import SWAPLogo from "./SWAPLogo/SWAPLogo";
 import SWAPModal from "./SWAPModal/SWAPModal";
 import SWAPShare from "./SWAPShare/SWAPShare";
 import SWAPSpace from "./SWAPSpace/SWAPSpace";
+import SWAPTaxField from "./SWAPTaxField/SWAPTaxField";
 import SWAPTheme from "./SWAPTheme/SWAPTheme";
 
 export {
@@ -17,5 +18,6 @@ export {
   SWAPModal,
   SWAPShare,
   SWAPSpace,
+  SWAPTaxField,
   SWAPTheme,
 };

@@ -35,17 +35,15 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
       let expenseLabel =
         SWAPExpenseTypes.filter((type) => type.code === expenseCode)[0]
           ?.label || "";
-      console.log("> Onchange", {
-        incomeCode,
-        expenseCode,
-        incomeLabel,
-        expenseLabel,
-      });
+      let taxDescription = `${incomeCode}${incomeLabel}${
+        expenseLabel.length > 0 ? ` [${expenseCode}] ${expenseLabel}` : ""
+      }`;
       let value: TaxFiledValueProps = {
         incomeCode,
         expenseCode,
         incomeLabel,
         expenseLabel,
+        taxDescription,
       };
       onChange(value);
     }

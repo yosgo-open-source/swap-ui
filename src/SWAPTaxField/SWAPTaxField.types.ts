@@ -3,6 +3,7 @@ export type TaxFiledValueProps = {
   incomeLabel: string;
   expenseCode: ExpenseCodeProps;
   expenseLabel: string;
+  taxDescription: string;
 };
 export interface SWAPTaxFieldProps {
   onChange?: (value: TaxFiledValueProps) => void;

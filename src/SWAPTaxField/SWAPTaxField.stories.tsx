@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
 import {
   Button,
+  Fade,
   Grid,
   TextareaAutosize,
   TextField,
@@ -33,15 +34,6 @@ export const 認識 = Demo.bind({});
 export const 完整示意 = () => {
   const [modal, setModal] = useState(false);
   const [value, setValue] = useState(undefined);
-  const TextGenerate = (value) => {
-    const incomeText = `${value?.incomeCode ? `${value?.incomeCode} ` : ""}${
-      value?.incomeLabel || ""
-    }`;
-    const expenseText = `${value?.expenseLabel ? " - " : ""}${
-      value?.expenseCode ? `[${value?.expenseCode}] ` : ""
-    }${value?.expenseLabel || ""}`;
-    return `${incomeText}${expenseText}`;
-  };
   return (
     <SWAPTheme>
       <Typography variant="subtitle1">完整示意</Typography>
@@ -67,15 +59,16 @@ export const 完整示意 = () => {
             stepChildren: (
               <div>
                 <Grid container spacing={1}>
-                  <Grid item xs={4} sm={4} md={4} lg={4}>
+                  <Grid item xs={6} sm={6} md={6} lg={6}>
                     <SWAPTaxField onChange={(value) => setValue(value)} />
                   </Grid>
-                  <Grid item xs={8} sm={8} md={8} lg={8}>
+                  <Grid item xs={6} sm={6} md={6} lg={6}>
                     <TextField
+                      style={{ pointerEvents: "none" }}
                       fullWidth
                       variant="outlined"
                       label="申報類別"
-                      value={TextGenerate(value)}
+                      value={value?.taxDescription || ""}
                       helperText={
                         <div style={{ textAlign: "right" }}>
                           <Button size="small" color="primary">

@@ -21,7 +21,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "用戶選擇自己的案件分類來產生對應的所得與費用類別",
+        component:
+          "案件所得申報類別的下拉選單。用戶可透過選擇案件分類來決定所得的申報類別。",
       },
     },
   },
@@ -29,7 +30,9 @@ export default {
 
 const Demo: Story<SWAPTaxFieldProps> = (args) => <SWAPTaxField {...args} />;
 export const 認識 = Demo.bind({});
-認識.args = {};
+認識.args = {
+  onChange: (value) => alert(JSON.stringify(value)),
+};
 
 export const 完整示意 = () => {
   const [modal, setModal] = useState(false);
@@ -38,7 +41,7 @@ export const 完整示意 = () => {
     <SWAPTheme>
       <Typography variant="subtitle1">完整示意</Typography>
       <Typography variant="body2" color="textSecondary">
-        用戶選擇案件分類後提示對應的申報類別
+        模擬 SWAP 內建立請款單的情境
       </Typography>
       <SWAPSpace />
       <Button
@@ -106,13 +109,13 @@ export const 完整示意 = () => {
   );
 };
 
-export const 取得代碼 = () => {
+export const 回應內容 = () => {
   const [value, setValue] = useState(undefined);
   return (
     <SWAPTheme>
-      <Typography variant="subtitle1">案件相關的代碼</Typography>
+      <Typography variant="subtitle1">申報類別的相關資料</Typography>
       <Typography variant="body2" color="textSecondary">
-        用戶操作下拉選單時將自動產生出該案件對應的所得類別與費用類別
+        用戶操作下拉選單時會回傳申報類別的相關資料。
       </Typography>
       <SWAPSpace size="large" />
       <Grid container spacing={1} alignItems="center">
@@ -122,8 +125,7 @@ export const 取得代碼 = () => {
       </Grid>
       <SWAPSpace />
       <Typography variant="body2">
-        所得類別代碼: {value?.incomeCode || "無"}，費用類別代碼:{" "}
-        {value?.expenseCode || "無"}
+        {value ? `回應的 value 物件：${JSON.stringify(value)}` : null}
       </Typography>
     </SWAPTheme>
   );

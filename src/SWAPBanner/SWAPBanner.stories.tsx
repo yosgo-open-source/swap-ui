@@ -45,7 +45,7 @@ export const 狀態 = () => {
       <SWAPSpace />
       <SWAPBanner
         title="歡迎你註冊 SWAP"
-        content="您可以逛逛 SWAP 電子請款單與提領的功能，不過正式使用前請先完成 SWAP 帳戶內的實名豔幟。"
+        content="您可以逛逛 SWAP 電子請款單與提領的功能，不過正式使用前請先完成 SWAP 帳戶內的實名驗證。"
         status="success"
         primaryButton={{
           title: "前往實名驗證",

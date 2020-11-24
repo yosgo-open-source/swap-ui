@@ -6,6 +6,7 @@ import { SWAPModalProps } from "../SWAPModal/SWAPModal.types";
 import SWAPSpace from "../SWAPSpace/SWAPSpace";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import SWAPModal from "./SWAPModal";
+import SWAPDialog from "../SWAPDialog/SWAPDialog";
 
 export default {
   title: "SWAPModal",
@@ -328,6 +329,7 @@ export const 次按鈕 = () => {
 export const 多步驟視窗 = () => {
   const [modal, setModal] = useState(false);
   const [msg, setMsg] = useState("");
+  const [dialog, setDialog] = useState(false);
   return (
     <SWAPTheme>
       <Typography variant="subtitle1">多步驟視窗</Typography>
@@ -349,15 +351,19 @@ export const 多步驟視窗 = () => {
         onClose={() => setModal(false)}
         primaryButton={{
           title: "確認發射",
-          onClick: () => setMsg("系統已安排發射火箭"),
+          onClick: () => {
+            setMsg("系統已安排發射火箭");
+            setTimeout(() => {
+              setModal(false);
+              setDialog(true);
+            }, 1000);
+          },
         }}
         secondaryButton={{
           title: "取消",
           onClick: () => setModal(false),
         }}
         successMessage={msg}
-        closeWindowOnSuccessMessage
-        reloadOnWindowClose
         steps={[
           {
             stepTitle: "挑選火箭",
@@ -404,6 +410,19 @@ export const 多步驟視窗 = () => {
             ),
           },
         ]}
+      />
+      <SWAPDialog
+        status="success"
+        title="火箭已經安排發射"
+        helpText="請返回儀表板上查看火箭發射的進度"
+        open={dialog}
+        primaryButton={{
+          title: "前往儀表板",
+          onClick: () => {
+            setDialog(false);
+            window.location.reload();
+          },
+        }}
       />
     </SWAPTheme>
   );

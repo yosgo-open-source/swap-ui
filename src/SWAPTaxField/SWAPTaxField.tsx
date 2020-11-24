@@ -4,9 +4,15 @@ import {
   InputLabel,
   FormControl,
   Typography,
+  Grid,
+  TextField,
+  Button,
+  Fade,
 } from "@material-ui/core";
 import React, { useState } from "react";
 import styled from "styled-components";
+import SWAPModal from "../SWAPModal/SWAPModal";
+import SWAPSpace from "../SWAPSpace/SWAPSpace";
 
 import {
   TaxFiledValueProps,
@@ -16,8 +22,27 @@ import {
 } from "./SWAPTaxField.types";
 
 const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
-  const fieldLabel = "案件分類";
-  const [option, setOption] = useState("");
+  const typeFieldLabel = "案件類別";
+  const typeFieldDefault = "請選擇";
+  const caseFieldLabel = "案件內容";
+  const caseFieldDefault = "請選擇";
+  const selfDescriptionDefault = " ";
+
+  const [type, setType] = useState(typeFieldDefault);
+  const [option, setOption] = useState(caseFieldDefault);
+  const [selfDescription, setSelfDescription] = useState(
+    selfDescriptionDefault
+  );
+  const [modal, setModal] = useState(false);
+  const [modalMsg, setModalMsg] = useState("");
+  const [modalErrorMsg, setModalErrorMsg] = useState("");
+  const handleTypeChange = (typeCode: string) => {
+    setSelfDescription(selfDescriptionDefault);
+    handleOptionChange(caseFieldDefault);
+    setType(typeCode);
+  };
+  const [modalIncome, setModalIncome]: any = useState("");
+  const [modalExpense, setModalExpense]: any = useState("");
 
   const handleOptionChange = (optionLabel) => {
     /**
@@ -25,19 +50,13 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
      * 2. 更新對應的類別代碼
      */
     setOption(optionLabel);
-    let sourceOption = options.filter((i) => i[0] === optionLabel)[0];
+    let sourceOption = caseOptions.filter((i) => i[0] === optionLabel)[0];
     if (sourceOption && onChange) {
       let incomeCode = sourceOption[1];
       let expenseCode = sourceOption[2];
-      let incomeLabel =
-        SWAPIncomeTypes.filter((type) => type.code === incomeCode)[0]?.label ||
-        "";
-      let expenseLabel =
-        SWAPExpenseTypes.filter((type) => type.code === expenseCode)[0]
-          ?.label || "";
-      let taxDescription = `${incomeCode}${incomeLabel}${
-        expenseLabel.length > 0 ? ` [${expenseCode}] ${expenseLabel}` : ""
-      }`;
+      let incomeLabel = SWAPTaxIncomeLabel(incomeCode);
+      let expenseLabel = SWAPTaxExpenseLabel(expenseCode);
+      let taxDescription = SWAPTaxDescription(incomeCode, expenseCode);
       let value: TaxFiledValueProps = {
         incomeCode,
         expenseCode,
@@ -46,30 +65,246 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
         taxDescription,
       };
       onChange(value);
+      setSelfDescription(value?.taxDescription);
+    }
+  };
+
+  const handleModalClear = () => {
+    setModalIncome("");
+    setModalExpense("");
+    setModalErrorMsg("");
+    setModalMsg("");
+  };
+
+  const handleTaxDefined = () => {
+    try {
+      if (modalIncome.length === 0 || !modalIncome) throw "請選擇所得類別";
+      if (
+        (modalIncome !== "50" && modalExpense.length === 0) ||
+        (modalIncome !== "50" && !modalExpense)
+      )
+        throw "請選擇費用類別";
+      /**清空外部欄位 */
+      setSelfDescription(selfDescriptionDefault);
+      handleOptionChange(caseFieldDefault);
+      /**顯示成功訊息 */
+      setModalMsg("已設定");
+      /**更新外部申報類別欄位 */
+      setSelfDescription(SWAPTaxDescription(modalIncome, modalExpense));
+      /**呼叫 onChnage props */
+      onChange({
+        incomeCode: modalIncome,
+        expenseCode: modalExpense,
+        incomeLabel: SWAPTaxIncomeLabel(modalIncome),
+        expenseLabel: SWAPTaxExpenseLabel(modalExpense),
+        taxDescription: SWAPTaxDescription(modalIncome, modalExpense),
+      });
+    } catch (err) {
+      setModalErrorMsg(err);
     }
   };
 
   return (
     <div>
       <SWAPTaxFieldWrap>
-        <FormControl variant="outlined" style={{ width: "100%" }}>
-          <InputLabel htmlFor="case_type">{fieldLabel}</InputLabel>
-          <Select
-            variant="outlined"
-            label={`${fieldLabel}`}
-            value={option}
-            onChange={(e) => handleOptionChange(e.target.value)}
-          >
-            <MenuItem disabled value={""}>
-              <Typography variant="body2">---- 請選擇案件類別 -----</Typography>
-            </MenuItem>
-            {options.map((option, index) => (
-              <MenuItem key={`case_type_${index}`} value={option[0]}>
-                {option[0]}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+        <Grid container spacing={1}>
+          {/**案件類別 */}
+          <Grid item xs={4} sm={4} md={4} lg={4}>
+            <FormControl variant="outlined" style={{ width: "100%" }}>
+              <InputLabel htmlFor="case_type">{typeFieldLabel}</InputLabel>
+              <Select
+                variant="outlined"
+                label={`${typeFieldLabel}`}
+                value={type}
+                onChange={(e) => handleTypeChange(`${e.target.value}`)}
+              >
+                <MenuItem disabled value={typeFieldDefault}>
+                  <Typography variant="body2" color="textSecondary">
+                    <small>{typeFieldDefault}</small>
+                  </Typography>
+                </MenuItem>
+                {typeOptions.map((option, index) => (
+                  <MenuItem key={`type_${index}`} value={`${option[1]}`}>
+                    {option[0]}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          {/**案件內容 */}
+          <Grid item xs={8} sm={8} md={8} lg={8}>
+            <FormControl variant="outlined" style={{ width: "100%" }}>
+              <InputLabel htmlFor="case_type">{caseFieldLabel}</InputLabel>
+              <Select
+                variant="outlined"
+                label={`${caseFieldLabel}`}
+                value={option}
+                onChange={(e) => handleOptionChange(e.target.value)}
+              >
+                <MenuItem disabled value={caseFieldDefault}>
+                  <Typography variant="body2" color="textSecondary">
+                    <small>{caseFieldDefault}</small>
+                  </Typography>
+                </MenuItem>
+                {caseOptions
+                  .filter((i) => i[3] === type)
+                  .map((option, index) => (
+                    <MenuItem key={`case_${index}`} value={option[0]}>
+                      {option[0]}
+                    </MenuItem>
+                  ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          {/**申報類別 */}
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <SWAPSpace />
+            <TextField
+              style={{ pointerEvents: "none" }}
+              fullWidth
+              variant="outlined"
+              label="申報類別"
+              value={selfDescription}
+              helperText={
+                <span style={{ textAlign: "right", display: "block" }}>
+                  <Button
+                    size="small"
+                    color="primary"
+                    style={{ pointerEvents: "all" }}
+                    onClick={() => {
+                      setModal(true);
+                      handleModalClear();
+                    }}
+                  >
+                    找不到對應的案件內容嗎？點此手動設定
+                  </Button>
+                  <SWAPModal
+                    open={modal}
+                    title="手動設定申報類別"
+                    primaryButton={{
+                      title: "確認設定",
+                      onClick: () => handleTaxDefined(),
+                    }}
+                    onClose={() => {
+                      setModal(false);
+                    }}
+                    successMessage={modalMsg}
+                    errorMessage={modalErrorMsg}
+                    closeWindowOnSuccessMessage
+                    children={
+                      <div>
+                        <Typography variant="body1">
+                          由於自由工作者的案件內容多樣，若您的案件內容不在 SWAP
+                          收錄的下拉選單中可在此手動設定本次案件的申報類別。
+                        </Typography>
+                        <SWAPSpace />
+                        <SWAPSpace />
+                        <SWAPSpace />
+                        <Grid container spacing={1} alignContent="flex-start">
+                          <Grid
+                            item
+                            xs={
+                              modalIncome === "9A" || modalIncome === "9B"
+                                ? 6
+                                : 12
+                            }
+                            sm={
+                              modalIncome === "9A" || modalIncome === "9B"
+                                ? 6
+                                : 12
+                            }
+                            md={
+                              modalIncome === "9A" || modalIncome === "9B"
+                                ? 6
+                                : 12
+                            }
+                            lg={
+                              modalIncome === "9A" || modalIncome === "9B"
+                                ? 6
+                                : 12
+                            }
+                          >
+                            <FormControl
+                              variant="outlined"
+                              style={{ width: "100%" }}
+                            >
+                              <InputLabel htmlFor="case_type">
+                                所得類別
+                              </InputLabel>
+                              <Select
+                                variant="outlined"
+                                label="請選擇所得類別"
+                                value={modalIncome}
+                                onChange={(e) => {
+                                  setModalIncome(e.target.value);
+                                  setModalExpense("");
+                                  setModalErrorMsg("");
+                                }}
+                              >
+                                {SWAPIncomeTypes.map((option, index) => (
+                                  <MenuItem
+                                    key={`case_${index}`}
+                                    value={option.code}
+                                  >
+                                    {option.code} {option.label}
+                                  </MenuItem>
+                                ))}
+                              </Select>
+                            </FormControl>
+                          </Grid>
+                          <Grid item xs={6} sm={6} md={6} lg={6}>
+                            {(() => {
+                              if (
+                                modalIncome === "9A" ||
+                                modalIncome === "9B"
+                              ) {
+                                let options = SWAPExpenseTypes.filter(
+                                  (i) => i.source === modalIncome
+                                );
+                                return (
+                                  <Fade in>
+                                    <FormControl
+                                      variant="outlined"
+                                      style={{ width: "100%" }}
+                                    >
+                                      <InputLabel htmlFor="case_type">
+                                        費用類別
+                                      </InputLabel>
+                                      <Select
+                                        variant="outlined"
+                                        label="費用類別"
+                                        value={modalExpense}
+                                        onChange={(e) => {
+                                          setModalExpense(e.target.value);
+                                          setModalErrorMsg("");
+                                        }}
+                                      >
+                                        {options.map((option, index) => (
+                                          <MenuItem
+                                            key={`case_${index}`}
+                                            value={option.code}
+                                          >
+                                            [{option.code}] {option.label}
+                                          </MenuItem>
+                                        ))}
+                                      </Select>
+                                    </FormControl>
+                                  </Fade>
+                                );
+                              } else {
+                                return;
+                              }
+                            })()}
+                          </Grid>
+                        </Grid>
+                      </div>
+                    }
+                  />
+                </span>
+              }
+            />
+          </Grid>
+        </Grid>
       </SWAPTaxFieldWrap>
     </div>
   );
@@ -79,40 +314,55 @@ const SWAPTaxFieldWrap = styled.div``;
 
 export default SWAPTaxField;
 
-const options: Array<[string, IncomeCodeProps, ExpenseCodeProps]> = [
-  ["翻譯(書籍)", "9B", "98"],
-  ["翻譯(一般文件)", "50", ""],
-  ["改稿費(修改、增刪、調整文稿之文字)", "9B", "98"],
-  ["審查費(修改、增刪、調整文稿之文字)", "9B", "98"],
-  ["審訂費(修改、增刪、調整文稿之文字)", "9B", "98"],
-  ["口譯費", "50", ""],
-  ["商標登記", "9A", "91"],
-  ["部落客、直播主推薦文、上傳影片、貼文分享、直播", "9A", "90"],
-  ["名嘴", "50", ""],
-  ["個人為營利事業介紹新產品買賣之佣金", "9A", "90"],
-  ["大眾傳播", "9A", "90"],
-  ["CIS識別設計", "9A", "90"],
-  ["傳單設計", "9A", "90"],
-  ["海報設計", "9A", "90"],
-  ["Banner設計", "9A", "90"],
-  ["平面攝影（含人像、空間、美食、活動等）", "9A", "90"],
-  ["動態攝影（含婚禮攝影、活動紀錄、電視廣告、網路廣告等）", "9A", "90"],
-  ["行銷企劃", "9A", "90"],
-  ["文案寫手", "9A", "90"],
-  ["廣告演員", "50", ""],
-  ["3D繪圖（自備工具）", "9A", "90"],
-  ["APP開發", "9A", "92"],
-  ["網頁開發", "9A", "92"],
-  ["建案銷售", "9A", "90"],
-  ["廣告投放", "9A", "90"],
-  ["展場規劃", "9A", "90"],
-  ["行銷教學", "9A", "90"],
-  ["主持人", "9A", "90"],
-  ["表演者", "9A", "70"],
-  ["健身教練", "9A", "90"],
+const typeOptions: Array<[string, string]> = [
+  ["文字", "1"],
+  ["設計", "2"],
+  ["行銷", "3"],
+  ["程式", "4"],
+  ["影像", "5"],
+  ["銷售", "6"],
+  ["其他", "0"],
 ];
 
-const SWAPIncomeTypes: Array<{
+export const caseOptions: Array<[
+  string,
+  IncomeCodeProps,
+  ExpenseCodeProps,
+  string
+]> = [
+  ["翻譯(書籍)", "9B", "98", "1"],
+  ["翻譯(一般文件)", "50", "", "1"],
+  ["改稿費(修改、增刪、調整文稿之文字)", "9B", "98", "1"],
+  ["審查費(修改、增刪、調整文稿之文字)", "9B", "98", "1"],
+  ["審訂費(修改、增刪、調整文稿之文字)", "9B", "98", "1"],
+  ["口譯費", "50", "", "1"],
+  ["商標登記", "9A", "91", "0"],
+  ["部落客、直播主推薦文、上傳影片、貼文分享、直播", "9A", "90", "3"],
+  ["名嘴", "50", "", "0"],
+  ["個人為營利事業介紹新產品買賣之佣金", "9A", "90", "6"],
+  ["大眾傳播", "9A", "90", "3"],
+  ["CIS識別設計", "9A", "90", "2"],
+  ["傳單設計", "9A", "90", "2"],
+  ["海報設計", "9A", "90", "2"],
+  ["Banner設計", "9A", "90", "2"],
+  ["平面攝影（含人像、空間、美食、活動等）", "9A", "90", "5"],
+  ["動態攝影（含婚禮攝影、活動紀錄、電視廣告、網路廣告等）", "9A", "90", "5"],
+  ["行銷企劃", "9A", "90", "1"],
+  ["文案寫手", "9A", "90", "1"],
+  ["廣告演員", "50", "", "0"],
+  ["3D繪圖（自備工具）", "9A", "90", "2"],
+  ["APP開發", "9A", "92", "4"],
+  ["網頁開發", "9A", "92", "4"],
+  ["建案銷售", "9A", "90", "6"],
+  ["廣告投放", "9A", "90", "3"],
+  ["展場規劃", "9A", "90", "0"],
+  ["行銷教學", "9A", "90", "3"],
+  ["主持人", "9A", "90", "0"],
+  ["表演者", "9A", "70", "0"],
+  ["健身教練", "9A", "90", "0"],
+];
+
+export const SWAPIncomeTypes: Array<{
   code: IncomeCodeProps;
   label: string;
 }> = [
@@ -126,10 +376,10 @@ const SWAPIncomeTypes: Array<{
   },
   {
     code: "50",
-    label: "兼職薪資所得",
+    label: "薪資所得",
   },
 ];
-const SWAPExpenseTypes: Array<{
+export const SWAPExpenseTypes: Array<{
   code: ExpenseCodeProps;
   source: IncomeCodeProps;
   label: string;
@@ -278,4 +528,33 @@ const SWAPExpenseTypes: Array<{
   { label: "非自行出版", expenseRatio: "75%", code: "98", source: "9B" },
 ];
 
-export { SWAPIncomeTypes, SWAPExpenseTypes };
+export const SWAPTaxIncomeLabel = (incomeCode: IncomeCodeProps) => {
+  return (
+    SWAPIncomeTypes.filter((type) => type.code === incomeCode)[0]?.label || ""
+  );
+};
+
+export const SWAPTaxExpenseLabel = (expenseCode: ExpenseCodeProps) => {
+  return (
+    SWAPExpenseTypes.filter((type) => type.code === expenseCode)[0]?.label || ""
+  );
+};
+
+export const SWAPTaxDescription = (
+  incomeCode: IncomeCodeProps,
+  expenseCode: ExpenseCodeProps
+) => {
+  let incomeLabel = SWAPTaxIncomeLabel(incomeCode);
+  let expenseLabel = SWAPTaxExpenseLabel(expenseCode);
+  let taxDescription = `${incomeCode} ${incomeLabel}${
+    expenseLabel.length > 0 ? ` - [${expenseCode}] ${expenseLabel}` : ""
+  }`;
+  return taxDescription;
+};
+
+/**
+ * 邏輯設定
+ * 1. 所得類別為 9A, 9B 時，費用類別為必填
+ * 2. 費用類別中的選項會依據，所得類別為 9A, 9B 而有所不同
+ * 3. 所得類別為50薪資時不會有費用類別
+ */

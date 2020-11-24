@@ -7,6 +7,13 @@ import SWAPModal from "./SWAPModal/SWAPModal";
 import SWAPShare from "./SWAPShare/SWAPShare";
 import SWAPSpace from "./SWAPSpace/SWAPSpace";
 import SWAPTaxField from "./SWAPTaxField/SWAPTaxField";
+import {
+  SWAPTaxDescription,
+  SWAPTaxExpenseLabel,
+  SWAPTaxIncomeLabel,
+  SWAPExpenseTypes,
+  SWAPIncomeTypes,
+} from "./SWAPTaxField/SWAPTaxField";
 import SWAPTheme from "./SWAPTheme/SWAPTheme";
 
 export {
@@ -19,5 +26,10 @@ export {
   SWAPShare,
   SWAPSpace,
   SWAPTaxField,
+  SWAPTaxDescription,
+  SWAPTaxExpenseLabel,
+  SWAPTaxIncomeLabel,
+  SWAPExpenseTypes,
+  SWAPIncomeTypes,
   SWAPTheme,
 };

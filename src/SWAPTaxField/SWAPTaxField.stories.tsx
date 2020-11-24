@@ -61,27 +61,7 @@ export const 完整示意 = () => {
             stepTitle: "填寫案件內容",
             stepChildren: (
               <div>
-                <Grid container spacing={1}>
-                  <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <SWAPTaxField onChange={(value) => setValue(value)} />
-                  </Grid>
-                  <Grid item xs={6} sm={6} md={6} lg={6}>
-                    <TextField
-                      style={{ pointerEvents: "none" }}
-                      fullWidth
-                      variant="outlined"
-                      label="申報類別"
-                      value={value?.taxDescription || ""}
-                      helperText={
-                        <div style={{ textAlign: "right" }}>
-                          <Button size="small" color="primary">
-                            找不到案件分類嗎？點此聯繫客服
-                          </Button>
-                        </div>
-                      }
-                    />
-                  </Grid>
-                </Grid>
+                <SWAPTaxField onChange={(value) => setValue(value)} />
                 <SWAPSpace />
                 <TextField
                   fullWidth
@@ -115,14 +95,10 @@ export const 回應內容 = () => {
     <SWAPTheme>
       <Typography variant="subtitle1">申報類別的相關資料</Typography>
       <Typography variant="body2" color="textSecondary">
-        用戶操作下拉選單時會回傳申報類別的相關資料。
+        用戶操作『案件內容』下拉選單以及『設定申報類別』時會呼叫 onChange 函式。
       </Typography>
       <SWAPSpace size="large" />
-      <Grid container spacing={1} alignItems="center">
-        <Grid item xs={3} sm={3} md={3} lg={3}>
-          <SWAPTaxField onChange={(value) => setValue(value)} />
-        </Grid>
-      </Grid>
+      <SWAPTaxField onChange={(value) => setValue(value)} />
       <SWAPSpace />
       <Typography variant="body2">
         {value ? `回應的 value 物件：${JSON.stringify(value)}` : null}
@@ -573,3 +549,26 @@ const ExpenseTypeData = `
   }
 ]
 `;
+
+export const Utils = () => {
+  return (
+    <SWAPTheme>
+      <Typography variant="subtitle1">Utils</Typography>
+      <Typography variant="body2" color="textSecondary">
+        元件中可以 import 原始資料、幫助函式。
+      </Typography>
+      <SWAPSpace size="large" />
+      <Typography variant="body2" color="textSecondary">
+        SWAPIncomeTypes 所得類別的陣列
+        <SWAPSpace />
+        SWAPExpenseTypes 費用類別的陣列
+        <SWAPSpace />
+        SWAPTaxDescription 申報類別的文字描述
+        <SWAPSpace />
+        SWAPTaxIncomeLabel 所得類別的文字描述
+        <SWAPSpace />
+        SWAPTaxExpenseLabel 費用類別的文字描述
+      </Typography>
+    </SWAPTheme>
+  );
+};

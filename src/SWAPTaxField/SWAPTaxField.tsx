@@ -25,11 +25,11 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
   const typeFieldLabel = "案件類別";
   const typeFieldDefault = "請選擇";
   const caseFieldLabel = "案件內容";
-  const caseFieldDefault = "請選擇";
+  const optionFieldDefault = "請選擇";
   const selfDescriptionDefault = " ";
 
   const [type, setType] = useState(typeFieldDefault);
-  const [option, setOption] = useState(caseFieldDefault);
+  const [option, setOption] = useState(optionFieldDefault);
   const [selfDescription, setSelfDescription] = useState(
     selfDescriptionDefault
   );
@@ -38,7 +38,7 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
   const [modalErrorMsg, setModalErrorMsg] = useState("");
   const handleTypeChange = (typeCode: string) => {
     setSelfDescription(selfDescriptionDefault);
-    handleOptionChange(caseFieldDefault);
+    handleOptionChange(optionFieldDefault);
     setType(typeCode);
   };
   const [modalIncome, setModalIncome]: any = useState("");
@@ -86,7 +86,8 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
         throw "請選擇費用類別";
       /**清空外部欄位 */
       setSelfDescription(selfDescriptionDefault);
-      handleOptionChange(caseFieldDefault);
+      setOption(optionFieldDefault);
+      setType(typeFieldDefault);
       /**顯示成功訊息 */
       setModalMsg("已設定");
       /**更新外部申報類別欄位 */
@@ -120,7 +121,7 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
               >
                 <MenuItem disabled value={typeFieldDefault}>
                   <Typography variant="body2" color="textSecondary">
-                    <small>{typeFieldDefault}</small>
+                    {typeFieldDefault}
                   </Typography>
                 </MenuItem>
                 {typeOptions.map((option, index) => (
@@ -141,9 +142,9 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
                 value={option}
                 onChange={(e) => handleOptionChange(e.target.value)}
               >
-                <MenuItem disabled value={caseFieldDefault}>
+                <MenuItem disabled value={optionFieldDefault}>
                   <Typography variant="body2" color="textSecondary">
-                    <small>{caseFieldDefault}</small>
+                    {optionFieldDefault}
                   </Typography>
                 </MenuItem>
                 {caseOptions

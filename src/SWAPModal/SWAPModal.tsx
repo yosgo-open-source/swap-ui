@@ -66,11 +66,11 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
 
   const handleModalSize = () => {
     const clientHeight = `${document.documentElement.clientHeight}px`;
-    const wrap = document.getElementById("modal_wrap");
-    const inner = document.getElementById("modal_inner");
-    const header = document.getElementById("modal_header");
-    const body = document.getElementById("modal_body");
-    const bottom = document.getElementById("modal_bottom");
+    const wrap = document.getElementById(`modal_wrap_${title}`);
+    const inner = document.getElementById(`modal_inner_${title}`);
+    const header = document.getElementById(`modal_header_${title}`);
+    const body = document.getElementById(`modal_body_${title}`);
+    const bottom = document.getElementById(`modal_bottom_${title}`);
     if (clientHeight && wrap && inner && header && body && bottom) {
       /**
        * 0. 更新 Modal 外層高度
@@ -129,11 +129,11 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
       onClose={() => onClose()}
     >
       <Fade in={open} timeout={{ enter: 300, exit: 300 }}>
-        <SWAPModalWrap id="modal_wrap">
+        <SWAPModalWrap id={`modal_wrap_${title}`}>
           <ModalOpenEffect in={open} sm={sm}>
-            <Paper className="modal_inner" id="modal_inner">
+            <Paper className="modal_inner" id={`modal_inner_${title}`}>
               {/**視窗標題區域 */}
-              <div className="modal_inner_header" id="modal_header">
+              <div className="modal_inner_header" id={`modal_header_${title}`}>
                 <Container maxWidth="lg">
                   <SWAPSpace size="middle" />
                   <Grid
@@ -162,7 +162,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                 <Divider />
               </div>
               {/**視窗內容區域 */}
-              <div className="modal_inner_body" id="modal_body">
+              <div className="modal_inner_body" id={`modal_body_${title}`}>
                 <Container maxWidth="lg">
                   <SWAPSpace size="middle" />
                   {/**步驟視窗的內容 */}
@@ -190,7 +190,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                 </Container>
               </div>
               {/**視窗底端 */}
-              <div className="modal_inner_bottom" id="modal_bottom">
+              <div className="modal_inner_bottom" id={`modal_bottom_${title}`}>
                 <Divider />
                 <Container maxWidth="lg">
                   <SWAPSpace size="middle" />
@@ -336,6 +336,7 @@ const SWAPModalWrap = styled.div`
   justify-content: center;
   box-sizing: border-box;
   .modal_inner {
+    border-radius: 9px;
     overflow: hidden;
     position: relative;
     width: 48vw;

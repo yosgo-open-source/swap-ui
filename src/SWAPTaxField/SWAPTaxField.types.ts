@@ -1,15 +1,18 @@
-export type TaxFiledValueProps = {
-  incomeCode: IncomeCodeProps;
-  incomeLabel: string;
-  expenseCode: ExpenseCodeProps;
-  expenseLabel: string;
-  taxDescription: string;
-};
+export type TaxFiledValueProps =
+  | {
+      incomeCode: IncomeCodeProps;
+      incomeLabel: string;
+      expenseCode: ExpenseCodeProps;
+      expenseLabel: string;
+      taxDescription: string;
+    }
+  | undefined;
 export interface SWAPTaxFieldProps {
+  value: TaxFiledValueProps;
   onChange?: (value: TaxFiledValueProps) => void;
 }
 
-export type IncomeCodeProps = "9A" | "9B" | "50";
+export type IncomeCodeProps = "9A" | "9B" | "50" | "" | undefined;
 export type ExpenseCodeProps =
   | "10"
   | "11"
@@ -101,4 +104,5 @@ export type ExpenseCodeProps =
   | "97"
   | "98"
   | "99"
-  | "";
+  | ""
+  | undefined;

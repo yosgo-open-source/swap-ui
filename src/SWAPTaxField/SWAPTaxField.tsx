@@ -9,8 +9,10 @@ import {
   Button,
   Fade,
 } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import Style from "styled-jsx/style";
+
 import SWAPModal from "../SWAPModal/SWAPModal";
 import SWAPSpace from "../SWAPSpace/SWAPSpace";
 
@@ -21,23 +23,21 @@ import {
   IncomeCodeProps,
 } from "./SWAPTaxField.types";
 
-const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
+const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange, value }) => {
   const typeFieldLabel = "案件類別";
   const typeFieldDefault = "請選擇";
   const caseFieldLabel = "案件內容";
   const optionFieldDefault = "請選擇";
-  const selfDescriptionDefault = " ";
 
+  const [fieldValue, setFiledValue]: [TaxFiledValueProps, Function] = useState(
+    value
+  );
   const [type, setType] = useState(typeFieldDefault);
   const [option, setOption] = useState(optionFieldDefault);
-  const [selfDescription, setSelfDescription] = useState(
-    selfDescriptionDefault
-  );
   const [modal, setModal] = useState(false);
   const [modalMsg, setModalMsg] = useState("");
   const [modalErrorMsg, setModalErrorMsg] = useState("");
   const handleTypeChange = (typeCode: string) => {
-    setSelfDescription(selfDescriptionDefault);
     handleOptionChange(optionFieldDefault);
     setType(typeCode);
   };
@@ -65,7 +65,7 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
         taxDescription,
       };
       onChange(value);
-      setSelfDescription(value?.taxDescription);
+      setFiledValue(value);
     }
   };
 
@@ -76,7 +76,7 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
     setModalMsg("");
   };
 
-  const handleTaxDefined = () => {
+  const handleModalTaxDescription = () => {
     try {
       if (modalIncome.length === 0 || !modalIncome) throw "請選擇所得類別";
       if (
@@ -85,25 +85,30 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
       )
         throw "請選擇費用類別";
       /**清空外部欄位 */
-      setSelfDescription(selfDescriptionDefault);
       setOption(optionFieldDefault);
       setType(typeFieldDefault);
       /**顯示成功訊息 */
       setModalMsg("已設定");
-      /**更新外部申報類別欄位 */
-      setSelfDescription(SWAPTaxDescription(modalIncome, modalExpense));
       /**呼叫 onChnage props */
-      onChange({
+      let value = {
         incomeCode: modalIncome,
         expenseCode: modalExpense,
         incomeLabel: SWAPTaxIncomeLabel(modalIncome),
         expenseLabel: SWAPTaxExpenseLabel(modalExpense),
         taxDescription: SWAPTaxDescription(modalIncome, modalExpense),
-      });
+      };
+      onChange(value);
+      setFiledValue(value);
     } catch (err) {
       setModalErrorMsg(err);
     }
   };
+
+  useEffect(() => {
+    if (value) {
+      setFiledValue(value);
+    }
+  }, []);
 
   return (
     <div>
@@ -142,6 +147,9 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
                 value={option}
                 onChange={(e) => handleOptionChange(e.target.value)}
               >
+                <Style jsx id="option_styled">
+                  {`.option_item::-webkit-scrollbar {height: 0 !important; width: 0 !important;}`}
+                </Style>
                 <MenuItem disabled value={optionFieldDefault}>
                   <Typography variant="body2" color="textSecondary">
                     {optionFieldDefault}
@@ -151,7 +159,20 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
                   .filter((i) => i[3] === type)
                   .map((option, index) => (
                     <MenuItem key={`case_${index}`} value={option[0]}>
-                      {option[0]}
+                      <>
+                        <div
+                          className="option_item"
+                          style={{
+                            msOverflowStyle: "none",
+                            scrollbarWidth: "none",
+                            width: "100%",
+                            overflowX: "auto",
+                            overflowY: "hidden",
+                          }}
+                        >
+                          {option[0]}
+                        </div>
+                      </>
                     </MenuItem>
                   ))}
               </Select>
@@ -165,7 +186,13 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
               fullWidth
               variant="outlined"
               label="申報類別"
-              value={selfDescription}
+              value={
+                fieldValue?.taxDescription ||
+                SWAPTaxDescription(
+                  fieldValue?.incomeCode,
+                  fieldValue?.expenseCode
+                )
+              }
               helperText={
                 <span style={{ textAlign: "right", display: "block" }}>
                   <Button
@@ -184,7 +211,7 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
                     title="手動設定申報類別"
                     primaryButton={{
                       title: "確認設定",
-                      onClick: () => handleTaxDefined(),
+                      onClick: () => handleModalTaxDescription(),
                     }}
                     onClose={() => {
                       setModal(false);
@@ -311,7 +338,12 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange }) => {
   );
 };
 
-const SWAPTaxFieldWrap = styled.div``;
+const SWAPTaxFieldWrap = styled.div`
+  .option_item::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+  }
+`;
 
 export default SWAPTaxField;
 
@@ -331,36 +363,90 @@ export const caseOptions: Array<[
   ExpenseCodeProps,
   string
 ]> = [
-  ["翻譯(書籍)", "9B", "98", "1"],
-  ["翻譯(一般文件)", "50", "", "1"],
-  ["改稿費(修改、增刪、調整文稿之文字)", "9B", "98", "1"],
-  ["審查費(修改、增刪、調整文稿之文字)", "9B", "98", "1"],
-  ["審訂費(修改、增刪、調整文稿之文字)", "9B", "98", "1"],
-  ["口譯費", "50", "", "1"],
-  ["商標登記", "9A", "91", "0"],
-  ["部落客、直播主推薦文、上傳影片、貼文分享、直播", "9A", "90", "3"],
-  ["名嘴", "50", "", "0"],
-  ["個人為營利事業介紹新產品買賣之佣金", "9A", "90", "6"],
-  ["大眾傳播", "9A", "90", "3"],
-  ["CIS識別設計", "9A", "90", "2"],
-  ["傳單設計", "9A", "90", "2"],
-  ["海報設計", "9A", "90", "2"],
-  ["Banner設計", "9A", "90", "2"],
-  ["平面攝影（含人像、空間、美食、活動等）", "9A", "90", "5"],
-  ["動態攝影（含婚禮攝影、活動紀錄、電視廣告、網路廣告等）", "9A", "90", "5"],
-  ["行銷企劃", "9A", "90", "1"],
-  ["文案寫手", "9A", "90", "1"],
-  ["廣告演員", "50", "", "0"],
-  ["3D繪圖（自備工具）", "9A", "90", "2"],
-  ["APP開發", "9A", "92", "4"],
-  ["網頁開發", "9A", "92", "4"],
-  ["建案銷售", "9A", "90", "6"],
-  ["廣告投放", "9A", "90", "3"],
-  ["展場規劃", "9A", "90", "0"],
-  ["行銷教學", "9A", "90", "3"],
-  ["主持人", "9A", "90", "0"],
-  ["表演者", "9A", "70", "0"],
-  ["健身教練", "9A", "90", "0"],
+  ["文案寫手", "50", "", "1"],
+  ["改稿費、審查費、審定費等修改、增刪、調整文稿之文字", "50", "", "1"],
+  ["傳單、海報、Banner等設計", "50", "", "2"],
+  ["3D繪圖", "50", "", "2"],
+  ["Logo、商標設計", "50", "", "2"],
+  ["商品包裝設計", "50", "", "2"],
+  ["網頁、APP等UI/UX設計", "50", "", "2"],
+  ["插畫、貼圖等設計", "50", "", "2"],
+  ["廣告投放", "50", "", "3"],
+  ["部落客寫推薦文、業配文", "50", "", "3"],
+  ["網紅、直播主以貼文、影片、直播等方式廣告或業配", "50", "", "3"],
+  ["自備攝影棚或攝影器材進行平面攝影", "9A", "90", "5"],
+  ["業主提供所需工具進行平面攝影", "50", "", "5"],
+  ["行銷企劃，且負擔成本費用達收入20%", "9A", "90", "3"],
+  ["行銷企劃，且負擔成本費用未達收入20%", "50", "", "3"],
+  [
+    "房地產仲介或代銷，無底薪且業主未免費提供辦公空間、電腦等任何形式之行政資源",
+    "9A",
+    "76",
+    "6",
+  ],
+  [
+    "房地產仲介或代銷，有底薪或業主有免費提供辦公空間、電腦等任何形式之行政資源",
+    "50",
+    "",
+    "6",
+  ],
+  ["展場規劃，且負擔成本費用達收入20%", "9A", "90", "0"],
+  ["展場規劃，且負擔成本費用未達收入20%", "50", "", "0"],
+  ["自備攝影棚或攝影器材進行動態攝影", "9A", "90", "5"],
+  ["業主提供所需工具進行動態攝影", "50", "", "5"],
+  [
+    "具有知識、技藝、學術之傳授、上課等性質之教育訓練、研討會、研習會、書報討論課程、專題討論課程、講習會等",
+    "50",
+    "",
+    "0",
+  ],
+  ["未具授課性質之專題演講", "9B", "98", "0"],
+  [
+    "演員、歌手、模特兒、節目主持人、節目主持人、舞蹈表演人、相聲表演人、特技表演人、樂器表演人、魔術表演人、其他表演人",
+    "9A",
+    "70",
+    "0",
+  ],
+  [
+    "非以演藝人員等表演人專長進行廣告代言，例如醫師代言、網紅代言等",
+    "50",
+    "",
+    "0",
+  ],
+  ["書籍翻譯", "9B", "98", "1"],
+  ["一般文件翻譯", "50", "", "1"],
+  ["口譯費", "50", "", "0"],
+  ["導演，且負擔成本費用達收入20%", "9A", "90", "0"],
+  ["導演，且負擔成本費用未達收入20%", "50", "", "0"],
+  ["室內設計，且負擔成本費用達收入20%", "9A", "90", "0"],
+  ["室內設計，且負擔成本費用未達收入20%", "50", "", "0"],
+  ["政府單位補助案、各類企畫書、專案報告等之潤筆費或撰寫費", "50", "", "1"],
+  ["剪輯師", "50", "", "3"],
+  ["CIS識別設計", "50", "", "2"],
+  ["網頁、APP、系統軟體、遊戲、動畫等之程式設計、開發", "9A", "92", "4"],
+  ["服裝與KOL經營規劃", "50", "", "0"],
+  ["命理卜卦", "9A", "62", "0"],
+  ["健身教練，無保障底薪且自備器材、空間、音樂等", "9A", "90", "0"],
+  ["健身教練，有保障底薪或無自備器材、空間、音樂等", "50", "", "0"],
+  [
+    "非自行出版之稿費、版稅、樂譜、作曲、編劇、漫畫及演講之鐘點費",
+    "9B",
+    "98",
+    "1",
+  ],
+  ["自行出版之稿費、版稅、作曲、編劇、漫畫等", "9B", "99", "1"],
+  [
+    "非上述類別且符合以下大部分要件：(1)未約定固定時間、地點提供勞務、(2)具備一定專業、(3)不定期支付一定金額報酬、(4)除提供勞務外另行負擔一定金額之成本費用、(5)與業主合約不具僱傭關係",
+    "9A",
+    "",
+    "0",
+  ],
+  [
+    "非上述類別且符合以下大部分要件：(1)有約定固定時間、地點提供勞務、(2)未具備一定專業、(3)定期支付一定金額報酬、(4)除提供勞務外負擔成本費用不多或沒有、(5)與業主合約具僱傭關係",
+    "50",
+    "",
+    "0",
+  ],
 ];
 
 export const SWAPIncomeTypes: Array<{
@@ -530,15 +616,24 @@ export const SWAPExpenseTypes: Array<{
 ];
 
 export const SWAPTaxIncomeLabel = (incomeCode: IncomeCodeProps) => {
-  return (
-    SWAPIncomeTypes.filter((type) => type.code === incomeCode)[0]?.label || ""
-  );
+  if (incomeCode) {
+    return (
+      SWAPIncomeTypes.filter((type) => type.code === incomeCode)[0]?.label || ""
+    );
+  } else {
+    return "";
+  }
 };
 
 export const SWAPTaxExpenseLabel = (expenseCode: ExpenseCodeProps) => {
-  return (
-    SWAPExpenseTypes.filter((type) => type.code === expenseCode)[0]?.label || ""
-  );
+  if (expenseCode) {
+    return (
+      SWAPExpenseTypes.filter((type) => type.code === expenseCode)[0]?.label ||
+      ""
+    );
+  } else {
+    return "";
+  }
 };
 
 export const SWAPTaxDescription = (
@@ -550,7 +645,15 @@ export const SWAPTaxDescription = (
   let taxDescription = `${incomeCode} ${incomeLabel}${
     expenseLabel.length > 0 ? ` - [${expenseCode}] ${expenseLabel}` : ""
   }`;
-  return taxDescription;
+  if (incomeCode && expenseCode) {
+    /**執行業務 */
+    return taxDescription;
+  } else if (incomeCode === "50") {
+    /**薪資 */
+    return `${incomeCode} ${incomeLabel}`;
+  } else {
+    return "";
+  }
 };
 
 /**

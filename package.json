@@ -1,6 +1,6 @@
 {
   "name": "@yosgo/swap-ui",
-  "version": "1.0.57",
+  "version": "1.0.58",
   "main": "build/index.js",
   "module": "build/index.esm.js",
   "files": [

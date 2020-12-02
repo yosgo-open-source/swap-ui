@@ -10,7 +10,7 @@ export interface SWAPTaxFieldProps {
   onChange?: (value: TaxFiledValueProps) => void;
 }
 
-export type IncomeCodeProps = "9A" | "9B" | "50" | "" | undefined;
+export type IncomeCodeProps = "9A" | "9B" | "50";
 export type ExpenseCodeProps =
   | "10"
   | "11"

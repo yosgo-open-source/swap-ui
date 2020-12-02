@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
 import {
   Button,
-  Fade,
-  Grid,
   TextareaAutosize,
   TextField,
   Typography,
 } from "@material-ui/core";
 
-import SWAPTaxField from "./SWAPTaxField";
+import { SWAPTaxField } from "../SWAPTaxField/SWAPTaxField";
 import { SWAPTaxFieldProps } from "../SWAPTaxField/SWAPTaxField.types";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import SWAPSpace from "../SWAPSpace/SWAPSpace";

@@ -23,7 +23,10 @@ import {
   IncomeCodeProps,
 } from "./SWAPTaxField.types";
 
-const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange, value }) => {
+export const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({
+  onChange,
+  value,
+}) => {
   const typeFieldLabel = "案件類別";
   const typeFieldDefault = "請選擇";
   const caseFieldLabel = "案件內容";
@@ -344,8 +347,6 @@ const SWAPTaxFieldWrap = styled.div`
     height: 0 !important;
   }
 `;
-
-export default SWAPTaxField;
 
 const typeOptions: Array<[string, string]> = [
   ["文字", "1"],

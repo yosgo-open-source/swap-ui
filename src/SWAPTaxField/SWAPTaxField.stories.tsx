@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@material-ui/core";
 
-import { SWAPTaxField } from "../SWAPTaxField/SWAPTaxField";
+import SWAPTaxField from "../SWAPTaxField/SWAPTaxField";
 import { SWAPTaxFieldProps } from "../SWAPTaxField/SWAPTaxField.types";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import SWAPSpace from "../SWAPSpace/SWAPSpace";

@@ -139,6 +139,9 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange, value }) => {
           </Grid>
           {/**案件內容 */}
           <Grid item xs={8} sm={8} md={8} lg={8}>
+            <Style jsx id="option_styled">
+              {`.option_item::-webkit-scrollbar {height: 0 !important; width: 0 !important;}`}
+            </Style>
             <FormControl variant="outlined" style={{ width: "100%" }}>
               <InputLabel htmlFor="case_type">{caseFieldLabel}</InputLabel>
               <Select
@@ -147,9 +150,6 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange, value }) => {
                 value={option}
                 onChange={(e) => handleOptionChange(e.target.value)}
               >
-                <Style jsx id="option_styled">
-                  {`.option_item::-webkit-scrollbar {height: 0 !important; width: 0 !important;}`}
-                </Style>
                 <MenuItem disabled value={optionFieldDefault}>
                   <Typography variant="body2" color="textSecondary">
                     {optionFieldDefault}
@@ -158,21 +158,19 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange, value }) => {
                 {caseOptions
                   .filter((i) => i[3] === type)
                   .map((option, index) => (
-                    <MenuItem key={`case_${index}`} value={option[0]}>
-                      <>
-                        <div
-                          className="option_item"
-                          style={{
-                            msOverflowStyle: "none",
-                            scrollbarWidth: "none",
-                            width: "100%",
-                            overflowX: "auto",
-                            overflowY: "hidden",
-                          }}
-                        >
-                          {option[0]}
-                        </div>
-                      </>
+                    <MenuItem
+                      key={`case_${index}`}
+                      value={option[0]}
+                      className="option_item"
+                      style={{
+                        msOverflowStyle: "none",
+                        scrollbarWidth: "none",
+                        width: "100%",
+                        overflowX: "auto",
+                        overflowY: "hidden",
+                      }}
+                    >
+                      {option[0]}
                     </MenuItem>
                   ))}
               </Select>
@@ -344,6 +342,8 @@ const SWAPTaxFieldWrap = styled.div`
     height: 0 !important;
   }
 `;
+
+export default SWAPTaxField;
 
 const typeOptions: Array<[string, string]> = [
   ["文字", "1"],
@@ -655,7 +655,6 @@ const SWAPTaxDescription = (
 };
 
 export {
-  SWAPTaxField,
   SWAPIncomeTypes,
   SWAPExpenseTypes,
   SWAPTaxIncomeLabel,

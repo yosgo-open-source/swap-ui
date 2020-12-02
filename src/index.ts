@@ -6,8 +6,8 @@ import SWAPLogo from "./SWAPLogo/SWAPLogo";
 import SWAPModal from "./SWAPModal/SWAPModal";
 import SWAPShare from "./SWAPShare/SWAPShare";
 import SWAPSpace from "./SWAPSpace/SWAPSpace";
+import SWAPTaxField from "./SWAPTaxField/SWAPTaxField";
 import {
-  SWAPTaxField,
   SWAPTaxDescription,
   SWAPTaxExpenseLabel,
   SWAPTaxIncomeLabel,

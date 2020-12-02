@@ -130,9 +130,9 @@ export const Control = () => {
         onChange={(value) => alert(JSON.stringify(value))}
       />
       <SWAPSpace size="large" />
-      <Typography variant="subtitle1">模擬多次更新 value</Typography>
+      <Typography variant="subtitle1">模擬多次更新</Typography>
       <Typography variant="body2" color="textSecondary">
-        第一次顯示初始值，3 秒後抓取資料後再次更新 taxDescription 欄位。
+        第一次顯示初始值，3 秒後抓取資料後再次更新 props taxDescription
       </Typography>
       <SWAPSpace />
       <SWAPTaxField

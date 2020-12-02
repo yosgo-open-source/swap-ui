@@ -23,10 +23,7 @@ import {
   IncomeCodeProps,
 } from "./SWAPTaxField.types";
 
-export const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({
-  onChange,
-  value,
-}) => {
+const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange, value }) => {
   const typeFieldLabel = "案件類別";
   const typeFieldDefault = "請選擇";
   const caseFieldLabel = "案件內容";
@@ -358,7 +355,7 @@ const typeOptions: Array<[string, string]> = [
   ["其他", "0"],
 ];
 
-export const caseOptions: Array<[
+const caseOptions: Array<[
   string,
   IncomeCodeProps,
   ExpenseCodeProps,
@@ -450,7 +447,7 @@ export const caseOptions: Array<[
   ],
 ];
 
-export const SWAPIncomeTypes: Array<{
+const SWAPIncomeTypes: Array<{
   code: IncomeCodeProps;
   label: string;
 }> = [
@@ -467,7 +464,7 @@ export const SWAPIncomeTypes: Array<{
     label: "薪資所得",
   },
 ];
-export const SWAPExpenseTypes: Array<{
+const SWAPExpenseTypes: Array<{
   code: ExpenseCodeProps;
   source: IncomeCodeProps;
   label: string;
@@ -616,7 +613,7 @@ export const SWAPExpenseTypes: Array<{
   { label: "非自行出版", expenseRatio: "75%", code: "98", source: "9B" },
 ];
 
-export const SWAPTaxIncomeLabel = (incomeCode: IncomeCodeProps) => {
+const SWAPTaxIncomeLabel = (incomeCode: IncomeCodeProps) => {
   if (incomeCode) {
     return (
       SWAPIncomeTypes.filter((type) => type.code === incomeCode)[0]?.label || ""
@@ -626,7 +623,7 @@ export const SWAPTaxIncomeLabel = (incomeCode: IncomeCodeProps) => {
   }
 };
 
-export const SWAPTaxExpenseLabel = (expenseCode: ExpenseCodeProps) => {
+const SWAPTaxExpenseLabel = (expenseCode: ExpenseCodeProps) => {
   if (expenseCode) {
     return (
       SWAPExpenseTypes.filter((type) => type.code === expenseCode)[0]?.label ||
@@ -637,7 +634,7 @@ export const SWAPTaxExpenseLabel = (expenseCode: ExpenseCodeProps) => {
   }
 };
 
-export const SWAPTaxDescription = (
+const SWAPTaxDescription = (
   incomeCode: IncomeCodeProps,
   expenseCode: ExpenseCodeProps
 ) => {
@@ -655,6 +652,15 @@ export const SWAPTaxDescription = (
   } else {
     return "";
   }
+};
+
+export {
+  SWAPTaxField,
+  SWAPIncomeTypes,
+  SWAPExpenseTypes,
+  SWAPTaxIncomeLabel,
+  SWAPTaxExpenseLabel,
+  SWAPTaxDescription,
 };
 
 /**

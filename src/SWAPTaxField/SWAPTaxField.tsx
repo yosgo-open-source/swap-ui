@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Style from "styled-jsx/style";
+// import Style from "styled-jsx/style";
 
 import SWAPModal from "../SWAPModal/SWAPModal";
 import SWAPSpace from "../SWAPSpace/SWAPSpace";
@@ -140,9 +140,9 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({
           </Grid>
           {/**案件內容 */}
           <Grid item xs={8} sm={8} md={8} lg={8}>
-            <Style jsx id="option_styled">
+            {/* <Style jsx id="option_styled">
               {`.option_item::-webkit-scrollbar {height: 0 !important; width: 0 !important;}`}
-            </Style>
+            </Style> */}
             <FormControl variant="outlined" style={{ width: "100%" }}>
               <InputLabel htmlFor="case_type">{caseFieldLabel}</InputLabel>
               <Select
@@ -433,7 +433,7 @@ const caseOptions: Array<[
   [
     "非上述類別且符合以下大部分要件：(1)未約定固定時間、地點提供勞務、(2)具備一定專業、(3)不定期支付一定金額報酬、(4)除提供勞務外另行負擔一定金額之成本費用、(5)與業主合約不具僱傭關係",
     "9A",
-    "",
+    "90",
     "0",
   ],
   [

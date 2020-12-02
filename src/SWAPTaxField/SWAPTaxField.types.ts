@@ -6,7 +6,7 @@ export type TaxFiledValueProps = {
   taxDescription: string;
 };
 export interface SWAPTaxFieldProps {
-  defaultTaxDescription: string | undefined;
+  taxDescription: string | undefined;
   onChange?: (value: TaxFiledValueProps) => void;
 }
 

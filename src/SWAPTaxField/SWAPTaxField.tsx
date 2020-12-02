@@ -25,7 +25,7 @@ import {
 
 const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({
   onChange,
-  defaultTaxDescription,
+  taxDescription,
 }) => {
   const typeFieldLabel = "案件類別";
   const typeFieldDefault = "請選擇";
@@ -106,10 +106,10 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({
   };
 
   useEffect(() => {
-    if (defaultTaxDescription) {
-      setTaxDescriptionValue(defaultTaxDescription);
+    if (taxDescription && taxDescription.length > 0) {
+      setTaxDescriptionValue(taxDescription);
     }
-  }, []);
+  }, [taxDescription]);
 
   return (
     <div>

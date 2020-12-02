@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
 import {
   Button,
@@ -29,7 +29,7 @@ export default {
 const Demo: Story<SWAPTaxFieldProps> = (args) => <SWAPTaxField {...args} />;
 export const 認識 = Demo.bind({});
 認識.args = {
-  defaultTaxDescription: "",
+  taxDescription: "",
   onChange: (value) => alert(JSON.stringify(value)),
 };
 
@@ -61,7 +61,7 @@ export const 完整示意 = () => {
             stepChildren: (
               <div>
                 <SWAPTaxField
-                  defaultTaxDescription={value?.taxDescription}
+                  taxDescription={value?.taxDescription}
                   onChange={(value) => setValue(value)}
                 />
                 <SWAPSpace />
@@ -100,10 +100,7 @@ export const 回應內容 = () => {
         用戶操作『案件內容』下拉選單以及『設定申報類別』時會呼叫 onChange 函式。
       </Typography>
       <SWAPSpace size="large" />
-      <SWAPTaxField
-        defaultTaxDescription=""
-        onChange={(value) => setValue(value)}
-      />
+      <SWAPTaxField taxDescription="" onChange={(value) => setValue(value)} />
       <SWAPSpace />
       <Typography variant="body2">
         {value ? `回應的 value 物件：${JSON.stringify(value)}` : null}
@@ -112,7 +109,15 @@ export const 回應內容 = () => {
   );
 };
 
-export const 預設值 = () => {
+export const Control = () => {
+  const [taxDescription, setTaxDescription] = useState("示意用的預設值");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTaxDescription("9A 執行業務所得 - [90] 其他");
+    }, 3000);
+  }, []);
+
   return (
     <SWAPTheme>
       <Typography variant="subtitle1">預設</Typography>
@@ -121,7 +126,17 @@ export const 預設值 = () => {
       </Typography>
       <SWAPSpace />
       <SWAPTaxField
-        defaultTaxDescription="9A 執行業務所得 - [92] 程式設計師"
+        taxDescription="9A 執行業務所得 - [92] 程式設計師"
+        onChange={(value) => alert(JSON.stringify(value))}
+      />
+      <SWAPSpace size="large" />
+      <Typography variant="subtitle1">模擬多次更新 value</Typography>
+      <Typography variant="body2" color="textSecondary">
+        第一次顯示初始值，3 秒後抓取資料後再次更新 taxDescription 欄位。
+      </Typography>
+      <SWAPSpace />
+      <SWAPTaxField
+        taxDescription={taxDescription}
         onChange={(value) => alert(JSON.stringify(value))}
       />
     </SWAPTheme>

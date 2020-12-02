@@ -1,14 +1,12 @@
-export type TaxFiledValueProps =
-  | {
-      incomeCode: IncomeCodeProps;
-      incomeLabel: string;
-      expenseCode: ExpenseCodeProps;
-      expenseLabel: string;
-      taxDescription: string;
-    }
-  | undefined;
+export type TaxFiledValueProps = {
+  incomeCode: IncomeCodeProps;
+  incomeLabel: string;
+  expenseCode: ExpenseCodeProps;
+  expenseLabel: string;
+  taxDescription: string;
+};
 export interface SWAPTaxFieldProps {
-  value: TaxFiledValueProps;
+  defaultTaxDescription: string | undefined;
   onChange?: (value: TaxFiledValueProps) => void;
 }
 

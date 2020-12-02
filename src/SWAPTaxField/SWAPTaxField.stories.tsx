@@ -29,7 +29,7 @@ export default {
 const Demo: Story<SWAPTaxFieldProps> = (args) => <SWAPTaxField {...args} />;
 export const 認識 = Demo.bind({});
 認識.args = {
-  value: undefined,
+  defaultTaxDescription: "",
   onChange: (value) => alert(JSON.stringify(value)),
 };
 
@@ -61,7 +61,7 @@ export const 完整示意 = () => {
             stepChildren: (
               <div>
                 <SWAPTaxField
-                  value={value}
+                  defaultTaxDescription={value?.taxDescription}
                   onChange={(value) => setValue(value)}
                 />
                 <SWAPSpace />
@@ -100,7 +100,10 @@ export const 回應內容 = () => {
         用戶操作『案件內容』下拉選單以及『設定申報類別』時會呼叫 onChange 函式。
       </Typography>
       <SWAPSpace size="large" />
-      <SWAPTaxField value={value} onChange={(value) => setValue(value)} />
+      <SWAPTaxField
+        defaultTaxDescription=""
+        onChange={(value) => setValue(value)}
+      />
       <SWAPSpace />
       <Typography variant="body2">
         {value ? `回應的 value 物件：${JSON.stringify(value)}` : null}
@@ -112,39 +115,13 @@ export const 回應內容 = () => {
 export const 預設值 = () => {
   return (
     <SWAPTheme>
-      <Typography variant="subtitle1">預設 taxDescription</Typography>
+      <Typography variant="subtitle1">預設</Typography>
       <Typography variant="body2" color="textSecondary">
-        預設 taxDescription 為 "9A 執行業務所得 - [92] 程式設計師"，其餘 value
-        中的屬性設定空字串
+        預設申報類別的描述內容
       </Typography>
       <SWAPSpace />
       <SWAPTaxField
-        value={{
-          incomeCode: "",
-          expenseCode: "",
-          incomeLabel: "",
-          expenseLabel: "",
-          taxDescription: "9A 執行業務所得 - [92] 程式設計師",
-        }}
-        onChange={(value) => alert(JSON.stringify(value))}
-      />
-      <SWAPSpace size="large" />
-      <Typography variant="subtitle1">
-        預設 incomeCode 與 expenseCode
-      </Typography>
-      <Typography variant="body2" color="textSecondary">
-        預設 incomeCode 為 "9A" expenseCode 為 "92"，其餘 value
-        中的屬性設定空字串
-      </Typography>
-      <SWAPSpace />
-      <SWAPTaxField
-        value={{
-          incomeCode: "9A",
-          expenseCode: "92",
-          incomeLabel: "",
-          expenseLabel: "",
-          taxDescription: "",
-        }}
+        defaultTaxDescription="9A 執行業務所得 - [92] 程式設計師"
         onChange={(value) => alert(JSON.stringify(value))}
       />
     </SWAPTheme>

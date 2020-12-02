@@ -23,15 +23,16 @@ import {
   IncomeCodeProps,
 } from "./SWAPTaxField.types";
 
-const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange, value }) => {
+const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({
+  onChange,
+  defaultTaxDescription,
+}) => {
   const typeFieldLabel = "案件類別";
   const typeFieldDefault = "請選擇";
   const caseFieldLabel = "案件內容";
   const optionFieldDefault = "請選擇";
 
-  const [fieldValue, setFiledValue]: [TaxFiledValueProps, Function] = useState(
-    value
-  );
+  const [taxDescriptionValue, setTaxDescriptionValue] = useState("");
   const [type, setType] = useState(typeFieldDefault);
   const [option, setOption] = useState(optionFieldDefault);
   const [modal, setModal] = useState(false);
@@ -65,7 +66,7 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange, value }) => {
         taxDescription,
       };
       onChange(value);
-      setFiledValue(value);
+      setTaxDescriptionValue(taxDescription);
     }
   };
 
@@ -98,15 +99,15 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange, value }) => {
         taxDescription: SWAPTaxDescription(modalIncome, modalExpense),
       };
       onChange(value);
-      setFiledValue(value);
+      setTaxDescriptionValue(SWAPTaxDescription(modalIncome, modalExpense));
     } catch (err) {
       setModalErrorMsg(err);
     }
   };
 
   useEffect(() => {
-    if (value) {
-      setFiledValue(value);
+    if (defaultTaxDescription) {
+      setTaxDescriptionValue(defaultTaxDescription);
     }
   }, []);
 
@@ -184,13 +185,7 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange, value }) => {
               fullWidth
               variant="outlined"
               label="申報類別"
-              value={
-                fieldValue?.taxDescription ||
-                SWAPTaxDescription(
-                  fieldValue?.incomeCode,
-                  fieldValue?.expenseCode
-                )
-              }
+              value={taxDescriptionValue || ""}
               helperText={
                 <span style={{ textAlign: "right", display: "block" }}>
                   <Button
@@ -288,37 +283,39 @@ const SWAPTaxField: React.FC<SWAPTaxFieldProps> = ({ onChange, value }) => {
                                   (i) => i.source === modalIncome
                                 );
                                 return (
-                                  <Fade in>
-                                    <FormControl
-                                      variant="outlined"
-                                      style={{ width: "100%" }}
-                                    >
-                                      <InputLabel htmlFor="case_type">
-                                        費用類別
-                                      </InputLabel>
-                                      <Select
+                                  <div>
+                                    <Fade in>
+                                      <FormControl
                                         variant="outlined"
-                                        label="費用類別"
-                                        value={modalExpense}
-                                        onChange={(e) => {
-                                          setModalExpense(e.target.value);
-                                          setModalErrorMsg("");
-                                        }}
+                                        style={{ width: "100%" }}
                                       >
-                                        {options.map((option, index) => (
-                                          <MenuItem
-                                            key={`case_${index}`}
-                                            value={option.code}
-                                          >
-                                            [{option.code}] {option.label}
-                                          </MenuItem>
-                                        ))}
-                                      </Select>
-                                    </FormControl>
-                                  </Fade>
+                                        <InputLabel htmlFor="case_type">
+                                          費用類別
+                                        </InputLabel>
+                                        <Select
+                                          variant="outlined"
+                                          label="費用類別"
+                                          value={modalExpense}
+                                          onChange={(e) => {
+                                            setModalExpense(e.target.value);
+                                            setModalErrorMsg("");
+                                          }}
+                                        >
+                                          {options.map((option, index) => (
+                                            <MenuItem
+                                              key={`case_${index}`}
+                                              value={option.code}
+                                            >
+                                              [{option.code}] {option.label}
+                                            </MenuItem>
+                                          ))}
+                                        </Select>
+                                      </FormControl>
+                                    </Fade>
+                                  </div>
                                 );
                               } else {
-                                return;
+                                return <div />;
                               }
                             })()}
                           </Grid>

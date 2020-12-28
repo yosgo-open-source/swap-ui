@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 import { SWAPLogoProps } from "./SWAPLogo.types";
 
-import logo01 from "./SWAP_LOGO_01.svg";
-import logo02 from "./SWAP_LOGO_02.svg";
+import logo01 from "./SWAP_VI.svg";
+import logo02 from "./SWAP_VI.svg";
 import logo03 from "./SWAP_LOGO_03.svg";
 
 const SWAPLogo: React.FC<SWAPLogoProps> = ({

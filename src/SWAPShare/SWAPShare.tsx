@@ -5,12 +5,12 @@ import {
   LineShareButton,
   LineIcon,
   FacebookMessengerIcon,
-  FacebookShareButton,
-  FacebookIcon,
+  // FacebookShareButton,
+  // FacebookIcon,
   WhatsappIcon,
   WhatsappShareButton,
-  TwitterIcon,
-  TwitterShareButton,
+  // TwitterIcon,
+  // TwitterShareButton,
   TelegramIcon,
   TelegramShareButton,
 } from "react-share";
@@ -89,13 +89,13 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
                 />
               ),
             },
-            {
-              el: (
-                <FacebookShareButton url={sharedUrl} quote={sharedContent}>
-                  <FacebookIcon round size={size} className="swap_share_icon" />
-                </FacebookShareButton>
-              ),
-            },
+            // {
+            //   el: (
+            //     <FacebookShareButton url={sharedUrl} quote={sharedContent}>
+            //       <FacebookIcon round size={size} className="swap_share_icon" />
+            //     </FacebookShareButton>
+            //   ),
+            // },
             {
               el: (
                 <LineShareButton url={sharedUrl} title={sharedContent}>
@@ -110,13 +110,13 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
                 </WhatsappShareButton>
               ),
             },
-            {
-              el: (
-                <TwitterShareButton url={sharedUrl} title={sharedContent}>
-                  <TwitterIcon round size={size} className="swap_share_icon" />
-                </TwitterShareButton>
-              ),
-            },
+            // {
+            //   el: (
+            //     <TwitterShareButton url={sharedUrl} title={sharedContent}>
+            //       <TwitterIcon round size={size} className="swap_share_icon" />
+            //     </TwitterShareButton>
+            //   ),
+            // },
             {
               el: (
                 <TelegramShareButton url={sharedUrl} title={sharedContent}>

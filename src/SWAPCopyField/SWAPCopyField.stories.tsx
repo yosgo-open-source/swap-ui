@@ -22,7 +22,8 @@ export default {
 const Demo: Story<SWAPCopyFieldProps> = (args) => <SWAPCopyField {...args} />;
 export const 認識 = Demo.bind({});
 認識.args = {
-  sharedText: "SWAP is an No.1 product",
+  sharedText:
+    "SWAP is an No.1 product.SWAP is an No.1 product.SWAP is an No.1 product.SWAP is an No.1 product",
   multiline: false,
   rows: 1,
   copyInputLabel: "請複製以下五星吹捧文字",

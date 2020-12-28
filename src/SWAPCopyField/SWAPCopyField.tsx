@@ -72,8 +72,8 @@ const SWAPCopyField: React.FC<SWAPCopyFieldProps> = ({
 
 const SWAPCopyFieldWrap = styled.div`
   .cpy_btn_element {
-    width: 100%;
-    min-width: 150px;
+    width: auto;
+    min-width: 72px;
     text-align: right;
   }
 `;

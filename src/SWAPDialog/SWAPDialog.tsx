@@ -112,8 +112,13 @@ const SWAPDialog: React.FC<SWAPDialogProps> = ({
 
 const SWAPDialogWrap = styled.div`
   box-sizing: border-box;
+  position: relative;
   .bar {
+    position: absolute;
     height: 12px;
+    top: 0;
+    left: 0;
+    width: 100%;
     &.s_bar {
       background: #3f51b5;
     }
@@ -125,9 +130,7 @@ const SWAPDialogWrap = styled.div`
     }
   }
   .dialog_inner {
-    box-sizing: border-box;
-    width: 36vw;
-    min-width: 310px;
+    margin-top: 12px;
   }
 `;
 

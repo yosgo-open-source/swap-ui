@@ -25,7 +25,7 @@ const Demo: Story<SWAPAppBarProps> = (args) => (
     <Typography variant="body2" color="textSecondary">
       1. App Bar 元件之所以沒有顯示在這裡，是因為 AppBar 是固定在網頁上的元件
     </Typography>
-    <SWAPSpace size="small" />
+    <SWAPSpace size="s" />
     <Typography variant="body2" color="textSecondary">
       2. 縮小視窗來模擬手機版上的 AppBar
     </Typography>

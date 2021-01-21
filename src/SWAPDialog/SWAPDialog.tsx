@@ -43,34 +43,34 @@ const SWAPDialog: React.FC<SWAPDialogProps> = ({
                   {status === "warning" ? <div className="w_bar bar" /> : null}
                   {status === "critical" ? <div className="c_bar bar" /> : null}
                   <Container maxWidth="lg">
-                    <SWAPSpace size="small" />
+                    <SWAPSpace size="s" />
                     <Typography variant="h5">{title}</Typography>
                     {helpText ? (
                       <Typography variant="body2">{helpText}</Typography>
                     ) : null}
-                    <SWAPSpace size="small" />
+                    <SWAPSpace size="s" />
                   </Container>
                   {children ? <Divider /> : null}
                 </div>
                 {children ? (
                   <div className="dialog_inner_body">
                     <Container maxWidth="lg">
-                      <SWAPSpace size="middle" />
+                      <SWAPSpace size="m" />
                       <div>{children}</div>
-                      <SWAPSpace size="middle" />
+                      <SWAPSpace size="m" />
                     </Container>
                   </div>
                 ) : null}
                 <div className="dialog_inner_footer">
                   <Divider />
                   <Container maxWidth="lg">
-                    <SWAPSpace size="small" />
+                    <SWAPSpace size="s" />
                     <Grid
                       container
                       wrap="nowrap"
                       alignItems="center"
                       spacing={3}
-                      justify="flex-end"
+                      justifyContent="flex-end"
                     >
                       <Grid item>
                         {secondaryButton &&
@@ -80,7 +80,6 @@ const SWAPDialog: React.FC<SWAPDialogProps> = ({
                             size="large"
                             onClick={() => secondaryButton.onClick()}
                             disabled={secondaryButton.disabled}
-                            color="default"
                           >
                             {secondaryButton.title}
                           </Button>
@@ -98,7 +97,7 @@ const SWAPDialog: React.FC<SWAPDialogProps> = ({
                         ) : null}
                       </Grid>
                     </Grid>
-                    <SWAPSpace size="small" />
+                    <SWAPSpace size="s" />
                   </Container>
                 </div>
               </Paper>

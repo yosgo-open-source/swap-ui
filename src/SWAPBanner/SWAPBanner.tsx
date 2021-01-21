@@ -42,9 +42,9 @@ const SWAPBanner: React.FC<SWAPBannerProps> = ({
             {status === "warning" ? <div className="w_bar bar" /> : null}
             {status === "critical" ? <div className="c_bar bar" /> : null}
             <Container maxWidth="lg">
-              <SWAPSpace size="large" />
+              <SWAPSpace size="l" />
               <Typography variant="h6">{title}</Typography>
-              <SWAPSpace size="small" />
+              <SWAPSpace size="s" />
               <Typography variant="body2">{content}</Typography>
               {primaryButton || secondaryButton ? (
                 <Grid container spacing={1}>
@@ -78,7 +78,7 @@ const SWAPBanner: React.FC<SWAPBannerProps> = ({
                   ) : null}
                 </Grid>
               ) : null}
-              <SWAPSpace size="large" />
+              <SWAPSpace size="l" />
             </Container>
           </Paper>
         </Fade>

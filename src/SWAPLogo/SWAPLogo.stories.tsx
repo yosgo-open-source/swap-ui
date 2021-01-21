@@ -37,7 +37,7 @@ export const 顏色 = () => {
         </Typography>
         <SWAPSpace />
         <SWAPLogo />
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
         <Typography variant="subtitle1">深色</Typography>
         <Typography variant="body2" color="textSecondary">
           深色顏色 #121037 rgba(18, 16, 55, 1)
@@ -59,20 +59,20 @@ export const 尺寸 = () => {
         </Typography>
         <SWAPSpace />
         <SWAPLogo size="small" />
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
         <Typography variant="subtitle1">中</Typography>
         <Typography variant="body2" color="textSecondary">
           中型尺寸的 Logo
         </Typography>
         <SWAPSpace />
         <SWAPLogo size="middle" />
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
         <Typography variant="subtitle1">大</Typography>
         <Typography variant="body2" color="textSecondary">
           大型尺寸的 Logo
         </Typography>
         <SWAPSpace />
-        <SWAPLogo size="large" />
+        <SWAPLogo size="l" />
       </div>
     </SWAPTheme>
   );
@@ -88,20 +88,20 @@ export const 企業版 = () => {
         </Typography>
         <SWAPSpace />
         <SWAPLogo size="small" business />
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
         <Typography variant="subtitle1">中</Typography>
         <Typography variant="body2" color="textSecondary">
           中型尺寸的 Logo
         </Typography>
         <SWAPSpace />
         <SWAPLogo size="middle" business />
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
         <Typography variant="subtitle1">大</Typography>
         <Typography variant="body2" color="textSecondary">
           大型尺寸的 Logo
         </Typography>
         <SWAPSpace />
-        <SWAPLogo size="large" business />
+        <SWAPLogo size="l" business />
       </div>
     </SWAPTheme>
   );

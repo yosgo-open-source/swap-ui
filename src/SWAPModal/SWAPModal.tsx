@@ -125,7 +125,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
   return (
     <Modal
       open={open}
-      onRendered={() => handleModalSize()}
+      // onRendered={() => handleModalSize()}
       onClose={() => onClose()}
     >
       <Fade in={open} timeout={{ enter: 300, exit: 300 }}>
@@ -135,13 +135,13 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
               {/**視窗標題區域 */}
               <div className="modal_inner_header" id={`modal_header_${title}`}>
                 <Container maxWidth="lg">
-                  <SWAPSpace size="middle" />
+                  <SWAPSpace size="m" />
                   <Grid
                     container
                     wrap="nowrap"
                     alignItems="center"
                     spacing={1}
-                    justify="space-between"
+                    justifyContent="space-between"
                   >
                     <Grid item>
                       <Typography variant="h5">{title}</Typography>
@@ -157,14 +157,14 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                       </IconButton>
                     </Grid>
                   </Grid>
-                  <SWAPSpace size="middle" />
+                  <SWAPSpace size="m" />
                 </Container>
                 <Divider />
               </div>
               {/**視窗內容區域 */}
               <div className="modal_inner_body" id={`modal_body_${title}`}>
                 <Container maxWidth="lg">
-                  <SWAPSpace size="middle" />
+                  <SWAPSpace size="m" />
                   {/**步驟視窗的內容 */}
                   {steps && steps.length > 0 ? (
                     <div>
@@ -172,7 +172,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                         {steps.map((s, i) => (
                           <Button
                             key={`step_breadcrumb_${i}`}
-                            color={i === stepIndex ? "primary" : "default"}
+                            color={i === stepIndex ? "primary" : null}
                             onClick={() => setStepIndex(i)}
                             size={sm ? "small" : "medium"}
                           >
@@ -180,20 +180,20 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                           </Button>
                         ))}
                       </Breadcrumbs>
-                      <SWAPSpace size="middle" />
+                      <SWAPSpace size="m" />
                       <div>{steps[stepIndex].stepChildren}</div>
                     </div>
                   ) : null}
                   {/**原始視窗的內容 */}
                   {children ? <div>{children}</div> : null}
-                  <SWAPSpace size="middle" />
+                  <SWAPSpace size="m" />
                 </Container>
               </div>
               {/**視窗底端 */}
               <div className="modal_inner_bottom" id={`modal_bottom_${title}`}>
                 <Divider />
                 <Container maxWidth="lg">
-                  <SWAPSpace size="middle" />
+                  <SWAPSpace size="m" />
                   {(successMessage && successMessage.length > 0) ||
                   (errorMessage && errorMessage.length > 0) ? (
                     <Fade in>
@@ -202,7 +202,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                           container
                           wrap="nowrap"
                           alignItems="center"
-                          justify="flex-end"
+                          justifyContent="flex-end"
                         >
                           <Grid item style={{ margin: "0 6px -6px 0" }}>
                             {successMessage ? (
@@ -217,7 +217,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                             </Typography>
                           </Grid>
                         </Grid>
-                        <SWAPSpace size="small" />
+                        <SWAPSpace size="s" />
                       </div>
                     </Fade>
                   ) : null}
@@ -237,7 +237,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                         wrap="nowrap"
                         alignItems="center"
                         spacing={sm ? 1 : 2}
-                        justify="flex-end"
+                        justifyContent="flex-end"
                       >
                         {/**
                          * 顯示上一步驟的按鈕
@@ -290,7 +290,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                         wrap="nowrap"
                         alignItems="center"
                         spacing={sm ? 1 : 2}
-                        justify="flex-end"
+                        justifyContent="flex-end"
                       >
                         <Grid item>
                           {stepIndex > 0 ? (
@@ -315,7 +315,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                       </Grid>
                     </Fade>
                   )}
-                  <SWAPSpace size="middle" />
+                  <SWAPSpace size="m" />
                 </Container>
               </div>
             </Paper>

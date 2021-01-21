@@ -23,11 +23,13 @@ const Demo: Story<SWAPSpaceProps> = (args) => {
   return (
     <SWAPTheme>
       <Typography variant="h4">區間的配置</Typography>
-      <SWAPSpace size="small" />
+      <SWAPSpace size="s" />
       <Typography variant="body1">
         &nbsp;我是一段描述，與上下方元件有著特定的區間
       </Typography>
-      <SWAPSpace {...args} />
+      <div style={{ backgroundColor: "#4b4b4b" }}>
+        <SWAPSpace {...args} />
+      </div>
       <Button color="primary" variant="contained">
         我是按鈕
       </Button>
@@ -36,14 +38,14 @@ const Demo: Story<SWAPSpaceProps> = (args) => {
 };
 export const 認識 = Demo.bind({});
 認識.args = {
-  size: "large",
+  size: "l",
 };
 
 export const 小區間 = () => {
   return (
     <SWAPTheme>
       <Typography variant="h4">標題</Typography>
-      <SWAPSpace size="small" />
+      <SWAPSpace size="s" />
       <Typography variant="body1">
         &nbsp;輔助文字。這標題與輔助文字的距離是小區間
       </Typography>
@@ -59,7 +61,7 @@ export const 中區間 = () => {
       <Typography variant="body2">
         視窗開啟後，Modal 操作按鈕上下的區間即是使用中區間
       </Typography>
-      <SWAPSpace size="middle" />
+      <SWAPSpace size="m" />
       <Button variant="contained" color="primary" onClick={() => setOpen(true)}>
         點我示意
       </Button>
@@ -93,27 +95,27 @@ export const 大區間 = () => {
   return (
     <SWAPTheme>
       <div>
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
         <Typography variant="h4" align="center">
           我是區間一
         </Typography>
-        <SWAPSpace size="small" />
+        <SWAPSpace size="s" />
         <Typography variant="body1" align="center">
           分隔線到此段描述是使用大區間
         </Typography>
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
       </div>
       <Divider />
       <div>
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
         <Typography variant="h4" align="center">
           我是區間二
         </Typography>
-        <SWAPSpace size="small" />
+        <SWAPSpace size="s" />
         <Typography variant="body1" align="center">
           區間二不甘寂寞，也需要一點描述
         </Typography>
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
       </div>
     </SWAPTheme>
   );

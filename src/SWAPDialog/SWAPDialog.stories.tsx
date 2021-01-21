@@ -80,7 +80,7 @@ export const 狀態 = () => {
             onClick: () => setDia1(false),
           }}
         />
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
         <Typography variant="subtitle1">注意狀態</Typography>
         <Typography variant="body2" color="textSecondary">
           操作某件事前提醒用戶要注意
@@ -110,7 +110,7 @@ export const 狀態 = () => {
             </div>
           }
         />
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
         <Typography variant="subtitle1">危險狀態</Typography>
         <Typography variant="body2" color="textSecondary">
           告知用戶危險的狀態
@@ -180,7 +180,7 @@ export const 內容多寡 = () => {
         >
           點我示意
         </Button>
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
         <Typography variant="subtitle1">額外資訊</Typography>
         <Typography variant="body2" color="textSecondary">
           某件要用戶確認的事情無法以一句話解釋完畢。額外的資訊建議不要多於可視範圍，
@@ -216,11 +216,11 @@ export const 內容多寡 = () => {
               <Typography variant="body2">
                 1️⃣ 系統需要一個完整的工作日進行匯款
               </Typography>
-              <SWAPSpace size="small" />
+              <SWAPSpace size="s" />
               <Typography variant="body2">
                 2️⃣ 提領後若遇假日將於最近之工作日進行匯款
               </Typography>
-              <SWAPSpace size="small" />
+              <SWAPSpace size="s" />
               <Typography variant="body2">
                 3️⃣ 例如，週五晚上 8 點提領，系統將於週一完成匯款
               </Typography>
@@ -312,9 +312,9 @@ export const 整合應用 = () => {
               <Typography variant="body2">
                 1. 花錢課金，直接變成萬人迷
               </Typography>
-              <SWAPSpace size="small" />
+              <SWAPSpace size="s" />
               <Typography variant="body2">2. 前往把妹新手村</Typography>
-              <SWAPSpace size="small" />
+              <SWAPSpace size="s" />
               <Typography variant="body2">3. 刪帳號</Typography>
             </div>
           }

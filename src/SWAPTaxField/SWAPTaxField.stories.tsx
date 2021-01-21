@@ -73,7 +73,7 @@ export const 完整示意 = () => {
                   variant="outlined"
                   helperText="請簡述本次案件的服務內容與服務對象"
                 />
-                <SWAPSpace size="large" />
+                <SWAPSpace size="l" />
               </div>
             ),
           },
@@ -99,7 +99,7 @@ export const 回應內容 = () => {
       <Typography variant="body2" color="textSecondary">
         用戶操作『案件內容』下拉選單以及『設定申報類別』時會呼叫 onChange 函式。
       </Typography>
-      <SWAPSpace size="large" />
+      <SWAPSpace size="l" />
       <SWAPTaxField taxDescription="" onChange={(value) => setValue(value)} />
       <SWAPSpace />
       <Typography variant="body2">
@@ -129,7 +129,7 @@ export const Control = () => {
         taxDescription="9A 執行業務所得 - [92] 程式設計師"
         onChange={(value) => alert(JSON.stringify(value))}
       />
-      <SWAPSpace size="large" />
+      <SWAPSpace size="l" />
       <Typography variant="subtitle1">模擬多次更新</Typography>
       <Typography variant="body2" color="textSecondary">
         第一次顯示初始值，3 秒後抓取資料後再次更新 props taxDescription
@@ -150,7 +150,7 @@ export const 相關幫助函式 = () => {
       <Typography variant="body2" color="textSecondary">
         元件中可以 import 原始資料、幫助函式。
       </Typography>
-      <SWAPSpace size="large" />
+      <SWAPSpace size="l" />
       <Typography variant="body2" color="textSecondary">
         SWAPIncomeTypes 所得類別的陣列
         <SWAPSpace />

@@ -18,15 +18,18 @@ export default {
     },
   },
 };
-
-const Demo: Story<SWAPBannerProps> = (args) => <SWAPBanner {...args} />;
+const Demo: Story<SWAPBannerProps> = (args) => (
+  <SWAPTheme>
+    <SWAPBanner {...args} />
+  </SWAPTheme>
+);
 export const 認識 = Demo.bind({});
 認識.args = {
   status: "warning",
   title: "注意！您目前帳號內的燃料不足",
   content: "不需要擔心，本次行程不會受到影響，但我們建議您找機會補充燃料",
   primaryButton: {
-    title: "我瞭解了",
+    title: "asdlkjwioedasd我是大笨豬注意我瞭解了",
     onClick: () => {},
   },
   secondaryButton: {
@@ -52,7 +55,7 @@ export const 狀態 = () => {
           onClick: () => {},
         }}
       />
-      <SWAPSpace size="large" />
+      <SWAPSpace size="l" />
       <Typography variant="subtitle1">注意狀態</Typography>
       <Typography variant="body2" color="textSecondary">
         提醒用戶要注意某一件事情
@@ -67,7 +70,7 @@ export const 狀態 = () => {
           onClick: () => {},
         }}
       />
-      <SWAPSpace size="large" />
+      <SWAPSpace size="l" />
       <Typography variant="subtitle1">注意狀態</Typography>
       <Typography variant="body2" color="textSecondary">
         告知用戶要儘快處理，避免產生負面影響
@@ -82,7 +85,7 @@ export const 狀態 = () => {
           onClick: () => {},
         }}
       />
-      <SWAPSpace size="large" />
+      <SWAPSpace size="l" />
     </SWAPTheme>
   );
 };
@@ -141,7 +144,7 @@ export const 自動鎖定 = () => {
       <Typography variant="body2" color="textSecondary">
         假設這個頁面有很長的欄位要更新，用戶最後點擊了儲存按鈕
       </Typography>
-      <SWAPSpace size="small" />
+      <SWAPSpace size="s" />
       <Button variant="contained" color="primary" onClick={() => setShow(true)}>
         儲存
       </Button>

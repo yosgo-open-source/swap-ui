@@ -3,7 +3,8 @@ import { Story } from "@storybook/react/types-6-0";
 import React from "react";
 import SWAPSpace from "../SWAPSpace/SWAPSpace";
 
-import SWAPTheme, { SWAPDefaultTheme } from "./SWAPTheme";
+import SWAPTheme from "./SWAPTheme";
+import SWAPDefaultTheme from "./SWAPTheme";
 import { SWAPThemeProps } from "./SWAPTheme.types";
 
 export default {
@@ -22,7 +23,7 @@ export default {
 const Demo: Story<SWAPThemeProps> = (args) => (
   <SWAPTheme {...args}>
     <Typography variant="body1">這是一個無聊但是重要的元件</Typography>
-    <SWAPSpace size="small" />
+    <SWAPSpace size="s" />
     <Typography variant="body2" color="textSecondary">
       請在頁面最外層使用此元件，Theme 的效果就會套用在 Material 的相關元件內。
     </Typography>

@@ -15,6 +15,8 @@ import {
   SWAPIncomeTypes,
 } from "./SWAPTaxField/SWAPTaxField";
 import SWAPTheme from "./SWAPTheme/SWAPTheme";
+import Styles from "./Styles/Styles";
+import Typography from "./Typography/Typography";
 
 export {
   SWAPAppBar,
@@ -32,4 +34,6 @@ export {
   SWAPExpenseTypes,
   SWAPIncomeTypes,
   SWAPTheme,
+  Styles,
+  Typography,
 };

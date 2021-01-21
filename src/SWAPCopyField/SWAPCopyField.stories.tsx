@@ -46,7 +46,7 @@ export const 客製化 = () => {
           copyInputLabel="請複製匯款用的虛擬帳號"
           copySuccessMessage="已成功複製 14 碼的虛擬帳號"
         />
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
         <Typography variant="subtitle1">多行輸入框</Typography>
         <Typography variant="body2" color="textSecondary">
           請用 \n 作為輸入框內的分行。範例請看 Show code 的內容

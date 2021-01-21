@@ -90,7 +90,7 @@ export const 內容多寡 = () => {
           </div>
         </SWAPModal>
       </div>
-      <SWAPSpace size="large" />
+      <SWAPSpace size="l" />
       <div>
         <Typography variant="subtitle1">Modal 內容少於視線範圍</Typography>
         <Typography variant="body2" color="textSecondary">
@@ -165,7 +165,7 @@ export const 訊息提示 = () => {
             <SWAPSpace />
           </div>
         </SWAPModal>
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
         <Typography variant="subtitle1">錯誤訊息</Typography>
         <Typography variant="body2" color="textSecondary">
           在視窗內點擊按鈕後執行某個事件所產生的錯誤訊息
@@ -240,7 +240,7 @@ export const 綁定成功訊息 = () => {
             <SWAPSpace />
           </div>
         </SWAPModal>
-        <SWAPSpace size="large" />
+        <SWAPSpace size="l" />
         <Typography variant="subtitle1">關閉並重新整理頁面</Typography>
         <Typography variant="body2" color="textSecondary">
           顯示成功訊息後，關閉視窗並重新整理
@@ -370,9 +370,9 @@ export const 多步驟視窗 = () => {
             stepChildren: (
               <div>
                 <Typography variant="body1">◻️ 可回收型</Typography>
-                <SWAPSpace size="large" />
+                <SWAPSpace size="l" />
                 <Typography variant="body1">◻️ 低耗能續航型</Typography>
-                <SWAPSpace size="large" />
+                <SWAPSpace size="l" />
                 <Typography variant="body1">◻️ 高乘載運輸型</Typography>
               </div>
             ),
@@ -383,13 +383,13 @@ export const 多步驟視窗 = () => {
             stepChildren: (
               <div>
                 <Typography variant="body1">◻️ 火星</Typography>
-                <SWAPSpace size="large" />
+                <SWAPSpace size="l" />
                 <Typography variant="body1">◻️ 金星</Typography>
-                <SWAPSpace size="large" />
+                <SWAPSpace size="l" />
                 <Typography variant="body1">◻️ 土星</Typography>
-                <SWAPSpace size="large" />
+                <SWAPSpace size="l" />
                 <Typography variant="body1">◻️ 水星</Typography>
-                <SWAPSpace size="large" />
+                <SWAPSpace size="l" />
                 <Typography variant="body1">◻️ 冥王星</Typography>
               </div>
             ),
@@ -400,11 +400,11 @@ export const 多步驟視窗 = () => {
             stepChildren: (
               <div>
                 <Typography variant="body1">️️◻️ 立即</Typography>
-                <SWAPSpace size="large" />
+                <SWAPSpace size="l" />
                 <Typography variant="body1">◻️ 一天後</Typography>
-                <SWAPSpace size="large" />
+                <SWAPSpace size="l" />
                 <Typography variant="body1">◻️ 三天後</Typography>
-                <SWAPSpace size="large" />
+                <SWAPSpace size="l" />
                 <Typography variant="body1">◻️ 七天後</Typography>
               </div>
             ),

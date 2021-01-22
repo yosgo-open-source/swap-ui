@@ -17,6 +17,10 @@ import {
 import SWAPTheme from "./SWAPTheme/SWAPTheme";
 import Styles from "./Styles/Styles";
 import Typography from "./Typography/Typography";
+import Container from "./Container/Container";
+import useBreakpoints from "./utils/useBreakpoints";
+import CheckBox from "./CheckBox/CheckBox";
+import RadioButton from "./CheckBox/RadioButton";
 
 export {
   SWAPAppBar,
@@ -36,4 +40,8 @@ export {
   SWAPTheme,
   Styles,
   Typography,
+  Container,
+  useBreakpoints,
+  CheckBox,
+  RadioButton,
 };

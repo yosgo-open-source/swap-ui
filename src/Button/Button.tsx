@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { ButtonProps } from "./Button.types";
 import { makeStyles, useTheme } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import SWAPTheme from "../SWAPTheme/SWAPTheme";
 
 const Button: React.FC<ButtonProps> = ({
   children,
@@ -38,6 +39,14 @@ const Button: React.FC<ButtonProps> = ({
           : size === "large"
           ? "56px"
           : "48px",
+      padding:
+        size === "small"
+          ? "0 12px"
+          : size === "medium"
+          ? "0 24px"
+          : size === "large"
+          ? "0 32px"
+          : null,
       minWidth: minWidth,
       width: width,
       fontSize:
@@ -128,82 +137,84 @@ const Button: React.FC<ButtonProps> = ({
   });
   const classes = useStyles();
   return (
-    <ButtonWrap>
-      <MaterialButton
-        className={classes.root}
-        disableElevation
-        disableFocusRipple
-        onClick={() => {
-          setNoFocus(true);
-          onClick();
-        }}
-        variant={
-          variant === "primary" || variant === "tertiary"
-            ? "contained"
-            : variant === "secondary"
-            ? "outlined"
-            : variant === "text"
-            ? "text"
-            : "text"
-        }
-        fullWidth={fullWidth ? true : false}
-        disabled={disabled ? true : false}
-        color="primary"
-        size="medium"
-        startIcon={startIcon}
-        endIcon={endIcon}
-        style={style}
-      >
-        {/* Loading circle */}
-        {loading ? (
-          <div style={{ position: "relative" }}>
-            {/* bottom */}
-            <CircularProgress
-              variant="determinate"
-              value={100}
-              size={20}
-              thickness={5}
-              style={{
-                position: "absolute",
-                left: -10,
-                top: -10,
-                color:
-                  variant === "primary"
-                    ? theme.black.white
-                    : variant === "secondary" ||
-                      variant === "tertiary" ||
-                      variant === "text"
-                    ? theme.black.black500
-                    : theme.black.white,
-                opacity: variant !== "primary" ? 1 : 0.4,
-              }}
-            />
-            {/* top */}
-            <CircularProgress
-              variant="indeterminate"
-              color="primary"
-              size={20}
-              thickness={5}
-              style={{
-                position: "absolute",
-                left: -10,
-                top: -10,
-                color:
-                  variant === "primary"
-                    ? theme.black.white
-                    : variant === "secondary" ||
-                      variant === "tertiary" ||
-                      variant === "text"
-                    ? theme.primary.primary800
-                    : theme.black.white,
-              }}
-            />
-          </div>
-        ) : (
-          <>{children}</>
-        )}
-      </MaterialButton>
-    </ButtonWrap>
+    <SWAPTheme>
+      <ButtonWrap>
+        <MaterialButton
+          className={classes.root}
+          disableElevation
+          disableFocusRipple
+          onClick={() => {
+            setNoFocus(true);
+            onClick();
+          }}
+          variant={
+            variant === "primary" || variant === "tertiary"
+              ? "contained"
+              : variant === "secondary"
+              ? "outlined"
+              : variant === "text"
+              ? "text"
+              : "text"
+          }
+          fullWidth={fullWidth}
+          disabled={disabled}
+          color="primary"
+          size="medium"
+          startIcon={startIcon}
+          endIcon={endIcon}
+          style={style}
+        >
+          {/* Loading circle */}
+          {loading ? (
+            <div style={{ position: "relative" }}>
+              {/* bottom */}
+              <CircularProgress
+                variant="determinate"
+                value={100}
+                size={20}
+                thickness={5}
+                style={{
+                  position: "absolute",
+                  left: -10,
+                  top: -10,
+                  color:
+                    variant === "primary"
+                      ? theme.black.white
+                      : variant === "secondary" ||
+                        variant === "tertiary" ||
+                        variant === "text"
+                      ? theme.black.black500
+                      : theme.black.white,
+                  opacity: variant !== "primary" ? 1 : 0.4,
+                }}
+              />
+              {/* top */}
+              <CircularProgress
+                variant="indeterminate"
+                color="primary"
+                size={20}
+                thickness={5}
+                style={{
+                  position: "absolute",
+                  left: -10,
+                  top: -10,
+                  color:
+                    variant === "primary"
+                      ? theme.black.white
+                      : variant === "secondary" ||
+                        variant === "tertiary" ||
+                        variant === "text"
+                      ? theme.primary.primary800
+                      : theme.black.white,
+                }}
+              />
+            </div>
+          ) : (
+            <>{children}</>
+          )}
+        </MaterialButton>
+      </ButtonWrap>
+    </SWAPTheme>
   );
 };
 

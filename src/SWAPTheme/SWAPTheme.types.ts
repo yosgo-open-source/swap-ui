@@ -1,4 +1,5 @@
 import { ThemeOptions } from "@material-ui/core";
+import { BreakpointOverrides } from "@material-ui/core/styles/createBreakpoints";
 
 export interface SWAPThemeProps {
   themeOptions?: ThemeOptions;

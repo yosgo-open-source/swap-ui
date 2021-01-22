@@ -16,6 +16,9 @@ const SWAPDefaultTheme = {
     primary: {
       main: "#1f3c8e",
     },
+    neutral: {
+      main: "#5c6ac4",
+    },
   },
   primary: {
     primary50: "#E8EBF5",
@@ -139,6 +142,24 @@ const SWAPDefaultTheme = {
     MuiPaper: {
       rounded: {
         borderRadius: "15px",
+      },
+    },
+    MuiCheckbox: {
+      colorPrimary: {
+        color: "#cccccc",
+        "&$checked": {
+          color: "#173a9b",
+        },
+        "&$disabled": {
+          opacity: 0.4,
+          color: "#cccccc",
+          "&$checked": {
+            color: "#173a9b",
+          },
+        },
+        "&:hover": {
+          backgroundColor: "rgba(0%,0%,0%,0.05)",
+        },
       },
     },
   },

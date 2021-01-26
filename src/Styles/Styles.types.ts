@@ -3,4 +3,5 @@ export interface StylesProps {
   borderRadius?: string;
   boxShadow?: string;
   style?: React.CSSProperties;
+  cobyText?: string;
 }

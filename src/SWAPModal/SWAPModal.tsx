@@ -125,7 +125,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
   return (
     <Modal
       open={open}
-      // onRendered={() => handleModalSize()}
+      onRendered={() => handleModalSize()}
       onClose={() => onClose()}
     >
       <Fade in={open} timeout={{ enter: 300, exit: 300 }}>
@@ -141,7 +141,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                     wrap="nowrap"
                     alignItems="center"
                     spacing={1}
-                    justifyContent="space-between"
+                    justify="space-between"
                   >
                     <Grid item>
                       <Typography variant="h5">{title}</Typography>
@@ -172,7 +172,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                         {steps.map((s, i) => (
                           <Button
                             key={`step_breadcrumb_${i}`}
-                            color={i === stepIndex ? "primary" : null}
+                            color={i === stepIndex ? "primary" : "default"}
                             onClick={() => setStepIndex(i)}
                             size={sm ? "small" : "medium"}
                           >
@@ -202,7 +202,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                           container
                           wrap="nowrap"
                           alignItems="center"
-                          justifyContent="flex-end"
+                          justify="flex-end"
                         >
                           <Grid item style={{ margin: "0 6px -6px 0" }}>
                             {successMessage ? (
@@ -237,7 +237,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                         wrap="nowrap"
                         alignItems="center"
                         spacing={sm ? 1 : 2}
-                        justifyContent="flex-end"
+                        justify="flex-end"
                       >
                         {/**
                          * 顯示上一步驟的按鈕
@@ -290,7 +290,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
                         wrap="nowrap"
                         alignItems="center"
                         spacing={sm ? 1 : 2}
-                        justifyContent="flex-end"
+                        justify="flex-end"
                       >
                         <Grid item>
                           {stepIndex > 0 ? (

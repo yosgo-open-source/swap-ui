@@ -38,244 +38,245 @@ export const 認識 = Demo.bind({});
 export const 顏色 = () => {
   return (
     <SWAPTheme>
+      點擊色塊可複製色碼！
       <SWAPSpace />
       {/* Primary */}
       <div style={{ display: "flex" }}>
         <div>
           <Typography>primary50</Typography>
-          <Styles color="primary50" />
+          <Styles color="primary50" cobyText="#E6E9F8" />
         </div>
         <div>
           <Typography>primary100</Typography>
-          <Styles color="primary100" />
+          <Styles color="primary100" cobyText="#C1C7ED" />
         </div>
         <div>
           <Typography>primary200</Typography>
-          <Styles color="primary200" />
+          <Styles color="primary200" cobyText="#97A3E1" />
         </div>
         <div>
           <Typography>primary300</Typography>
-          <Styles color="primary300" />
+          <Styles color="primary300" cobyText="#6C7FD5" />
         </div>
         <div>
           <Typography>primary400</Typography>
-          <Styles color="primary400" />
+          <Styles color="primary400" cobyText="#4862CC" />
         </div>
         <div>
           <Typography>primary500</Typography>
-          <Styles color="primary500" />
+          <Styles color="primary500" cobyText="#1747C2" />
         </div>
         <div>
           <Typography>primary600</Typography>
-          <Styles color="primary600" />
+          <Styles color="primary600" cobyText="#0F3FB8" />
         </div>
         <div>
           <Typography>primary700</Typography>
-          <Styles color="primary700" />
+          <Styles color="primary700" cobyText="#0035AC" />
         </div>
         <div>
           <Typography>primary800</Typography>
-          <Styles color="primary800" />
+          <Styles color="primary800" cobyText="#002BA1" />
         </div>
 
         <div>
           <Typography>primary900</Typography>
-          <Styles color="primary900" />
+          <Styles color="primary900" cobyText="#00188B" />
         </div>
         <div>
           <Typography>primaryA11y</Typography>
-          <Styles color="primaryA11y" />
+          <Styles color="primaryA11y" cobyText="#071E60" />
         </div>
       </div>
       {/* Secondary */}
       <div style={{ display: "flex" }}>
         <div>
           <Typography>secondary50</Typography>
-          <Styles color="secondary50" />
+          <Styles color="secondary50" cobyText="#FEF8E3" />
         </div>
         <div>
           <Typography>secondary100</Typography>
-          <Styles color="secondary100" />
+          <Styles color="secondary100" cobyText="#FCECB7" />
         </div>
         <div>
           <Typography>secondary200</Typography>
-          <Styles color="secondary200" />
+          <Styles color="secondary200" cobyText="#FBDF8A" />
         </div>
         <div>
           <Typography>secondary300</Typography>
-          <Styles color="secondary300" />
+          <Styles color="secondary300" cobyText="#FAD45C" />
         </div>
         <div>
           <Typography>secondary400</Typography>
-          <Styles color="secondary400" />
+          <Styles color="secondary400" cobyText="#F9C93F" />
         </div>
         <div>
           <Typography>secondary500</Typography>
-          <Styles color="secondary500" />
+          <Styles color="secondary500" cobyText="#F8C131" />
         </div>
         <div>
           <Typography>secondary600</Typography>
-          <Styles color="secondary600" />
+          <Styles color="secondary600" cobyText="#F7B52C" />
         </div>
         <div>
           <Typography>secondary700</Typography>
-          <Styles color="secondary700" />
+          <Styles color="secondary700" cobyText="#F6A128" />
         </div>
         <div>
           <Typography>secondary800</Typography>
-          <Styles color="secondary800" />
+          <Styles color="secondary800" cobyText="#F59225" />
         </div>
 
         <div>
           <Typography>secondary900</Typography>
-          <Styles color="secondary900" />
+          <Styles color="secondary900" cobyText="#F27521" />
         </div>
         <div>
           <Typography>secondaryA11y</Typography>
-          <Styles color="secondaryA11y" />
+          <Styles color="secondaryA11y" cobyText="#E5640C" />
         </div>
       </div>
       {/* Danger */}
       <div style={{ display: "flex" }}>
         <div>
           <Typography>danger50</Typography>
-          <Styles color="danger50" />
+          <Styles color="danger50" cobyText="#FFEBED" />
         </div>
         <div>
           <Typography>danger100</Typography>
-          <Styles color="danger100" />
+          <Styles color="danger100" cobyText="#FFCCD0" />
         </div>
         <div>
           <Typography>danger200</Typography>
-          <Styles color="danger200" />
+          <Styles color="danger200" cobyText="#F99894" />
         </div>
         <div>
           <Typography>danger300</Typography>
-          <Styles color="danger300" />
+          <Styles color="danger300" cobyText="#F26E6A" />
         </div>
         <div>
           <Typography>danger400</Typography>
-          <Styles color="danger400" />
+          <Styles color="danger400" cobyText="#FC4A43" />
         </div>
         <div>
           <Typography>danger500</Typography>
-          <Styles color="danger500" />
+          <Styles color="danger500" cobyText="#FF3622" />
         </div>
         <div>
           <Typography>danger600</Typography>
-          <Styles color="danger600" />
+          <Styles color="danger600" cobyText="#F32A23" />
         </div>
         <div>
           <Typography>danger700</Typography>
-          <Styles color="danger700" />
+          <Styles color="danger700" cobyText="#E11C1E" />
         </div>
         <div>
           <Typography>danger800</Typography>
-          <Styles color="danger800" />
+          <Styles color="danger800" cobyText="#D40F14" />
         </div>
 
         <div>
           <Typography>danger900</Typography>
-          <Styles color="danger900" />
+          <Styles color="danger900" cobyText="#C60003" />
         </div>
         <div>
           <Typography>dangerA11y</Typography>
-          <Styles color="dangerA11y" />
+          <Styles color="dangerA11y" cobyText="#A80003" />
         </div>
       </div>
       {/* Success */}
       <div style={{ display: "flex" }}>
         <div>
           <Typography>success50</Typography>
-          <Styles color="success50" />
+          <Styles color="success50" cobyText="#E6F6E8" />
         </div>
         <div>
           <Typography>success100</Typography>
-          <Styles color="success100" />
+          <Styles color="success100" cobyText="#C3E8C6" />
         </div>
         <div>
           <Typography>success200</Typography>
-          <Styles color="success200" />
+          <Styles color="success200" cobyText="#9BD9A1" />
         </div>
         <div>
           <Typography>success300</Typography>
-          <Styles color="success300" />
+          <Styles color="success300" cobyText="#70CB7A" />
         </div>
         <div>
           <Typography>success400</Typography>
-          <Styles color="success400" />
+          <Styles color="success400" cobyText="#4CC05D" />
         </div>
         <div>
           <Typography>success500</Typography>
-          <Styles color="success500" />
+          <Styles color="success500" cobyText="#1EB43F" />
         </div>
         <div>
           <Typography>success600</Typography>
-          <Styles color="success600" />
+          <Styles color="success600" cobyText="#10A535" />
         </div>
         <div>
           <Typography>success700</Typography>
-          <Styles color="success700" />
+          <Styles color="success700" cobyText="#00932A" />
         </div>
         <div>
           <Typography>success800</Typography>
-          <Styles color="success800" />
+          <Styles color="success800" cobyText="#00821E" />
         </div>
 
         <div>
           <Typography>success900</Typography>
-          <Styles color="success900" />
+          <Styles color="success900" cobyText="#006305" />
         </div>
         <div>
           <Typography>successA11y</Typography>
-          <Styles color="successA11y" />
+          <Styles color="successA11y" cobyText="#015C16" />
         </div>
       </div>
       {/* Black */}
       <div style={{ display: "flex" }}>
         <div>
           <Typography>white</Typography>
-          <Styles color="white" />
+          <Styles color="white" cobyText="#FFFFFF" />
         </div>
         <div>
           <Typography>black100</Typography>
-          <Styles color="black100" />
+          <Styles color="black100" cobyText="#F9F9F9" />
         </div>
         <div>
           <Typography>black200</Typography>
-          <Styles color="black200" />
+          <Styles color="black200" cobyText="#F9F9F9" />
         </div>
         <div>
           <Typography>black300</Typography>
-          <Styles color="black300" />
+          <Styles color="black300" cobyText="#F2F2F2" />
         </div>
         <div>
           <Typography>black400</Typography>
-          <Styles color="black400" />
+          <Styles color="black400" cobyText="#ECECEC" />
         </div>
         <div>
           <Typography>black500</Typography>
-          <Styles color="black500" />
+          <Styles color="black500" cobyText="#CCCCCC" />
         </div>
         <div>
           <Typography>black600</Typography>
-          <Styles color="black600" />
+          <Styles color="black600" cobyText="#909090" />
         </div>
         <div>
           <Typography>black700</Typography>
-          <Styles color="black700" />
+          <Styles color="black700" cobyText="#6F6F6F" />
         </div>
         <div>
           <Typography>black800</Typography>
-          <Styles color="black800" />
+          <Styles color="black800" cobyText="#4B4B4B" />
         </div>
         <div>
           <Typography>black900</Typography>
-          <Styles color="black900" />
+          <Styles color="black900" cobyText="#2D2D2D" />
         </div>
         <div>
           <Typography>black1000</Typography>
-          <Styles color="black1000" />
+          <Styles color="black1000" cobyText="#000000" />
         </div>
       </div>
     </SWAPTheme>

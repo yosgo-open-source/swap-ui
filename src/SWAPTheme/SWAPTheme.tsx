@@ -14,37 +14,34 @@ const SWAPDefaultTheme = {
   //Color
   palette: {
     primary: {
-      main: "#1f3c8e",
-    },
-    neutral: {
-      main: "#5c6ac4",
+      main: "#4862CC",
     },
   },
   primary: {
-    primary50: "#E8EBF5",
-    primary100: "#C4CCE7",
-    primary200: "#9DABD7",
-    primary300: "#768AC7",
-    primary400: "#5770BB",
-    primary500: "#3757B0",
-    primary600: "#314FA6",
-    primary700: "#27459A",
+    primary50: "#E6E9F8",
+    primary100: "#C1C7ED",
+    primary200: "#97A3E1",
+    primary300: "#6C7FD5",
+    primary400: "#4862CC",
+    primary500: "#1747C2",
+    primary600: "#0F3FB8",
+    primary700: "#0035AC",
     primary800: "#1F3C8E",
-    primary900: "#102A78",
-    primaryA11y: "#121D3B",
+    primary900: "#002BA1",
+    primaryA11y: "#071E60",
   },
   secondary: {
-    secondary50: "#FEF4E5",
-    secondary100: "#FEE3BE",
-    secondary200: "#FED195",
-    secondary300: "#FEBF6E",
-    secondary400: "#FDB156",
-    secondary500: "#FBA54A",
-    secondary600: "#F69A46",
-    secondary700: "#EE8B41",
-    secondary800: "#E67E3E",
-    secondary900: "#D96B3A",
-    secondaryA11y: "#B74412",
+    secondary50: "#FEF8E3",
+    secondary100: "#FCECB7",
+    secondary200: "#FBDF8A",
+    secondary300: "#FAD45C",
+    secondary400: "#F9C93F",
+    secondary500: "#F8C131",
+    secondary600: "#F7B52C",
+    secondary700: "#F6A128",
+    secondary800: "#F59225",
+    secondary900: "#F27521",
+    secondaryA11y: "#E5640C",
   },
   danger: {
     danger50: "#FFEBED",
@@ -140,10 +137,17 @@ const SWAPDefaultTheme = {
       },
     },
     MuiPaper: {
+      root: {
+        border: "1px solid #cccccc",
+      },
       rounded: {
-        borderRadius: "15px",
+        borderRadius: "8px",
+      },
+      elevation8: {
+        boxShadow: " 0px 4px 12px rgba(0, 0, 0, 0.1)",
       },
     },
+    //CheckBox
     MuiCheckbox: {
       colorPrimary: {
         color: "#cccccc",
@@ -160,6 +164,56 @@ const SWAPDefaultTheme = {
         "&:hover": {
           backgroundColor: "rgba(0%,0%,0%,0.05)",
         },
+      },
+    },
+    //Input
+    //Menu
+    MuiOutlinedInput: {
+      root: {
+        borderRadius: "8px",
+      },
+      input: {
+        padding: "0px 16px",
+      },
+    },
+    MuiFormLabel: {
+      root: {
+        "&$focused": {
+          color: "#4b4b4b",
+        },
+        "&.Mui-error": {
+          color: "#4b4b4b",
+        },
+      },
+    },
+    MuiFormHelperText: {
+      root: {
+        fontSize: 14,
+        color: "#6f6f6f",
+        "&.Mui-error": {
+          color: "#e20f0f",
+        },
+      },
+    },
+    MuiInputLabel: {
+      shrink: {
+        fontWeight: 700,
+      },
+    },
+
+    //Tab
+    MuiTab: {
+      textColorInherit: {
+        opacity: 1,
+        color: "#909090",
+        "&$selected": {
+          color: "#000000",
+        },
+      },
+    },
+    PrivateTabIndicator: {
+      root: {
+        height: 4,
       },
     },
   },

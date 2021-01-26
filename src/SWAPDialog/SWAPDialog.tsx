@@ -70,7 +70,7 @@ const SWAPDialog: React.FC<SWAPDialogProps> = ({
                       wrap="nowrap"
                       alignItems="center"
                       spacing={3}
-                      justifyContent="flex-end"
+                      justify="flex-end"
                     >
                       <Grid item>
                         {secondaryButton &&
@@ -80,6 +80,7 @@ const SWAPDialog: React.FC<SWAPDialogProps> = ({
                             size="large"
                             onClick={() => secondaryButton.onClick()}
                             disabled={secondaryButton.disabled}
+                            color="default"
                           >
                             {secondaryButton.title}
                           </Button>

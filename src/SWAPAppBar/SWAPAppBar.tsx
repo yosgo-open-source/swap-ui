@@ -46,11 +46,11 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
         >
           <Toolbar>
             <Container maxWidth="md">
-              <SWAPSpace size="s" />
+              <SWAPSpace size="small" />
               <Grid
                 container
                 alignItems="center"
-                justifyContent="space-between"
+                justify="space-between"
                 wrap="nowrap"
               >
                 <Grid item style={{ flexGrow: 1, flexBasis: "auto" }}>
@@ -87,7 +87,7 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
                   <Grid
                     container
                     spacing={1}
-                    justifyContent="flex-end"
+                    justify="flex-end"
                     alignItems="center"
                     className="mobile_hide"
                   >
@@ -117,7 +117,7 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
                     </Grid>
                   </Grid>
                   {/**手機版顯示 */}
-                  <Grid container justifyContent="flex-end">
+                  <Grid container justify="flex-end">
                     <Grid item>
                       <IconButton
                         onClick={(e) => handleClick(e)}
@@ -145,9 +145,9 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
                               {item.title}
                             </MenuItem>
                           ))}
-                        <SWAPSpace size="s" />
+                        <SWAPSpace size="small" />
                         <Divider />
-                        <SWAPSpace size="s" />
+                        <SWAPSpace size="small" />
                         {secondaryButton &&
                         secondaryButton.title &&
                         secondaryButton.title.length > 0 ? (
@@ -173,7 +173,7 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
                   </Grid>
                 </Grid>
               </Grid>
-              <SWAPSpace size="s" />
+              <SWAPSpace size="small" />
             </Container>
           </Toolbar>
         </AppBar>

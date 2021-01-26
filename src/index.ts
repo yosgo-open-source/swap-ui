@@ -21,6 +21,14 @@ import Container from "./Container/Container";
 import useBreakpoints from "./utils/useBreakpoints";
 import CheckBox from "./CheckBox/CheckBox";
 import RadioButton from "./CheckBox/RadioButton";
+import TextField from "./TextField/TextField";
+import Tab from "./Tab/Tab";
+import Tabs from "./Tab/Tabs";
+import SegmentedTab from "./Tab/SegmentedTab";
+import SegmentedTabs from "./Tab/SegmentedTabs";
+import TabPanel from "./Tab/TabPanel";
+import Menu from "./Menu/Menu";
+import MenuItem from "./Menu/MenuItem";
 
 export {
   SWAPAppBar,
@@ -44,4 +52,12 @@ export {
   useBreakpoints,
   CheckBox,
   RadioButton,
+  TextField,
+  Menu,
+  MenuItem,
+  Tab,
+  Tabs,
+  SegmentedTab,
+  SegmentedTabs,
+  TabPanel,
 };

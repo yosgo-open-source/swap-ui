@@ -4,6 +4,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import React from "react";
 import styled from "styled-components";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 import { StylesProps } from "./Styles.types";
 
@@ -12,6 +13,7 @@ const Styles: React.FC<StylesProps> = ({
   borderRadius,
   boxShadow,
   style,
+  cobyText,
 }) => {
   const theme = useTheme();
   const useStyles = makeStyles({
@@ -156,7 +158,9 @@ const Styles: React.FC<StylesProps> = ({
   return (
     <SWAPTheme>
       <StylesWrap>
-        <Box className={classes.root} style={style}></Box>
+        <CopyToClipboard text={cobyText}>
+          <Box className={classes.root} style={style} />
+        </CopyToClipboard>
       </StylesWrap>
     </SWAPTheme>
   );

@@ -9,10 +9,12 @@ const Container: React.FC<ContainerProps> = ({ children, style, maxWidth }) => {
   const useStyles = makeStyles({
     root: {
       maxWidth:
-        maxWidth === "xs"
-          ? 327
+        maxWidth === "xxs"
+          ? 398
+          : maxWidth === "xs"
+          ? 382
           : maxWidth === "sm"
-          ? 540
+          ? 576
           : maxWidth === "md"
           ? 720
           : maxWidth === "lg"

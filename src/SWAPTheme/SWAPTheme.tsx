@@ -4,10 +4,6 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import { SWAPThemeProps } from "./SWAPTheme.types";
 import { CssBaseline } from "@material-ui/core";
-import MPLUSRounded1c from "../fonts/MPLUSRounded1c-Regular.ttf";
-import MPLUSRounded1c_Bold from "../fonts/MPLUSRounded1c-Bold.ttf";
-import NotoSansTC from "../fonts/NotoSansTC-Regular.otf";
-import NotoSansTC_Bold from "../fonts/NotoSansTC-Bold.otf";
 
 const SWAPDefaultTheme = {
   //Design Token
@@ -107,24 +103,24 @@ const SWAPDefaultTheme = {
         "@font-face": [
           {
             fontFamily: "MPLUSRounded1c",
-            src: `url(${MPLUSRounded1c})`,
+            src: `url(https://cdn.leafscape.be/rounded-Mplus/rounded-mplus-1c-regular_web.woff2) format('woff2')`,
             unicodeRange: "U+00-024F",
             fontWeight: "normal",
           },
           {
             fontFamily: "MPLUSRounded1c",
-            src: `url(${MPLUSRounded1c_Bold})`,
+            src: `url(https://cdn.leafscape.be/rounded-Mplus/rounded-mplus-1c-bold_web.woff2) format('woff2')`,
             unicodeRange: "U+00-024F",
             fontWeight: "bold",
           },
           {
             fontFamily: "NotoSansTC",
-            src: `url(${NotoSansTC})`,
+            src: `url(https://github.com/googlefonts/noto-cjk/raw/master/NotoSansTC-Regular.otf) format('otf')`,
             fontWeight: "normal",
           },
           {
             fontFamily: "NotoSansTC",
-            src: `url(${NotoSansTC_Bold})`,
+            src: `url(https://github.com/googlefonts/noto-cjk/raw/master/NotoSansTC-Bold.otf) format('otf')`,
             fontWeight: "bold",
           },
         ],

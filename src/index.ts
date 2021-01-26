@@ -29,6 +29,7 @@ import SegmentedTabs from "./Tab/SegmentedTabs";
 import TabPanel from "./Tab/TabPanel";
 import Menu from "./Menu/Menu";
 import MenuItem from "./Menu/MenuItem";
+import Button from "./Button/Button";
 
 export {
   SWAPAppBar,
@@ -60,4 +61,5 @@ export {
   SegmentedTab,
   SegmentedTabs,
   TabPanel,
+  Button,
 };

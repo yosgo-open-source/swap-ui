@@ -46,7 +46,7 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
         >
           <Toolbar>
             <Container maxWidth="md">
-              <SWAPSpace size="small" />
+              <SWAPSpace size="s" />
               <Grid
                 container
                 alignItems="center"
@@ -145,9 +145,9 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
                               {item.title}
                             </MenuItem>
                           ))}
-                        <SWAPSpace size="small" />
+                        <SWAPSpace size="s" />
                         <Divider />
-                        <SWAPSpace size="small" />
+                        <SWAPSpace size="s" />
                         {secondaryButton &&
                         secondaryButton.title &&
                         secondaryButton.title.length > 0 ? (
@@ -173,7 +173,7 @@ const SWAPAppBar: React.FC<SWAPAppBarProps> = ({
                   </Grid>
                 </Grid>
               </Grid>
-              <SWAPSpace size="small" />
+              <SWAPSpace size="s" />
             </Container>
           </Toolbar>
         </AppBar>

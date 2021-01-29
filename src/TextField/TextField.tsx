@@ -34,6 +34,7 @@ const TextField: React.FC<TextFieldProps> = ({
     inputRoot: {
       width: width,
       height: height,
+      padding: "0px 16px",
       "&.Mui-focused": {
         borderRadius: 8,
         boxShadow: "0px 0px 0px 4px #D7DFF8",
@@ -42,13 +43,23 @@ const TextField: React.FC<TextFieldProps> = ({
           boxShadow: "0px 0px",
         },
       },
+      "&:hover": {
+        fontWeight: 700,
+        "&.Mui-disabled": {
+          fontWeight: 400,
+        },
+      },
     },
-
+    input: {
+      padding: "0px 0px",
+    },
     selectRoot: {
+      fontWeight: 700,
       width: width,
       height: height,
       display: "flex",
       alignItems: "center",
+
       "&.Mui-focused": {
         fontWeight: 700,
       },
@@ -76,7 +87,10 @@ const TextField: React.FC<TextFieldProps> = ({
           rows={rows}
           value={value}
           onChange={onChange}
-          InputProps={{ classes: { root: classes.inputRoot }, ...InputProps }}
+          InputProps={{
+            classes: { root: classes.inputRoot, input: classes.input },
+            ...InputProps,
+          }}
           select={select}
           defaultValue={defaultValue}
           SelectProps={{

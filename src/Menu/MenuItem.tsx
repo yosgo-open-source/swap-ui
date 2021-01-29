@@ -12,16 +12,28 @@ const MenuItem: React.FC<MenuItemProps> = ({
   value,
   onClick,
   disabled,
-  width = "100%",
+  width,
+  hoverBackgroundColor,
+  hoverFontColor,
+  hoverIconColor,
+  height,
 }) => {
   const useStyles = makeStyles((theme: Theme) => ({
     root: {
       fontSize: 14,
       fontWeight: 700,
       width: width,
+      minHeight: height,
       "&:hover": {
-        backgroundColor: theme.primary.primary50,
-        color: theme.primary.primary800,
+        backgroundColor: hoverBackgroundColor
+          ? hoverBackgroundColor
+          : theme.primary.primary50,
+        color: hoverFontColor ? hoverFontColor : theme.primary.primary800,
+        "& svg": {
+          "& path": {
+            fill: hoverIconColor ? hoverIconColor : theme.primary.primary800,
+          },
+        },
       },
     },
   }));

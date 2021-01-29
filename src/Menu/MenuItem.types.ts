@@ -5,5 +5,9 @@ export interface MenuItemProps {
   value?: any;
   onClick?: () => void;
   disabled?: boolean;
-  width?: number;
+  width?: number | string;
+  height?: number | string;
+  hoverBackgroundColor?: string;
+  hoverFontColor?: string;
+  hoverIconColor?: string;
 }

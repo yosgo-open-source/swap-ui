@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
 
-import { MenuProps } from "../Menu/Menu.types";
-import Menu from "./Menu";
+import { MenuProps } from "./Menu.types";
+import Select from "./Select";
 import MenuItem from "./MenuItem";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import SWAPSpace from "../SWAPSpace/SWAPSpace";
 
 export default {
   title: "Menu",
-  component: Menu,
+  component: Select,
   parameters: {
     docs: {
       description: {
@@ -28,7 +28,7 @@ const Demo: Story<MenuProps> = (args) => {
   return (
     <SWAPTheme>
       調整看看！
-      <Menu
+      <Select
         {...args}
         width={112}
         height={40}
@@ -45,7 +45,7 @@ const Demo: Story<MenuProps> = (args) => {
             {option.value}
           </MenuItem>
         ))}
-      </Menu>
+      </Select>
       <SWAPSpace size="m" />
     </SWAPTheme>
   );

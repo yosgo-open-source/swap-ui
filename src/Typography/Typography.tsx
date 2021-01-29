@@ -134,7 +134,7 @@ const Typography: React.FC<TypographyProps> = ({
             ? theme.black.black900
             : color === "black1000"
             ? theme.black.black1000
-            : null
+            : theme.black.black1000
           : color === "primary"
           ? theme.black.black1000
           : color === "secondary"
@@ -251,7 +251,7 @@ const Typography: React.FC<TypographyProps> = ({
           ? theme.black.black900
           : color === "black1000"
           ? theme.black.black1000
-          : null,
+          : theme.black.black1000,
       fontSize:
         variant === "d1"
           ? "4.5rem"

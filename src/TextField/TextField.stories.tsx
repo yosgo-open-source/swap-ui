@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
-import { TextFieldProps } from "../TextField/TextField.types";
+import { TextFieldProps } from "./TextField.types";
 import TextField from "./TextField";
 import MenuItem from "../Menu/MenuItem";
 import Typography from "../Typography/Typography";

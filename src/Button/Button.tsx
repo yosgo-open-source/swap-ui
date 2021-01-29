@@ -65,12 +65,12 @@ const Button: React.FC<ButtonProps> = ({
           : "48px",
       padding:
         size === "small"
-          ? "0 12px"
+          ? "12px 16px"
           : size === "medium"
-          ? "0 24px"
+          ? "15px 24px"
           : size === "large"
-          ? "0 32px"
-          : null,
+          ? "19px 32px"
+          : "15px 24px",
       minWidth: minWidth,
       width: width,
       fontSize:

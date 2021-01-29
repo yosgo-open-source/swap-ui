@@ -1,25 +1,21 @@
 export interface MenuProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
-  label?: string;
-  disabled?: boolean;
-  type?: string;
-  helperText?: React.ReactNode;
-  error?: boolean;
-  fullWidth?: boolean;
-  rowsMax?: number | string;
-  rows?: number | string;
-  multiline?: boolean;
-  value?: any;
-  onChange?: (e: any) => void;
-  InputProps?: object;
   autoFocus?: boolean;
-  placeholder?: string;
-  required?: boolean;
-  select?: boolean;
-  defaultValue?: string;
-  width?: number | string;
-  height?: number | string;
-  vertical?: "top" | "center" | "bottom" | number;
-  horizontal?: "left" | "center" | "right" | number;
+  open?: boolean;
+  anchorEl?: any;
+  onClose?: () => void;
+  keepMounted?: boolean;
+  getContentAnchorEl?: any;
+  onEnter?: () => void;
+  onEntered?: () => void;
+  onEntering?: () => void;
+  onExit?: () => void;
+  onExited?: () => void;
+  onExiting?: () => void;
+  anchorOrigin?: {
+    horizontal: "center" | "left" | "right" | number;
+    vertical: "bottom" | "center" | "top" | number;
+  };
+  anchorPosition?: { left: number; top: number };
 }

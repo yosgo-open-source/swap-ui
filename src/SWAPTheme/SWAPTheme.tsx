@@ -76,7 +76,7 @@ const SWAPDefaultTheme = {
     black700: "#6F6F6F",
     black800: "#4B4B4B",
     black900: "#2D2D2D",
-    black1000: " #000000",
+    black1000: "#000000",
   },
   //  Border Radius
   borderRadius: {
@@ -115,12 +115,12 @@ const SWAPDefaultTheme = {
           },
           {
             fontFamily: "NotoSansTC",
-            src: `url(https://github.com/googlefonts/noto-cjk/raw/master/NotoSansTC-Regular.otf) format('otf')`,
+            src: `url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff2) format('woff2')`,
             fontWeight: "normal",
           },
           {
             fontFamily: "NotoSansTC",
-            src: `url(https://github.com/googlefonts/noto-cjk/raw/master/NotoSansTC-Bold.otf) format('otf')`,
+            src: `url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff2) format('woff2')`,
             fontWeight: "bold",
           },
         ],
@@ -167,9 +167,6 @@ const SWAPDefaultTheme = {
     MuiOutlinedInput: {
       root: {
         borderRadius: "8px",
-      },
-      input: {
-        padding: "0px 16px",
       },
     },
     MuiFormLabel: {

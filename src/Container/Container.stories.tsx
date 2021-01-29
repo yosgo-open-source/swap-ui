@@ -5,6 +5,7 @@ import { ContainerProps } from "../Container/Container.types";
 import Container from "./Container";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import useBreakpoints from "../utils/useBreakpoints";
+import { Box } from "@material-ui/core";
 export default {
   title: "Container & Breakpoints",
   component: Container,
@@ -22,27 +23,39 @@ const Demo: Story<ContainerProps> = (args) => {
   return (
     <SWAPTheme>
       調整視窗大小！
-      <Container
-        {...args}
-        style={{
-          backgroundColor: matches ? "#1f3c8e" : "#00821E",
-          height: 500,
-        }}
-      >
-        {matches ? (
-          <div style={{ fontSize: 50, color: "#ffffff" }}>
-            {"breakpoints: >md"}
-          </div>
-        ) : (
-          <div style={{ fontSize: 50, color: "#ffffff" }}>
-            {"breakpoints: <md"}
-          </div>
-        )}
-      </Container>
+      <Box style={{ backgroundColor: "pink", width: "100%" }}>
+        <Container
+          {...args}
+          style={{
+            backgroundColor: matches ? "yellow" : "#00821E",
+            height: 500,
+          }}
+        >
+          {matches ? (
+            <div
+              style={{
+                fontSize: 50,
+                color: "#000000",
+                border: "5px solid blue",
+              }}
+            >
+              {"breakpoints: 大於 md"}
+            </div>
+          ) : (
+            <div
+              style={{
+                fontSize: 50,
+                color: "#000000",
+                border: "5px solid blue",
+              }}
+            >
+              {"breakpoints: 小於 md"}
+            </div>
+          )}
+        </Container>
+      </Box>
     </SWAPTheme>
   );
 };
 export const 認識 = Demo.bind({});
-認識.args = {
-  maxWidth: "md",
-};
+認識.args = { maxWidth: "", padding: "" };

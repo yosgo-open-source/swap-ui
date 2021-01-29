@@ -27,6 +27,7 @@ import Tabs from "./Tab/Tabs";
 import SegmentedTab from "./Tab/SegmentedTab";
 import SegmentedTabs from "./Tab/SegmentedTabs";
 import TabPanel from "./Tab/TabPanel";
+import Select from "./Menu/Select";
 import Menu from "./Menu/Menu";
 import MenuItem from "./Menu/MenuItem";
 import Button from "./Button/Button";
@@ -54,6 +55,7 @@ export {
   CheckBox,
   RadioButton,
   TextField,
+  Select,
   Menu,
   MenuItem,
   Tab,

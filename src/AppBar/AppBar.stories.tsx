@@ -4,8 +4,6 @@ import { Story } from "@storybook/react/types-6-0";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import AppBar from "./AppBar";
 import { AppBarProps } from "../AppBar/AppBar.types";
-import { Typography } from "@material-ui/core";
-import SWAPSpace from "../SWAPSpace/SWAPSpace";
 
 export default {
   title: "AppBar",
@@ -22,6 +20,11 @@ export default {
 const Demo: Story<AppBarProps> = (args) => (
   <SWAPTheme>
     <AppBar />
+    <div style={{ marginTop: 60 }}>
+      點點看！
+      <br /> LandingPage {"=>"} 登入 or 註冊 {"=>"} 前往帳戶總攬 {"=>"}
+      Dashboard {"=>"} 登出 or 回到官方網站 {"=>"} LandingPage
+    </div>
   </SWAPTheme>
 );
 export const 認識 = Demo.bind({});

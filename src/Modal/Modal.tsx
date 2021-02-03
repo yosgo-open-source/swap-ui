@@ -77,7 +77,7 @@ const Modal: React.FC<ModalProps> = ({
   bodypadding,
 }) => {
   const [sm, setSm] = useState(false);
-  const [stepIndex, setStepIndex] = useState(0);
+  // const [stepIndex, setStepIndex] = useState(0);
   const matches = useBreakpoints(480);
   const matchesExtraSmall = useBreakpoints(320);
 
@@ -111,17 +111,17 @@ const Modal: React.FC<ModalProps> = ({
     }
   };
 
-  const handleStepButton = (type: "next" | "prev") => {
-    if (type === "next") {
-      let value = stepIndex + 1 > steps.length - 1 ? 0 : stepIndex + 1;
-      setStepIndex(value);
-    } else if (type === "prev") {
-      let value = stepIndex - 1 < 0 ? 0 : stepIndex - 1;
-      setStepIndex(value);
-    } else {
-      setStepIndex(stepIndex);
-    }
-  };
+  // const handleStepButton = (type: "next" | "prev") => {
+  //   if (type === "next") {
+  //     let value = stepIndex + 1 > steps.length - 1 ? 0 : stepIndex + 1;
+  //     setStepIndex(value);
+  //   } else if (type === "prev") {
+  //     let value = stepIndex - 1 < 0 ? 0 : stepIndex - 1;
+  //     setStepIndex(value);
+  //   } else {
+  //     setStepIndex(stepIndex);
+  //   }
+  // };
 
   useEffect(() => {
     /**視窗中的相關內容變動時調整視窗大小 */
@@ -409,11 +409,42 @@ const Modal: React.FC<ModalProps> = ({
                   >
                     <Box>
                       <Fade in timeout={{ enter: 300, exit: 300 }}>
-                        {/* 一般情況按鈕 */}
-                        {footerRaw ? (
-                          //  Footer Raw
-                          <Box display="flex" justifyContent="space-between">
-                            <Box width="50%">
+                        <>
+                          {/* 一般情況按鈕 */}
+                          {footerRaw ? (
+                            //  Footer Raw
+                            <Box display="flex" justifyContent="space-between">
+                              <Box width="50%">
+                                {secondaryButton &&
+                                secondaryButton.title &&
+                                secondaryButton.title.length > 0 ? (
+                                  <Button
+                                    fullWidth
+                                    variant="secondary"
+                                    size="small"
+                                    onClick={() => secondaryButton.onClick()}
+                                    disabled={secondaryButton.disabled}
+                                  >
+                                    {secondaryButton.title}
+                                  </Button>
+                                ) : null}
+                              </Box>
+                              <Box width="8px"></Box>
+                              <Box width="50%">
+                                <Button
+                                  fullWidth
+                                  variant="primary"
+                                  size="small"
+                                  onClick={() => primaryButton.onClick()}
+                                  disabled={primaryButton.disabled}
+                                >
+                                  {primaryButton.title}
+                                </Button>
+                              </Box>
+                            </Box>
+                          ) : footerColumn ? (
+                            //  Footer Column
+                            <Box width="100%">
                               {secondaryButton &&
                               secondaryButton.title &&
                               secondaryButton.title.length > 0 ? (
@@ -423,13 +454,11 @@ const Modal: React.FC<ModalProps> = ({
                                   size="small"
                                   onClick={() => secondaryButton.onClick()}
                                   disabled={secondaryButton.disabled}
+                                  style={{ marginBottom: 8 }}
                                 >
                                   {secondaryButton.title}
                                 </Button>
                               ) : null}
-                            </Box>
-                            <Box width="8px"></Box>
-                            <Box width="50%">
                               <Button
                                 fullWidth
                                 variant="primary"
@@ -440,121 +469,102 @@ const Modal: React.FC<ModalProps> = ({
                                 {primaryButton.title}
                               </Button>
                             </Box>
-                          </Box>
-                        ) : footerColumn ? (
-                          //  Footer Column
-                          <Box width="100%">
-                            {secondaryButton &&
-                            secondaryButton.title &&
-                            secondaryButton.title.length > 0 ? (
-                              <Button
-                                fullWidth
-                                variant="secondary"
-                                size="small"
-                                onClick={() => secondaryButton.onClick()}
-                                disabled={secondaryButton.disabled}
-                                style={{ marginBottom: 8 }}
-                              >
-                                {secondaryButton.title}
-                              </Button>
-                            ) : null}
-                            <Button
-                              fullWidth
-                              variant="primary"
-                              size="small"
-                              onClick={() => primaryButton.onClick()}
-                              disabled={primaryButton.disabled}
+                          ) : matches ? (
+                            //  Footer Normal
+                            <Grid
+                              container
+                              wrap="nowrap"
+                              alignItems="center"
+                              justify="space-between"
                             >
-                              {primaryButton.title}
-                            </Button>
-                          </Box>
-                        ) : matches ? (
-                          //  Footer Normal
-                          <Grid
-                            container
-                            wrap="nowrap"
-                            alignItems="center"
-                            justify="space-between"
-                          >
-                            <Grid item>
-                              <Typography
-                                variant="h6"
-                                style={{ paddingRight: 8 }}
-                              >
-                                {label}
-                              </Typography>
-                            </Grid>
-
-                            <Grid item>
-                              <Box display="flex">
-                                {secondaryButton &&
-                                secondaryButton.title &&
-                                secondaryButton.title.length > 0 ? (
-                                  <Button
-                                    style={{ marginRight: 8 }}
-                                    variant="secondary"
-                                    size="small"
-                                    onClick={() => secondaryButton.onClick()}
-                                    disabled={secondaryButton.disabled}
-                                  >
-                                    {secondaryButton.title}
-                                  </Button>
-                                ) : null}
-                                <Button
-                                  variant="primary"
-                                  size="small"
-                                  onClick={() => primaryButton.onClick()}
-                                  disabled={primaryButton.disabled}
+                              <Grid item>
+                                <Typography
+                                  variant="h6"
+                                  style={{ paddingRight: 8 }}
                                 >
-                                  {primaryButton.title}
-                                </Button>
-                              </Box>
+                                  {label}
+                                </Typography>
+                              </Grid>
+
+                              <Grid item>
+                                <Box display="flex">
+                                  {secondaryButton &&
+                                  secondaryButton.title &&
+                                  secondaryButton.title.length > 0 ? (
+                                    <Button
+                                      style={{ marginRight: 8 }}
+                                      variant="secondary"
+                                      size="small"
+                                      onClick={() => secondaryButton.onClick()}
+                                      disabled={secondaryButton.disabled}
+                                    >
+                                      {secondaryButton.title}
+                                    </Button>
+                                  ) : null}
+                                  <Button
+                                    variant="primary"
+                                    size="small"
+                                    onClick={() => primaryButton.onClick()}
+                                    disabled={primaryButton.disabled}
+                                  >
+                                    {primaryButton.title}
+                                  </Button>
+                                </Box>
+                              </Grid>
                             </Grid>
-                          </Grid>
-                        ) : (
-                          <>
-                            {label ? (
+                          ) : (
+                            <>
+                              {label ? (
+                                <Box
+                                  display="flex"
+                                  justifyContent="center"
+                                  paddingBottom="12px"
+                                >
+                                  <Typography variant="title">
+                                    {label}
+                                  </Typography>
+                                </Box>
+                              ) : null}
+
                               <Box
                                 display="flex"
-                                justifyContent="center"
-                                paddingBottom="12px"
+                                justifyContent="space-between"
                               >
-                                <Typography variant="title">{label}</Typography>
-                              </Box>
-                            ) : null}
-
-                            <Box display="flex" justifyContent="space-between">
-                              <Box>
-                                {secondaryButton &&
-                                secondaryButton.title &&
-                                secondaryButton.title.length > 0 ? (
+                                <Box>
+                                  {secondaryButton &&
+                                  secondaryButton.title &&
+                                  secondaryButton.title.length > 0 ? (
+                                    <Button
+                                      style={{
+                                        marginRight: 8,
+                                        marginBottom: 8,
+                                      }}
+                                      variant="secondary"
+                                      size="small"
+                                      onClick={() => secondaryButton.onClick()}
+                                      disabled={secondaryButton.disabled}
+                                    >
+                                      <div style={{ whiteSpace: "nowrap" }}>
+                                        {secondaryButton.title}
+                                      </div>
+                                    </Button>
+                                  ) : null}
+                                </Box>
+                                <Box width="100%">
                                   <Button
-                                    style={{ marginRight: 8, marginBottom: 8 }}
-                                    variant="secondary"
+                                    fullWidth={!matches}
+                                    variant="primary"
                                     size="small"
-                                    onClick={() => secondaryButton.onClick()}
-                                    disabled={secondaryButton.disabled}
+                                    onClick={() => primaryButton.onClick()}
+                                    disabled={primaryButton.disabled}
                                   >
-                                    <div style={{ whiteSpace: "nowrap" }}>
-                                      {secondaryButton.title}
-                                    </div>
+                                    {primaryButton.title}
                                   </Button>
-                                ) : null}
+                                </Box>
                               </Box>
-                              <Box width="100%">
-                                <Button
-                                  fullWidth={!matches}
-                                  variant="primary"
-                                  size="small"
-                                  onClick={() => primaryButton.onClick()}
-                                  disabled={primaryButton.disabled}
-                                >
-                                  {primaryButton.title}
-                                </Button>
-                              </Box>
-                            </Box>
-                          </>
-                        )}
+                            </>
+                          )}
+                        </>
                       </Fade>
                       <SWAPSpace size="m" />
                     </Box>

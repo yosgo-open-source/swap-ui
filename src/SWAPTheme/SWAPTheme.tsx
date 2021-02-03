@@ -68,7 +68,7 @@ const SWAPDefaultTheme = {
   black: {
     white: "#FFFFFF",
     black100: "#F9F9F9",
-    black200: "#F9F9F9",
+    black200: "#F6F6F6",
     black300: "#F2F2F2",
     black400: "#ECECEC",
     black500: "#CCCCCC",

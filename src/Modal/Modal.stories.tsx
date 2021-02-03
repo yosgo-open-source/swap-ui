@@ -1,4 +1,4 @@
-import { Button, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
 
@@ -7,6 +7,7 @@ import SWAPSpace from "../SWAPSpace/SWAPSpace";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import Modal from "./Modal";
 import SWAPDialog from "../SWAPDialog/SWAPDialog";
+import Button from "../Button/Button";
 
 export default {
   title: "Modal",
@@ -21,13 +22,22 @@ export default {
 };
 
 const Demo: Story<ModalProps> = (args) => {
+  const [open, setOpen] = useState(false);
+
   return (
     <SWAPTheme>
       <Typography variant="subtitle1">Modal 平常就像個隱形人</Typography>
       <Typography variant="body2" color="textSecondary">
         請將下方 open 屬性調整為 true，以開啟 Modal。
       </Typography>
-      <Modal {...args} size="extraSmall" />
+      <Button
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
+        Open
+      </Button>
+      <Modal open={open} {...args} size="medium" />
     </SWAPTheme>
   );
 };
@@ -35,7 +45,7 @@ export const 認識 = Demo.bind({});
 認識.args = {
   title: "視窗標題視窗標題",
   helpText: "",
-  open: false,
+  // open: false,
   onClose: () => alert("呼叫關閉視窗函式"),
   primaryButton: {
     title: "主按鈕",
@@ -48,7 +58,7 @@ export const 認識 = Demo.bind({});
     disabled: false,
   },
   children:
-    "視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題",
+    "視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視",
 };
 export const 內容多寡 = () => {
   const [open, setOpen] = useState(false);
@@ -61,13 +71,7 @@ export const 內容多寡 = () => {
           視窗的標題與操作區域將會固定在頂端與底部，內容區域可以捲動
         </Typography>
         <SWAPSpace />
-        <Button
-          onClick={() => setOpen(true)}
-          variant="contained"
-          color="primary"
-        >
-          點我示意
-        </Button>
+        <Button onClick={() => setOpen(true)}>點我示意</Button>
         <Modal
           title="視窗標題"
           helpText="視窗說明文字"
@@ -95,13 +99,7 @@ export const 內容多寡 = () => {
           置中顯示視窗，內容無捲動功能
         </Typography>
         <SWAPSpace />
-        <Button
-          onClick={() => setOpen2(true)}
-          variant="contained"
-          color="primary"
-        >
-          點我示意
-        </Button>
+        <Button onClick={() => setOpen2(true)}>點我示意</Button>
         <Modal
           title="蓋板視窗"
           helpText="這個蓋板視窗..."

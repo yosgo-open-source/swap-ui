@@ -84,6 +84,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@material-ui/lab": "^4.0.0-alpha.57"
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "react-typed": "^1.2.0"
   }
 }

@@ -1,7 +1,7 @@
 import { Box } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import CopyToClipboard from "react-copy-to-clipboard";
@@ -18,6 +18,9 @@ const Styles: React.FC<StylesProps> = ({
   const theme = useTheme();
   const useStyles = makeStyles({
     root: {
+      "&:hover": {
+        cursor: "pointer",
+      },
       width: 100,
       height: 40,
       boxShadow:
@@ -155,30 +158,28 @@ const Styles: React.FC<StylesProps> = ({
     },
   });
   const classes = useStyles();
+  const [copySuccess, setCopySuccess] = useState(false);
   return (
     <SWAPTheme>
       <StylesWrap>
         <CopyToClipboard text={cobyText}>
-          <Box className={classes.root} style={style} />
+          <Box
+            className={classes.root}
+            style={style}
+            onClick={() => {
+              setTimeout(() => {
+                setCopySuccess(false);
+              }, 1000);
+              setCopySuccess(true);
+            }}
+          />
         </CopyToClipboard>
+        <div> {copySuccess ? "已複製！" : null}</div>
       </StylesWrap>
     </SWAPTheme>
   );
 };
 
-const StylesWrap = styled.div`
-  display: flex;
-  .mobile_hide {
-    @media screen and (max-width: 960px) {
-      display: none;
-    }
-  }
-  .mobile_show {
-    display: none;
-    @media screen and (max-width: 960px) {
-      display: block;
-    }
-  }
-`;
+const StylesWrap = styled.div``;
 
 export default Styles;

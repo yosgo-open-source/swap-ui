@@ -31,6 +31,8 @@ import Select from "./Menu/Select";
 import Menu from "./Menu/Menu";
 import MenuItem from "./Menu/MenuItem";
 import Button from "./Button/Button";
+import Snackbar from "./Snackbar/Snackbar";
+import Modal from "./Modal/Modal";
 
 export {
   SWAPAppBar,
@@ -64,4 +66,6 @@ export {
   SegmentedTabs,
   TabPanel,
   Button,
+  Snackbar,
+  Modal,
 };

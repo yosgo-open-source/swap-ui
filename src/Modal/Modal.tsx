@@ -57,9 +57,7 @@ const Modal: React.FC<ModalProps> = ({
   primaryButton,
   secondaryButton,
   children,
-  steps,
   successMessage,
-  errorMessage,
   closeWindowOnSuccessMessage,
   reloadOnWindowClose,
   size,
@@ -152,7 +150,7 @@ const Modal: React.FC<ModalProps> = ({
       width: width
         ? width
         : displayBottom
-        ? document.documentElement.clientWidth
+        ? "100%"
         : matchesExtraSmall
         ? size === "extraSmall"
           ? 320
@@ -163,7 +161,7 @@ const Modal: React.FC<ModalProps> = ({
           : size === "large"
           ? 800
           : 800
-        : document.documentElement.clientWidth,
+        : "100%",
       maxHeight: 800,
       zIndex: 2,
       "& .fWixIn": {

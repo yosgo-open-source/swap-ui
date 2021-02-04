@@ -364,7 +364,7 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                               歡迎回來，
                             </Typography>
                             <Typography variant="subtitle" color="black1000">
-                              XXXX!
+                              XXXX ！
                             </Typography>
                           </Box>
                         ) : null}

@@ -41,6 +41,7 @@ const Tab: React.FC<TabProps> = ({
       value={value}
       onClick={onClick}
       selected={selected}
+      disableRipple
     />
   );
 };

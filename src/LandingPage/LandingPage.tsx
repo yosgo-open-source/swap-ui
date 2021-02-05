@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-import { Box, Divider, useTheme } from "@material-ui/core";
+import { Box, Divider, Fade, useTheme } from "@material-ui/core";
 
 import SWAPLogo from "../SWAPLogo/SWAPLogo";
 import { LandingPageProps } from "./LandingPage.types";
@@ -64,7 +64,19 @@ const LandingPage: React.FC<LandingPageProps> = ({
   feature,
   footer,
 }) => {
+  const [appbar, setAppbar] = useState(false);
   const theme = useTheme();
+  window.onscroll = function () {
+    if (document.documentElement.scrollTop > 848) {
+      if (!appbar) {
+        setAppbar(true);
+      }
+    } else {
+      if (appbar) {
+        setAppbar(false);
+      }
+    }
+  };
   return (
     <Box style={{ backgroundColor: theme.black.white }}>
       <SWAPTheme>
@@ -72,7 +84,11 @@ const LandingPage: React.FC<LandingPageProps> = ({
           {/* Hero */}
           {hero ? (
             <Box width="100%">
-              <AppBar />
+              {appbar ? (
+                <Fade timeout={2000}>
+                  <AppBar />
+                </Fade>
+              ) : null}
               <Box
                 display="flex"
                 flexDirection="column"

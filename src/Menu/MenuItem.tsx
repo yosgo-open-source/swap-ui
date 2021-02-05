@@ -24,6 +24,9 @@ const MenuItem: React.FC<MenuItemProps> = ({
       fontWeight: 700,
       width: width,
       minHeight: height,
+      "&.Mui-focused": {
+        backgroundColor: "red",
+      },
       "&:hover": {
         backgroundColor: hoverBackgroundColor
           ? hoverBackgroundColor

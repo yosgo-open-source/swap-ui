@@ -73,7 +73,7 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
           <Toolbar className={classes.userToolbar}>
             <Box width="100%">
               <Container>
-                {landingPage ? (
+                {false ? (
                   //Landing Page
                   <Grid container alignItems="center" justify="space-between">
                     <Grid item>
@@ -387,8 +387,12 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                             keepMounted
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
-                            anchorOrigin={{ vertical: 40, horizontal: -168 }}
+                            anchorOrigin={{ vertical: 40, horizontal: 32 }}
                             getContentAnchorEl={null}
+                            transformOrigin={{
+                              vertical: "top",
+                              horizontal: "right",
+                            }}
                           >
                             <MenuItem width={200}>帳戶總覽</MenuItem>
                             <SWAPSpace size="xs" />

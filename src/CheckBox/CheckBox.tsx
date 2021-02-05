@@ -1,4 +1,4 @@
-import MaterialCheckBox from "@material-ui/core/CheckBox";
+import MaterialCheckBox from "@material-ui/core/Checkbox";
 import React from "react";
 import styled from "styled-components";
 import { CheckBoxProps } from "./CheckBox.types";
@@ -12,7 +12,6 @@ const CheckBox: React.FC<CheckBoxProps> = ({
   disabled,
   checked,
   onChange,
-
   label,
   labelPlacement,
 }) => {

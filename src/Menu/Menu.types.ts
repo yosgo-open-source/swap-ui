@@ -17,5 +17,9 @@ export interface MenuProps {
     horizontal: "center" | "left" | "right" | number;
     vertical: "bottom" | "center" | "top" | number;
   };
+  transformOrigin?: {
+    horizontal: "center" | "left" | "right" | number;
+    vertical: "bottom" | "center" | "top" | number;
+  };
   anchorPosition?: { left: number; top: number };
 }

@@ -160,7 +160,7 @@ const Modal: React.FC<ModalProps> = ({
           ? 640
           : size === "large"
           ? 800
-          : 800
+          : "100%"
         : "100%",
       maxHeight: 800,
       zIndex: 2,
@@ -177,7 +177,7 @@ const Modal: React.FC<ModalProps> = ({
         : helpText
         ? "21px 16px"
         : "8px 16px",
-      height: matches ? (title ? (helpText ? 64 : 72) : 64) : 64,
+      height: matches ? (title ? (helpText ? 72 : 64) : 64) : 64,
       position: "relative",
       width: "100%",
       left: 0,
@@ -205,6 +205,18 @@ const Modal: React.FC<ModalProps> = ({
       bottom: 0,
       background: "white",
       zIndex: 1,
+    },
+    closeIcon: {
+      width: 32,
+      height: 32,
+      borderRadius: 8,
+      "&:hover": {
+        borderRadius: 8,
+        backgroundColor: theme.black.black400,
+      },
+    },
+    closeIconRippleRoot: {
+      borderRadius: 8,
     },
   }));
   const classes = useStyles();
@@ -372,12 +384,21 @@ const Modal: React.FC<ModalProps> = ({
                     </Grid>
                     <Grid item>
                       <IconButton
+                        className={classes.closeIcon}
+                        TouchRippleProps={{
+                          classes: { child: classes.closeIconRippleRoot },
+                        }}
                         onClick={() => modalCloseWindow()}
                         style={{ marginLeft: 16 }}
                       >
                         <CloseIcon
                           fontSize="small"
-                          style={{ color: theme.black.black1000 }}
+                          style={{
+                            color: theme.black.black1000,
+                            borderRadius: 8,
+                            width: 20,
+                            height: 20,
+                          }}
                         />
                       </IconButton>
                     </Grid>

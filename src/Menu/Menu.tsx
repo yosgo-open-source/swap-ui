@@ -22,6 +22,7 @@ const Menu: React.FC<MenuProps> = ({
   onExit,
   onExited,
   onExiting,
+  transformOrigin,
 }) => {
   const useStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -49,6 +50,7 @@ const Menu: React.FC<MenuProps> = ({
           onExit={onExit}
           onExited={onExited}
           onExiting={onExiting}
+          transformOrigin={transformOrigin}
         >
           {children}
         </MaterialMenu>

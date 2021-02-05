@@ -37,14 +37,13 @@ const Demo: Story<ModalProps> = (args) => {
       >
         Open
       </Button>
-      <Modal open={open} {...args} size="medium" />
+      <Modal open={true} {...args} size="extraSmall" />
     </SWAPTheme>
   );
 };
 export const 認識 = Demo.bind({});
 認識.args = {
   title: "視窗標題視窗標題",
-  helpText: "",
   // open: false,
   onClose: () => alert("呼叫關閉視窗函式"),
   primaryButton: {

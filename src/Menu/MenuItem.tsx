@@ -17,6 +17,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   hoverFontColor,
   hoverIconColor,
   height,
+  rippleColor,
 }) => {
   const useStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -37,6 +38,9 @@ const MenuItem: React.FC<MenuItemProps> = ({
             fill: hoverIconColor ? hoverIconColor : theme.primary.primary800,
           },
         },
+      },
+      "& span": {
+        color: rippleColor,
       },
     },
   }));

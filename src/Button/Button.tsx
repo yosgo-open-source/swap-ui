@@ -223,7 +223,7 @@ const Button: React.FC<ButtonProps> = ({
               />
             </div>
           ) : (
-            <>{children}</>
+            <div style={{ whiteSpace: "nowrap" }}>{children}</div>
           )}
         </MaterialButton>
       </ButtonWrap>

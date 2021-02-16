@@ -1,4 +1,12 @@
-import { Typography } from "@material-ui/core";
+import {
+  Box,
+  Divider,
+  Fade,
+  makeStyles,
+  Paper,
+  Theme,
+  Typography,
+} from "@material-ui/core";
 import React, { useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
 
@@ -6,8 +14,8 @@ import { ModalProps } from "../Modal/Modal.types";
 import SWAPSpace from "../SWAPSpace/SWAPSpace";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import Modal from "./Modal";
-import SWAPDialog from "../SWAPDialog/SWAPDialog";
 import Button from "../Button/Button";
+import ModalNew from "../Modal/ModalNew";
 
 export default {
   title: "Modal",
@@ -23,7 +31,9 @@ export default {
 
 const Demo: Story<ModalProps> = (args) => {
   const [open, setOpen] = useState(false);
-
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <SWAPTheme>
       <Typography variant="subtitle1">Modal 平常就像個隱形人</Typography>
@@ -37,28 +47,56 @@ const Demo: Story<ModalProps> = (args) => {
       >
         Open
       </Button>
-      <Modal open={true} {...args} size="extraSmall" />
+      <Modal // headpadding="100px 0px"
+        open={open}
+        onClose={handleClose}
+        // checked
+        // checkIconColor="success800"
+        title="sdilokfj"
+        // helpText="slkdfj;"
+        // headChildren={
+        //   <Box>
+        //     <Button>123</Button>
+        //   </Box>
+        // }
+        children="11234"
+        // buttonFullWidth
+        // size="large"
+        // footerDisplayColumn
+        // label="sdkjfh"
+        primaryButton={{
+          title: "123123",
+          onClick: () => {
+            alert("123");
+          },
+        }}
+        secondaryButton={{ title: "sdfgasdfg", onClick: () => {} }}
+        // mobile
+        // fullWidth
+      />
     </SWAPTheme>
   );
 };
+
 export const 認識 = Demo.bind({});
 認識.args = {
-  title: "視窗標題視窗標題",
-  // open: false,
-  onClose: () => alert("呼叫關閉視窗函式"),
-  primaryButton: {
-    title: "主按鈕",
-    onClick: () => alert("點擊主按鈕"),
-    disabled: false,
-  },
-  secondaryButton: {
-    title: "次要按鈕",
-    onClick: () => alert("點擊次要按鈕"),
-    disabled: false,
-  },
-  children:
-    "視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視",
+  // title: "視窗標題視窗標題",
+  // // open: false,
+  // onClose: () => alert("呼叫關閉視窗函式"),
+  // primaryButton: {
+  //   title: "主按鈕",
+  //   onClick: () => alert("點擊主按鈕"),
+  //   disabled: false,
+  // },
+  // secondaryButton: {
+  //   title: "次要按鈕",
+  //   onClick: () => alert("點擊次要按鈕"),
+  //   disabled: false,
+  // },
+  // children:
+  //   "視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視",
 };
+
 export const 內容多寡 = () => {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);

@@ -72,7 +72,7 @@ export const 尺寸 = () => {
           大型尺寸的 Logo
         </Typography>
         <SWAPSpace />
-        <SWAPLogo size="l" />
+        <SWAPLogo size="large" />
       </div>
     </SWAPTheme>
   );
@@ -101,7 +101,7 @@ export const 企業版 = () => {
           大型尺寸的 Logo
         </Typography>
         <SWAPSpace />
-        <SWAPLogo size="l" business />
+        <SWAPLogo size="large" business />
       </div>
     </SWAPTheme>
   );

@@ -1,42 +1,33 @@
 export interface ModalProps {
-  title?: React.ReactNode;
-  style?: React.CSSProperties;
-  headerStyle?: React.CSSProperties;
-  bodyStyle?: React.CSSProperties;
-  footerStyle?: React.CSSProperties;
-  helpText?: string;
-  onClose?: () => void;
   open: boolean;
-  primaryButton?: {
-    title?: string;
+  checked?: boolean;
+  buttonFullWidth?: boolean;
+  footerDisplayColumn?: boolean;
+  mobile?: boolean;
+  fullWidth?: boolean;
+  onClose: () => void;
+  width?: string | number;
+  maxWidth?: string | number;
+  height?: string | number;
+  title?: string | React.ReactNode;
+  helpText?: string | React.ReactNode;
+  size?: "medium" | "large" | "small" | "extraSmall";
+  headpadding?: number | string;
+  headChildren?: React.ReactNode;
+  children?: React.ReactNode;
+  label?: string;
+  bodyPadding?: number | string;
+  secondaryButton?: {
+    title?: string | React.ReactNode;
     onClick?: () => void;
     disabled?: boolean;
   };
-  secondaryButton?: {
-    title: string;
-    onClick: () => void;
+  primaryButton?: {
+    title?: string | React.ReactNode;
+    onClick?: () => void;
     disabled?: boolean;
   };
-  steps?: Array<{
-    stepTitle: string;
-    stepChildren?: React.ReactNode;
-    prevStepText?: string;
-    nextStepText?: string;
-  }>;
-  children?: React.ReactNode;
-  successMessage?: string;
-  errorMessage?: string;
-  closeWindowOnSuccessMessage?: boolean;
-  reloadOnWindowClose?: boolean;
-  checked?: boolean;
-  label?: string;
-  footerColumn?: boolean;
-  footerRaw?: boolean;
-  displayBottom?: boolean;
-  width?: number | string;
-  bodypadding?: number | string;
-  size?: "extraSmall" | "small" | "medium" | "large";
-  checkedIconColor?:
+  checkIconColor?:
     | "primary"
     | "secondary"
     | "tertiary"

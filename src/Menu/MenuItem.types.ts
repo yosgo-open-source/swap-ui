@@ -10,4 +10,5 @@ export interface MenuItemProps {
   hoverBackgroundColor?: string;
   hoverFontColor?: string;
   hoverIconColor?: string;
+  rippleColor?: string;
 }

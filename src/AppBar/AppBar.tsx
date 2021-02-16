@@ -73,7 +73,7 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
           <Toolbar className={classes.userToolbar}>
             <Box width="100%">
               <Container>
-                {false ? (
+                {landingPage ? (
                   //Landing Page
                   <Grid container alignItems="center" justify="space-between">
                     <Grid item>
@@ -249,11 +249,57 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                         ) : (
                           // Mobile
                           <Modal
-                            bodypadding="8 px 0px"
                             open={Boolean(anchorEl)}
-                            size="extraSmall"
                             title={<SWAPLogo />}
                             onClose={handleClose}
+                            bodyPadding="0px"
+                            mobile
+                            footerDisplayColumn
+                            primaryButton={
+                              !login
+                                ? {
+                                    title: "註冊帳號",
+                                    onClick: () => {
+                                      setLogin(true);
+                                    },
+                                  }
+                                : {
+                                    title: (
+                                      <Box width="100%">
+                                        前往帳戶總覽
+                                        <svg
+                                          width="14"
+                                          height="14"
+                                          viewBox="0 0 14 14"
+                                          fill="white"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          style={{
+                                            marginLeft: 7,
+                                          }}
+                                        >
+                                          <path
+                                            d="M0.333313 6.16663V7.8333H10.3333L5.74998 12.4166L6.93331 13.6L13.5333 6.99996L6.93331 0.399963L5.74998 1.5833L10.3333 6.16663H0.333313Z"
+                                            fill="white"
+                                          />
+                                        </svg>
+                                      </Box>
+                                    ),
+                                    onClick: () => {
+                                      setLandingPage(false);
+                                      setAnchorEl(null);
+                                    },
+                                  }
+                            }
+                            secondaryButton={
+                              !login
+                                ? {
+                                    title: "登入",
+                                    onClick: () => {
+                                      setLogin(true);
+                                    },
+                                  }
+                                : null
+                            }
                           >
                             <Box>
                               <SWAPSpace size="xs" />
@@ -267,71 +313,6 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                                 常見問題
                               </MenuItem>
                               <SWAPSpace size="xs" />
-                              <Line />
-                              <SWAPSpace size="xs" />
-                              {login ? (
-                                <MenuItem width="100%" hoverIconColor="white">
-                                  <Box width="100%" marginBottom="6px">
-                                    <Button
-                                      fullWidth
-                                      size="small"
-                                      variant="primary"
-                                      onClick={() => {
-                                        setLandingPage(false);
-                                        setAnchorEl(null);
-                                      }}
-                                    >
-                                      前往帳戶總覽
-                                      <svg
-                                        width="14"
-                                        height="14"
-                                        viewBox="0 0 14 14"
-                                        fill="white"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        style={{
-                                          marginLeft: 7,
-                                        }}
-                                      >
-                                        <path
-                                          d="M0.333313 6.16663V7.8333H10.3333L5.74998 12.4166L6.93331 13.6L13.5333 6.99996L6.93331 0.399963L5.74998 1.5833L10.3333 6.16663H0.333313Z"
-                                          fill="white"
-                                        />
-                                      </svg>
-                                    </Button>
-                                  </Box>
-                                </MenuItem>
-                              ) : (
-                                <Box>
-                                  <MenuItem width="100%">
-                                    <Box width="100%">
-                                      <Button
-                                        fullWidth
-                                        size="small"
-                                        variant="primary"
-                                        onClick={() => {
-                                          setLogin(true);
-                                        }}
-                                      >
-                                        註冊帳號
-                                      </Button>
-                                    </Box>
-                                  </MenuItem>
-                                  <MenuItem width="100%">
-                                    <Box width="100%" marginBottom="6px">
-                                      <Button
-                                        fullWidth
-                                        size="small"
-                                        variant="secondary"
-                                        onClick={() => {
-                                          setLogin(true);
-                                        }}
-                                      >
-                                        登入
-                                      </Button>
-                                    </Box>
-                                  </MenuItem>
-                                </Box>
-                              )}
                             </Box>
                           </Modal>
                         )}
@@ -564,11 +545,11 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                         ) : (
                           // Mobile
                           <Modal
-                            bodypadding="8 px 0px"
                             open={Boolean(anchorEl)}
-                            size="extraSmall"
                             title={<SWAPLogo />}
                             onClose={handleClose}
+                            mobile
+                            bodyPadding="0px"
                           >
                             <Box>
                               <SWAPSpace size="xs" />
@@ -719,6 +700,7 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                                 width="100%"
                                 hoverBackgroundColor={theme.danger.danger50}
                                 hoverIconColor={theme.danger.danger800}
+                                rippleColor={theme.danger.danger800}
                                 onClick={() => {
                                   setLandingPage(true);
                                   setLogin(false);
@@ -748,6 +730,7 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                                   </Typography>
                                 </Box>
                               </MenuItem>
+                              <SWAPSpace size="xs" />
                             </Box>
                           </Modal>
                         )}

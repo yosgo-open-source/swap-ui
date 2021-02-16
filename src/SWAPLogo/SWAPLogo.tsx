@@ -11,12 +11,15 @@ const SWAPLogo: React.FC<SWAPLogoProps> = ({
   business = false,
   size = "middle",
   dark = false,
+  height,
+  width,
 }) => {
   return (
     <span>
       <SWAPLogoWrap size={size}>
         <img
           className={business ? "business" : ""}
+          style={{ width: width, height: height }}
           src={(() => {
             if (business) {
               return logo03;
@@ -40,11 +43,11 @@ const SWAPLogoWrap = styled.div`
       if (size === "small") {
         return "30px";
       } else if (size === "middle") {
-        return "39px";
+        return "40px";
       } else if ((size = "large")) {
         return "48px";
       } else {
-        return "39px";
+        return "100%";
       }
     }};
     &.business {

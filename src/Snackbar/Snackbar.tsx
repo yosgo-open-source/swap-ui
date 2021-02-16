@@ -1,4 +1,4 @@
-import MaterialSnackBar from "@material-ui/core/SnackBar";
+import MaterialSnackBar from "@material-ui/core/Snackbar";
 import React from "react";
 import styled from "styled-components";
 import { SnackbarProps } from "./Snackbar.types";

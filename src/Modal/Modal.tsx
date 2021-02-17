@@ -16,6 +16,7 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import { ModalProps } from "./Modal.types";
 import Typography from "../Typography/Typography";
 import Button from "../Button/Button";
+import { useBreakpoints } from "..";
 
 const ModalOpenEffect = (props: {
   slide: boolean;
@@ -66,6 +67,8 @@ const Modal: React.FC<ModalProps> = ({
   bodyPadding,
   maxWidth,
 }) => {
+  const match_XS = useBreakpoints("xs");
+  const match_SM = useBreakpoints("sm");
   const useStyles = makeStyles((theme: Theme) => ({
     root: {
       display: "flex",
@@ -74,7 +77,13 @@ const Modal: React.FC<ModalProps> = ({
       border: "none",
     },
     modal: {
-      margin: fullWidth ? null : "0px 24px",
+      margin: fullWidth
+        ? null
+        : match_SM
+        ? "0px 24px"
+        : match_XS
+        ? "0px 16px"
+        : "0px 8px",
       width: width
         ? width
         : size === "large"
@@ -87,16 +96,7 @@ const Modal: React.FC<ModalProps> = ({
         ? 320
         : "100%",
       maxWidth: maxWidth,
-      maxHeight:
-        size === "large"
-          ? 800
-          : size === "medium"
-          ? 480
-          : size === "small"
-          ? 360
-          : size === "extraSmall"
-          ? "100%"
-          : "100%",
+
       borderRadius: fullWidth ? "12px 12px 0px 0px" : 12,
       border: "none",
       boxShadow: theme.boxShadow.l,

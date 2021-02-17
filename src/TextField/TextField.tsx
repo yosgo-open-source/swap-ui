@@ -30,7 +30,12 @@ const TextField: React.FC<TextFieldProps> = ({
 }) => {
   const useStyles = makeStyles((theme: Theme) => ({
     //SWAPTheme調整
-    root: {},
+    root: {
+      "& label": {
+        backgroundColor: "white",
+        color: theme.black.black800,
+      },
+    },
     inputRoot: {
       width: width,
       height: height,
@@ -88,7 +93,10 @@ const TextField: React.FC<TextFieldProps> = ({
           value={value}
           onChange={onChange}
           InputProps={{
-            classes: { root: classes.inputRoot, input: classes.input },
+            classes: {
+              root: classes.inputRoot,
+              input: classes.input,
+            },
             ...InputProps,
           }}
           select={select}

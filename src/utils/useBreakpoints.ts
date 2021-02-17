@@ -8,7 +8,7 @@ function useBreakpoints(
       breakpoints === "xxs"
         ? 0
         : breakpoints === "xs"
-        ? 414
+        ? 375
         : breakpoints === "sm"
         ? 576
         : breakpoints === "md"

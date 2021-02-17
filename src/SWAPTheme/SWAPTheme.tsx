@@ -143,25 +143,6 @@ const SWAPDefaultTheme = {
         boxShadow: " 0px 4px 12px rgba(0, 0, 0, 0.1)",
       },
     },
-    //CheckBox
-    MuiCheckbox: {
-      colorPrimary: {
-        color: "#cccccc",
-        "&$checked": {
-          color: "#173a9b",
-        },
-        "&$disabled": {
-          opacity: 0.4,
-          color: "#cccccc",
-          "&$checked": {
-            color: "#173a9b",
-          },
-        },
-        "&:hover": {
-          backgroundColor: "rgba(0%,0%,0%,0.05)",
-        },
-      },
-    },
     //Input
     //Menu
     MuiOutlinedInput: {

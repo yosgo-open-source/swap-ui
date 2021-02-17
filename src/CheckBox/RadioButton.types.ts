@@ -1,7 +1,8 @@
 export interface RadioButtonProps {
   style?: React.CSSProperties;
+  disabled?: boolean;
   checked?: boolean;
   onChange?: (e: any) => void;
-  label?: string;
+  label?: string | React.ReactNode;
   labelPlacement?: "top" | "start" | "bottom" | "end";
 }

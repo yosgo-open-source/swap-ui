@@ -59,6 +59,11 @@ const Demo: Story<CheckBoxProps> = (args) => {
             <RadioButton />
             <RadioButton checked />
           </div>
+          <SWAPSpace size="s" />
+          <div style={{ display: "flex" }}>
+            <RadioButton disabled />
+            <RadioButton checked disabled />
+          </div>
         </div>
       </div>
     </SWAPTheme>

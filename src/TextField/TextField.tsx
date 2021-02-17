@@ -34,6 +34,7 @@ const TextField: React.FC<TextFieldProps> = ({
       "& label": {
         backgroundColor: "white",
         color: theme.black.black800,
+        boxShadow: "0px 0px 0px 7px #ffffff",
       },
     },
     inputRoot: {

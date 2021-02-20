@@ -12,6 +12,7 @@ export interface TextFieldProps {
   multiline?: boolean;
   value?: any;
   onChange?: (e: any) => void;
+  onKeyDown?: (e: any) => void;
   InputProps?: object;
   autoFocus?: boolean;
   placeholder?: string;

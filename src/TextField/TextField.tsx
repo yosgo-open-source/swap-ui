@@ -27,6 +27,7 @@ const TextField: React.FC<TextFieldProps> = ({
   defaultValue,
   width,
   height,
+  onKeyDown,
 }) => {
   const useStyles = makeStyles((theme: Theme) => ({
     //SWAPTheme調整
@@ -93,6 +94,7 @@ const TextField: React.FC<TextFieldProps> = ({
           rows={rows}
           value={value}
           onChange={onChange}
+          onKeyDown={onKeyDown}
           InputProps={{
             classes: {
               root: classes.inputRoot,

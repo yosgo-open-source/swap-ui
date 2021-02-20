@@ -198,7 +198,14 @@ const Button: React.FC<ButtonProps> = ({
                         variant === "text"
                       ? theme.black.black500
                       : theme.black.white,
-                  opacity: variant !== "primary" ? 1 : 0.4,
+                  opacity:
+                    variant === "primary"
+                      ? 0.4
+                      : variant === "secondary" ||
+                        variant === "tertiary" ||
+                        variant === "text"
+                      ? 1
+                      : 0.4,
                 }}
               />
               {/* top */}

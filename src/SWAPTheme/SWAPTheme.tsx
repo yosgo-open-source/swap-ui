@@ -115,12 +115,12 @@ const SWAPDefaultTheme = {
           },
           {
             fontFamily: "NotoSansTC",
-            src: `url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff2) format('woff2')`,
+            src: `url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff2) format('woff2')`,
             fontWeight: "normal",
           },
           {
             fontFamily: "NotoSansTC",
-            src: `url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff2) format('woff2')`,
+            src: `url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff2) format('woff2')`,
             fontWeight: "bold",
           },
         ],
@@ -172,22 +172,6 @@ const SWAPDefaultTheme = {
     MuiInputLabel: {
       shrink: {
         fontWeight: 700,
-      },
-    },
-
-    //Tab
-    MuiTab: {
-      textColorInherit: {
-        opacity: 1,
-        color: "#909090",
-        "&$selected": {
-          color: "#000000",
-        },
-      },
-    },
-    PrivateTabIndicator: {
-      root: {
-        height: 4,
       },
     },
   },

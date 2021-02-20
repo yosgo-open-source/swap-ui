@@ -15,22 +15,34 @@ const Tabs: React.FC<TabsProps> = ({
   variant,
 }) => {
   const useStyles = makeStyles({
-    root: {
-      //SWAPTheme調整
+    root: {},
+    indicatorRoot: {
+      backgroundColor: "transparent",
+      // animation: "$slideDown 5s ",
+      // width: "20px !important",
+      // position: "absolute",
+      // backgroundColor: "red",
+      // transition: "width 3s",
     },
+    // "@keyframes slideDown": {
+    //   from: { backgroundColor: "red" },
+    //   to: { backgroundColor: "green" },
+    // },
   });
   const classes = useStyles();
   return (
     <SWAPTheme>
       <TabWrap>
         <MaterialTabs
-          className={classes.root}
+          classes={{
+            root: classes.root,
+            indicator: classes.indicatorRoot,
+          }}
           style={style}
           centered={centered}
           value={value}
           onChange={onChange}
           variant={variant}
-          indicatorColor="primary"
         >
           {children}
         </MaterialTabs>

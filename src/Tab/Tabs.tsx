@@ -1,10 +1,8 @@
 import MaterialTabs from "@material-ui/core/Tabs";
 
 import React from "react";
-import styled from "styled-components";
 import { TabsProps } from "./Tabs.types";
 import { makeStyles } from "@material-ui/core";
-import SWAPTheme from "../SWAPTheme/SWAPTheme";
 
 const Tabs: React.FC<TabsProps> = ({
   children,
@@ -31,26 +29,22 @@ const Tabs: React.FC<TabsProps> = ({
   });
   const classes = useStyles();
   return (
-    <SWAPTheme>
-      <TabWrap>
-        <MaterialTabs
-          classes={{
-            root: classes.root,
-            indicator: classes.indicatorRoot,
-          }}
-          style={style}
-          centered={centered}
-          value={value}
-          onChange={onChange}
-          variant={variant}
-        >
-          {children}
-        </MaterialTabs>
-      </TabWrap>
-    </SWAPTheme>
+    <div>
+      <MaterialTabs
+        classes={{
+          root: classes.root,
+          indicator: classes.indicatorRoot,
+        }}
+        style={style}
+        centered={centered}
+        value={value}
+        onChange={onChange}
+        variant={variant}
+      >
+        {children}
+      </MaterialTabs>
+    </div>
   );
 };
-
-const TabWrap = styled.div``;
 
 export default Tabs;

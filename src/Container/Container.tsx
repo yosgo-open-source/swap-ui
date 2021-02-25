@@ -3,7 +3,6 @@ import React from "react";
 import styled from "styled-components";
 import { ContainerProps } from "./Container.types";
 import { makeStyles } from "@material-ui/core";
-import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import { useBreakpoints } from "..";
 
 const Container: React.FC<ContainerProps> = ({
@@ -66,13 +65,13 @@ const Container: React.FC<ContainerProps> = ({
   });
   const classes = useStyles();
   return (
-    <SWAPTheme>
+    <div>
       <ContainerWrap>
         <MaterialContainer className={classes.root} style={style}>
           {children}
         </MaterialContainer>
       </ContainerWrap>
-    </SWAPTheme>
+    </div>
   );
 };
 

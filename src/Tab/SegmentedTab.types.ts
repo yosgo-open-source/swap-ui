@@ -7,4 +7,7 @@ export interface SegmentedTabProps {
   selected?: boolean;
   value?: any;
   onClick?: () => void;
+  width?: number | string;
+  height?: number | string;
+  fontSize?: number | string;
 }

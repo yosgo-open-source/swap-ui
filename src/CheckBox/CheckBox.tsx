@@ -2,7 +2,6 @@ import MaterialCheckBox from "@material-ui/core/Checkbox";
 import React from "react";
 import { CheckBoxProps } from "./CheckBox.types";
 import { FormControlLabel, makeStyles, useTheme } from "@material-ui/core";
-import SWAPTheme from "../SWAPTheme/SWAPTheme";
 
 const CheckBox: React.FC<CheckBoxProps> = ({
   style,
@@ -41,10 +40,10 @@ const CheckBox: React.FC<CheckBoxProps> = ({
       "input:disabled:hover ~ &": {
         border: `1px solid ${theme.black.black500}`,
       },
-      "input:focus ~ &": {
-        boxShadow: " 0px 0px 0px 4px #D7DFF8",
-      },
-      "input:focus:hover ~ &": { boxShadow: "none" },
+      // "input:focus ~ &": {
+      //   boxShadow: " 0px 0px 0px 4px #D7DFF8",
+      // },
+      // "input:focus:hover ~ &": { boxShadow: "none" },
     },
     checked_icon: {
       position: "absolute",
@@ -65,15 +64,15 @@ const CheckBox: React.FC<CheckBoxProps> = ({
       "input:disabled:hover ~ &": {
         border: `1px solid ${theme.primary.primary600}`,
       },
-      "input:focus ~ &": {
-        boxShadow: " 0px 0px 0px 4px #D7DFF8",
-      },
-      "input:focus:hover ~ &": { boxShadow: "none" },
+      // "input:focus ~ &": {
+      //   boxShadow: " 0px 0px 0px 4px #D7DFF8",
+      // },
+      // "input:focus:hover ~ &": { boxShadow: "none" },
     },
   });
   const classes = useStyles();
   return (
-    <SWAPTheme>
+    <div>
       <FormControlLabel
         label={label}
         labelPlacement={labelPlacement}
@@ -108,7 +107,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({
           />
         }
       />
-    </SWAPTheme>
+    </div>
   );
 };
 

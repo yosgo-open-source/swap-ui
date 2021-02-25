@@ -1,9 +1,7 @@
 import MaterialMenu from "@material-ui/core/Menu";
 import React from "react";
-import styled from "styled-components";
 import { MenuProps } from "./Menu.types";
 import { makeStyles, Theme } from "@material-ui/core";
-import SWAPTheme from "../SWAPTheme/SWAPTheme";
 
 const Menu: React.FC<MenuProps> = ({
   children,
@@ -31,34 +29,30 @@ const Menu: React.FC<MenuProps> = ({
   }));
   const classes = useStyles();
   return (
-    <SWAPTheme>
-      <MenuWrap>
-        <MaterialMenu
-          className={classes.root}
-          style={style}
-          open={open}
-          anchorEl={anchorEl}
-          keepMounted={keepMounted}
-          onClose={onClose}
-          anchorOrigin={anchorOrigin}
-          anchorPosition={anchorPosition}
-          getContentAnchorEl={getContentAnchorEl}
-          autoFocus={autoFocus}
-          onEnter={onEnter}
-          onEntered={onEntered}
-          onEntering={onEntering}
-          onExit={onExit}
-          onExited={onExited}
-          onExiting={onExiting}
-          transformOrigin={transformOrigin}
-        >
-          {children}
-        </MaterialMenu>
-      </MenuWrap>
-    </SWAPTheme>
+    <div>
+      <MaterialMenu
+        className={classes.root}
+        style={style}
+        open={open}
+        anchorEl={anchorEl}
+        keepMounted={keepMounted}
+        onClose={onClose}
+        anchorOrigin={anchorOrigin}
+        anchorPosition={anchorPosition}
+        getContentAnchorEl={getContentAnchorEl}
+        autoFocus={autoFocus}
+        onEnter={onEnter}
+        onEntered={onEntered}
+        onEntering={onEntering}
+        onExit={onExit}
+        onExited={onExited}
+        onExiting={onExiting}
+        transformOrigin={transformOrigin}
+      >
+        {children}
+      </MaterialMenu>
+    </div>
   );
 };
-
-const MenuWrap = styled.div``;
 
 export default Menu;

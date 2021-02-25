@@ -1,9 +1,7 @@
 import MaterialSnackBar from "@material-ui/core/Snackbar";
 import React from "react";
-import styled from "styled-components";
 import { SnackbarProps } from "./Snackbar.types";
 import { Fade, makeStyles, Slide, SlideProps, Theme } from "@material-ui/core";
-import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import Typography from "../Typography/Typography";
 
 type TransitionProps = Omit<SlideProps, "direction">;
@@ -72,49 +70,45 @@ const Snackbar: React.FC<SnackbarProps> = ({
   }));
   const classes = useStyles();
   return (
-    <SWAPTheme>
-      <SnackbarWrap>
-        <MaterialSnackBar
-          className={classes.root}
-          style={style}
-          ContentProps={{
-            classes: { root: classes.contentRoot, message: classes.message },
-          }}
-          key={key}
-          open={open}
-          anchorOrigin={anchorOrigin}
-          autoHideDuration={autoHideDuration}
-          onClose={onClose}
-          message={
-            <Typography variant="body2" color="white">
-              {message}
-            </Typography>
-          }
-          action={action}
-          onExited={onExited}
-          onExit={onExit}
-          onExiting={onExiting}
-          onEnter={onEnter}
-          onEntered={onEntered}
-          onEntering={onEntering}
-          TransitionComponent={
-            transitionDirection === "left"
-              ? TransitionLeft
-              : transitionDirection === "right"
-              ? TransitionRight
-              : transitionDirection === "up"
-              ? TransitionUp
-              : transitionDirection === "down"
-              ? TransitionDown
-              : Transition
-          }
-          transitionDuration={transitionDuration}
-        />
-      </SnackbarWrap>
-    </SWAPTheme>
+    <div>
+      <MaterialSnackBar
+        className={classes.root}
+        style={style}
+        ContentProps={{
+          classes: { root: classes.contentRoot, message: classes.message },
+        }}
+        key={key}
+        open={open}
+        anchorOrigin={anchorOrigin}
+        autoHideDuration={autoHideDuration}
+        onClose={onClose}
+        message={
+          <Typography variant="body2" color="white">
+            {message}
+          </Typography>
+        }
+        action={action}
+        onExited={onExited}
+        onExit={onExit}
+        onExiting={onExiting}
+        onEnter={onEnter}
+        onEntered={onEntered}
+        onEntering={onEntering}
+        TransitionComponent={
+          transitionDirection === "left"
+            ? TransitionLeft
+            : transitionDirection === "right"
+            ? TransitionRight
+            : transitionDirection === "up"
+            ? TransitionUp
+            : transitionDirection === "down"
+            ? TransitionDown
+            : Transition
+        }
+        transitionDuration={transitionDuration}
+      />
+    </div>
   );
 };
-
-const SnackbarWrap = styled.div``;
 
 export default Snackbar;

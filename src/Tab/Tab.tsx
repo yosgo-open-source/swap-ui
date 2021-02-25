@@ -2,7 +2,7 @@ import MaterialTab from "@material-ui/core/Tab";
 
 import React from "react";
 import { TabProps } from "./Tab.types";
-import { Fade, Grow, makeStyles, useTheme } from "@material-ui/core";
+import { makeStyles, useTheme } from "@material-ui/core";
 
 const Tab: React.FC<TabProps> = ({
   style,
@@ -13,17 +13,21 @@ const Tab: React.FC<TabProps> = ({
   value,
   onClick,
   selected,
+  width,
+  height,
+  margin,
+  fontSize,
+  noIndicator,
 }) => {
   const theme = useTheme();
   const useStyles = makeStyles({
     root: {
       minWidth: 0,
       minHeight: 0,
-      width: 56,
-      height: 56,
       padding: 0,
-      margin: "0px 12px",
+      margin: margin ? margin : "0px 12px",
       fontWeight: 700,
+      fontSize: fontSize ? fontSize : 14,
       lineHeight: 1.4,
       transition: "width 3s",
       // boxShadow: selected
@@ -41,7 +45,8 @@ const Tab: React.FC<TabProps> = ({
       color: "#000000",
     },
     indicatorRoot: {
-      height: 56,
+      width: width ? width : 56,
+      height: height ? height : 56,
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
@@ -50,10 +55,11 @@ const Tab: React.FC<TabProps> = ({
     selected_indicator: {
       animation: "$selected 300ms ",
       height: 4,
-      width: 56,
+      width: "100%",
       backgroundColor: theme.primary.primary400,
       position: "absolute",
       bottom: 0,
+      display: noIndicator ? "none" : null,
     },
     // unselected_indicator: {
     //   animation: "$unselected 300ms ",
@@ -65,7 +71,7 @@ const Tab: React.FC<TabProps> = ({
     // },
     "@keyframes selected": {
       from: { width: 0 },
-      to: { width: 56 },
+      to: { width: "100%" },
     },
     // "@keyframes unselected": {
     //   from: { width: 56 },

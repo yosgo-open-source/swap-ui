@@ -1,8 +1,6 @@
 import { makeStyles, useTheme } from "@material-ui/core";
 import MaterialTypography from "@material-ui/core/Typography";
 import React from "react";
-import styled from "styled-components";
-import SWAPTheme from "../SWAPTheme/SWAPTheme";
 
 import { TypographyProps } from "./Typography.types";
 
@@ -376,16 +374,12 @@ const Typography: React.FC<TypographyProps> = ({
   });
   const classes = useStyles();
   return (
-    <SWAPTheme>
-      <TypographyWrap>
-        <MaterialTypography className={classes.root} style={style}>
-          {children}
-        </MaterialTypography>
-      </TypographyWrap>
-    </SWAPTheme>
+    <div>
+      <MaterialTypography className={classes.root} style={style}>
+        {children}
+      </MaterialTypography>
+    </div>
   );
 };
-
-const TypographyWrap = styled.div``;
 
 export default Typography;

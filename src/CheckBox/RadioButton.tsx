@@ -2,7 +2,6 @@ import MaterialRadioButton from "@material-ui/core/Radio";
 import React from "react";
 import { RadioButtonProps } from "./RadioButton.types";
 import { FormControlLabel, makeStyles, useTheme } from "@material-ui/core";
-import SWAPTheme from "../SWAPTheme/SWAPTheme";
 
 const RadioButton: React.FC<RadioButtonProps> = ({
   style,
@@ -41,10 +40,10 @@ const RadioButton: React.FC<RadioButtonProps> = ({
       "input:disabled:hover ~ &": {
         border: `1px solid ${theme.black.black500}`,
       },
-      "input:focus ~ &": {
-        boxShadow: " 0px 0px 0px 4px #D7DFF8",
-      },
-      "input:focus:hover ~ &": { boxShadow: "none" },
+      // "input:focus ~ &": {
+      //   boxShadow: " 0px 0px 0px 4px #D7DFF8",
+      // },
+      // "input:focus:hover ~ &": { boxShadow: "none" },
     },
     checked_icon: {
       position: "absolute",
@@ -65,15 +64,15 @@ const RadioButton: React.FC<RadioButtonProps> = ({
       "input:disabled:hover ~ &": {
         border: `1px solid ${theme.primary.primary600}`,
       },
-      "input:focus ~ &": {
-        boxShadow: " 0px 0px 0px 4px #D7DFF8",
-      },
-      "input:focus:hover ~ &": { boxShadow: "none" },
+      // "input:focus ~ &": {
+      //   boxShadow: " 0px 0px 0px 4px #D7DFF8",
+      // },
+      // "input:focus:hover ~ &": { boxShadow: "none" },
     },
   });
   const classes = useStyles();
   return (
-    <SWAPTheme>
+    <div>
       <FormControlLabel
         label={label}
         labelPlacement={labelPlacement}
@@ -103,7 +102,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
           />
         }
       />
-    </SWAPTheme>
+    </div>
   );
 };
 

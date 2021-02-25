@@ -1,6 +1,5 @@
 import MaterialSelect from "@material-ui/core/Select";
 import React from "react";
-import styled from "styled-components";
 import { SelectProps } from "./Select.types";
 import {
   FormControl,
@@ -11,7 +10,6 @@ import {
   Theme,
   useTheme,
 } from "@material-ui/core";
-import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import MenuItem from "./MenuItem";
 import CheckIcon from "@material-ui/icons/Check";
 const Select: React.FC<SelectProps> = ({
@@ -102,71 +100,67 @@ const Select: React.FC<SelectProps> = ({
   const classes = useStyles();
   const theme = useTheme();
   return (
-    <SWAPTheme>
-      <MenuWrap>
-        <FormControl variant="outlined" style={style} className={classes.root}>
-          <InputLabel
-            classes={{ root: classes.placeholder }}
-            style={placeholderStyle}
-            shrink={false}
-          >
-            {value === "" ? placeholder : null}
-          </InputLabel>
-          <MaterialSelect
-            className={classes.select}
-            style={selectStyle}
-            open={open}
-            value={value}
-            onChange={onChange}
-            label={placeholder}
-            defaultValue={defaultValue}
-            error={error}
-            disabled={disabled}
-            type={type}
-            autoFocus={autoFocus}
-            required={required}
-            fullWidth={fullWidth}
-            inputProps={{ classes: { root: classes.inputRoot }, ...InputProps }}
-            input={<OutlinedInput classes={outlinedInputClasses} />}
-            MenuProps={{
-              anchorOrigin: {
-                vertical: vertical,
-                horizontal: horizontal,
-              },
-              getContentAnchorEl: null,
+    <div>
+      <FormControl variant="outlined" style={style} className={classes.root}>
+        <InputLabel
+          classes={{ root: classes.placeholder }}
+          style={placeholderStyle}
+          shrink={false}
+        >
+          {value === "" ? placeholder : null}
+        </InputLabel>
+        <MaterialSelect
+          className={classes.select}
+          style={selectStyle}
+          open={open}
+          value={value}
+          onChange={onChange}
+          label={placeholder}
+          defaultValue={defaultValue}
+          error={error}
+          disabled={disabled}
+          type={type}
+          autoFocus={autoFocus}
+          required={required}
+          fullWidth={fullWidth}
+          inputProps={{ classes: { root: classes.inputRoot }, ...InputProps }}
+          input={<OutlinedInput classes={outlinedInputClasses} />}
+          MenuProps={{
+            anchorOrigin: {
+              vertical: vertical,
+              horizontal: horizontal,
+            },
+            getContentAnchorEl: null,
+          }}
+        >
+          <MenuItem
+            style={{
+              backgroundColor: theme.black.white,
+              opacity: 1,
+              display: "flex",
+              justifyContent: "space-between",
+              flexWrap: "nowrap",
             }}
+            disabled
+            value=""
           >
-            <MenuItem
+            <div
               style={{
-                backgroundColor: theme.black.white,
-                opacity: 1,
-                display: "flex",
-                justifyContent: "space-between",
-                flexWrap: "nowrap",
+                color: theme.primary.primary400,
               }}
-              disabled
-              value=""
             >
-              <div
-                style={{
-                  color: theme.primary.primary400,
-                }}
-              >
-                {value === "" ? placeholder : value}
-              </div>
-              <CheckIcon
-                style={{ height: 20, color: theme.primary.primary400 }}
-              />
-            </MenuItem>
-            {children}
-          </MaterialSelect>
-          <FormHelperText style={helperTextStyle}>{helperText}</FormHelperText>
-        </FormControl>
-      </MenuWrap>
-    </SWAPTheme>
+              {value === "" ? placeholder : value}
+            </div>
+            <CheckIcon
+              style={{ height: 20, color: theme.primary.primary400 }}
+            />
+          </MenuItem>
+          {children}
+        </MaterialSelect>
+        <FormHelperText style={helperTextStyle}>{helperText}</FormHelperText>
+      </FormControl>
+    </div>
   );
 };
-
-const MenuWrap = styled.div``;
 
 export default Select;

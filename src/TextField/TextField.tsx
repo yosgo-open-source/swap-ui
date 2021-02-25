@@ -1,9 +1,7 @@
 import MaterialTextField from "@material-ui/core/TextField";
 import React from "react";
-import styled from "styled-components";
 import { TextFieldProps } from "./TextField.types";
 import { makeStyles, Theme } from "@material-ui/core";
-import SWAPTheme from "../SWAPTheme/SWAPTheme";
 
 const TextField: React.FC<TextFieldProps> = ({
   children,
@@ -30,7 +28,6 @@ const TextField: React.FC<TextFieldProps> = ({
   onKeyDown,
 }) => {
   const useStyles = makeStyles((theme: Theme) => ({
-    //SWAPTheme調整
     root: {
       "& label": {
         backgroundColor: "white",
@@ -43,21 +40,26 @@ const TextField: React.FC<TextFieldProps> = ({
       height: height,
       padding: "0px 16px",
       "&.Mui-focused": {
-        borderRadius: 8,
         boxShadow: "0px 0px 0px 4px #D7DFF8",
         fontWeight: 700,
         "&.Mui-error": {
           boxShadow: "0px 0px",
+          "& fieldset": {
+            borderWidth: 1,
+          },
         },
       },
       "&:hover": {
-        fontWeight: 700,
+        // fontWeight: 700,
         "&.Mui-disabled": {
           fontWeight: 400,
         },
       },
     },
     input: {
+      "&:-webkit-autofill": {
+        "-webkit-box-shadow": "0 0 0 100px #FFFFFF inset",
+      },
       padding: "0px 0px",
     },
     selectRoot: {
@@ -66,7 +68,6 @@ const TextField: React.FC<TextFieldProps> = ({
       height: height,
       display: "flex",
       alignItems: "center",
-
       "&.Mui-focused": {
         fontWeight: 700,
       },
@@ -74,54 +75,50 @@ const TextField: React.FC<TextFieldProps> = ({
   }));
   const classes = useStyles();
   return (
-    <SWAPTheme>
-      <TextFieldWrap>
-        <MaterialTextField
-          className={classes.root}
-          variant="outlined"
-          style={style}
-          label={label}
-          helperText={helperText}
-          placeholder={placeholder}
-          error={error}
-          disabled={disabled}
-          required={required}
-          fullWidth={fullWidth}
-          autoFocus={autoFocus}
-          type={type}
-          multiline={multiline}
-          rowsMax={rowsMax}
-          rows={rows}
-          value={value}
-          onChange={onChange}
-          onKeyDown={onKeyDown}
-          InputProps={{
-            classes: {
-              root: classes.inputRoot,
-              input: classes.input,
+    <div>
+      <MaterialTextField
+        className={classes.root}
+        variant="outlined"
+        style={style}
+        label={label}
+        helperText={helperText}
+        placeholder={placeholder}
+        error={error}
+        disabled={disabled}
+        required={required}
+        fullWidth={fullWidth}
+        autoFocus={autoFocus}
+        type={type}
+        multiline={multiline}
+        rowsMax={rowsMax}
+        rows={rows}
+        value={value}
+        onChange={onChange}
+        onKeyDown={onKeyDown}
+        InputProps={{
+          classes: {
+            root: classes.inputRoot,
+            input: classes.input,
+          },
+          ...InputProps,
+        }}
+        select={select}
+        defaultValue={defaultValue}
+        SelectProps={{
+          classes: { root: classes.selectRoot },
+          MenuProps: {
+            anchorOrigin: {
+              vertical: "bottom",
+              horizontal: "left",
             },
-            ...InputProps,
-          }}
-          select={select}
-          defaultValue={defaultValue}
-          SelectProps={{
-            classes: { root: classes.selectRoot },
-            MenuProps: {
-              anchorOrigin: {
-                vertical: "bottom",
-                horizontal: "left",
-              },
-              getContentAnchorEl: null,
-            },
-          }}
-        >
-          {children}
-        </MaterialTextField>
-      </TextFieldWrap>
-    </SWAPTheme>
+            getContentAnchorEl: null,
+          },
+        }}
+      >
+        {children}
+      </MaterialTextField>
+    </div>
   );
 };
-
-const TextFieldWrap = styled.div``;
 
 export default TextField;

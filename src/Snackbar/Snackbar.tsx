@@ -46,7 +46,7 @@ const Snackbar: React.FC<SnackbarProps> = ({
   const useStyles = makeStyles((theme: Theme) => ({
     root: {},
     contentRoot: {
-      width: width ? width : 343,
+      width: width ? width : "100%",
       height: height ? height : 56,
       boxShadow: theme.boxShadow.l,
       borderRadius: theme.borderRadius.m,
@@ -70,44 +70,42 @@ const Snackbar: React.FC<SnackbarProps> = ({
   }));
   const classes = useStyles();
   return (
-    <div>
-      <MaterialSnackBar
-        className={classes.root}
-        style={style}
-        ContentProps={{
-          classes: { root: classes.contentRoot, message: classes.message },
-        }}
-        key={key}
-        open={open}
-        anchorOrigin={anchorOrigin}
-        autoHideDuration={autoHideDuration}
-        onClose={onClose}
-        message={
-          <Typography variant="body2" color="white">
-            {message}
-          </Typography>
-        }
-        action={action}
-        onExited={onExited}
-        onExit={onExit}
-        onExiting={onExiting}
-        onEnter={onEnter}
-        onEntered={onEntered}
-        onEntering={onEntering}
-        TransitionComponent={
-          transitionDirection === "left"
-            ? TransitionLeft
-            : transitionDirection === "right"
-            ? TransitionRight
-            : transitionDirection === "up"
-            ? TransitionUp
-            : transitionDirection === "down"
-            ? TransitionDown
-            : Transition
-        }
-        transitionDuration={transitionDuration}
-      />
-    </div>
+    <MaterialSnackBar
+      className={classes.root}
+      style={style}
+      ContentProps={{
+        classes: { root: classes.contentRoot, message: classes.message },
+      }}
+      key={key}
+      open={open}
+      anchorOrigin={anchorOrigin}
+      autoHideDuration={autoHideDuration}
+      onClose={onClose}
+      message={
+        <Typography variant="body2" color="white">
+          {message}
+        </Typography>
+      }
+      action={action}
+      onExited={onExited}
+      onExit={onExit}
+      onExiting={onExiting}
+      onEnter={onEnter}
+      onEntered={onEntered}
+      onEntering={onEntering}
+      TransitionComponent={
+        transitionDirection === "left"
+          ? TransitionLeft
+          : transitionDirection === "right"
+          ? TransitionRight
+          : transitionDirection === "up"
+          ? TransitionUp
+          : transitionDirection === "down"
+          ? TransitionDown
+          : Transition
+      }
+      transitionDuration={transitionDuration}
+    />
   );
 };
 

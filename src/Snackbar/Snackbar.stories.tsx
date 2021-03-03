@@ -25,11 +25,20 @@ const Demo: Story<SnackbarProps> = (args) => {
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
   const theme = useTheme();
+  const handleClose = () => {
+    setOpen1(false);
+  };
+
   return (
     <SWAPTheme>
       點點看！
       <div
-        style={{ display: "flex", width: 400, justifyContent: "space-between" }}
+        style={{
+          display: "flex",
+          width: 400,
+          justifyContent: "space-between",
+          height: 1000,
+        }}
       >
         <Button onClick={() => setOpen1(true)} size="small" variant="primary">
           Default + Action
@@ -43,7 +52,7 @@ const Demo: Story<SnackbarProps> = (args) => {
       </div>
       <Snackbar
         open={open1}
-        onClose={() => setOpen1(false)}
+        onClose={handleClose}
         message="此封郵件已刪除。"
         action={
           <Box display="flex">

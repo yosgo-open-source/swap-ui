@@ -374,11 +374,9 @@ const Typography: React.FC<TypographyProps> = ({
   });
   const classes = useStyles();
   return (
-    <div>
-      <MaterialTypography className={classes.root} style={style}>
-        {children}
-      </MaterialTypography>
-    </div>
+    <MaterialTypography className={classes.root} style={style}>
+      {children}
+    </MaterialTypography>
   );
 };
 

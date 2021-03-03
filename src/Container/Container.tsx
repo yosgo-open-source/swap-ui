@@ -1,6 +1,5 @@
 import MaterialContainer from "@material-ui/core/Container";
 import React from "react";
-import styled from "styled-components";
 import { ContainerProps } from "./Container.types";
 import { makeStyles } from "@material-ui/core";
 import { useBreakpoints } from "..";
@@ -65,16 +64,10 @@ const Container: React.FC<ContainerProps> = ({
   });
   const classes = useStyles();
   return (
-    <div>
-      <ContainerWrap>
-        <MaterialContainer className={classes.root} style={style}>
-          {children}
-        </MaterialContainer>
-      </ContainerWrap>
-    </div>
+    <MaterialContainer className={classes.root} style={style}>
+      {children}
+    </MaterialContainer>
   );
 };
-
-const ContainerWrap = styled.div``;
 
 export default Container;

@@ -158,79 +158,77 @@ const Button: React.FC<ButtonProps> = ({
   });
   const classes = useStyles();
   return (
-    <div>
-      <MaterialButton
-        className={classes.root}
-        disableElevation
-        disableFocusRipple
-        onClick={() => {
-          setNoFocus(true);
-          onClick();
-        }}
-        fullWidth={fullWidth}
-        disabled={disabled}
-        size="medium"
-        startIcon={startIcon}
-        endIcon={endIcon}
-        style={style}
-      >
-        {/* Loading circle */}
-        {loading ? (
-          <div style={{ position: "relative" }}>
-            {/* bottom */}
-            <CircularProgress
-              variant="determinate"
-              value={100}
-              size={20}
-              thickness={5}
-              style={{
-                position: "absolute",
-                left: -10,
-                top: -10,
-                color:
-                  variant === "primary"
-                    ? theme.black.white
-                    : variant === "secondary" ||
-                      variant === "tertiary" ||
-                      variant === "text"
-                    ? theme.black.black500
-                    : theme.black.white,
-                opacity:
-                  variant === "primary"
-                    ? 0.4
-                    : variant === "secondary" ||
-                      variant === "tertiary" ||
-                      variant === "text"
-                    ? 1
-                    : 0.4,
-              }}
-            />
-            {/* top */}
-            <CircularProgress
-              variant="indeterminate"
-              color="primary"
-              size={20}
-              thickness={5}
-              style={{
-                position: "absolute",
-                left: -10,
-                top: -10,
-                color:
-                  variant === "primary"
-                    ? theme.black.white
-                    : variant === "secondary" ||
-                      variant === "tertiary" ||
-                      variant === "text"
-                    ? theme.primary.primary800
-                    : theme.black.white,
-              }}
-            />
-          </div>
-        ) : (
-          <div style={{ whiteSpace: "nowrap" }}>{children}</div>
-        )}
-      </MaterialButton>
-    </div>
+    <MaterialButton
+      className={classes.root}
+      disableElevation
+      disableFocusRipple
+      onClick={() => {
+        setNoFocus(true);
+        onClick();
+      }}
+      fullWidth={fullWidth}
+      disabled={disabled}
+      size="medium"
+      startIcon={startIcon}
+      endIcon={endIcon}
+      style={style}
+    >
+      {/* Loading circle */}
+      {loading ? (
+        <div style={{ position: "relative" }}>
+          {/* bottom */}
+          <CircularProgress
+            variant="determinate"
+            value={100}
+            size={20}
+            thickness={5}
+            style={{
+              position: "absolute",
+              left: -10,
+              top: -10,
+              color:
+                variant === "primary"
+                  ? theme.black.white
+                  : variant === "secondary" ||
+                    variant === "tertiary" ||
+                    variant === "text"
+                  ? theme.black.black500
+                  : theme.black.white,
+              opacity:
+                variant === "primary"
+                  ? 0.4
+                  : variant === "secondary" ||
+                    variant === "tertiary" ||
+                    variant === "text"
+                  ? 1
+                  : 0.4,
+            }}
+          />
+          {/* top */}
+          <CircularProgress
+            variant="indeterminate"
+            color="primary"
+            size={20}
+            thickness={5}
+            style={{
+              position: "absolute",
+              left: -10,
+              top: -10,
+              color:
+                variant === "primary"
+                  ? theme.black.white
+                  : variant === "secondary" ||
+                    variant === "tertiary" ||
+                    variant === "text"
+                  ? theme.primary.primary800
+                  : theme.black.white,
+            }}
+          />
+        </div>
+      ) : (
+        <div style={{ whiteSpace: "nowrap" }}>{children}</div>
+      )}
+    </MaterialButton>
   );
 };
 

@@ -42,6 +42,10 @@ const TextField: React.FC<TextFieldProps> = ({
       "&.Mui-focused": {
         boxShadow: "0px 0px 0px 4px #D7DFF8",
         fontWeight: 700,
+        "& fieldset": {
+          borderWidth: "1px !important",
+        },
+
         "&.Mui-error": {
           boxShadow: "0px 0px",
           "& fieldset": {
@@ -75,49 +79,47 @@ const TextField: React.FC<TextFieldProps> = ({
   }));
   const classes = useStyles();
   return (
-    <div>
-      <MaterialTextField
-        className={classes.root}
-        variant="outlined"
-        style={style}
-        label={label}
-        helperText={helperText}
-        placeholder={placeholder}
-        error={error}
-        disabled={disabled}
-        required={required}
-        fullWidth={fullWidth}
-        autoFocus={autoFocus}
-        type={type}
-        multiline={multiline}
-        rowsMax={rowsMax}
-        rows={rows}
-        value={value}
-        onChange={onChange}
-        onKeyDown={onKeyDown}
-        InputProps={{
-          classes: {
-            root: classes.inputRoot,
-            input: classes.input,
+    <MaterialTextField
+      className={classes.root}
+      variant="outlined"
+      style={style}
+      label={label}
+      helperText={helperText}
+      placeholder={placeholder}
+      error={error}
+      disabled={disabled}
+      required={required}
+      fullWidth={fullWidth}
+      autoFocus={autoFocus}
+      type={type}
+      multiline={multiline}
+      rowsMax={rowsMax}
+      rows={rows}
+      value={value}
+      onChange={onChange}
+      onKeyDown={onKeyDown}
+      InputProps={{
+        classes: {
+          root: classes.inputRoot,
+          input: classes.input,
+        },
+        ...InputProps,
+      }}
+      select={select}
+      defaultValue={defaultValue}
+      SelectProps={{
+        classes: { root: classes.selectRoot },
+        MenuProps: {
+          anchorOrigin: {
+            vertical: "bottom",
+            horizontal: "left",
           },
-          ...InputProps,
-        }}
-        select={select}
-        defaultValue={defaultValue}
-        SelectProps={{
-          classes: { root: classes.selectRoot },
-          MenuProps: {
-            anchorOrigin: {
-              vertical: "bottom",
-              horizontal: "left",
-            },
-            getContentAnchorEl: null,
-          },
-        }}
-      >
-        {children}
-      </MaterialTextField>
-    </div>
+          getContentAnchorEl: null,
+        },
+      }}
+    >
+      {children}
+    </MaterialTextField>
   );
 };
 

@@ -29,21 +29,19 @@ const Tabs: React.FC<TabsProps> = ({
   });
   const classes = useStyles();
   return (
-    <div>
-      <MaterialTabs
-        classes={{
-          root: classes.root,
-          indicator: classes.indicatorRoot,
-        }}
-        style={style}
-        centered={centered}
-        value={value}
-        onChange={onChange}
-        variant={variant}
-      >
-        {children}
-      </MaterialTabs>
-    </div>
+    <MaterialTabs
+      classes={{
+        root: classes.root,
+        indicator: classes.indicatorRoot,
+      }}
+      style={style}
+      centered={centered}
+      value={value}
+      onChange={onChange}
+      variant={variant}
+    >
+      {children}
+    </MaterialTabs>
   );
 };
 

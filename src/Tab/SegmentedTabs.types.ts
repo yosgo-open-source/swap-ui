@@ -5,5 +5,5 @@ export interface SegmentedTabsProps {
   value?: any;
   onChange?: (e: any, index: number) => void;
   variant?: "fullWidth";
-  width: number | string;
+  width?: number | string;
 }

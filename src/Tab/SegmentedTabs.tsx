@@ -20,7 +20,6 @@ const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
       border: "1px solid #cccccc",
       borderRadius: "9px",
       "& button": {
-        padding: "12px 16px 12px 16px",
         borderRadius: "8px",
         "&.Mui-selected": {
           backgroundColor: theme.primary.primary50,
@@ -34,21 +33,19 @@ const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
   });
   const classes = useStyles();
   return (
-    <div>
-      <MaterialTabs
-        classes={{
-          root: classes.root,
-        }}
-        style={style}
-        centered={centered}
-        value={value}
-        onChange={onChange}
-        variant={variant}
-        indicatorColor="primary"
-      >
-        {children}
-      </MaterialTabs>
-    </div>
+    <MaterialTabs
+      classes={{
+        root: classes.root,
+      }}
+      style={style}
+      centered={centered}
+      value={value}
+      onChange={onChange}
+      variant={variant}
+      indicatorColor="primary"
+    >
+      {children}
+    </MaterialTabs>
   );
 };
 

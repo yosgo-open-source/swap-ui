@@ -72,37 +72,35 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   });
   const classes = useStyles();
   return (
-    <div>
-      <FormControlLabel
-        label={label}
-        labelPlacement={labelPlacement}
-        control={
-          <MaterialRadioButton
-            disableFocusRipple
-            disableTouchRipple
-            className={classes.root}
-            disabled={disabled}
-            checked={checked}
-            onChange={onChange}
-            checkedIcon={
-              <span className={classes.checked_icon}>
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 10 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="5" cy="5" r="5" fill="white" />
-                </svg>
-              </span>
-            }
-            icon={<span className={classes.icon} />}
-            style={style}
-          />
-        }
-      />
-    </div>
+    <FormControlLabel
+      label={label}
+      labelPlacement={labelPlacement}
+      control={
+        <MaterialRadioButton
+          disableFocusRipple
+          disableTouchRipple
+          className={classes.root}
+          disabled={disabled}
+          checked={checked}
+          onChange={onChange}
+          checkedIcon={
+            <span className={classes.checked_icon}>
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 10 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="5" cy="5" r="5" fill="white" />
+              </svg>
+            </span>
+          }
+          icon={<span className={classes.icon} />}
+          style={style}
+        />
+      }
+    />
   );
 };
 

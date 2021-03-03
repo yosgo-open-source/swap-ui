@@ -53,13 +53,10 @@ const Demo: Story<TabsProps> = (args) => {
         />
       </Tabs>
       <SWAPSpace size="l" />
-      <SegmentedTabs value={value} width={358}>
+      <SegmentedTabs value={value} width={450}>
         <SegmentedTab label="帳戶總覽" onClick={() => setValue(0)} />
-        <SegmentedTab
-          label="帳戶總覽帳戶總覽"
-          onClick={() => setValue(1)}
-          width={150}
-        />
+        <SegmentedTab label="帳戶總" onClick={() => setValue(1)} />
+        <SegmentedTab label="帳戶總覽" onClick={() => setValue(2)} />
         <SegmentedTab label="帳戶總覽" onClick={() => setValue(2)} />
       </SegmentedTabs>
       <SWAPSpace size="l" />

@@ -72,42 +72,40 @@ const CheckBox: React.FC<CheckBoxProps> = ({
   });
   const classes = useStyles();
   return (
-    <div>
-      <FormControlLabel
-        label={label}
-        labelPlacement={labelPlacement}
-        control={
-          <MaterialCheckBox
-            disableFocusRipple
-            disableTouchRipple
-            className={classes.root}
-            disabled={disabled}
-            checked={checked}
-            onChange={onChange}
-            checkedIcon={
-              <span className={classes.checked_icon}>
-                <svg
-                  width="17"
-                  height="16"
-                  viewBox="0 0 17 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.5 8.5L7 13L15 2"
-                    stroke="white"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </span>
-            }
-            icon={<span className={classes.icon} />}
-            style={style}
-          />
-        }
-      />
-    </div>
+    <FormControlLabel
+      label={label}
+      labelPlacement={labelPlacement}
+      control={
+        <MaterialCheckBox
+          disableFocusRipple
+          disableTouchRipple
+          className={classes.root}
+          disabled={disabled}
+          checked={checked}
+          onChange={onChange}
+          checkedIcon={
+            <span className={classes.checked_icon}>
+              <svg
+                width="17"
+                height="16"
+                viewBox="0 0 17 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.5 8.5L7 13L15 2"
+                  stroke="white"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+          }
+          icon={<span className={classes.icon} />}
+          style={style}
+        />
+      }
+    />
   );
 };
 

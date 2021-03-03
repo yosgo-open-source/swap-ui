@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import { SWAPThemeProps } from "./SWAPTheme.types";
@@ -185,11 +184,10 @@ const SWAPTheme: React.FC<SWAPThemeProps> = ({ themeOptions, children }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <SWAPThemeWrap>{children}</SWAPThemeWrap>
+      {children}
     </ThemeProvider>
   );
 };
-
-const SWAPThemeWrap = styled.div``;
+export { createMuiTheme, CssBaseline, ThemeProvider };
 
 export default SWAPTheme;

@@ -29,29 +29,27 @@ const Menu: React.FC<MenuProps> = ({
   }));
   const classes = useStyles();
   return (
-    <div>
-      <MaterialMenu
-        className={classes.root}
-        style={style}
-        open={open}
-        anchorEl={anchorEl}
-        keepMounted={keepMounted}
-        onClose={onClose}
-        anchorOrigin={anchorOrigin}
-        anchorPosition={anchorPosition}
-        getContentAnchorEl={getContentAnchorEl}
-        autoFocus={autoFocus}
-        onEnter={onEnter}
-        onEntered={onEntered}
-        onEntering={onEntering}
-        onExit={onExit}
-        onExited={onExited}
-        onExiting={onExiting}
-        transformOrigin={transformOrigin}
-      >
-        {children}
-      </MaterialMenu>
-    </div>
+    <MaterialMenu
+      className={classes.root}
+      style={style}
+      open={open}
+      anchorEl={anchorEl}
+      keepMounted={keepMounted}
+      onClose={onClose}
+      anchorOrigin={anchorOrigin}
+      anchorPosition={anchorPosition}
+      getContentAnchorEl={getContentAnchorEl}
+      autoFocus={autoFocus}
+      onEnter={onEnter}
+      onEntered={onEntered}
+      onEntering={onEntering}
+      onExit={onExit}
+      onExited={onExited}
+      onExiting={onExiting}
+      transformOrigin={transformOrigin}
+    >
+      {children}
+    </MaterialMenu>
   );
 };
 

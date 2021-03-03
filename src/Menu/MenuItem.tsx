@@ -44,18 +44,16 @@ const MenuItem: React.FC<MenuItemProps> = ({
   }));
   const classes = useStyles();
   return (
-    <div>
-      <MaterialMenuItem
-        className={classes.root}
-        style={style}
-        key={key}
-        value={value}
-        onClick={onClick}
-        disabled={disabled}
-      >
-        {children}
-      </MaterialMenuItem>
-    </div>
+    <MaterialMenuItem
+      className={classes.root}
+      style={style}
+      key={key}
+      value={value}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {children}
+    </MaterialMenuItem>
   );
 };
 

@@ -29,6 +29,7 @@ const SegmentedTab: React.FC<SegmentedTabProps> = ({
       "&:hover": {
         color: "#000000",
       },
+      flex: 1,
     },
   });
   const classes = useStyles();

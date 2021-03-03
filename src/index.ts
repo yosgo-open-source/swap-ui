@@ -14,7 +14,11 @@ import {
   SWAPExpenseTypes,
   SWAPIncomeTypes,
 } from "./SWAPTaxField/SWAPTaxField";
-import SWAPTheme from "./SWAPTheme/SWAPTheme";
+import SWAPTheme, {
+  createMuiTheme,
+  CssBaseline,
+  ThemeProvider,
+} from "./SWAPTheme/SWAPTheme";
 import Styles from "./Styles/Styles";
 import Typography from "./Typography/Typography";
 import Container from "./Container/Container";
@@ -68,4 +72,7 @@ export {
   Button,
   Snackbar,
   Modal,
+  createMuiTheme,
+  CssBaseline,
+  ThemeProvider,
 };

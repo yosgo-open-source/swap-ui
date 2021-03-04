@@ -40,7 +40,6 @@ const Demo: Story<TabsProps> = (args) => {
           height={64}
           margin="0px 12px 0px 0px"
           fontSize={18}
-          noIndicator
         />
         <Tab
           label="登入帳號"
@@ -49,7 +48,6 @@ const Demo: Story<TabsProps> = (args) => {
           height={64}
           margin="0px"
           fontSize={18}
-          noIndicator
         />
       </Tabs>
       <SWAPSpace size="l" />

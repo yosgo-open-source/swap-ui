@@ -68,12 +68,14 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
             boxShadow: "0px 2px 16px rgba(0, 0, 0, 0.08)",
             zIndex: 1090,
             border: "0px solid white",
+            backgroundColor: "white",
+            // transition: "all 1s ease-out 0s",
           }}
         >
           <Toolbar className={classes.userToolbar}>
             <Box width="100%">
               <Container>
-                {landingPage ? (
+                {false ? (
                   //Landing Page
                   <Grid container alignItems="center" justify="space-between">
                     <Grid item>
@@ -367,6 +369,7 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                             anchorEl={anchorEl}
                             keepMounted
                             open={Boolean(anchorEl)}
+                            // open={true}
                             onClose={handleClose}
                             anchorOrigin={{ vertical: 40, horizontal: 32 }}
                             getContentAnchorEl={null}
@@ -374,6 +377,7 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
                               vertical: "top",
                               horizontal: "right",
                             }}
+                            style={{ paddingRight: 0 }}
                           >
                             <MenuItem width={200}>帳戶總覽</MenuItem>
                             <SWAPSpace size="xs" />

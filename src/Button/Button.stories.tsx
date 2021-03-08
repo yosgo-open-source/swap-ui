@@ -236,7 +236,7 @@ export const 狀態 = () => {
     <SWAPTheme>
       Default & Hover & Pressed & Focus
       <div
-        style={{ display: "flex", justifyContent: "space-around", width: 700 }}
+        style={{ display: "flex", justifyContent: "space-around", width: 850 }}
       >
         <Button variant="primary" minWidth={140}>
           D H P F
@@ -250,10 +250,13 @@ export const 狀態 = () => {
         <Button variant="text" minWidth={140}>
           D H P F
         </Button>
+        <Button variant="black" minWidth={140}>
+          D H P F
+        </Button>
       </div>
       <SWAPSpace size="m" />
       <div
-        style={{ display: "flex", justifyContent: "space-around", width: 700 }}
+        style={{ display: "flex", justifyContent: "space-around", width: 850 }}
       >
         <Button variant="primary" minWidth={140} disabled>
           Disabled
@@ -267,10 +270,13 @@ export const 狀態 = () => {
         <Button variant="text" minWidth={140} disabled>
           Disabled
         </Button>
+        <Button variant="black" minWidth={140} disabled>
+          Disabled
+        </Button>
       </div>
       <SWAPSpace size="m" />
       <div
-        style={{ display: "flex", justifyContent: "space-around", width: 700 }}
+        style={{ display: "flex", justifyContent: "space-around", width: 850 }}
       >
         <Button variant="primary" minWidth={140} loading>
           Loading
@@ -282,6 +288,9 @@ export const 狀態 = () => {
           Loading
         </Button>
         <Button variant="text" minWidth={140} loading>
+          Loading
+        </Button>
+        <Button variant="black" minWidth={140} loading>
           Loading
         </Button>
       </div>

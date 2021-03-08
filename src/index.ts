@@ -37,6 +37,9 @@ import MenuItem from "./Menu/MenuItem";
 import Button from "./Button/Button";
 import Snackbar from "./Snackbar/Snackbar";
 import Modal from "./Modal/Modal";
+import Banner from "./Banner/Banner";
+import Chip from "./Chip/Chip";
+import CircularProgress from "./CircularProgress/CircularProgress";
 
 export {
   SWAPAppBar,
@@ -75,4 +78,7 @@ export {
   createMuiTheme,
   CssBaseline,
   ThemeProvider,
+  Banner,
+  Chip,
+  CircularProgress,
 };

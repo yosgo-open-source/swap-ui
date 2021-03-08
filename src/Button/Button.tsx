@@ -31,6 +31,8 @@ const Button: React.FC<ButtonProps> = ({
           ? theme.primary.primary500
           : variant === "text"
           ? theme.primary.primary400
+          : variant === "black"
+          ? theme.black.black800
           : theme.black.white,
       backgroundColor:
         variant === "primary"
@@ -41,6 +43,8 @@ const Button: React.FC<ButtonProps> = ({
           ? theme.primary.primary50
           : variant === "text"
           ? theme.black.white
+          : variant === "black"
+          ? theme.black.white
           : theme.primary.primary400,
       border:
         variant === "primary"
@@ -49,7 +53,7 @@ const Button: React.FC<ButtonProps> = ({
           ? `1px solid ${theme.primary.primary400}`
           : variant === "tertiary"
           ? null
-          : variant === "text"
+          : variant === "text" || variant === "black"
           ? null
           : `1px solid ${theme.primary.primary600}`,
       borderRadius: "8px",
@@ -85,10 +89,16 @@ const Button: React.FC<ButtonProps> = ({
             ? theme.primary.primary100
             : variant === "text"
             ? theme.primary.primary50
+            : variant === "black"
+            ? theme.black.black400
             : theme.primary.primary300,
         border:
           variant === "primary"
             ? `1px solid ${theme.primary.primary300}`
+            : variant === "tertiary" ||
+              variant === "text" ||
+              variant === "black"
+            ? null
             : `1px solid ${theme.primary.primary300}`,
       },
       "&:active": {
@@ -101,11 +111,17 @@ const Button: React.FC<ButtonProps> = ({
             ? theme.primary.primary200
             : variant === "text"
             ? theme.primary.primary100
+            : variant === "black"
+            ? theme.black.black500
             : theme.primary.primary500,
       },
       noFocus: null,
       "&:focus": {
-        boxShadow: noFocus ? null : "0px 0px 0px 4px #D7DFF8",
+        boxShadow: noFocus
+          ? null
+          : variant === "black"
+          ? "0px 0px 0px 4px #CCCCCC"
+          : "0px 0px 0px 4px #D7DFF8",
         backgroundColor: noFocus
           ? null
           : variant === "primary"
@@ -116,6 +132,8 @@ const Button: React.FC<ButtonProps> = ({
           ? theme.primary.primary50
           : variant === "text"
           ? theme.primary.primary50
+          : variant === "black"
+          ? theme.black.black400
           : theme.primary.primary400,
         border: noFocus
           ? null
@@ -125,6 +143,8 @@ const Button: React.FC<ButtonProps> = ({
           ? `1px solid ${theme.primary.primary400}`
           : variant === "text"
           ? `1px solid ${theme.primary.primary400}`
+          : variant === "black"
+          ? `1px solid ${theme.black.black800}`
           : `1px solid ${theme.primary.primary600}`,
       },
       "&:disabled": {
@@ -138,6 +158,8 @@ const Button: React.FC<ButtonProps> = ({
             ? theme.primary.primary100
             : variant === "text"
             ? theme.black.white
+            : variant === "black"
+            ? theme.black.white
             : theme.primary.primary800,
         color:
           variant === "primary"
@@ -148,6 +170,8 @@ const Button: React.FC<ButtonProps> = ({
             ? theme.primary.primary500
             : variant === "text"
             ? theme.primary.primary400
+            : variant === "black"
+            ? theme.black.black800
             : theme.black.white,
         border:
           variant === "secondary"
@@ -191,7 +215,8 @@ const Button: React.FC<ButtonProps> = ({
                   ? theme.black.white
                   : variant === "secondary" ||
                     variant === "tertiary" ||
-                    variant === "text"
+                    variant === "text" ||
+                    variant === "black"
                   ? theme.black.black500
                   : theme.black.white,
               opacity:
@@ -199,7 +224,8 @@ const Button: React.FC<ButtonProps> = ({
                   ? 0.4
                   : variant === "secondary" ||
                     variant === "tertiary" ||
-                    variant === "text"
+                    variant === "text" ||
+                    variant === "black"
                   ? 1
                   : 0.4,
             }}
@@ -219,7 +245,8 @@ const Button: React.FC<ButtonProps> = ({
                   ? theme.black.white
                   : variant === "secondary" ||
                     variant === "tertiary" ||
-                    variant === "text"
+                    variant === "text" ||
+                    variant === "black"
                   ? theme.primary.primary800
                   : theme.black.white,
             }}

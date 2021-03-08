@@ -1,7 +1,7 @@
 export interface ButtonProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
-  variant?: "primary" | "secondary" | "text" | "tertiary";
+  variant?: "primary" | "secondary" | "text" | "tertiary" | "black";
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   fullWidth?: boolean;

@@ -41,7 +41,7 @@ const TextField: React.FC<TextFieldProps> = ({
       padding: "0px 16px",
       "&.Mui-focused": {
         boxShadow: "0px 0px 0px 4px #D7DFF8",
-        fontWeight: 700,
+        fontWeight: 400,
         "& fieldset": {
           borderWidth: "1px !important",
         },

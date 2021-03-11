@@ -16,7 +16,6 @@ const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
   const useStyles = makeStyles({
     root: {
       width: width,
-      padding: 4,
       border: "1px solid #cccccc",
       borderRadius: "9px",
       "& button": {

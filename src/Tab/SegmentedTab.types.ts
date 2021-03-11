@@ -10,4 +10,5 @@ export interface SegmentedTabProps {
   width?: number | string;
   height?: number | string;
   fontSize?: number | string;
+  flex?: number;
 }

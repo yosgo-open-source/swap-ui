@@ -66,6 +66,7 @@ const Modal: React.FC<ModalProps> = ({
   fullWidth,
   bodyPadding,
   maxWidth,
+  disCloseIcon,
 }) => {
   const match_XS = useBreakpoints("xs");
   const match_SM = useBreakpoints("sm");
@@ -300,17 +301,19 @@ const Modal: React.FC<ModalProps> = ({
                 </Box>
               )}
             </Box>
-            <IconButton
-              className={classes.closeIconButton}
-              TouchRippleProps={{
-                classes: { child: classes.closeIconRippleRoot },
-              }}
-              onClick={() => {
-                onClose();
-              }}
-            >
-              <CloseIcon className={classes.closeIcon} />
-            </IconButton>
+            {disCloseIcon ? null : (
+              <IconButton
+                className={classes.closeIconButton}
+                TouchRippleProps={{
+                  classes: { child: classes.closeIconRippleRoot },
+                }}
+                onClick={() => {
+                  onClose();
+                }}
+              >
+                <CloseIcon className={classes.closeIcon} />
+              </IconButton>
+            )}
           </Box>
           {children ? (
             <>

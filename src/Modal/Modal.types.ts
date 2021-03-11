@@ -27,6 +27,7 @@ export interface ModalProps {
     onClick?: () => void;
     disabled?: boolean;
   };
+  disCloseIcon?: boolean;
   checkIconColor?:
     | "primary"
     | "secondary"

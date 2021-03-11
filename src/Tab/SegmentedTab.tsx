@@ -15,21 +15,24 @@ const SegmentedTab: React.FC<SegmentedTabProps> = ({
   width,
   height,
   fontSize,
+  flex,
 }) => {
   const useStyles = makeStyles({
     root: {
       //SWAPTheme調整
+      padding: "16px 12px",
       minWidth: 0,
-      width: width ? width : 100,
+      width: width ? width : "fit-content",
       height: height ? height : 48,
-      padding: 0,
       fontWeight: 700,
       fontSize: fontSize ? fontSize : 14,
       lineHeight: 1.4,
       "&:hover": {
         color: "#000000",
       },
-      flex: 1,
+      flex: flex,
+      whiteSpace: "nowrap",
+      margin: 4,
     },
   });
   const classes = useStyles();

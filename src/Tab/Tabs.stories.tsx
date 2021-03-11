@@ -51,13 +51,19 @@ const Demo: Story<TabsProps> = (args) => {
         />
       </Tabs>
       <SWAPSpace size="l" />
-      <SegmentedTabs value={value} width={450}>
-        <SegmentedTab label="帳戶總覽" onClick={() => setValue(0)} />
-        <SegmentedTab label="帳戶總" onClick={() => setValue(1)} />
-        <SegmentedTab label="帳戶總覽" onClick={() => setValue(2)} />
-        <SegmentedTab label="帳戶總覽" onClick={() => setValue(2)} />
+      <SegmentedTabs value={value} width={256}>
+        <SegmentedTab label="我的請款單" onClick={() => setValue(0)} />
+        <SegmentedTab label="Swap Point 明細" onClick={() => setValue(1)} />
       </SegmentedTabs>
       <SWAPSpace size="l" />
+      <SegmentedTabs value={value} width={500}>
+        <SegmentedTab label="我的請款單" onClick={() => setValue(0)} flex={1} />
+        <SegmentedTab
+          label="Swap Point 明細"
+          onClick={() => setValue(1)}
+          flex={3}
+        />
+      </SegmentedTabs>
       <TabPanel value={value} index={0}>
         1
       </TabPanel>

@@ -11,4 +11,5 @@ export interface MenuItemProps {
   hoverFontColor?: string;
   hoverIconColor?: string;
   rippleColor?: string;
+  iconChildren?: React.ReactNode;
 }

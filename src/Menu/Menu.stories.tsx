@@ -66,11 +66,13 @@ const Demo: Story<MenuProps> = (args) => {
               color: value === option.value ? "blue" : null,
             }}
             disabled={value === option.value}
+            iconChildren={
+              value === option.value && open ? (
+                <CheckIcon style={{ height: 20, color: "blue" }} />
+              ) : null
+            }
           >
             {option.label}
-            {value === option.value && open ? (
-              <CheckIcon style={{ height: 20, color: "blue" }} />
-            ) : null}
           </MenuItem>
         ))}
       </Select>

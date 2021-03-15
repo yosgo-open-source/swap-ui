@@ -1,7 +1,7 @@
 import MaterialMenuItem from "@material-ui/core/MenuItem";
 import React from "react";
 import { MenuItemProps } from "./MenuItem.types";
-import { makeStyles, Theme } from "@material-ui/core";
+import { ListItemIcon, makeStyles, Theme } from "@material-ui/core";
 
 const MenuItem: React.FC<MenuItemProps> = ({
   children,
@@ -16,6 +16,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   hoverIconColor,
   height,
   rippleColor,
+  iconChildren,
 }) => {
   const useStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -53,6 +54,9 @@ const MenuItem: React.FC<MenuItemProps> = ({
       disabled={disabled}
     >
       {children}
+      <ListItemIcon style={{ justifyContent: "flex-end" }}>
+        {iconChildren}
+      </ListItemIcon>
     </MaterialMenuItem>
   );
 };

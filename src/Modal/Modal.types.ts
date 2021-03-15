@@ -1,4 +1,5 @@
 export interface ModalProps {
+  titleStyle?: React.CSSProperties;
   open: boolean;
   checked?: boolean;
   buttonFullWidth?: boolean;
@@ -21,11 +22,27 @@ export interface ModalProps {
     title?: string | React.ReactNode;
     onClick?: () => void;
     disabled?: boolean;
+    style?: React.CSSProperties;
+    variant?:
+      | "primary"
+      | "secondary"
+      | "text"
+      | "tertiary"
+      | "black"
+      | "danger";
   };
   primaryButton?: {
     title?: string | React.ReactNode;
     onClick?: () => void;
     disabled?: boolean;
+    style?: React.CSSProperties;
+    variant?:
+      | "primary"
+      | "secondary"
+      | "text"
+      | "tertiary"
+      | "black"
+      | "danger";
   };
   disCloseIcon?: boolean;
   checkIconColor?:

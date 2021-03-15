@@ -8,10 +8,7 @@ import {
   makeStyles,
   OutlinedInput,
   Theme,
-  useTheme,
 } from "@material-ui/core";
-import MenuItem from "./MenuItem";
-import CheckIcon from "@material-ui/icons/Check";
 const Select: React.FC<SelectProps> = ({
   children,
   style,
@@ -35,6 +32,8 @@ const Select: React.FC<SelectProps> = ({
   placeholderStyle,
   selectStyle,
   helperTextStyle,
+  onClick,
+  transformOrigin,
 }) => {
   const useOutlinedInputStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -95,10 +94,12 @@ const Select: React.FC<SelectProps> = ({
         color: theme.black.black1000,
       },
     },
+    menuRoot: {
+      marginTop: 8,
+    },
   }));
   const outlinedInputClasses = useOutlinedInputStyles();
   const classes = useStyles();
-  const theme = useTheme();
   return (
     <FormControl variant="outlined" style={style} className={classes.root}>
       <InputLabel
@@ -109,7 +110,7 @@ const Select: React.FC<SelectProps> = ({
         {value === "" ? placeholder : null}
       </InputLabel>
       <MaterialSelect
-        className={classes.select}
+        classes={{ select: classes.select }}
         style={selectStyle}
         open={open}
         value={value}
@@ -125,33 +126,16 @@ const Select: React.FC<SelectProps> = ({
         inputProps={{ classes: { root: classes.inputRoot }, ...InputProps }}
         input={<OutlinedInput classes={outlinedInputClasses} />}
         MenuProps={{
+          transformOrigin: transformOrigin,
+          classes: { paper: classes.menuRoot },
           anchorOrigin: {
             vertical: vertical,
             horizontal: horizontal,
           },
           getContentAnchorEl: null,
         }}
+        onClick={onClick}
       >
-        <MenuItem
-          style={{
-            backgroundColor: theme.black.white,
-            opacity: 1,
-            display: "flex",
-            justifyContent: "space-between",
-            flexWrap: "nowrap",
-          }}
-          disabled
-          value=""
-        >
-          <div
-            style={{
-              color: theme.primary.primary400,
-            }}
-          >
-            {value === "" ? placeholder : value}
-          </div>
-          <CheckIcon style={{ height: 20, color: theme.primary.primary400 }} />
-        </MenuItem>
         {children}
       </MaterialSelect>
       <FormHelperText style={helperTextStyle}>{helperText}</FormHelperText>

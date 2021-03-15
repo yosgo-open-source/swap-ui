@@ -15,7 +15,6 @@ import SWAPSpace from "../SWAPSpace/SWAPSpace";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import Modal from "./Modal";
 import Button from "../Button/Button";
-import ModalNew from "../Modal/ModalNew";
 
 export default {
   title: "Modal",
@@ -52,25 +51,41 @@ const Demo: Story<ModalProps> = (args) => {
         onClose={handleClose}
         // checked
         // checkIconColor="success800"
-        title="sdilokfj"
-        // helpText="slkdfj;"
+        title="確定要取消訂閱嗎？"
+        helpText="取消訂閱後，我們將維持你專家方案的資格直到4月8號"
+        titleStyle={{ height: 102 }}
+        // headChildren={
+        //   <div
+        //     style={{ display: "flex", justifyContent: "center", width: "100%" }}
+        //   >
+        //     dsfklsdfjl;sjf
+        //   </div>
+        // }
+        disCloseIcon
+        size="extraSmall"
+        mobile
         // headChildren={
         //   <Box>
         //     <Button>123</Button>
         //   </Box>
         // }
-        children="11234"
+        // children="11234"
         // buttonFullWidth
         // size="large"
         // footerDisplayColumn
         // label="sdkjfh"
         primaryButton={{
-          title: "123123",
+          title: "取消訂閱",
           onClick: () => {
             alert("123");
           },
+          variant: "danger",
         }}
-        secondaryButton={{ title: "sdfgasdfg", onClick: () => {} }}
+        secondaryButton={{
+          title: "繼續使用此方案",
+          onClick: () => {},
+          // style: { backgroundColor: "red" },
+        }}
         // mobile
         // fullWidth
       />

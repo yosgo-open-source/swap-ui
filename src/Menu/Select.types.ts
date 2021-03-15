@@ -17,7 +17,7 @@ export interface SelectProps {
   placeholder?: string;
   required?: boolean;
   select?: boolean;
-  defaultValue?: string;
+  defaultValue?: any;
   width?: number | string;
   height?: number | string;
   vertical?: "top" | "center" | "bottom" | number;
@@ -26,4 +26,9 @@ export interface SelectProps {
   placeholderStyle?: React.CSSProperties;
   selectStyle?: React.CSSProperties;
   helperTextStyle?: React.CSSProperties;
+  onClick?: () => void;
+  transformOrigin?: {
+    horizontal: "center" | "left" | "right" | number;
+    vertical: "bottom" | "center" | "top" | number;
+  };
 }

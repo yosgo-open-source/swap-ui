@@ -20,10 +20,12 @@ const SegmentedTab: React.FC<SegmentedTabProps> = ({
   const useStyles = makeStyles({
     root: {
       //SWAPTheme調整
-      padding: "16px 12px",
+      textTransform: "unset",
+      padding: "12px 16px",
       minWidth: 0,
+      minHeight: height ? height : 40,
       width: width ? width : "fit-content",
-      height: height ? height : 48,
+      // height: height ? height : 40,
       fontWeight: 700,
       fontSize: fontSize ? fontSize : 14,
       lineHeight: 1.4,

@@ -32,7 +32,7 @@ const Demo: Story<ButtonProps> = (args) => {
 export const 認識 = Demo.bind({});
 認識.args = {
   children: "button",
-  variant: "primary",
+  variant: "danger",
   size: "medium",
   startIcon: "",
   endIcon: "",
@@ -253,6 +253,9 @@ export const 狀態 = () => {
         <Button variant="black" minWidth={140}>
           D H P F
         </Button>
+        <Button variant="danger" minWidth={140}>
+          D H P F
+        </Button>
       </div>
       <SWAPSpace size="m" />
       <div
@@ -273,6 +276,9 @@ export const 狀態 = () => {
         <Button variant="black" minWidth={140} disabled>
           Disabled
         </Button>
+        <Button variant="danger" minWidth={140} disabled>
+          Disabled
+        </Button>
       </div>
       <SWAPSpace size="m" />
       <div
@@ -291,6 +297,9 @@ export const 狀態 = () => {
           Loading
         </Button>
         <Button variant="black" minWidth={140} loading>
+          Loading
+        </Button>
+        <Button variant="danger" minWidth={140} loading>
           Loading
         </Button>
       </div>

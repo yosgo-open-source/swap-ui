@@ -33,6 +33,8 @@ const Button: React.FC<ButtonProps> = ({
           ? theme.primary.primary400
           : variant === "black"
           ? theme.black.black800
+          : variant === "danger"
+          ? theme.black.white
           : theme.black.white,
       backgroundColor:
         variant === "primary"
@@ -45,6 +47,8 @@ const Button: React.FC<ButtonProps> = ({
           ? theme.black.white
           : variant === "black"
           ? theme.black.white
+          : variant === "danger"
+          ? theme.danger.danger800
           : theme.primary.primary400,
       border:
         variant === "primary"
@@ -55,6 +59,8 @@ const Button: React.FC<ButtonProps> = ({
           ? null
           : variant === "text" || variant === "black"
           ? null
+          : variant === "danger"
+          ? `1px solid ${theme.danger.dangerA11y}`
           : `1px solid ${theme.primary.primary600}`,
       borderRadius: "8px",
       height:
@@ -91,6 +97,8 @@ const Button: React.FC<ButtonProps> = ({
             ? theme.primary.primary50
             : variant === "black"
             ? theme.black.black400
+            : variant === "danger"
+            ? theme.danger.danger600
             : theme.primary.primary300,
         border:
           variant === "primary"
@@ -99,6 +107,8 @@ const Button: React.FC<ButtonProps> = ({
               variant === "text" ||
               variant === "black"
             ? null
+            : variant === "danger"
+            ? `1px solid ${theme.danger.dangerA11y}`
             : `1px solid ${theme.primary.primary300}`,
       },
       "&:active": {
@@ -113,6 +123,8 @@ const Button: React.FC<ButtonProps> = ({
             ? theme.primary.primary100
             : variant === "black"
             ? theme.black.black500
+            : variant === "danger"
+            ? theme.danger.danger900
             : theme.primary.primary500,
       },
       noFocus: null,
@@ -121,6 +133,8 @@ const Button: React.FC<ButtonProps> = ({
           ? null
           : variant === "black"
           ? "0px 0px 0px 4px #CCCCCC"
+          : variant === "danger"
+          ? "0px 0px 0px 4px #FFCCD0"
           : "0px 0px 0px 4px #D7DFF8",
         backgroundColor: noFocus
           ? null
@@ -134,6 +148,8 @@ const Button: React.FC<ButtonProps> = ({
           ? theme.primary.primary50
           : variant === "black"
           ? theme.black.black400
+          : variant === "danger"
+          ? theme.danger.danger600
           : theme.primary.primary400,
         border: noFocus
           ? null
@@ -145,6 +161,8 @@ const Button: React.FC<ButtonProps> = ({
           ? `1px solid ${theme.primary.primary400}`
           : variant === "black"
           ? `1px solid ${theme.black.black800}`
+          : variant === "danger"
+          ? `1px solid ${theme.danger.dangerA11y}`
           : `1px solid ${theme.primary.primary600}`,
       },
       "&:disabled": {
@@ -160,6 +178,8 @@ const Button: React.FC<ButtonProps> = ({
             ? theme.black.white
             : variant === "black"
             ? theme.black.white
+            : variant === "danger"
+            ? theme.danger.danger800
             : theme.primary.primary800,
         color:
           variant === "primary"
@@ -172,10 +192,14 @@ const Button: React.FC<ButtonProps> = ({
             ? theme.primary.primary400
             : variant === "black"
             ? theme.black.black800
+            : variant === "danger"
+            ? theme.black.white
             : theme.black.white,
         border:
           variant === "secondary"
             ? `1px solid ${theme.primary.primary800}`
+            : variant === "danger"
+            ? `1px solid ${theme.danger.dangerA11y}`
             : null,
       },
     },

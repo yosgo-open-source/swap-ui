@@ -67,6 +67,7 @@ const Modal: React.FC<ModalProps> = ({
   bodyPadding,
   maxWidth,
   disCloseIcon,
+  titleStyle,
 }) => {
   const match_XS = useBreakpoints("xs");
   const match_SM = useBreakpoints("sm");
@@ -97,7 +98,6 @@ const Modal: React.FC<ModalProps> = ({
         ? 320
         : "100%",
       maxWidth: maxWidth,
-
       borderRadius: fullWidth ? "12px 12px 0px 0px" : 12,
       border: "none",
       boxShadow: theme.boxShadow.l,
@@ -116,6 +116,7 @@ const Modal: React.FC<ModalProps> = ({
     title: {
       display: "flex",
       alignItems: "center",
+      justifyContent: "center",
     },
     checkIcon: {
       "& path": {
@@ -285,22 +286,20 @@ const Modal: React.FC<ModalProps> = ({
     <MaterialModal open={open} className={classes.root}>
       <ModalOpenEffect in={open} slide={fullWidth}>
         <Paper className={classes.modal}>
-          <Box className={classes.head}>
-            <Box>
-              {headChildren ? (
-                headChildren
-              ) : (
-                <Box className={classes.title}>
-                  {checked ? (
-                    <CheckCircleIcon className={classes.checkIcon} />
-                  ) : null}
-                  <Box>
-                    <Typography variant="h6">{title}</Typography>
-                    <Typography variant="body2_loose">{helpText}</Typography>
-                  </Box>
+          <Box className={classes.head} style={titleStyle}>
+            {headChildren ? (
+              headChildren
+            ) : (
+              <Box className={classes.title}>
+                {checked ? (
+                  <CheckCircleIcon className={classes.checkIcon} />
+                ) : null}
+                <Box>
+                  <Typography variant="h6">{title}</Typography>
+                  <Typography variant="body2_loose">{helpText}</Typography>
                 </Box>
-              )}
-            </Box>
+              </Box>
+            )}
             {disCloseIcon ? null : (
               <IconButton
                 className={classes.closeIconButton}
@@ -344,10 +343,15 @@ const Modal: React.FC<ModalProps> = ({
                   {secondaryButton ? (
                     <Button
                       fullWidth={buttonFullWidth || footerDisplayColumn}
-                      variant="secondary"
+                      variant={
+                        secondaryButton.variant
+                          ? secondaryButton.variant
+                          : "secondary"
+                      }
                       size="small"
                       onClick={secondaryButton.onClick}
                       disabled={secondaryButton.disabled}
+                      style={secondaryButton.style}
                     >
                       {secondaryButton.title}
                     </Button>
@@ -359,10 +363,15 @@ const Modal: React.FC<ModalProps> = ({
                       fullWidth={
                         buttonFullWidth || footerDisplayColumn || mobile
                       }
-                      variant="primary"
+                      variant={
+                        primaryButton.variant
+                          ? primaryButton.variant
+                          : "primary"
+                      }
                       size="small"
                       onClick={primaryButton.onClick}
                       disabled={primaryButton.disabled}
+                      style={primaryButton.style}
                     >
                       {primaryButton.title}
                     </Button>

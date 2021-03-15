@@ -52,13 +52,11 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     minWidth: 24,
     width: 24,
     height: 24,
-    borderRadius: 5,
     margin: 0,
     padding: 0,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    border: `1px solid ${theme.black.black500}`,
   },
 }));
 

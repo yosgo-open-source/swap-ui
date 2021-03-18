@@ -22,10 +22,11 @@ const Demo: Story<ProgressProps> = (args) => {
   return (
     <SWAPTheme>
       <Progress {...args} step={step} />
-      <button onClick={() => setStep(step + 1)}>+1</button>
-      <button onClick={() => setStep(step - 1)}>-1</button>
+      <button onClick={() => setStep(step + 1)}>step +1</button>
+      <button onClick={() => setStep(step - 1)}>step -1</button>
+      <button onClick={() => setStep(3)}>to step 3</button>
     </SWAPTheme>
   );
 };
 export const 認識 = Demo.bind({});
-認識.args = { count: 3 };
+認識.args = { count: 3, label: ["第一個", "第二個", "第三個"], width: 592 };

@@ -42,6 +42,7 @@ import Chip from "./Chip/Chip";
 import CircularProgress from "./CircularProgress/CircularProgress";
 import Tooltip from "./Tooltip/Tooltip";
 import Pagination from "./Pagination/Pagination";
+import Progress from "./Progress/Progress";
 
 export {
   SWAPAppBar,
@@ -85,4 +86,5 @@ export {
   CircularProgress,
   Pagination,
   Tooltip,
+  Progress,
 };

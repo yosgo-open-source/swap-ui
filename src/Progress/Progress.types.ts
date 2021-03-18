@@ -1,9 +1,11 @@
 import { BoxProps } from "@material-ui/core";
 
-export interface ProgressProps extends BoxProps {
+export interface ProgressProps
+  extends Pick<BoxProps, Exclude<keyof BoxProps, "onClick">> {
   step: number;
   count: number;
-  complete?: boolean;
-  current?: boolean;
-  upcoming?: boolean;
+  label?: Array<String>;
+  size?: number | string;
+  stepWidth?: number | string;
+  onClick?: Array<() => void>;
 }

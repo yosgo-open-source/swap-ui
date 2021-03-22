@@ -11,4 +11,5 @@ export interface MyTooltipProps
   marginBottom?: number;
   marginRight?: number;
   marginLeft?: number;
+  width?: string | number;
 }

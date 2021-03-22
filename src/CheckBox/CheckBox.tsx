@@ -95,8 +95,8 @@ const CheckBox: React.FC<CheckBoxProps> = ({
                 <path
                   d="M1.5 8.5L7 13L15 2"
                   stroke="white"
-                  stroke-width="3"
-                  stroke-linecap="round"
+                  strokeWidth="3"
+                  strokeLinecap="round"
                 />
               </svg>
             </span>

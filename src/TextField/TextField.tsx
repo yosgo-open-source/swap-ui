@@ -1,32 +1,10 @@
 import MaterialTextField from "@material-ui/core/TextField";
 import React from "react";
-import { TextFieldProps } from "./TextField.types";
+import { MyTextFieldProps } from "./TextField.types";
 import { makeStyles, Theme } from "@material-ui/core";
 
-const TextField: React.FC<TextFieldProps> = ({
-  children,
-  style,
-  label,
-  disabled,
-  type,
-  helperText,
-  error,
-  fullWidth,
-  rowsMax,
-  rows,
-  multiline,
-  value,
-  onChange,
-  InputProps,
-  autoFocus,
-  placeholder,
-  required,
-  select,
-  defaultValue,
-  width,
-  height,
-  onKeyDown,
-}) => {
+const TextField: React.FC<MyTextFieldProps> = (props): React.ReactElement => {
+  const { children, width, height, ...other } = props;
   const useStyles = makeStyles((theme: Theme) => ({
     root: {
       "& label": {
@@ -80,33 +58,15 @@ const TextField: React.FC<TextFieldProps> = ({
   const classes = useStyles();
   return (
     <MaterialTextField
+      {...other}
       className={classes.root}
       variant="outlined"
-      style={style}
-      label={label}
-      helperText={helperText}
-      placeholder={placeholder}
-      error={error}
-      disabled={disabled}
-      required={required}
-      fullWidth={fullWidth}
-      autoFocus={autoFocus}
-      type={type}
-      multiline={multiline}
-      rowsMax={rowsMax}
-      rows={rows}
-      value={value}
-      onChange={onChange}
-      onKeyDown={onKeyDown}
       InputProps={{
         classes: {
           root: classes.inputRoot,
           input: classes.input,
         },
-        ...InputProps,
       }}
-      select={select}
-      defaultValue={defaultValue}
       SelectProps={{
         classes: { root: classes.selectRoot },
         MenuProps: {

@@ -11,6 +11,7 @@ interface StyleProps {
   border: string;
   padding: string | number;
   fontWeight: number;
+  width: number | string;
 }
 
 const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
@@ -21,7 +22,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     padding: props.padding,
     boxShadow: theme.boxShadow.m,
     border: props.border,
-    maxWidth: 240,
+    maxWidth: props.width,
     fontSize: 12,
     lineHeight: 1.4,
     fontWeight: props.fontWeight,
@@ -43,9 +44,11 @@ const Tooltip: React.FC<MyTooltipProps> = (props): React.ReactElement => {
     dark,
     light,
     children,
+    width,
     ...other
   } = props;
   const styleProps: StyleProps = {
+    width: width ? width : 240,
     padding: arrow ? "7.5px 12px" : 12,
     margin: margin
       ? margin

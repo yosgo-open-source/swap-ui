@@ -14,7 +14,7 @@ interface StyleProps {
 const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   root: (props) => ({
     display: "flex",
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "space-between",
     width: props.width,
   }),
@@ -67,9 +67,11 @@ const Progress: React.FC<ProgressProps> = (props): React.ReactElement => {
       {a.map((i: number) => {
         return (
           <div
+            key={i}
             style={{
               display: "flex",
               flexDirection: "column",
+              alignItems: "center",
               textAlign: "center",
             }}
           >
@@ -128,7 +130,7 @@ const Progress: React.FC<ProgressProps> = (props): React.ReactElement => {
               color={i + 1 === step ? "black1000" : "black700"}
               style={{ marginTop: 8 }}
             >
-              {label[i]}
+              {label ? label[i] : null}
             </Typography>
           </div>
         );

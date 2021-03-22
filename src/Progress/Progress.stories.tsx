@@ -29,4 +29,18 @@ const Demo: Story<ProgressProps> = (args) => {
   );
 };
 export const 認識 = Demo.bind({});
-認識.args = { count: 3, label: ["第一個", "第二個", "第三個"], width: 592 };
+認識.args = {
+  count: 5,
+  label: [
+    <span>第一個</span>,
+    "第二個",
+    "第三個",
+    <span>
+      第四個
+      <br />
+      個四第
+    </span>,
+    "最後一個",
+  ],
+  width: 1000,
+};

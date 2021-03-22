@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
-import { TextFieldProps } from "./TextField.types";
+import { MyTextFieldProps } from "./TextField.types";
 import TextField from "./TextField";
 import MenuItem from "../Menu/MenuItem";
 import Typography from "../Typography/Typography";
@@ -24,7 +24,7 @@ const options = [
   { value: "option2" },
   { value: "option3" },
 ];
-const Demo: Story<TextFieldProps> = (args) => {
+const Demo: Story<MyTextFieldProps> = (args) => {
   const [value, setValue] = useState("Select");
 
   return (

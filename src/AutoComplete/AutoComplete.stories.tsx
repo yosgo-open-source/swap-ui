@@ -12,6 +12,7 @@ import {
   IncomeCodeProps,
 } from "../TaxTextField/TaxTextField.types";
 import { BankCodes, BankBranchCodes } from "./BankCodes";
+import Modal from "../Modal/Modal";
 
 export default {
   title: "AutoComplete",
@@ -224,64 +225,70 @@ export const 申報類別 = () => {
 
   return (
     <SWAPTheme>
-      <div style={{ margin: "50px 50px", width: 600 }}>
-        請選擇申報類別
-        <br />
-        <br />
-        <TextField
-          fullWidth
-          label="輸入執行業務類別"
-          error={false}
-          height={56}
-          value={value}
-          onClick={handleClick}
-          InputProps={{
-            endAdornment: (
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5.83333 8.33334L9.99999 12.5L14.1667 8.33334H5.83333Z"
-                  fill="black"
-                />
-              </svg>
-            ),
-          }}
-        />
-        <AutoComplete
-          // disableFreeInput
-          noOptionsText="nolabel"
-          multiple
-          disableCloseOnSelect
-          disablePortal
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-          handleNoOptionsValueChange={(e: any) => setValue(e)}
-          onChange={(_: any, newValue: any) => {
-            if (newValue[0]?.label) {
-              setValue(newValue.pop().label);
-            }
-            setAnchorEl(null);
-          }}
-          width={380}
-          value={value}
-          options={SWAPExpenseTypes}
-          placement="bottom"
-          placeholder="輸入執行業務類別"
-          title="選擇執行業務類別"
-          renderOption={(option) => (
-            <div>
-              [{option.code}] {option.label}
-            </div>
-          )}
-          getOptionLabel={(option) => option.code + option.label}
-        />
-      </div>
+      <Modal
+        open
+        onClose={() => {}}
+        children={
+          <div style={{ margin: "50px 50px", width: 600 }}>
+            請選擇申報類別
+            <br />
+            <br />
+            <TextField
+              fullWidth
+              label="輸入執行業務類別"
+              error={false}
+              height={56}
+              value={value}
+              onClick={handleClick}
+              InputProps={{
+                endAdornment: (
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.83333 8.33334L9.99999 12.5L14.1667 8.33334H5.83333Z"
+                      fill="black"
+                    />
+                  </svg>
+                ),
+              }}
+            />
+            <AutoComplete
+              // disableFreeInput
+              noOptionsText="nolabel"
+              multiple
+              disableCloseOnSelect
+              disablePortal
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+              handleNoOptionsValueChange={(e: any) => setValue(e)}
+              onChange={(_: any, newValue: any) => {
+                if (newValue[0]?.label) {
+                  setValue(newValue.pop().label);
+                }
+                setAnchorEl(null);
+              }}
+              width={380}
+              value={value}
+              options={SWAPExpenseTypes}
+              placement="bottom"
+              placeholder="輸入執行業務類別"
+              title="選擇執行業務類別"
+              renderOption={(option) => (
+                <div>
+                  [{option.code}] {option.label}
+                </div>
+              )}
+              getOptionLabel={(option) => option.code + option.label}
+            />
+          </div>
+        }
+      />
     </SWAPTheme>
   );
 };

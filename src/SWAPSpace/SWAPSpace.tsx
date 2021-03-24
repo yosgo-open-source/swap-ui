@@ -31,9 +31,9 @@ const SWAPSpaceWrap = styled.div`
       return 48;
     } else if (size === "4xl") {
       return 56;
-    } else {
-      return 16;
-    }
+    } else if (typeof size === "number") {
+      return size;
+    } else return 16;
   }}px;
 `;
 

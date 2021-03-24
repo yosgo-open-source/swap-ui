@@ -18,7 +18,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     boxShadow: " 0px 4px 12px rgba(0, 0, 0, 0.1)",
     borderRadius: 8,
     width: props.width ? props.width : 320,
-    zIndex: 5,
+    zIndex: 1301,
     fontSize: 13,
     color: "#586069",
     backgroundColor: "#fff",

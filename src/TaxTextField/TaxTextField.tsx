@@ -87,7 +87,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({ onChange }) => {
             setModalIncome(e.target.value);
             setModalExpense("");
           }}
-          vertical={-8}
+          vertical={-16}
           horizontal="left"
         >
           <MenuItem

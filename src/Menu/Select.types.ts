@@ -19,7 +19,7 @@ export interface SelectProps {
   select?: boolean;
   defaultValue?: any;
   width?: number | string;
-  height?: number | string;
+  height?: number;
   vertical?: "top" | "center" | "bottom" | number;
   horizontal?: "left" | "center" | "right" | number;
   open?: boolean;
@@ -31,4 +31,7 @@ export interface SelectProps {
     horizontal: "center" | "left" | "right" | number;
     vertical: "bottom" | "center" | "top" | number;
   };
+  paddingLeft?: number;
+  paddingTop?: number;
+  dropdown?: boolean;
 }

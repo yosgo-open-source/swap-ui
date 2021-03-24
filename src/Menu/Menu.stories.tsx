@@ -21,32 +21,35 @@ export default {
   },
 };
 const options = [
-  { value: 0, label: "全部紀錄" },
+  { value: -1, label: "全部紀錄" },
   { value: 1, label: "未付款" },
   { value: 2, label: "已付款" },
   { value: 3, label: "已封存" },
 ];
 const Demo: Story<MenuProps> = (args) => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(-1);
   const [open, setOpen] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setValue(event.target.value as number);
+    setValue(event.target.value as any);
   };
   const theme = useTheme();
-  console.log(open);
 
   return (
     <SWAPTheme>
       調整看看！
+      <br />
+      <br />
       <Select
         {...args}
-        width={112}
+        dropdown
+        width="100%"
         height={40}
         value={value}
         open={open}
+        // open
         onChange={handleChange}
-        vertical="bottom"
+        vertical={-10}
         horizontal="left"
         onClick={() => {
           setOpen(!open);
@@ -54,7 +57,6 @@ const Demo: Story<MenuProps> = (args) => {
       >
         {options.map((option: any, i: number) => (
           <MenuItem
-            width={200}
             height={36}
             value={option.value}
             style={{

@@ -43,6 +43,10 @@ import CircularProgress from "./CircularProgress/CircularProgress";
 import Tooltip from "./Tooltip/Tooltip";
 import Pagination from "./Pagination/Pagination";
 import Progress from "./Progress/Progress";
+import TaxTextField from "./TaxTextField/TaxTextField";
+import AutoComplete, {
+  AutocompleteCloseReason,
+} from "./AutoComplete/AutoComplete";
 
 export {
   SWAPAppBar,
@@ -87,4 +91,7 @@ export {
   Pagination,
   Tooltip,
   Progress,
+  TaxTextField,
+  AutoComplete,
+  AutocompleteCloseReason,
 };

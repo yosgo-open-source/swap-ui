@@ -168,11 +168,6 @@ const SWAPDefaultTheme = {
         },
       },
     },
-    MuiInputLabel: {
-      shrink: {
-        fontWeight: 700,
-      },
-    },
   },
 };
 

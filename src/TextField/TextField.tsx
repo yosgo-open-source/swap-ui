@@ -4,7 +4,7 @@ import { MyTextFieldProps } from "./TextField.types";
 import { makeStyles, Theme } from "@material-ui/core";
 
 const TextField: React.FC<MyTextFieldProps> = (props): React.ReactElement => {
-  const { children, width, height, ...other } = props;
+  const { children, width, height, InputProps, ...other } = props;
   const useStyles = makeStyles((theme: Theme) => ({
     root: {
       "& label": {
@@ -66,6 +66,7 @@ const TextField: React.FC<MyTextFieldProps> = (props): React.ReactElement => {
           root: classes.inputRoot,
           input: classes.input,
         },
+        ...InputProps,
       }}
       SelectProps={{
         classes: { root: classes.selectRoot },

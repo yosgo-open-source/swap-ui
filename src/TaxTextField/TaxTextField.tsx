@@ -1,12 +1,11 @@
-import {
-  Select,
-  MenuItem,
-  InputLabel,
-  FormControl,
-  Grid,
-  Fade,
-} from "@material-ui/core";
-import React, { useState } from "react";
+import { Grid, useTheme } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import AutoComplete, {
+  AutocompleteCloseReason,
+} from "../AutoComplete/AutoComplete";
+import MenuItem from "../Menu/MenuItem";
+import Select from "../Menu/Select";
+import TextField from "../TextField/TextField";
 
 import {
   TaxTextFieldProps,
@@ -17,8 +16,9 @@ import {
 const TaxTextField: React.FC<TaxTextFieldProps> = ({ onChange }) => {
   const [modalIncome, setModalIncome]: any = useState("");
   const [modalExpense, setModalExpense]: any = useState("");
+  const [open, setOpen] = useState(false);
 
-  const handleModalTaxDescription = (modalIncome: any, modalExpense: any) => {
+  const handleModalTaxDescription = () => {
     try {
       if (
         (modalIncome !== "50" && modalExpense.length === 0) ||
@@ -34,9 +34,36 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({ onChange }) => {
         taxDescription: SWAPTaxDescription(modalIncome, modalExpense),
       };
       onChange(value);
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    if (modalIncome) {
+      handleModalTaxDescription();
+    }
+  }, [modalIncome, modalExpense]);
+
+  // 執行業務類別
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 
+  const handleClose = (
+    _event: React.ChangeEvent<{}>,
+    reason: AutocompleteCloseReason
+  ) => {
+    if (reason === "toggleInput") {
+      return;
+    }
+    if (anchorEl) {
+      anchorEl.focus();
+    }
+    setAnchorEl(null);
+  };
+  const theme = useTheme();
   return (
     <Grid container spacing={1} alignContent="flex-start">
       <Grid
@@ -46,24 +73,71 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({ onChange }) => {
         md={modalIncome === "9A" || modalIncome === "9B" ? 6 : 12}
         lg={modalIncome === "9A" || modalIncome === "9B" ? 6 : 12}
       >
-        <FormControl variant="outlined" style={{ width: "100%" }}>
-          <InputLabel htmlFor="case_type">所得類別</InputLabel>
-          <Select
-            variant="outlined"
-            label="請選擇所得類別"
-            value={modalIncome}
-            onChange={(e) => {
-              setModalIncome(e.target.value);
-              handleModalTaxDescription(e.target.value, "");
+        <Select
+          height={56}
+          paddingTop={17}
+          paddingLeft={16}
+          placeholder="選擇申報類別"
+          value={modalIncome}
+          open={open}
+          onClick={() => {
+            setOpen(!open);
+          }}
+          onChange={(e) => {
+            setModalIncome(e.target.value);
+            setModalExpense("");
+          }}
+          vertical={-8}
+          horizontal="left"
+        >
+          <MenuItem
+            height={36}
+            disabled
+            style={{
+              fontSize: 12,
+              fontWeight: 700,
+              lineHeight: 1.4,
+              color: "#4b4b4b",
             }}
           >
-            {SWAPIncomeTypes.map((option, index) => (
-              <MenuItem key={`case_${index}`} value={option.code}>
-                {option.code} {option.label}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+            請選擇申報類別
+          </MenuItem>
+          {SWAPIncomeTypes.map((option, index) => (
+            <MenuItem
+              height={36}
+              key={`case_${index}`}
+              value={option.code}
+              style={{
+                backgroundColor: modalIncome === option.code ? "white" : null,
+                opacity: modalIncome === option.code ? 1 : null,
+                display: "flex",
+                justifyContent: "space-between",
+                flexWrap: "nowrap",
+                color:
+                  modalIncome === option.code ? theme.primary.primary400 : null,
+              }}
+              disabled={modalIncome === option.code}
+              iconChildren={
+                modalIncome === option.code && open ? (
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.4998 5.83345L7.49984 15.8334L2.9165 11.2501L4.0915 10.0751L7.49984 13.4751L16.3248 4.65845L17.4998 5.83345Z"
+                      fill="#4862CC"
+                    />
+                  </svg>
+                ) : null
+              }
+            >
+              {option.code} {option.label}
+            </MenuItem>
+          ))}
+        </Select>
       </Grid>
       <Grid item xs={6} sm={6} md={6} lg={6}>
         {(() => {
@@ -71,29 +145,65 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({ onChange }) => {
             let options = SWAPExpenseTypes.filter(
               (i) => i.source === modalIncome
             );
+            const value = modalExpense
+              ? `[${modalExpense}] ${
+                  options.filter((i) => i.code === modalExpense)[0].label
+                }`
+              : "";
             return (
-              <div>
-                <Fade in>
-                  <FormControl variant="outlined" style={{ width: "100%" }}>
-                    <InputLabel htmlFor="case_type">費用類別</InputLabel>
-                    <Select
-                      variant="outlined"
-                      label="費用類別"
-                      value={modalExpense}
-                      onChange={(e) => {
-                        setModalExpense(e.target.value);
-                        handleModalTaxDescription(modalIncome, e.target.value);
-                      }}
-                    >
-                      {options.map((option, index) => (
-                        <MenuItem key={`case_${index}`} value={option.code}>
-                          [{option.code}] {option.label}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                </Fade>
-              </div>
+              <>
+                <TextField
+                  fullWidth
+                  label="輸入執行業務類別"
+                  height={56}
+                  value={value}
+                  onClick={handleClick}
+                  InputProps={{
+                    endAdornment: (
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.83333 8.33334L9.99999 12.5L14.1667 8.33334H5.83333Z"
+                          fill="black"
+                        />
+                      </svg>
+                    ),
+                  }}
+                />
+                <AutoComplete
+                  disableFreeInput
+                  multiple
+                  disableCloseOnSelect
+                  disablePortal
+                  anchorEl={anchorEl}
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                  handleNoOptionsValueChange={(e: any) => setModalExpense(e)}
+                  onChange={(_: any, newValue: any) => {
+                    if (newValue[0].code) {
+                      setModalExpense(newValue.pop().code);
+                    }
+                    setAnchorEl(null);
+                  }}
+                  width={380}
+                  value={value}
+                  options={options}
+                  placement="bottom"
+                  placeholder="輸入執行業務類別"
+                  title="選擇執行業務類別"
+                  renderOption={(option) => (
+                    <div>
+                      [{option.code}] {option.label}
+                    </div>
+                  )}
+                  getOptionLabel={(option) => option.code + option.label}
+                />
+              </>
             );
           } else {
             return <div />;

@@ -3,6 +3,7 @@ import { Story } from "@storybook/react/types-6-0";
 
 import TaxTextField from "../TaxTextField/TaxTextField";
 import { TaxTextFieldProps } from "../TaxTextField/TaxTextField.types";
+import SWAPTheme from "../SWAPTheme/SWAPTheme";
 
 export default {
   title: "TaxTextField",
@@ -17,9 +18,14 @@ export default {
   },
 };
 
-const Demo: Story<TaxTextFieldProps> = (args) => <TaxTextField {...args} />;
+const Demo: Story<TaxTextFieldProps> = (args) => (
+  <SWAPTheme>
+    <div style={{ width: 640, padding: 24 }}>
+      <TaxTextField {...args} />
+    </div>
+  </SWAPTheme>
+);
 export const 認識 = Demo.bind({});
 認識.args = {
-  taxDescription: "",
   onChange: (value: any) => alert(JSON.stringify(value)),
 };

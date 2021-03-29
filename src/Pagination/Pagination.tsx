@@ -26,7 +26,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     borderRadius: 5,
     borderColor: theme.black.black500,
     color: theme.black.black800,
-    padding: "4.5px 8.5px",
+    padding: 0,
     fontSize: 11,
     fontWeight: 700,
     lineHeight: 1.4,

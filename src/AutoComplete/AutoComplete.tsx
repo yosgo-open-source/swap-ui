@@ -230,7 +230,7 @@ const AutoComplete: React.FC<MyAutoCompleteProps> = (
                         placeholder={placeholder}
                         ref={params.InputProps.ref}
                         inputProps={params.inputProps}
-                        autoFocus
+                        // autoFocus
                         onChange={() =>
                           setTypeNoOptionValue(!typeNoOptionValue)
                         }
@@ -262,6 +262,6 @@ const AutoComplete: React.FC<MyAutoCompleteProps> = (
     </div>
   );
 };
+export { AutocompleteCloseReason };
 
 export default AutoComplete;
-export { AutocompleteCloseReason };

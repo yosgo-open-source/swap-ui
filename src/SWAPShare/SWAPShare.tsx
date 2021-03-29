@@ -7,12 +7,13 @@ import {
   FacebookMessengerIcon,
   // FacebookShareButton,
   // FacebookIcon,
-  WhatsappIcon,
-  WhatsappShareButton,
+  // WhatsappIcon,
+  // WhatsappShareButton,
   // TwitterIcon,
   // TwitterShareButton,
-  TelegramIcon,
-  TelegramShareButton,
+  // TelegramIcon,
+  // TelegramShareButton,
+  // EmailShareButton,
 } from "react-share";
 import { Grid } from "@material-ui/core";
 
@@ -103,13 +104,13 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
                 </LineShareButton>
               ),
             },
-            {
-              el: (
-                <WhatsappShareButton url={sharedUrl} title={sharedContent}>
-                  <WhatsappIcon round size={size} className="swap_share_icon" />
-                </WhatsappShareButton>
-              ),
-            },
+            // {
+            //   el: (
+            //     <WhatsappShareButton url={sharedUrl} title={sharedContent}>
+            //       <WhatsappIcon round size={size} className="swap_share_icon" />
+            //     </WhatsappShareButton>
+            //   ),
+            // },
             // {
             //   el: (
             //     <TwitterShareButton url={sharedUrl} title={sharedContent}>
@@ -117,13 +118,13 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
             //     </TwitterShareButton>
             //   ),
             // },
-            {
-              el: (
-                <TelegramShareButton url={sharedUrl} title={sharedContent}>
-                  <TelegramIcon round size={size} className="swap_share_icon" />
-                </TelegramShareButton>
-              ),
-            },
+            // {
+            //   el: (
+            //     <TelegramShareButton url={sharedUrl} title={sharedContent}>
+            //       <TelegramIcon round size={size} className="swap_share_icon" />
+            //     </TelegramShareButton>
+            //   ),
+            // },
           ].map((item, index) => (
             <Grid item key={`share_btn_${index}`}>
               {item.el}
@@ -139,7 +140,7 @@ const SWAPShareWrap = styled.div`
   display: inline-block;
   .swap_share_icon {
     display: inline-block;
-    margin: 0 6px 0 0;
+    margin: 0 8px 0 0;
     cursor: pointer;
     transition: 0.3s;
     border-radius: 50%;

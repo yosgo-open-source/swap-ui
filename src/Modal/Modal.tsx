@@ -351,6 +351,7 @@ const Modal: React.FC<ModalProps> = ({
                       size="small"
                       onClick={secondaryButton.onClick}
                       disabled={secondaryButton.disabled}
+                      loading={secondaryButton.loading}
                       style={secondaryButton.style}
                     >
                       {secondaryButton.title}
@@ -371,6 +372,7 @@ const Modal: React.FC<ModalProps> = ({
                       size="small"
                       onClick={primaryButton.onClick}
                       disabled={primaryButton.disabled}
+                      loading={primaryButton.loading}
                       style={primaryButton.style}
                     >
                       {primaryButton.title}

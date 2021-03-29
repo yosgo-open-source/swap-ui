@@ -30,6 +30,7 @@ export interface ModalProps {
       | "tertiary"
       | "black"
       | "danger";
+    loading?: boolean;
   };
   primaryButton?: {
     title?: string | React.ReactNode;
@@ -43,6 +44,7 @@ export interface ModalProps {
       | "tertiary"
       | "black"
       | "danger";
+    loading?: boolean;
   };
   disCloseIcon?: boolean;
   checkIconColor?:

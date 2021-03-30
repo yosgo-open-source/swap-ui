@@ -13,18 +13,23 @@ import {
   IncomeCodeProps,
 } from "./TaxTextField.types";
 
-const TaxTextField: React.FC<TaxTextFieldProps> = ({ onChange }) => {
+const TaxTextField: React.FC<TaxTextFieldProps> = ({
+  onChange,
+  codeValue,
+  domainValue,
+  codeError,
+  codeHelperText,
+  domainError,
+  domainHelperText,
+  codeOnClick,
+  domainOnClick,
+}) => {
   const [modalIncome, setModalIncome]: any = useState("");
   const [modalExpense, setModalExpense]: any = useState("");
   const [open, setOpen] = useState(false);
 
   const handleModalTaxDescription = () => {
     try {
-      if (
-        (modalIncome !== "50" && modalExpense.length === 0) ||
-        (modalIncome !== "50" && !modalExpense)
-      )
-        throw "請選擇費用類別";
       /**呼叫 onChnage props */
       let value = {
         incomeCode: modalIncome,
@@ -47,8 +52,14 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({ onChange }) => {
   // 執行業務類別
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const handleCodeClick = () => {
+    setOpen(!open);
+    codeOnClick();
+  };
+
+  const handleDomainClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
+    domainOnClick();
   };
 
   const handleClose = (
@@ -68,21 +79,21 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({ onChange }) => {
     <Grid container spacing={1} alignContent="flex-start">
       <Grid
         item
-        xs={modalIncome === "9A" || modalIncome === "9B" ? 6 : 12}
-        sm={modalIncome === "9A" || modalIncome === "9B" ? 6 : 12}
-        md={modalIncome === "9A" || modalIncome === "9B" ? 6 : 12}
-        lg={modalIncome === "9A" || modalIncome === "9B" ? 6 : 12}
+        xs={codeValue === "9A" || codeValue === "9B" ? 6 : 12}
+        sm={codeValue === "9A" || codeValue === "9B" ? 6 : 12}
+        md={codeValue === "9A" || codeValue === "9B" ? 6 : 12}
+        lg={codeValue === "9A" || codeValue === "9B" ? 6 : 12}
       >
         <Select
+          error={codeError}
+          helperText={codeHelperText}
           height={56}
           paddingTop={17}
           paddingLeft={16}
           placeholder="選擇申報類別"
-          value={modalIncome}
+          value={codeValue}
           open={open}
-          onClick={() => {
-            setOpen(!open);
-          }}
+          onClick={handleCodeClick}
           onChange={(e) => {
             setModalIncome(e.target.value);
             setModalExpense("");
@@ -141,23 +152,25 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({ onChange }) => {
       </Grid>
       <Grid item xs={6} sm={6} md={6} lg={6}>
         {(() => {
-          if (modalIncome === "9A" || modalIncome === "9B") {
+          if (codeValue === "9A" || codeValue === "9B") {
             let options = SWAPExpenseTypes.filter(
-              (i) => i.source === modalIncome
+              (i) => i.source === codeValue
             );
-            const value = modalExpense
-              ? `[${modalExpense}] ${
-                  options.filter((i) => i.code === modalExpense)[0].label
-                }`
-              : "";
+            // const value = modalExpense
+            //   ? `[${modalExpense}] ${
+            //       options.filter((i) => i.code === modalExpense)[0].label
+            //     }`
+            //   : "";
             return (
               <>
                 <TextField
+                  error={domainError}
+                  helperText={domainHelperText}
                   fullWidth
                   label="輸入執行業務類別"
                   height={56}
-                  value={value}
-                  onClick={handleClick}
+                  value={domainValue}
+                  onClick={handleDomainClick}
                   InputProps={{
                     endAdornment: (
                       <svg
@@ -183,7 +196,6 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({ onChange }) => {
                   anchorEl={anchorEl}
                   open={Boolean(anchorEl)}
                   onClose={handleClose}
-                  handleNoOptionsValueChange={(e: any) => setModalExpense(e)}
                   onChange={(_: any, newValue: any) => {
                     if (newValue[0].code) {
                       setModalExpense(newValue.pop().code);
@@ -191,16 +203,18 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({ onChange }) => {
                     setAnchorEl(null);
                   }}
                   width={380}
-                  value={value}
+                  value={domainValue}
                   options={options}
                   placement="bottom"
                   placeholder="輸入執行業務類別"
                   title="選擇執行業務類別"
-                  renderOption={(option) => (
-                    <div>
-                      [{option.code}] {option.label}
-                    </div>
-                  )}
+                  renderOption={(option) => {
+                    return (
+                      <div>
+                        [{option.code}] {option.label}
+                      </div>
+                    );
+                  }}
                   getOptionLabel={(option) => option.code + option.label}
                 />
               </>

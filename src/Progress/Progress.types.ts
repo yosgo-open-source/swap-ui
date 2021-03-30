@@ -7,6 +7,5 @@ export interface ProgressProps
   count: number;
   label?: Array<React.ReactNode>;
   size?: number | string;
-  stepWidth?: number | string;
-  onClick?: Array<() => void>;
+  // onClick?: Array<() => void>;
 }

@@ -71,6 +71,23 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
           {[
             {
               el: (
+                <FacebookMessengerIcon
+                  className="swap_share_icon"
+                  round
+                  size={size}
+                  onClick={() => handleMessengerOnClick()}
+                />
+              ),
+            },
+            {
+              el: (
+                <LineShareButton url={sharedUrl} title={sharedContent}>
+                  <LineIcon round size={size} className="swap_share_icon" />
+                </LineShareButton>
+              ),
+            },
+            {
+              el: (
                 <EmailIcon
                   className="swap_share_icon"
                   round
@@ -80,16 +97,7 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
                 />
               ),
             },
-            {
-              el: (
-                <FacebookMessengerIcon
-                  className="swap_share_icon"
-                  round
-                  size={size}
-                  onClick={() => handleMessengerOnClick()}
-                />
-              ),
-            },
+
             // {
             //   el: (
             //     <FacebookShareButton url={sharedUrl} quote={sharedContent}>
@@ -97,13 +105,7 @@ const SWAPShare: React.FC<SWAPShareProps> = ({
             //     </FacebookShareButton>
             //   ),
             // },
-            {
-              el: (
-                <LineShareButton url={sharedUrl} title={sharedContent}>
-                  <LineIcon round size={size} className="swap_share_icon" />
-                </LineShareButton>
-              ),
-            },
+
             // {
             //   el: (
             //     <WhatsappShareButton url={sharedUrl} title={sharedContent}>

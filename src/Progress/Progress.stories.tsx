@@ -30,7 +30,7 @@ const Demo: Story<ProgressProps> = (args) => {
 };
 export const 認識 = Demo.bind({});
 認識.args = {
-  count: 5,
+  count: 15,
   label: [
     <span>第一個</span>,
     "第二個",
@@ -40,6 +40,16 @@ export const 認識 = Demo.bind({});
       <br />
       個四第
     </span>,
+    "第五個",
+    "第六個",
+    "第七個",
+    "第八個",
+    "第九個",
+    "第十個",
+    "第十一個",
+    "第十二個",
+    "第十三個",
+    "第十四個",
     "最後一個",
   ],
   width: 1000,

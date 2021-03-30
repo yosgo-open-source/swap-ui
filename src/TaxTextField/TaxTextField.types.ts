@@ -1,3 +1,5 @@
+import React from "react";
+
 export type TaxFiledValueProps = {
   incomeCode: IncomeCodeProps;
   incomeLabel: string;
@@ -7,6 +9,14 @@ export type TaxFiledValueProps = {
 };
 export interface TaxTextFieldProps {
   onChange?: (value: TaxFiledValueProps) => void;
+  codeOnClick?: () => void;
+  domainOnClick?: () => void;
+  codeValue?: any;
+  domainValue?: any;
+  codeError?: boolean;
+  codeHelperText?: React.ReactNode;
+  domainError?: boolean;
+  domainHelperText?: React.ReactNode;
 }
 
 export type IncomeCodeProps = "9A" | "9B" | "50";

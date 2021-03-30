@@ -6,22 +6,15 @@ import { ProgressProps } from "./Progress.types";
 // Style
 interface StyleProps {
   width: number | string;
-  stepWidth: number | string;
   size: number | string;
   // stepCursor: string;
 }
 
 const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   root: (props) => ({
+    width: props.width,
     display: "flex",
     alignItems: "flex-start",
-    justifyContent: "space-between",
-    width: props.width,
-  }),
-  block: (props) => ({
-    display: "flex",
-    alignItems: "center",
-    width: props.stepWidth,
   }),
   step: (props) => ({
     display: "flex",
@@ -33,30 +26,25 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     width: props.size,
     height: props.size,
     borderRadius: "50%",
+
     // cursor: props.stepCursor,
-  }),
-  line: (props) => ({
-    height: 2,
-    width: (Number(props.stepWidth) - Number(props.size)) / 2,
   }),
 }));
 
 const Progress: React.FC<ProgressProps> = (props): React.ReactElement => {
   const theme = useTheme();
   const {
-    onClick,
+    // onClick,
     width,
     size,
-    stepWidth,
     label,
     step,
     count,
     ...other
   } = props;
   const styleProps: StyleProps = {
-    width: width ? width : 592,
+    width: width ? width : "100%",
     size: size ? size : 24,
-    stepWidth: stepWidth ? stepWidth : 200,
     // stepCursor: onClick ? "pointer" : null,
   };
   const classes = useStyles(styleProps);
@@ -67,22 +55,25 @@ const Progress: React.FC<ProgressProps> = (props): React.ReactElement => {
       {a.map((i: number) => {
         return (
           <div
-            key={i}
             style={{
+              width: "100%",
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
               textAlign: "center",
             }}
           >
             <div
-              className={classes.block}
-              // onClick={onClick[i]}
+              style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+              }}
             >
               {/* Front Line */}
               <div
                 className={classes.line}
                 style={{
+                  height: 2,
                   backgroundColor:
                     i !== 0
                       ? i + 1 < step
@@ -91,6 +82,7 @@ const Progress: React.FC<ProgressProps> = (props): React.ReactElement => {
                         ? theme.primary.primary800
                         : theme.black.black500
                       : "transparent",
+                  width: `calc((100% - 24px)/2)`,
                 }}
               />
               {/* Step Circle */}
@@ -116,12 +108,14 @@ const Progress: React.FC<ProgressProps> = (props): React.ReactElement => {
               <div
                 className={classes.line}
                 style={{
+                  height: 2,
                   backgroundColor:
                     i + 1 !== count
                       ? i + 1 < step
                         ? theme.primary.primary800
                         : theme.black.black500
                       : "transparent",
+                  width: `calc((100% - 24px)/2)`,
                 }}
               />
             </div>

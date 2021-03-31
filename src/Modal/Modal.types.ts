@@ -16,8 +16,9 @@ export interface ModalProps {
   headpadding?: number | string;
   headChildren?: React.ReactNode;
   children?: React.ReactNode;
-  label?: string;
+  label?: React.ReactNode;
   bodyPadding?: number | string;
+  onExit?: boolean;
   secondaryButton?: {
     title?: string | React.ReactNode;
     onClick?: () => void;

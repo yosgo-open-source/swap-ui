@@ -30,8 +30,10 @@ export default {
 
 const Demo: Story<ModalProps> = (args) => {
   const [open, setOpen] = useState(false);
+  const [onExit, setOnExit] = useState(false);
+
   const handleClose = () => {
-    setOpen(false);
+    setOnExit(true);
   };
   return (
     <SWAPTheme>
@@ -48,12 +50,13 @@ const Demo: Story<ModalProps> = (args) => {
       </Button>
       <Modal // headpadding="100px 0px"
         open={open}
+        onExit={onExit}
         onClose={handleClose}
         // checked
         // checkIconColor="success800"
         title="確定要取消訂閱嗎？"
         helpText="取消訂閱後，我們將維持你專家方案的資格直到4月8號"
-        titleStyle={{ height: 102 }}
+        // titleStyle={{ height: 102 }}
         // headChildren={
         //   <div
         //     style={{ display: "flex", justifyContent: "center", width: "100%" }}
@@ -61,29 +64,41 @@ const Demo: Story<ModalProps> = (args) => {
         //     dsfklsdfjl;sjf
         //   </div>
         // }
-        disCloseIcon
-        size="extraSmall"
-        mobile
+        // disCloseIcon
+        size="medium"
+        // mobile
         // headChildren={
         //   <Box>
         //     <Button>123</Button>
         //   </Box>
         // }
-        // children="11234"
+        children="按右上角的CloseButton，會發生神奇的事喔！"
         // buttonFullWidth
         // size="large"
         // footerDisplayColumn
-        // label="sdkjfh"
-        primaryButton={{
-          title: "取消訂閱",
+        label={onExit ? "離開的人是大笨豬，確定離開?" : "我是大笨豬"}
+        secondaryButton={{
+          title: onExit ? "繼續看看" : "取消訂閱",
           onClick: () => {
-            alert("123");
+            if (onExit) {
+              setOnExit(false);
+            } else {
+              alert("123");
+            }
           },
           variant: "danger",
         }}
-        secondaryButton={{
-          title: "繼續使用此方案",
-          onClick: () => {},
+        primaryButton={{
+          title: onExit ? "確定離開" : "繼續使用此方案",
+          onClick: () => {
+            if (onExit) {
+              alert("大笨豬");
+              setOpen(false);
+            } else {
+              setOpen(false);
+              setOnExit(false);
+            }
+          },
           // style: { backgroundColor: "red" },
         }}
         // mobile

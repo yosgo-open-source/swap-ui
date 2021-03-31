@@ -33,7 +33,7 @@ const Demo: Story<TaxTextFieldProps> = (args) => {
           size="medium"
           open
           onClose={() => {}}
-          title="123"
+          title="TEST"
           children={
             step === 1 ? (
               <TaxTextField
@@ -56,7 +56,7 @@ const Demo: Story<TaxTextFieldProps> = (args) => {
                 domainOnClick={() => setDomainError(false)}
               />
             ) : (
-              <div>asuodihjasuiod</div>
+              <div>THE END</div>
             )
           }
           primaryButton={{

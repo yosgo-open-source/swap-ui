@@ -68,6 +68,7 @@ const Modal: React.FC<ModalProps> = ({
   maxWidth,
   disCloseIcon,
   titleStyle,
+  onExit,
 }) => {
   const match_XS = useBreakpoints("xs");
   const match_SM = useBreakpoints("sm");
@@ -76,7 +77,8 @@ const Modal: React.FC<ModalProps> = ({
       display: "flex",
       alignItems: fullWidth ? "flex-end" : "center",
       justifyContent: "center",
-      border: "none",
+      border: "unset",
+      borderRadius: 12,
     },
     modal: {
       margin: fullWidth
@@ -99,11 +101,12 @@ const Modal: React.FC<ModalProps> = ({
         : "100%",
       maxWidth: maxWidth,
       borderRadius: fullWidth ? "12px 12px 0px 0px" : 12,
-      border: "none",
+      border: "unset",
       boxShadow: theme.boxShadow.l,
       display: "flex",
       flexDirection: "column",
       outline: 0,
+      backgroundColor: onExit ? "transparent" : "white",
     },
     head: {
       height: helpText ? 72 : mobile ? 64 : 64,
@@ -243,7 +246,7 @@ const Modal: React.FC<ModalProps> = ({
       borderRadius: 8,
       "&:hover": {
         borderRadius: 8,
-        backgroundColor: theme.black.black400,
+        backgroundColor: onExit ? "transparent" : theme.black.black400,
       },
       marginLeft: 16,
     },
@@ -273,6 +276,7 @@ const Modal: React.FC<ModalProps> = ({
       flexDirection: mobile ? "column" : "row",
       alignItems: "center",
       justifyContent: "space-between",
+      backgroundColor: onExit ? "white" : "unset",
     },
     footerButton: {
       width: buttonFullWidth || footerDisplayColumn || mobile ? "100%" : null,

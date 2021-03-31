@@ -15,6 +15,10 @@ import SWAPSpace from "../SWAPSpace/SWAPSpace";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import Modal from "./Modal";
 import Button from "../Button/Button";
+import Banner from "../Banner/Banner";
+import TextField from "../TextField/TextField";
+import Progress from "../Progress/Progress";
+import AutoComplete from "../AutoComplete/AutoComplete";
 
 export default {
   title: "Modal",
@@ -72,7 +76,14 @@ const Demo: Story<ModalProps> = (args) => {
         //     <Button>123</Button>
         //   </Box>
         // }
-        children="按右上角的CloseButton，會發生神奇的事喔！"
+        children={
+          <div>
+            按右上角的CloseButton，會發生神奇的事喔！
+            <Progress count={3} step={2} />
+            <Banner children="按右上角的CloseButton，會發生神奇的事喔！" />
+            <TextField height={50} style={{ marginTop: 50 }} />
+          </div>
+        }
         // buttonFullWidth
         // size="large"
         // footerDisplayColumn

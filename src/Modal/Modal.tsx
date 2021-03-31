@@ -106,7 +106,6 @@ const Modal: React.FC<ModalProps> = ({
       display: "flex",
       flexDirection: "column",
       outline: 0,
-      backgroundColor: onExit ? "transparent" : "white",
     },
     head: {
       height: helpText ? 72 : mobile ? 64 : 64,
@@ -115,6 +114,8 @@ const Modal: React.FC<ModalProps> = ({
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
+      position: "relative",
+      pointerEvents: onExit ? "none" : "unset",
     },
     title: {
       display: "flex",
@@ -246,7 +247,6 @@ const Modal: React.FC<ModalProps> = ({
       borderRadius: 8,
       "&:hover": {
         borderRadius: 8,
-        backgroundColor: onExit ? "transparent" : theme.black.black400,
       },
       marginLeft: 16,
     },
@@ -262,6 +262,8 @@ const Modal: React.FC<ModalProps> = ({
     body: {
       height: height ? height : "100%",
       padding: bodyPadding ? bodyPadding : mobile ? 16 : 24,
+      position: "relative",
+      pointerEvents: onExit ? "none" : "unset",
     },
     footer: {
       height: "100%",
@@ -276,7 +278,6 @@ const Modal: React.FC<ModalProps> = ({
       flexDirection: mobile ? "column" : "row",
       alignItems: "center",
       justifyContent: "space-between",
-      backgroundColor: onExit ? "white" : "unset",
     },
     footerButton: {
       width: buttonFullWidth || footerDisplayColumn || mobile ? "100%" : null,
@@ -291,6 +292,21 @@ const Modal: React.FC<ModalProps> = ({
       <ModalOpenEffect in={open} slide={fullWidth}>
         <Paper className={classes.modal}>
           <Box className={classes.head} style={titleStyle}>
+            {onExit ? (
+              <div
+                style={{
+                  position: "absolute",
+                  width: "100%",
+                  height: "100%",
+                  background: "black",
+                  top: -0,
+                  left: -0,
+                  opacity: 0.5,
+                  borderRadius: "12px 12px 0px 0px",
+                  zIndex: 10,
+                }}
+              />
+            ) : null}
             {headChildren ? (
               headChildren
             ) : (
@@ -320,8 +336,26 @@ const Modal: React.FC<ModalProps> = ({
           </Box>
           {children ? (
             <>
-              <Divider />
-              <Box className={classes.body}>{children}</Box>
+              <Divider
+                style={{ backgroundColor: onExit ? "#6d6d6d" : "#DADADA" }}
+              />
+              <Box className={classes.body}>
+                {onExit ? (
+                  <div
+                    style={{
+                      position: "absolute",
+                      width: "100%",
+                      height: "100%",
+                      background: "black",
+                      top: -0,
+                      left: -0,
+                      opacity: 0.5,
+                      zIndex: 10,
+                    }}
+                  />
+                ) : null}
+                {children}
+              </Box>
             </>
           ) : null}
           {label || secondaryButton || primaryButton ? <Divider /> : null}

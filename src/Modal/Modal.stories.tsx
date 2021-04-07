@@ -1,12 +1,4 @@
-import {
-  Box,
-  Divider,
-  Fade,
-  makeStyles,
-  Paper,
-  Theme,
-  Typography,
-} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
 
@@ -18,7 +10,6 @@ import Button from "../Button/Button";
 import Banner from "../Banner/Banner";
 import TextField from "../TextField/TextField";
 import Progress from "../Progress/Progress";
-import AutoComplete from "../AutoComplete/AutoComplete";
 
 export default {
   title: "Modal",

@@ -36,6 +36,7 @@ export const 認識 = Demo.bind({});
   size: "medium",
   startIcon: "",
   endIcon: "",
+  onClick: () => alert("我是大笨豬"),
 };
 
 export const 類型 = () => {

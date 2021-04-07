@@ -75,7 +75,7 @@ const AppBar: React.FC<AppBarProps> = ({}) => {
           <Toolbar className={classes.userToolbar}>
             <Box width="100%">
               <Container>
-                {false ? (
+                {landingPage ? (
                   //Landing Page
                   <Grid container alignItems="center" justify="space-between">
                     <Grid item>

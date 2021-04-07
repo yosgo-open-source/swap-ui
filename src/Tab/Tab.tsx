@@ -18,6 +18,7 @@ const Tab: React.FC<TabProps> = ({
   margin,
   fontSize,
   noIndicator,
+  animation,
 }) => {
   const theme = useTheme();
   const useStyles = makeStyles({
@@ -29,17 +30,13 @@ const Tab: React.FC<TabProps> = ({
       fontWeight: 700,
       fontSize: fontSize ? fontSize : 14,
       lineHeight: 1.4,
-      transition: "width 3s",
-      // boxShadow: selected
-      //   ? "inset 0px -4px 0px #4862CC"
-      //   : "inset 0px -4px 0px red",
       "&:hover": {
         color: "#000000",
       },
     },
     text: {
       opacity: 1,
-      color: theme.black.black600,
+      color: theme.black.black700,
     },
     selected: {
       color: "#000000",
@@ -53,30 +50,19 @@ const Tab: React.FC<TabProps> = ({
       position: "relative",
     },
     selected_indicator: {
-      animation: "$selected 300ms ",
+      animation: animation ? "$selected 300ms " : "unset",
       height: 4,
       width: "100%",
       backgroundColor: theme.primary.primary400,
       position: "absolute",
       bottom: 0,
       display: noIndicator ? "none" : null,
+      borderRadius: "100px 100px 0px 0px",
     },
-    // unselected_indicator: {
-    //   animation: "$unselected 300ms ",
-    //   height: 4,
-    //   width: 56,
-    //   backgroundColor: "white",
-    //   position: "absolute",
-    //   bottom: 0,
-    // },
     "@keyframes selected": {
       from: { width: 0 },
       to: { width: "100%" },
     },
-    // "@keyframes unselected": {
-    //   from: { width: 56 },
-    //   to: { width: 0 },
-    // },
   });
   const classes = useStyles();
   return (

@@ -12,4 +12,5 @@ export interface TabProps {
   margin?: number | string;
   fontSize?: number | string;
   noIndicator?: boolean;
+  animation?: boolean;
 }

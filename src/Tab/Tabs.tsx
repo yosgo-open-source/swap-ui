@@ -16,16 +16,7 @@ const Tabs: React.FC<TabsProps> = ({
     root: {},
     indicatorRoot: {
       backgroundColor: "transparent",
-      // animation: "$slideDown 5s ",
-      // width: "20px !important",
-      // position: "absolute",
-      // backgroundColor: "red",
-      // transition: "width 3s",
     },
-    // "@keyframes slideDown": {
-    //   from: { backgroundColor: "red" },
-    //   to: { backgroundColor: "green" },
-    // },
   });
   const classes = useStyles();
   return (

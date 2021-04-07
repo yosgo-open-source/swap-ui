@@ -32,6 +32,7 @@ const useOutlinedInputStyles = makeStyles((theme: Theme) => ({
     },
     "&$focused $notchedOutline": {
       borderColor: theme.black.black1000,
+      borderWidth: 1,
       // boxShadow: " 0px 0px 0px 4px #D7DFF8",
     },
   },

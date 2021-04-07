@@ -6,4 +6,5 @@ export interface SegmentedTabsProps {
   onChange?: (e: any, index: number) => void;
   variant?: "fullWidth";
   width?: number | string;
+  slide?: boolean;
 }

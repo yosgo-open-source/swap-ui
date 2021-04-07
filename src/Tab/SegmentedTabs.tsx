@@ -11,6 +11,7 @@ const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
   onChange,
   variant,
   width,
+  slide,
 }) => {
   const theme = useTheme();
   const useStyles = makeStyles({
@@ -19,16 +20,20 @@ const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
       boxSizing: "border-box",
       border: "1px solid #cccccc",
       borderRadius: "9px",
+      padding: "4px 0",
       "& button": {
         borderRadius: "8px",
+        margin: "0 4px",
         "&.Mui-selected": {
-          backgroundColor: theme.primary.primary50,
+          backgroundColor: slide ? "unset" : theme.primary.primary50,
           color: theme.primary.primary500,
         },
       },
-      "& span": {
-        height: 0,
-      },
+    },
+    indicator: {
+      borderRadius: "8px",
+      height: slide ? "100%" : 0,
+      backgroundColor: theme.primary.primary50,
     },
   });
   const classes = useStyles();
@@ -36,6 +41,7 @@ const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
     <MaterialTabs
       classes={{
         root: classes.root,
+        indicator: classes.indicator,
       }}
       style={style}
       centered={centered}

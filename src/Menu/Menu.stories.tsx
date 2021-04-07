@@ -57,6 +57,7 @@ const Demo: Story<MenuProps> = (args) => {
       >
         {options.map((option: any, i: number) => (
           <MenuItem
+            key={i}
             height={36}
             value={option.value}
             style={{

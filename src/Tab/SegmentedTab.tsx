@@ -25,22 +25,27 @@ const SegmentedTab: React.FC<SegmentedTabProps> = ({
       minWidth: 0,
       minHeight: height ? height : 40,
       width: width ? width : "fit-content",
-      // height: height ? height : 40,
       fontWeight: 700,
       fontSize: fontSize ? fontSize : 14,
       lineHeight: 1.4,
+      color: "#6F6F6F",
       "&:hover": {
         color: "#000000",
       },
       flex: flex,
       whiteSpace: "nowrap",
-      margin: 4,
+    },
+    text: {
+      position: "relative",
+      zIndex: 5,
+      opacity: 1,
     },
   });
   const classes = useStyles();
   return (
     <MaterialTab
-      classes={{}}
+      disableRipple
+      classes={{ textColorInherit: classes.text }}
       className={classes.root}
       style={style}
       label={label}

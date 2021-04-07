@@ -55,6 +55,7 @@ const Progress: React.FC<ProgressProps> = (props): React.ReactElement => {
       {a.map((i: number) => {
         return (
           <div
+            key={i}
             style={{
               width: "100%",
               display: "flex",

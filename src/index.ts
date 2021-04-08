@@ -47,6 +47,7 @@ import TaxTextField from "./TaxTextField/TaxTextField";
 import AutoComplete, {
   AutocompleteCloseReason,
 } from "./AutoComplete/AutoComplete";
+import Skeleton from "./Skeleton/Skeleton";
 
 export {
   SWAPAppBar,
@@ -94,4 +95,5 @@ export {
   TaxTextField,
   AutoComplete,
   AutocompleteCloseReason,
+  Skeleton,
 };

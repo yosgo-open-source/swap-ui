@@ -49,7 +49,7 @@ const Demo: Story<MenuProps> = (args) => {
         open={open}
         // open
         onChange={handleChange}
-        vertical={-10}
+        vertical="bottom"
         horizontal="left"
         onClick={() => {
           setOpen(!open);

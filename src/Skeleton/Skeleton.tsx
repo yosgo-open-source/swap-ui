@@ -7,7 +7,10 @@ import MaterialSkeleton from "@material-ui/lab/Skeleton";
 interface StyleProps {}
 
 const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
-  root: (props) => ({ backgroundColor: theme.black.black400 }),
+  root: (props) => ({
+    backgroundColor: theme.black.black400,
+    transform: "unset",
+  }),
 }));
 
 const Skeleton: React.FC<MySkeletonProps> = (props): React.ReactElement => {

@@ -1,10 +1,11 @@
 import MaterialSnackBar from "@material-ui/core/Snackbar";
 import React from "react";
-import { SnackbarProps } from "./Snackbar.types";
+import { MySnackbarProps } from "./Snackbar.types";
 import { Fade, makeStyles, Slide, SlideProps, Theme } from "@material-ui/core";
 import Typography from "../Typography/Typography";
 
 type TransitionProps = Omit<SlideProps, "direction">;
+
 function TransitionLeft(props: TransitionProps) {
   return <Slide {...props} direction="left" />;
 }
@@ -22,77 +23,68 @@ function TransitionDown(props: TransitionProps) {
 function Transition(props: TransitionProps) {
   return <Fade {...props} />;
 }
-const Snackbar: React.FC<SnackbarProps> = ({
-  style,
-  open,
-  anchorOrigin,
-  autoHideDuration,
-  onClose,
-  message,
-  action,
-  onEntered,
-  onExited,
-  onEntering,
-  onEnter,
-  onExit,
-  onExiting,
-  transitionDirection,
-  key,
-  transitionDuration,
-  width,
-  height,
-  variant,
-}) => {
-  const useStyles = makeStyles((theme: Theme) => ({
-    root: {},
-    contentRoot: {
-      width: width ? width : "100%",
-      height: height ? height : 56,
-      boxShadow: theme.boxShadow.l,
-      borderRadius: theme.borderRadius.m,
-      backgroundColor:
-        variant === "success"
-          ? theme.success.success800
-          : variant === "error"
-          ? theme.danger.danger900
-          : theme.black.black1000,
-      border:
-        variant === "success"
-          ? `1px solid ${theme.success.successA11y}`
-          : variant === "error"
-          ? `1px solid ${theme.danger.dangerA11y}`
-          : `1px solid ${theme.black.black1000}`,
-      padding: "17px 16px",
-    },
-    message: {
-      padding: 0,
-    },
-  }));
-  const classes = useStyles();
+
+// Style
+interface StyleProps {
+  width: string | number;
+  height: string | number;
+  variant: string;
+}
+
+const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
+  root: {},
+  contentRoot: (props) => ({
+    width: props.width ? props.width : "100%",
+    height: props.height ? props.height : 56,
+    boxShadow: theme.boxShadow.l,
+    borderRadius: theme.borderRadius.m,
+    backgroundColor:
+      props.variant === "success"
+        ? theme.success.success800
+        : props.variant === "error"
+        ? theme.danger.danger900
+        : theme.black.black1000,
+    border:
+      props.variant === "success"
+        ? `1px solid ${theme.success.successA11y}`
+        : props.variant === "error"
+        ? `1px solid ${theme.danger.dangerA11y}`
+        : `1px solid ${theme.black.black1000}`,
+    padding: "17px 16px",
+  }),
+  message: {
+    padding: 0,
+  },
+}));
+
+const Snackbar: React.FC<MySnackbarProps> = (props) => {
+  const {
+    message,
+    transitionDirection,
+    transitionDuration,
+    width,
+    height,
+    variant,
+    ...other
+  } = props;
+  const styleProps: StyleProps = {
+    width: width,
+    height: height,
+    variant: variant,
+  };
+  const classes = useStyles(styleProps);
   return (
     <MaterialSnackBar
+      {...other}
       className={classes.root}
-      style={style}
       ContentProps={{
         classes: { root: classes.contentRoot, message: classes.message },
       }}
-      key={key}
-      open={open}
-      anchorOrigin={anchorOrigin}
-      autoHideDuration={autoHideDuration}
-      onClose={onClose}
       message={
         <Typography variant="body2" color="white">
           {message}
         </Typography>
       }
-      action={action}
-      onExited={onExited}
-      onExit={onExit}
-      onExiting={onExiting}
-      onEnter={onEnter}
-      onEntered={onEntered}
-      onEntering={onEntering}
       TransitionComponent={
         transitionDirection === "left"
           ? TransitionLeft

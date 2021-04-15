@@ -1,10 +1,7 @@
-import { OutlinedTextFieldProps } from "@material-ui/core";
+import { TextFieldProps } from "@material-ui/core";
 
 export interface MyTextFieldProps
-  extends Pick<
-    OutlinedTextFieldProps,
-    Exclude<keyof OutlinedTextFieldProps, "variant">
-  > {
+  extends Pick<TextFieldProps, Exclude<keyof TextFieldProps, "variant">> {
   children?: React.ReactNode;
   width?: number | string;
   height?: number | string;

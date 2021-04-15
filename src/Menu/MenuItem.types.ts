@@ -1,10 +1,7 @@
-export interface MenuItemProps {
-  children?: React.ReactNode;
-  style?: React.CSSProperties;
-  key?: any;
-  value?: any;
-  onClick?: () => void;
-  disabled?: boolean;
+import { MenuItemProps } from "@material-ui/core";
+
+export interface MyMenuItemProps extends MenuItemProps {
+  button?: true;
   width?: number | string;
   height?: number | string;
   hoverBackgroundColor?: string;

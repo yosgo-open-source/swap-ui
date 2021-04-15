@@ -1,75 +1,61 @@
 import MaterialRadioButton from "@material-ui/core/Radio";
 import React from "react";
-import { RadioButtonProps } from "./RadioButton.types";
-import { FormControlLabel, makeStyles, useTheme } from "@material-ui/core";
+import { RadioMyButtonProps } from "./RadioButton.types";
+import { FormControlLabel, makeStyles, Theme } from "@material-ui/core";
 
-const RadioButton: React.FC<RadioButtonProps> = ({
-  style,
-  disabled,
-  checked,
-  onChange,
-  label,
-  labelPlacement,
-}) => {
-  const theme = useTheme();
-  const useStyles = makeStyles({
-    root: {
-      width: 40,
-      height: 40,
-      boxShadow: "none",
-      "&:hover": {
-        backgroundColor: theme.black.black300,
-      },
-      "&.Mui-checked:hover": {
-        backgroundColor: theme.black.black300,
-      },
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    width: 40,
+    height: 40,
+    boxShadow: "none",
+    "&:hover": {
+      backgroundColor: theme.black.black300,
     },
-    icon: {
-      position: "absolute",
-      width: "24px",
-      height: "24px",
-      borderRadius: 100,
-      backgroundColor: theme.black.white,
+    "&.Mui-checked:hover": {
+      backgroundColor: theme.black.black300,
+    },
+  },
+  icon: {
+    position: "absolute",
+    width: "24px",
+    height: "24px",
+    borderRadius: 100,
+    backgroundColor: theme.black.white,
+    border: `1px solid ${theme.black.black500}`,
+    "input:hover ~ &": {
+      border: `1px solid ${theme.black.black1000}`,
+    },
+    "input:disabled ~ &": {
+      opacity: 0.4,
+    },
+    "input:disabled:hover ~ &": {
       border: `1px solid ${theme.black.black500}`,
-      "input:hover ~ &": {
-        border: `1px solid ${theme.black.black1000}`,
-      },
-      "input:disabled ~ &": {
-        opacity: 0.4,
-      },
-      "input:disabled:hover ~ &": {
-        border: `1px solid ${theme.black.black500}`,
-      },
-      // "input:focus ~ &": {
-      //   boxShadow: " 0px 0px 0px 4px #D7DFF8",
-      // },
-      // "input:focus:hover ~ &": { boxShadow: "none" },
     },
-    checked_icon: {
-      position: "absolute",
-      width: 24,
-      height: 24,
-      borderRadius: 100,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: theme.primary.primary400,
+  },
+  checked_icon: {
+    position: "absolute",
+    width: 24,
+    height: 24,
+    borderRadius: 100,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: theme.primary.primary400,
+    border: `1px solid ${theme.primary.primary600}`,
+    "input:hover ~ &": {
+      border: `1px solid ${theme.primary.primaryA11y}`,
+    },
+    "input:disabled ~ &": {
+      opacity: 0.4,
+    },
+    "input:disabled:hover ~ &": {
       border: `1px solid ${theme.primary.primary600}`,
-      "input:hover ~ &": {
-        border: `1px solid ${theme.primary.primaryA11y}`,
-      },
-      "input:disabled ~ &": {
-        opacity: 0.4,
-      },
-      "input:disabled:hover ~ &": {
-        border: `1px solid ${theme.primary.primary600}`,
-      },
-      // "input:focus ~ &": {
-      //   boxShadow: " 0px 0px 0px 4px #D7DFF8",
-      // },
-      // "input:focus:hover ~ &": { boxShadow: "none" },
     },
-  });
+  },
+}));
+const RadioButton: React.FC<RadioMyButtonProps> = (props) => {
+  const { label, labelPlacement, ...other } = props;
+
   const classes = useStyles();
   return (
     <FormControlLabel
@@ -80,9 +66,6 @@ const RadioButton: React.FC<RadioButtonProps> = ({
           disableFocusRipple
           disableTouchRipple
           className={classes.root}
-          disabled={disabled}
-          checked={checked}
-          onChange={onChange}
           checkedIcon={
             <span className={classes.checked_icon}>
               <svg
@@ -97,7 +80,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
             </span>
           }
           icon={<span className={classes.icon} />}
-          style={style}
+          {...other}
         />
       }
     />

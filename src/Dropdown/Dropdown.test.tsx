@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import Button from "./Button";
-import { MyButtonProps } from "./Button.types";
+import Dropdown from "./Dropdown";
+import { DropdownProps } from "./Dropdown.types";
 
 describe("Test Component", () => {
-  let props: MyButtonProps;
+  let props: DropdownProps;
 
   beforeEach(() => {
     props = {
@@ -13,13 +13,13 @@ describe("Test Component", () => {
     };
   });
 
-  const renderComponent = () => render(<Button {...props} />);
+  const renderComponent = () => render(<Dropdown {...props} />);
 
   it("should render foo text correctly", () => {
     props.foo = "harvey was here";
     const { getByTestId } = renderComponent();
 
-    const component = getByTestId("Button");
+    const component = getByTestId("Dropdown");
 
     expect(component).toHaveTextContent("harvey was here");
   });

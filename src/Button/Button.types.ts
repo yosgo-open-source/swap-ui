@@ -1,14 +1,16 @@
-export interface ButtonProps {
+import { ButtonProps } from "@material-ui/core";
+
+type OmitButtonProps = Omit<
+  ButtonProps,
+  "variant" | "onClick" | "size" | "color"
+>;
+
+export interface MyButtonProps extends OmitButtonProps {
   children?: React.ReactNode;
-  style?: React.CSSProperties;
   variant?: "primary" | "secondary" | "text" | "tertiary" | "black" | "danger";
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
-  fullWidth?: boolean;
-  disabled?: boolean;
   loading?: boolean;
   minWidth?: number | string;
   width?: number | string;
   size?: "small" | "medium" | "large";
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }

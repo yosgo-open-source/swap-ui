@@ -7,9 +7,6 @@ import SWAPSpace from "../SWAPSpace/SWAPSpace";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import Modal from "./Modal";
 import Button from "../Button/Button";
-import Banner from "../Banner/Banner";
-import TextField from "../TextField/TextField";
-import Progress from "../Progress/Progress";
 
 export default {
   title: "Modal",
@@ -17,7 +14,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "用戶在蓋板視窗內完成某一件事情",
+        component: "",
       },
     },
   },
@@ -32,106 +29,95 @@ const Demo: Story<ModalProps> = (args) => {
   };
   return (
     <SWAPTheme>
-      <Typography variant="subtitle1">Modal 平常就像個隱形人</Typography>
+      <Typography variant="subtitle1">基本 Modal</Typography>
       <Typography variant="body2" color="textSecondary">
-        請將下方 open 屬性調整為 true，以開啟 Modal。
+        點擊下方Button，下方 open 屬性調整為 true，以開啟 Modal。
       </Typography>
+      <br />
       <Button
+        size="small"
         onClick={() => {
           setOpen(true);
         }}
       >
         Open
       </Button>
-      <Modal // headpadding="100px 0px"
-        open={open}
-        onExit={onExit}
-        onClose={handleClose}
-        // checked
-        // checkIconColor="success800"
-        title="確定要取消訂閱嗎？"
-        helpText="取消訂閱後，我們將維持你專家方案的資格直到4月8號"
-        // titleStyle={{ height: 102 }}
-        // headChildren={
-        //   <div
-        //     style={{ display: "flex", justifyContent: "center", width: "100%" }}
-        //   >
-        //     dsfklsdfjl;sjf
-        //   </div>
-        // }
-        // disCloseIcon
-        size="medium"
-        // mobile
-        // headChildren={
-        //   <Box>
-        //     <Button>123</Button>
-        //   </Box>
-        // }
-        children={
-          <div>
-            按右上角的CloseButton，會發生神奇的事喔！
-            <Progress count={3} step={2} />
-            <Banner children="按右上角的CloseButton，會發生神奇的事喔！" />
-            <TextField height={50} style={{ marginTop: 50 }} />
-          </div>
-        }
-        // buttonFullWidth
-        // size="large"
-        // footerDisplayColumn
-        label={onExit ? "離開的人是大笨豬，確定離開?" : "我是大笨豬"}
-        secondaryButton={{
-          title: onExit ? "繼續看看" : "取消訂閱",
-          onClick: () => {
-            if (onExit) {
-              setOnExit(false);
-            } else {
-              alert("123");
-            }
-          },
-          variant: "danger",
-        }}
-        primaryButton={{
-          title: onExit ? "確定離開" : "繼續使用此方案",
-          onClick: () => {
-            if (onExit) {
-              alert("大笨豬");
-              setOpen(false);
-            } else {
-              setOpen(false);
-              setOnExit(false);
-            }
-          },
-          // style: { backgroundColor: "red" },
-        }}
-        // mobile
-        // fullWidth
-      />
+      <Modal {...args} open={open} onClose={() => setOpen(false)} />
     </SWAPTheme>
   );
 };
 
 export const 認識 = Demo.bind({});
 認識.args = {
-  // title: "視窗標題視窗標題",
-  // // open: false,
-  // onClose: () => alert("呼叫關閉視窗函式"),
-  // primaryButton: {
-  //   title: "主按鈕",
-  //   onClick: () => alert("點擊主按鈕"),
-  //   disabled: false,
-  // },
-  // secondaryButton: {
-  //   title: "次要按鈕",
-  //   onClick: () => alert("點擊次要按鈕"),
-  //   disabled: false,
-  // },
-  // children:
-  //   "視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視窗標題視",
+  title: "我是標題",
+  helpText: "我是副標題",
+  size: "small",
+  label: "Label",
+  children: (
+    <div>
+      <div
+        style={{ height: 20, marginBottom: 16, backgroundColor: "#ececec" }}
+      />
+      <div
+        style={{ height: 20, marginBottom: 16, backgroundColor: "#ececec" }}
+      />
+      <div
+        style={{ height: 20, marginBottom: 16, backgroundColor: "#ececec" }}
+      />
+      <div
+        style={{ height: 20, marginBottom: 16, backgroundColor: "#ececec" }}
+      />
+      <div style={{ height: 20, backgroundColor: "#ececec" }} />
+    </div>
+  ),
+  primaryButton: {
+    title: "我是按鈕",
+    onClick: () => alert("我是按鈕"),
+    disabled: false,
+  },
+  secondaryButton: {
+    title: "我是按鈕",
+    onClick: () => alert("我是按鈕"),
+    disabled: false,
+  },
 };
 
-export const 內容多寡 = () => {
-  const [open, setOpen] = useState(false);
-  const [open2, setOpen2] = useState(false);
+const SPIcon = (
+  <svg
+    width="40"
+    height="40"
+    viewBox="0 0 40 40"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ marginRight: 10 }}
+  >
+    <path
+      d="M20.0382 38.7942C9.68414 38.7942 1.28223 30.3923 1.28223 20.0382C1.28223 9.68414 9.68414 1.28223 20.0382 1.28223C30.3923 1.28223 38.7942 9.68414 38.7942 20.0382C38.7942 30.4114 30.4114 38.7942 20.0382 38.7942Z"
+      fill="#F7B52C"
+    />
+    <path
+      d="M20.0383 39.9424C9.07183 39.9424 0.134033 31.0046 0.134033 20.0381C0.134033 9.07159 9.07183 0.133789 20.0383 0.133789C31.0048 0.133789 39.9426 9.07159 39.9426 20.0381C39.9426 31.0237 31.024 39.9424 20.0383 39.9424ZM20.0383 2.43044C10.335 2.43044 2.43068 10.3347 2.43068 20.0381C2.43068 29.7414 10.335 37.6458 20.0383 37.6458C29.7417 37.6458 37.646 29.7414 37.646 20.0381C37.646 10.3347 29.7608 2.43044 20.0383 2.43044Z"
+      fill="#F59225"
+    />
+    <path
+      d="M27.5215 21.9327H25.2631C24.8804 21.9327 24.5741 22.2389 24.5741 22.6217V27.0236C24.5741 27.4063 24.2679 27.7126 23.8852 27.7126H22.2775C21.8947 27.7126 21.5885 27.4063 21.5885 27.0236V13.0523C21.5885 12.6695 21.8947 12.3633 22.2775 12.3633H27.5407C30.7177 12.3633 32.6124 14.5451 32.6124 17.148C32.5933 19.77 30.6985 21.9327 27.5215 21.9327ZM27.3684 15.0427H25.2631C24.8804 15.0427 24.5741 15.3489 24.5741 15.7317V18.5642C24.5741 18.947 24.8804 19.2532 25.2631 19.2532H27.3684C28.7273 19.2532 29.5885 18.4111 29.5885 17.1671C29.5885 15.9231 28.7273 15.0427 27.3684 15.0427Z"
+      fill="white"
+    />
+    <path
+      d="M13.1291 27.8466C11.0813 27.8466 9.45449 27.4638 8.0765 26.3347C7.77028 26.0859 7.75114 25.6074 8.03822 25.3203L9.0143 24.3442C9.2631 24.0954 9.64588 24.0763 9.93296 24.2868C10.8325 24.9567 11.9808 25.1863 13.1865 25.1863C14.9473 25.1863 15.9042 24.5165 15.9042 23.2916C15.9042 22.7557 15.7511 22.2964 15.4258 21.9902C15.1196 21.7031 14.7751 21.55 14.0669 21.4543L12.2105 21.1863C10.8899 20.9949 9.93296 20.5739 9.22482 19.9232C8.49755 19.1959 8.13391 18.2007 8.13391 16.8993C8.13391 14.1624 10.1626 12.2485 13.4736 12.2485C15.2727 12.2485 16.6698 12.6313 17.8373 13.5308C18.1626 13.7796 18.1818 14.2772 17.8947 14.5643L16.9569 15.483C16.7272 15.7127 16.3444 15.7318 16.0765 15.5404C15.2153 14.9471 14.2392 14.8514 13.3779 14.8514C11.7894 14.8514 11.0047 15.7318 11.0047 16.7844C11.0047 17.1672 11.1387 17.5882 11.4641 17.8753C11.7703 18.1624 12.2679 18.3921 12.8803 18.4878L14.6985 18.7557C16.0956 18.9471 16.976 19.3299 17.6267 19.9423C18.4497 20.727 18.8133 21.8371 18.8133 23.1959C18.8133 26.1624 16.3444 27.8466 13.1291 27.8466Z"
+      fill="white"
+    />
+  </svg>
+);
+
+export const 類型 = () => {
+  const [scrollOpen, setScrollOpen] = useState(false);
+  const [iconOpen, setIconOpen] = useState(false);
+  const [onExitOpen, setOnExitOpen] = useState(false);
+  const [success, setSuccess] = useState(true);
+  const [fail, setFail] = useState(false);
+  const [otherIcon, setOtherIcon] = useState(false);
+  const [onExit, setOnExit] = useState(false);
   return (
     <SWAPTheme>
       <div>
@@ -140,54 +126,157 @@ export const 內容多寡 = () => {
           視窗的標題與操作區域將會固定在頂端與底部，內容區域可以捲動
         </Typography>
         <SWAPSpace />
-        <Button onClick={() => setOpen(true)}>點我示意</Button>
+        <Button size="small" onClick={() => setScrollOpen(true)}>
+          Scroll
+        </Button>
         <Modal
-          title="視窗標題"
-          helpText="視窗說明文字"
-          open={open}
-          onClose={() => setOpen(false)}
+          title="內容多於視野範圍"
+          helpText="內容區域限制高度且可滾動！"
+          open={scrollOpen}
+          onClose={() => setScrollOpen(false)}
+          size="medium"
           primaryButton={{
-            title: "確認執行",
-            onClick: () => {},
-            disabled: false,
+            title: "關閉",
+            onClick: () => {
+              setScrollOpen(false);
+            },
           }}
-        >
-          <div>
-            <Typography variant="body2">
-              這裡的內容很長喔，所以可以捲動
-            </Typography>
-            <div style={{ height: "1200px" }}></div>
-            <Typography variant="body2">已經捲動到最底部了</Typography>
-          </div>
-        </Modal>
+          bodyMaxHeight={300}
+          children={
+            <div style={{ textAlign: "center" }}>
+              <Typography variant="body2">
+                ↓ 這裡的內容很長喔，所以可以捲動 ↓
+              </Typography>
+              {Array.from(Array(20).keys()).map((i: any) => (
+                <div
+                  style={{
+                    height: 20,
+                    margin: "16px 0",
+                    backgroundColor: "#ececec",
+                  }}
+                />
+              ))}
+              <Typography variant="body2">↑ 已經捲動到最底部了 ↑ </Typography>
+            </div>
+          }
+        />
       </div>
       <SWAPSpace size="l" />
       <div>
-        <Typography variant="subtitle1">Modal 內容少於視線範圍</Typography>
+        <Typography variant="subtitle1">
+          Modal 有Icon (Success || Failed || Other Icon)
+        </Typography>
         <Typography variant="body2" color="textSecondary">
-          置中顯示視窗，內容無捲動功能
+          Icon 位於標題前，表示狀態
         </Typography>
         <SWAPSpace />
-        <Button onClick={() => setOpen2(true)}>點我示意</Button>
+        <Button size="small" onClick={() => setIconOpen(true)}>
+          Icon
+        </Button>
         <Modal
-          title="蓋板視窗"
-          helpText="這個蓋板視窗..."
-          open={open2}
-          onClose={() => setOpen2(false)}
+          title={otherIcon ? "SWAP Points" : success ? "成功訊息" : "失敗訊息"}
+          open={iconOpen}
+          onClose={() => setIconOpen(false)}
+          size="medium"
+          checked={success}
+          failed={fail}
+          icon={otherIcon ? SPIcon : null}
+          iconColor={success ? "success800" : "danger800"}
           primaryButton={{
-            title: "確認執行",
-            onClick: () => {},
-            disabled: false,
+            title: success ? "失敗" : "成功",
+            onClick: () => {
+              if (success) {
+                setSuccess(false);
+                setFail(true);
+              } else if (fail) {
+                setSuccess(true);
+                setFail(false);
+              } else if (otherIcon) {
+                setOtherIcon(false);
+                setSuccess(true);
+              }
+            },
           }}
-        >
-          <div style={{ height: "180px" }}>
-            <Typography variant="body2">
-              這裡的內容比較少，不需捲動。
-            </Typography>
-            <br />
-          </div>
-        </Modal>
+          secondaryButton={{
+            title: "其他Icon",
+            onClick: () => {
+              setSuccess(false);
+              setFail(false);
+              setOtherIcon(true);
+            },
+          }}
+          children={
+            <>
+              <Typography variant="body2" style={{ textAlign: "center" }}>
+                試著點擊下方按鈕可切換Icon！
+              </Typography>
+              {Array.from(Array(6).keys()).map((i: any) => (
+                <div
+                  style={{
+                    height: 20,
+                    marginTop: "16px",
+                    backgroundColor: "#ececec",
+                  }}
+                />
+              ))}
+            </>
+          }
+        />
       </div>
+      <SWAPSpace size="l" />
+      <div>
+        <Typography variant="subtitle1">Modal 關閉提醒</Typography>
+        <Typography variant="body2" color="textSecondary">
+          重要內容的Modal，關閉時，提醒是否確定關閉！
+        </Typography>
+        <SWAPSpace />
+        <Button size="small" onClick={() => setOnExitOpen(true)}>
+          OnExit
+        </Button>
+        <Modal
+          title="重要Modal"
+          open={onExitOpen}
+          // open
+          onClose={() => setOnExit(true)}
+          onExit={onExit}
+          size="medium"
+          label={onExit ? "確定要關閉嗎?" : null}
+          primaryButton={{
+            title: onExit ? "確定關閉" : "確認",
+            onClick: () => {
+              if (onExit) {
+                window.location.reload();
+              } else {
+                setOnExitOpen(false);
+              }
+            },
+          }}
+          secondaryButton={{
+            title: onExit ? "先不關閉" : "關閉",
+            onClick: () => {
+              if (onExit) {
+                setOnExit(false);
+              } else {
+                setOnExit(true);
+              }
+            },
+          }}
+          children={
+            <div style={{ textAlign: "center" }}>
+              {Array.from(Array(6).keys()).map((i: any) => (
+                <div
+                  style={{
+                    height: 20,
+                    marginBottom: "16px",
+                    backgroundColor: "#ececec",
+                  }}
+                />
+              ))}
+            </div>
+          }
+        />
+      </div>
+      <SWAPSpace size="l" />
     </SWAPTheme>
   );
 };

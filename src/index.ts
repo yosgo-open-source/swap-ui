@@ -48,6 +48,7 @@ import AutoComplete, {
   AutocompleteCloseReason,
 } from "./AutoComplete/AutoComplete";
 import Skeleton from "./Skeleton/Skeleton";
+import Dropdown from "./Dropdown/Dropdown";
 
 export {
   SWAPAppBar,
@@ -96,4 +97,5 @@ export {
   AutoComplete,
   AutocompleteCloseReason,
   Skeleton,
+  Dropdown,
 };

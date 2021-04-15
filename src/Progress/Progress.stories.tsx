@@ -4,6 +4,7 @@ import { Story } from "@storybook/react/types-6-0";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import { ProgressProps } from "./Progress.types";
 import Progress from "../Progress/Progress";
+import Button from "../Button/Button";
 
 export default {
   title: "Progress",
@@ -11,7 +12,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "網頁上方的導覽列",
+        component: " ",
       },
     },
   },
@@ -22,9 +23,30 @@ const Demo: Story<ProgressProps> = (args) => {
   return (
     <SWAPTheme>
       <Progress {...args} step={step} />
-      <button onClick={() => setStep(step + 1)}>step +1</button>
-      <button onClick={() => setStep(step - 1)}>step -1</button>
-      <button onClick={() => setStep(3)}>to step 3</button>
+      <Button
+        size="small"
+        style={{ margin: 4 }}
+        variant="text"
+        onClick={() => setStep(step + 1)}
+      >
+        step +1
+      </Button>
+      <Button
+        size="small"
+        style={{ margin: 4 }}
+        variant="text"
+        onClick={() => setStep(step - 1)}
+      >
+        step -1
+      </Button>
+      <Button
+        size="small"
+        style={{ margin: 4 }}
+        variant="text"
+        onClick={() => setStep(3)}
+      >
+        to step 3
+      </Button>
     </SWAPTheme>
   );
 };

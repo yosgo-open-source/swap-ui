@@ -2,10 +2,10 @@ import React from "react";
 import { render } from "@testing-library/react";
 
 import Menu from "./Menu";
-import { MenuProps } from "./Menu.types";
+import { MyMenuProps } from "./Menu.types";
 
 describe("Test Component", () => {
-  let props: MenuProps;
+  let props: MyMenuProps;
 
   beforeEach(() => {
     props = {

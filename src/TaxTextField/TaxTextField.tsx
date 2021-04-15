@@ -1,10 +1,9 @@
-import { Grid, useTheme } from "@material-ui/core";
+import { Grid, useMediaQuery, useTheme } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import AutoComplete, {
   AutocompleteCloseReason,
 } from "../AutoComplete/AutoComplete";
 import MenuItem from "../Menu/MenuItem";
-import Select from "../Menu/Select";
 import TextField from "../TextField/TextField";
 
 import {
@@ -17,6 +16,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
   onChange,
   codeValue,
   domainValue,
+  domainCodeValue,
   codeError,
   codeHelperText,
   domainError,
@@ -26,7 +26,6 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
 }) => {
   const [modalIncome, setModalIncome]: any = useState("");
   const [modalExpense, setModalExpense]: any = useState("");
-  const [open, setOpen] = useState(false);
 
   const handleModalTaxDescription = () => {
     try {
@@ -37,7 +36,11 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
         incomeLabel: SWAPTaxIncomeLabel(modalIncome),
         expenseLabel: SWAPTaxExpenseLabel(modalExpense),
         taxDescription: SWAPTaxDescription(modalIncome, modalExpense),
+        expenseCodeAndLabel: modalExpense
+          ? `[${modalExpense}] ${SWAPTaxExpenseLabel(modalExpense)}`
+          : "",
       };
+
       onChange(value);
     } catch (err) {
       console.log(err);
@@ -53,12 +56,15 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleCodeClick = () => {
-    setOpen(!open);
     codeOnClick();
+    setAnchorEl(null);
   };
 
   const handleDomainClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
+    if (codeValue) {
+      setModalIncome(codeValue);
+    }
     domainOnClick();
   };
 
@@ -75,6 +81,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
     setAnchorEl(null);
   };
   const theme = useTheme();
+  const matchMD = useMediaQuery("min-width:768px)");
   return (
     <Grid container spacing={1} alignContent="flex-start">
       <Grid
@@ -84,22 +91,19 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
         md={codeValue === "9A" || codeValue === "9B" ? 6 : 12}
         lg={codeValue === "9A" || codeValue === "9B" ? 6 : 12}
       >
-        <Select
+        <TextField
+          select
+          fullWidth
           error={codeError}
           helperText={codeHelperText}
           height={56}
-          paddingTop={17}
-          paddingLeft={16}
-          placeholder="選擇申報類別"
+          label="選擇申報類別"
           value={codeValue}
-          open={open}
           onClick={handleCodeClick}
           onChange={(e) => {
             setModalIncome(e.target.value);
             setModalExpense("");
           }}
-          vertical={-16}
-          horizontal="left"
         >
           <MenuItem
             height={36}
@@ -109,6 +113,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
               fontWeight: 700,
               lineHeight: 1.4,
               color: "#4b4b4b",
+              opacity: 1,
             }}
           >
             請選擇申報類別
@@ -129,7 +134,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
               }}
               disabled={modalIncome === option.code}
               iconChildren={
-                modalIncome === option.code && open ? (
+                modalIncome === option.code ? (
                   <svg
                     width="20"
                     height="20"
@@ -148,7 +153,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
               {option.code} {option.label}
             </MenuItem>
           ))}
-        </Select>
+        </TextField>
       </Grid>
       <Grid item xs={6} sm={6} md={6} lg={6}>
         {(() => {
@@ -163,60 +168,132 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
             //   : "";
             return (
               <>
-                <TextField
-                  error={domainError}
-                  helperText={domainHelperText}
-                  fullWidth
-                  label="輸入執行業務類別"
-                  height={56}
-                  value={domainValue}
-                  onClick={handleDomainClick}
-                  InputProps={{
-                    endAdornment: (
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
+                {codeValue === "9B" ? (
+                  <TextField
+                    select
+                    fullWidth
+                    error={domainError}
+                    helperText={domainHelperText}
+                    height={56}
+                    label="輸入執行業務類別"
+                    value={domainCodeValue}
+                    onClick={handleDomainClick}
+                    onChange={(e: any) => {
+                      setModalExpense(e.target.value);
+                      setAnchorEl(null);
+                    }}
+                  >
+                    <MenuItem
+                      height={36}
+                      disabled
+                      style={{
+                        fontSize: 12,
+                        fontWeight: 700,
+                        lineHeight: 1.4,
+                        color: "#4b4b4b",
+                        opacity: 1,
+                      }}
+                    >
+                      選擇執行業務類別
+                    </MenuItem>
+                    {options.map((option, index) => (
+                      <MenuItem
+                        height={36}
+                        key={`case_${index}`}
+                        value={option.code}
+                        style={{
+                          backgroundColor:
+                            modalExpense === option.code ? "white" : null,
+                          opacity: modalExpense === option.code ? 1 : null,
+                          display: "flex",
+                          justifyContent: "space-between",
+                          flexWrap: "nowrap",
+                          color:
+                            modalExpense === option.code
+                              ? theme.primary.primary400
+                              : null,
+                        }}
+                        disabled={modalExpense === option.code}
+                        iconChildren={
+                          modalExpense === option.code ? (
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M17.4998 5.83345L7.49984 15.8334L2.9165 11.2501L4.0915 10.0751L7.49984 13.4751L16.3248 4.65845L17.4998 5.83345Z"
+                                fill="#4862CC"
+                              />
+                            </svg>
+                          ) : null
+                        }
                       >
-                        <path
-                          d="M5.83333 8.33334L9.99999 12.5L14.1667 8.33334H5.83333Z"
-                          fill="black"
-                        />
-                      </svg>
-                    ),
-                  }}
-                />
-                <AutoComplete
-                  disableFreeInput
-                  multiple
-                  disableCloseOnSelect
-                  disablePortal
-                  anchorEl={anchorEl}
-                  open={Boolean(anchorEl)}
-                  onClose={handleClose}
-                  onChange={(_: any, newValue: any) => {
-                    if (newValue[0].code) {
-                      setModalExpense(newValue.pop().code);
-                    }
-                    setAnchorEl(null);
-                  }}
-                  width={380}
-                  value={domainValue}
-                  options={options}
-                  placement="bottom"
-                  placeholder="輸入執行業務類別"
-                  title="選擇執行業務類別"
-                  renderOption={(option) => {
-                    return (
-                      <div>
                         [{option.code}] {option.label}
-                      </div>
-                    );
-                  }}
-                  getOptionLabel={(option) => option.code + option.label}
-                />
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                ) : (
+                  <>
+                    <TextField
+                      error={domainError}
+                      helperText={domainHelperText}
+                      fullWidth
+                      label="輸入執行業務類別"
+                      height={56}
+                      value={domainValue}
+                      onClick={handleDomainClick}
+                      InputProps={{
+                        endAdornment: (
+                          <div style={{ width: 24, height: 24 }}>
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M7 10L12 15L17 10H7Z" fill="black" />
+                            </svg>
+                          </div>
+                        ),
+                      }}
+                    />
+                    <AutoComplete
+                      fullWidth
+                      width={matchMD ? "calc(50% - 52px)" : "calc(50% - 20px)"}
+                      optionsMaxHeight={150}
+                      disableFreeInput
+                      multiple
+                      disableCloseOnSelect
+                      disablePortal
+                      anchorEl={anchorEl}
+                      open={Boolean(anchorEl)}
+                      onClose={handleClose}
+                      onChange={(_: any, newValue: any) => {
+                        if (newValue[0].code) {
+                          setModalExpense(newValue.pop().code);
+                        }
+                        setAnchorEl(null);
+                      }}
+                      value={domainValue}
+                      options={options}
+                      placement="bottom-end"
+                      placeholder="輸入執行業務類別"
+                      title="選擇執行業務類別"
+                      renderOption={(option) => {
+                        return (
+                          <div>
+                            [{option.code}] {option.label}
+                          </div>
+                        );
+                      }}
+                      getOptionLabel={(option) => option.code + option.label}
+                    />
+                  </>
+                )}
               </>
             );
           } else {

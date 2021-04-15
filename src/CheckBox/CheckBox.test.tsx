@@ -2,10 +2,10 @@ import React from "react";
 import { render } from "@testing-library/react";
 
 import CheckBox from "./CheckBox";
-import { CheckBoxProps } from "./CheckBox.types";
+import { MyCheckBoxProps } from "./CheckBox.types";
 
 describe("Test Component", () => {
-  let props: CheckBoxProps;
+  let props: MyCheckBoxProps;
 
   beforeEach(() => {
     props = {

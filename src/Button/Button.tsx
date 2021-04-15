@@ -1,27 +1,25 @@
 import MaterialButton from "@material-ui/core/Button";
 import React, { useState } from "react";
-import { ButtonProps } from "./Button.types";
-import { makeStyles, useTheme } from "@material-ui/core";
+import { MyButtonProps } from "./Button.types";
+import { makeStyles, Theme, useTheme } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-const Button: React.FC<ButtonProps> = ({
-  children,
-  variant,
-  startIcon,
-  endIcon,
-  fullWidth,
-  minWidth,
-  width,
-  size,
-  style,
-  disabled,
-  loading,
-  onClick,
-}) => {
+const Button: React.FC<MyButtonProps> = (props) => {
+  const {
+    children,
+    variant,
+    minWidth,
+    width,
+    size,
+    loading,
+    onClick,
+    ...other
+  } = props;
   const [noFocus, setNoFocus] = useState(false);
   const theme = useTheme();
-  const useStyles = makeStyles({
+  const useStyles = makeStyles((theme: Theme) => ({
     root: {
+      textTransform: "unset",
       color:
         variant === "primary"
           ? theme.black.white
@@ -203,23 +201,20 @@ const Button: React.FC<ButtonProps> = ({
             : null,
       },
     },
-  });
+  }));
+
   const classes = useStyles();
   return (
     <MaterialButton
       className={classes.root}
       disableElevation
       disableFocusRipple
-      onClick={() => {
+      onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         setNoFocus(true);
-        onClick();
+        onClick(event);
       }}
-      fullWidth={fullWidth}
-      disabled={disabled}
       size="medium"
-      startIcon={startIcon}
-      endIcon={endIcon}
-      style={style}
+      {...other}
     >
       {/* Loading circle */}
       {loading ? (

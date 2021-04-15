@@ -1,12 +1,6 @@
-export interface SegmentedTabProps {
-  style?: React.CSSProperties;
-  label?: React.ReactNode;
-  disabled?: boolean;
-  icon?: any;
-  wrapped?: boolean;
-  selected?: boolean;
-  value?: any;
-  onClick?: () => void;
+import { TabProps } from "@material-ui/core";
+
+export interface SegmentedTabProps extends TabProps {
   width?: number | string;
   height?: number | string;
   fontSize?: number | string;

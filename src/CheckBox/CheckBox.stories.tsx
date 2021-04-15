@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
 
-import { CheckBoxProps } from "../CheckBox/CheckBox.types";
+import { MyCheckBoxProps } from "../CheckBox/CheckBox.types";
 import CheckBox from "./CheckBox";
 import RadioButton from "./RadioButton";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
@@ -19,11 +19,11 @@ export default {
   },
 };
 
-const Demo: Story<CheckBoxProps> = (args) => {
+const Demo: Story<MyCheckBoxProps> = (args) => {
   const [r, setR] = useState(false);
   return (
     <SWAPTheme>
-      點點看！
+      <b> CheckBox & Radio Button + Label</b>
       <div style={{ display: "flex" }}>
         <CheckBox
           {...args}
@@ -42,7 +42,7 @@ const Demo: Story<CheckBoxProps> = (args) => {
       <SWAPSpace size="m" />
       <div style={{ display: "flex" }}>
         <div>
-          CheckBox
+          <b> CheckBox</b>
           <div style={{ display: "flex" }}>
             <CheckBox />
             <CheckBox checked />
@@ -54,7 +54,7 @@ const Demo: Story<CheckBoxProps> = (args) => {
           </div>
         </div>
         <div>
-          Radio Button
+          <b> Radio Button</b>
           <div style={{ display: "flex" }}>
             <RadioButton />
             <RadioButton checked />

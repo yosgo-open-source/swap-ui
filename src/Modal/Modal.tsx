@@ -12,6 +12,7 @@ import {
 import MaterialModal from "@material-ui/core/Modal";
 import CloseIcon from "@material-ui/icons/Close";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import WarningIcon from "@material-ui/icons/Warning";
 
 import { ModalProps } from "./Modal.types";
 import Typography from "../Typography/Typography";
@@ -62,7 +63,10 @@ const Modal: React.FC<ModalProps> = React.forwardRef(
       headpadding,
       headChildren,
       checked,
+      failed,
+      icon,
       checkIconColor,
+      iconColor,
       children,
       label,
       buttonFullWidth,
@@ -76,6 +80,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef(
       disCloseIcon,
       titleStyle,
       onExit,
+      bodyMaxHeight,
     },
     ref
   ) => {
@@ -131,13 +136,123 @@ const Modal: React.FC<ModalProps> = React.forwardRef(
         alignItems: "center",
         justifyContent: "center",
       },
-      checkIcon: {
+      icon: {
         "& path": {
           width: 20,
           height: 20,
         },
         color:
-          checkIconColor === "primary50"
+          iconColor === "primary50"
+            ? theme.primary.primary50
+            : iconColor === "primary100"
+            ? theme.primary.primary100
+            : iconColor === "primary200"
+            ? theme.primary.primary200
+            : iconColor === "primary300"
+            ? theme.primary.primary300
+            : iconColor === "primary400"
+            ? theme.primary.primary400
+            : iconColor === "primary500"
+            ? theme.primary.primary500
+            : iconColor === "primary600"
+            ? theme.primary.primary600
+            : iconColor === "primary700"
+            ? theme.primary.primary700
+            : iconColor === "primary800"
+            ? theme.primary.primary800
+            : iconColor === "primary900"
+            ? theme.primary.primary900
+            : iconColor === "primaryA11y"
+            ? theme.primary.primaryA11y
+            : iconColor === "secondary50"
+            ? theme.secondary.secondary50
+            : iconColor === "secondary100"
+            ? theme.secondary.secondary100
+            : iconColor === "secondary200"
+            ? theme.secondary.secondary200
+            : iconColor === "secondary300"
+            ? theme.secondary.secondary300
+            : iconColor === "secondary400"
+            ? theme.secondary.secondary400
+            : iconColor === "secondary500"
+            ? theme.secondary.secondary500
+            : iconColor === "secondary600"
+            ? theme.secondary.secondary600
+            : iconColor === "secondary700"
+            ? theme.secondary.secondary700
+            : iconColor === "secondary800"
+            ? theme.secondary.secondary800
+            : iconColor === "secondary900"
+            ? theme.secondary.secondary900
+            : iconColor === "secondaryA11y"
+            ? theme.secondary.secondaryA11y
+            : iconColor === "danger50"
+            ? theme.danger.danger50
+            : iconColor === "danger100"
+            ? theme.danger.danger100
+            : iconColor === "danger200"
+            ? theme.danger.danger200
+            : iconColor === "danger300"
+            ? theme.danger.danger300
+            : iconColor === "danger400"
+            ? theme.danger.danger400
+            : iconColor === "danger500"
+            ? theme.danger.danger500
+            : iconColor === "danger600"
+            ? theme.danger.danger600
+            : iconColor === "danger700"
+            ? theme.danger.danger700
+            : iconColor === "danger800"
+            ? theme.danger.danger800
+            : iconColor === "danger900"
+            ? theme.danger.danger900
+            : iconColor === "dangerA11y"
+            ? theme.danger.dangerA11y
+            : iconColor === "success50"
+            ? theme.success.success50
+            : iconColor === "success100"
+            ? theme.success.success100
+            : iconColor === "success200"
+            ? theme.success.success200
+            : iconColor === "success300"
+            ? theme.success.success300
+            : iconColor === "success400"
+            ? theme.success.success400
+            : iconColor === "success500"
+            ? theme.success.success500
+            : iconColor === "success600"
+            ? theme.success.success600
+            : iconColor === "success700"
+            ? theme.success.success700
+            : iconColor === "success800"
+            ? theme.success.success800
+            : iconColor === "success900"
+            ? theme.success.success900
+            : iconColor === "successA11y"
+            ? theme.success.successA11y
+            : iconColor === "white"
+            ? theme.black.white
+            : iconColor === "black100"
+            ? theme.black.black100
+            : iconColor === "black200"
+            ? theme.black.black200
+            : iconColor === "black300"
+            ? theme.black.black300
+            : iconColor === "black400"
+            ? theme.black.black400
+            : iconColor === "black500"
+            ? theme.black.black500
+            : iconColor === "black600"
+            ? theme.black.black600
+            : iconColor === "black700"
+            ? theme.black.black700
+            : iconColor === "black800"
+            ? theme.black.black800
+            : iconColor === "black900"
+            ? theme.black.black900
+            : iconColor === "black1000"
+            ? theme.black.black1000
+            : checkIconColor === "primary50"
             ? theme.primary.primary50
             : checkIconColor === "primary100"
             ? theme.primary.primary100
@@ -273,6 +388,22 @@ const Modal: React.FC<ModalProps> = React.forwardRef(
         padding: bodyPadding ? bodyPadding : mobile ? 16 : 24,
         position: "relative",
         pointerEvents: onExit ? "none" : "unset",
+        maxHeight: bodyMaxHeight ? bodyMaxHeight : "unset",
+        overflowY: !onExit ? "scroll" : "hidden",
+        "&::-webkit-scrollbar": {
+          backgroundColor: "transparent",
+          width: 5,
+        },
+        "&::-webkit-scrollbar-thumb": {
+          backgroundColor: theme.black.black600,
+          borderRadius: 100,
+        },
+        "&::-webkit-scrollbar-track-piece:start": {
+          marginTop: 12,
+        },
+        "&::-webkit-scrollbar-track-piece:end": {
+          marginBottom: 12,
+        },
       },
       footer: {
         height: "100%",
@@ -300,6 +431,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef(
       <MaterialModal open={open} className={classes.root}>
         <ModalOpenEffect in={open} slide={fullWidth}>
           <Paper className={classes.modal}>
+            {/* Head */}
             <Box className={classes.head} style={titleStyle}>
               {onExit ? (
                 <div
@@ -320,12 +452,18 @@ const Modal: React.FC<ModalProps> = React.forwardRef(
                 headChildren
               ) : (
                 <Box className={classes.title}>
+                  {icon ? icon : null}
                   {checked ? (
-                    <CheckCircleIcon className={classes.checkIcon} />
+                    <CheckCircleIcon className={classes.icon} />
                   ) : null}
+                  {failed ? <WarningIcon className={classes.icon} /> : null}
                   <Box>
-                    <Typography variant="h6">{title}</Typography>
-                    <Typography variant="body2_loose">{helpText}</Typography>
+                    <Typography variant={mobile ? "h6" : "title"}>
+                      {title}
+                    </Typography>
+                    <Typography variant="body2_loose" color="black800">
+                      {helpText}
+                    </Typography>
                   </Box>
                 </Box>
               )}
@@ -343,6 +481,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef(
                 </IconButton>
               )}
             </Box>
+            {/* Body */}
             {children ? (
               <>
                 <Divider
@@ -368,6 +507,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef(
               </>
             ) : null}
             {label || secondaryButton || primaryButton ? <Divider /> : null}
+            {/* Footer */}
             <Box className={classes.footer}>
               {!buttonFullWidth || !footerDisplayColumn ? (
                 <Box marginBottom={mobile ? (label ? "12px" : 0) : 0}>

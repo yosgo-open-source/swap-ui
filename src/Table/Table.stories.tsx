@@ -11,7 +11,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "網頁上方的導覽列",
+        component: " ",
       },
     },
   },

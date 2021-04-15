@@ -1,27 +1,22 @@
 import MaterialTab from "@material-ui/core/Tab";
-
 import React from "react";
-import { TabProps } from "./Tab.types";
-import { makeStyles, useTheme } from "@material-ui/core";
+import { MyTabProps } from "./Tab.types";
+import { makeStyles, Theme } from "@material-ui/core";
 
-const Tab: React.FC<TabProps> = ({
-  style,
-  label,
-  disabled,
-  icon,
-  wrapped,
-  value,
-  onClick,
-  selected,
-  width,
-  height,
-  margin,
-  fontSize,
-  noIndicator,
-  animation,
-}) => {
-  const theme = useTheme();
-  const useStyles = makeStyles({
+const Tab: React.FC<MyTabProps> = (props) => {
+  const {
+    label,
+    selected,
+    width,
+    height,
+    margin,
+    fontSize,
+    noIndicator,
+    animation,
+    ...other
+  } = props;
+
+  const useStyles = makeStyles((theme: Theme) => ({
     root: {
       minWidth: 0,
       minHeight: 0,
@@ -50,7 +45,7 @@ const Tab: React.FC<TabProps> = ({
       position: "relative",
     },
     selected_indicator: {
-      animation: animation ? "$selected 300ms " : "unset",
+      animation: "$selected 400ms ",
       height: 4,
       width: "100%",
       backgroundColor: theme.primary.primary400,
@@ -63,28 +58,22 @@ const Tab: React.FC<TabProps> = ({
       from: { width: 0 },
       to: { width: "100%" },
     },
-  });
+  }));
   const classes = useStyles();
   return (
     <MaterialTab
+      {...other}
       classes={{
         root: classes.root,
         textColorInherit: classes.text,
         selected: classes.selected,
       }}
-      style={style}
       label={
         <div className={classes.indicatorRoot}>
           {label}
           {selected ? <div className={classes.selected_indicator} /> : null}
         </div>
       }
-      disabled={disabled}
-      icon={icon}
-      wrapped={wrapped}
-      value={value}
-      onClick={onClick}
-      selected={selected}
       disableRipple
     />
   );

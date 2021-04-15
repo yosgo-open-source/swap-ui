@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Story } from "@storybook/react/types-6-0";
 
-import { SnackbarProps } from "../Snackbar/Snackbar.types";
+import { MySnackbarProps } from "../Snackbar/Snackbar.types";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import Snackbar from "../Snackbar/Snackbar";
 import Button from "../Button/Button";
-
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import { Box, IconButton, Link, useTheme } from "@material-ui/core";
 export default {
   title: "Snackbar",
@@ -20,11 +18,10 @@ export default {
   },
 };
 
-const Demo: Story<SnackbarProps> = (args) => {
+const Demo: Story<MySnackbarProps> = (args) => {
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
-  const theme = useTheme();
   const handleClose = () => {
     setOpen1(false);
   };
@@ -53,6 +50,7 @@ const Demo: Story<SnackbarProps> = (args) => {
       <Snackbar
         open={open1}
         onClose={handleClose}
+        transitionDirection="up"
         message="此封郵件已刪除。"
         action={
           <Box display="flex">
@@ -87,6 +85,7 @@ const Demo: Story<SnackbarProps> = (args) => {
       />
       <Snackbar
         open={open2}
+        transitionDirection="up"
         variant="success"
         onClose={() => setOpen2(false)}
         message={
@@ -129,6 +128,7 @@ const Demo: Story<SnackbarProps> = (args) => {
       />
       <Snackbar
         open={open3}
+        transitionDirection="up"
         variant="error"
         onClose={() => setOpen3(false)}
         message={

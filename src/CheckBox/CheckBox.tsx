@@ -1,75 +1,64 @@
 import MaterialCheckBox from "@material-ui/core/Checkbox";
 import React from "react";
-import { CheckBoxProps } from "./CheckBox.types";
-import { FormControlLabel, makeStyles, useTheme } from "@material-ui/core";
+import { MyCheckBoxProps } from "./CheckBox.types";
+import { FormControlLabel, makeStyles, Theme } from "@material-ui/core";
 
-const CheckBox: React.FC<CheckBoxProps> = ({
-  style,
-  disabled,
-  checked,
-  onChange,
-  label,
-  labelPlacement,
-}) => {
-  const theme = useTheme();
-  const useStyles = makeStyles({
-    root: {
-      width: 40,
-      height: 40,
-      boxShadow: "none",
-      "&:hover": {
-        backgroundColor: theme.black.black300,
-      },
-      "&.Mui-checked:hover": {
-        backgroundColor: theme.black.black300,
-      },
+// Style
+interface StyleProps {}
+
+const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
+  root: {
+    width: 40,
+    height: 40,
+    boxShadow: "none",
+    "&:hover": {
+      backgroundColor: theme.black.black300,
     },
-    icon: {
-      position: "absolute",
-      width: "24px",
-      height: "24px",
-      borderRadius: 4,
-      backgroundColor: theme.black.white,
+    "&.Mui-checked:hover": {
+      backgroundColor: theme.black.black300,
+    },
+  },
+  icon: {
+    position: "absolute",
+    width: "24px",
+    height: "24px",
+    borderRadius: 4,
+    backgroundColor: theme.black.white,
+    border: `1px solid ${theme.black.black500}`,
+    "input:hover ~ &": {
+      border: `1px solid ${theme.black.black1000}`,
+    },
+    "input:disabled ~ &": {
+      opacity: 0.4,
+    },
+    "input:disabled:hover ~ &": {
       border: `1px solid ${theme.black.black500}`,
-      "input:hover ~ &": {
-        border: `1px solid ${theme.black.black1000}`,
-      },
-      "input:disabled ~ &": {
-        opacity: 0.4,
-      },
-      "input:disabled:hover ~ &": {
-        border: `1px solid ${theme.black.black500}`,
-      },
-      // "input:focus ~ &": {
-      //   boxShadow: " 0px 0px 0px 4px #D7DFF8",
-      // },
-      // "input:focus:hover ~ &": { boxShadow: "none" },
     },
-    checked_icon: {
-      position: "absolute",
-      width: 24,
-      height: 24,
-      borderRadius: 4,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: theme.primary.primary400,
+  },
+  checked_icon: {
+    position: "absolute",
+    width: 24,
+    height: 24,
+    borderRadius: 4,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: theme.primary.primary400,
+    border: `1px solid ${theme.primary.primary600}`,
+    "input:hover ~ &": {
+      border: `1px solid ${theme.primary.primaryA11y}`,
+    },
+    "input:disabled ~ &": {
+      opacity: 0.4,
+    },
+    "input:disabled:hover ~ &": {
       border: `1px solid ${theme.primary.primary600}`,
-      "input:hover ~ &": {
-        border: `1px solid ${theme.primary.primaryA11y}`,
-      },
-      "input:disabled ~ &": {
-        opacity: 0.4,
-      },
-      "input:disabled:hover ~ &": {
-        border: `1px solid ${theme.primary.primary600}`,
-      },
-      // "input:focus ~ &": {
-      //   boxShadow: " 0px 0px 0px 4px #D7DFF8",
-      // },
-      // "input:focus:hover ~ &": { boxShadow: "none" },
     },
-  });
+  },
+}));
+
+const CheckBox: React.FC<MyCheckBoxProps> = (props) => {
+  const { label, labelPlacement, ...other } = props;
   const classes = useStyles();
   return (
     <FormControlLabel
@@ -80,9 +69,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({
           disableFocusRipple
           disableTouchRipple
           className={classes.root}
-          disabled={disabled}
-          checked={checked}
-          onChange={onChange}
+          {...other}
           checkedIcon={
             <span className={classes.checked_icon}>
               <svg
@@ -102,7 +89,6 @@ const CheckBox: React.FC<CheckBoxProps> = ({
             </span>
           }
           icon={<span className={classes.icon} />}
-          style={style}
         />
       }
     />

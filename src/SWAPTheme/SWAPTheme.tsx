@@ -149,22 +149,13 @@ const SWAPDefaultTheme = {
         borderRadius: "8px",
       },
     },
-    MuiFormLabel: {
-      root: {
-        "&$focused": {
-          color: "#4b4b4b",
-        },
-        "&.Mui-error": {
-          color: "#4b4b4b",
-        },
-      },
-    },
     MuiFormHelperText: {
       root: {
+        marginTop: 4,
         fontSize: 14,
         color: "#6f6f6f",
         "&.Mui-error": {
-          color: "#e20f0f",
+          color: "#D40F14",
         },
       },
     },

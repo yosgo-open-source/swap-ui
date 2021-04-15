@@ -1,6 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react/types-6-0";
-import { TabsProps } from "./Tabs.types";
+import { MyTabsProps } from "./Tabs.types";
 import Tabs from "./Tabs";
 import Tab from "./Tab";
 import TabPanel from "./TabPanel";
@@ -21,7 +21,7 @@ export default {
   },
 };
 
-const Demo: Story<TabsProps> = (args) => {
+const Demo: Story<MyTabsProps> = (args) => {
   const defaultValue = 0;
   const [value, setValue] = React.useState(defaultValue);
   const [a, setA] = React.useState(false);
@@ -35,20 +35,15 @@ const Demo: Story<TabsProps> = (args) => {
   return (
     <SWAPTheme>
       <Tabs {...args} value={value}>
-        <Tab
-          label="帳戶總覽"
-          value={0}
-          animation={a}
-          onClick={() => setValue(0)}
-        />
+        <Tab label="帳戶總覽" value={0} animation onClick={() => setValue(0)} />
         <Tab label="帳戶總覽" value={1} animation onClick={() => setValue(1)} />
         <Tab value={2} label="帳戶總覽" animation onClick={() => setValue(2)} />
       </Tabs>
       <SWAPSpace size="l" />
-      <Tabs {...args} value={value}>
+      <Tabs {...args} value={value > 1 ? 1 : value}>
         <Tab
           label="登入帳號"
-          animation={a}
+          animation
           onClick={() => setValue(0)}
           width={72}
           height={64}
@@ -66,12 +61,12 @@ const Demo: Story<TabsProps> = (args) => {
         />
       </Tabs>
       <SWAPSpace size="l" />
-      <SegmentedTabs value={value} width={264}>
+      <SegmentedTabs value={value > 1 ? 1 : value} width={264}>
         <SegmentedTab label="我的請款單" onClick={() => setValue(0)} />
         <SegmentedTab label="SWAP Point 明細" onClick={() => setValue(1)} />
       </SegmentedTabs>
       <SWAPSpace size="l" />
-      <SegmentedTabs value={value} width={500}>
+      <SegmentedTabs value={value > 1 ? 1 : value} width={500}>
         <SegmentedTab label="我的請款單" onClick={() => setValue(0)} flex={1} />
         <SegmentedTab
           label="SWAP Point 明細"

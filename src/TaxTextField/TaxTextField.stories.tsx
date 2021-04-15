@@ -23,61 +23,63 @@ const Demo: Story<TaxTextFieldProps> = (args) => {
   const [step, setStep] = React.useState(1);
   const [codeValue, setCodeValue] = React.useState("");
   const [domainValue, setDomainValue] = React.useState("");
+  const [domainCodeValue, setDomainCodeValue] = React.useState("");
   const [codeError, setCodeError] = React.useState(false);
   const [domainError, setDomainError] = React.useState(false);
-
   return (
     <SWAPTheme>
-      <div style={{ width: 640, padding: 24 }}>
-        <Modal
-          size="medium"
-          open
-          onClose={() => {}}
-          title="TEST"
-          children={
-            step === 1 ? (
-              <TaxTextField
-                onChange={(value: any) => {
-                  const { incomeCode, taxDescription } = value;
-                  setCodeValue(incomeCode);
-                  setDomainValue(taxDescription);
-                }}
-                codeValue={codeValue}
-                domainValue={domainValue}
-                codeError={codeError}
-                codeHelperText={
-                  codeError ? <div style={{ color: "red" }}>錯誤 </div> : null
-                }
-                domainError={domainError}
-                domainHelperText={
-                  domainError ? <div style={{ color: "red" }}>錯誤 </div> : null
-                }
-                codeOnClick={() => setCodeError(false)}
-                domainOnClick={() => setDomainError(false)}
-              />
-            ) : (
-              <div>THE END</div>
-            )
-          }
-          primaryButton={{
-            title: "next",
-            onClick: () => {
-              if (!codeValue) {
-                setCodeError(true);
-              } else if (codeValue !== "50" && !domainValue) {
-                setDomainError(true);
-              } else {
-                setStep(step + 1);
+      <Modal
+        open
+        onClose={() => {}}
+        title="TEST"
+        children={
+          step === 1 ? (
+            <TaxTextField
+              onChange={(value: any) => {
+                const {
+                  incomeCode,
+                  taxDescription,
+                  expenseCode,
+                  expenseCodeAndLabel,
+                } = value;
+                setCodeValue(incomeCode);
+                setDomainValue(expenseCodeAndLabel);
+                setDomainCodeValue(expenseCode);
+              }}
+              codeValue={codeValue}
+              domainValue={domainValue}
+              domainCodeValue={domainCodeValue}
+              codeError={codeError}
+              codeHelperText={
+                codeError ? <div style={{ color: "red" }}>錯誤 </div> : null
               }
-            },
-          }}
-          secondaryButton={{ title: "prev", onClick: () => setStep(step - 1) }}
-        />
-      </div>
+              domainError={domainError}
+              domainHelperText={
+                domainError ? <div style={{ color: "red" }}>錯誤 </div> : null
+              }
+              codeOnClick={() => setCodeError(false)}
+              domainOnClick={() => setDomainError(false)}
+            />
+          ) : (
+            <div>THE END</div>
+          )
+        }
+        primaryButton={{
+          title: "next",
+          onClick: () => {
+            if (!codeValue) {
+              setCodeError(true);
+            } else if (codeValue !== "50" && !domainValue) {
+              setDomainError(true);
+            } else {
+              setStep(step + 1);
+            }
+          },
+        }}
+        secondaryButton={{ title: "prev", onClick: () => setStep(step - 1) }}
+      />
     </SWAPTheme>
   );
 };
 export const 認識 = Demo.bind({});
-認識.args = {
-  // onChange: (value: any) => alert(JSON.stringify(value)),
-};
+認識.args = {};

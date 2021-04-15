@@ -1,5 +1,5 @@
 import { makeStyles, Theme, useTheme } from "@material-ui/core";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Typography from "../Typography/Typography";
 import { BannerProps } from "./Banner.types";
 
@@ -31,6 +31,7 @@ const useStyles = makeStyles<Theme, StyleProps>(() => ({
 }));
 
 const Banner: React.FC<BannerProps> = (props): React.ReactElement => {
+  const [alignStart, setAlignStart] = useState(false);
   const theme = useTheme();
   const { variant, width, height, mobile, children, ...other } = props;
   const styleProps: StyleProps = {
@@ -60,11 +61,19 @@ const Banner: React.FC<BannerProps> = (props): React.ReactElement => {
         : theme.primary.primary200,
     width: width ? width : null,
     height: height ? height : null,
-    alignItems: mobile ? "flex-start" : "center",
+    alignItems: mobile ? "flex-start" : alignStart ? "flex-start" : "center",
   };
   const classes = useStyles(styleProps);
+  const ref = useRef(null);
+  useEffect(() => {
+    if (ref.current) {
+      if (ref.current.offsetHeight > 60) {
+        setAlignStart(true);
+      }
+    }
+  }, [ref]);
   return (
-    <div className={classes.root} {...other}>
+    <div ref={ref} className={classes.root} {...other}>
       <div className={classes.icon}>
         {variant === "normal" || variant === "info" || variant === "error" ? (
           <svg

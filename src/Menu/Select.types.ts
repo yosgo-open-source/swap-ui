@@ -11,7 +11,13 @@ export interface SelectProps {
   rows?: number | string;
   multiline?: boolean;
   value?: any;
-  onChange?: (e: any) => void;
+  onChange?: (
+    event: React.ChangeEvent<{
+      name?: string;
+      value: unknown;
+    }>,
+    child: React.ReactNode
+  ) => void;
   InputProps?: object;
   autoFocus?: boolean;
   placeholder?: string;
@@ -26,7 +32,7 @@ export interface SelectProps {
   placeholderStyle?: React.CSSProperties;
   selectStyle?: React.CSSProperties;
   helperTextStyle?: React.CSSProperties;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
   transformOrigin?: {
     horizontal: "center" | "left" | "right" | number;
     vertical: "bottom" | "center" | "top" | number;

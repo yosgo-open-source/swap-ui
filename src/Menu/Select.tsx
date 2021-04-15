@@ -66,11 +66,13 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     border: "none",
     color: "#4b4b4b",
     "&:focus": {
-      fontWeight: 700,
       backgroundColor: "white",
       color: theme.black.black1000,
     },
-    "&:hover": { fontWeight: 700, color: theme.black.black1000 },
+    "&:hover": {
+      color: theme.black.black1000,
+      backgroundColor: "white",
+    },
   }),
   icon: {
     color: theme.black.black800,
@@ -83,23 +85,16 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
           }px) scale(1)`
         : "translate(12px, 14px) scale(1)",
   }),
-  placeholder: (props) => ({
-    fontSize: props.dropdown ? 14 : 16,
-    fontWeight: props.dropdown ? 700 : 400,
-    width: "fit-content",
-    backgroundColor: "white",
-    margin: "0 4px",
-    color: props.dropdown ? theme.black.black800 : theme.black.black700,
-    "&.Mui-focused": {
-      fontWeight: 700,
-      color: theme.black.black800,
-    },
-  }),
   shrink: {
+    width: "fit-content",
+    padding: "0 4px",
+    backgroundColor: "white",
+    fontSize: 12,
     fontWeight: 700,
     color: theme.black.black800,
     "&.Mui-focused": {
-      color: theme.black.black1000,
+      fontWeight: 700,
+      color: theme.black.black800,
     },
   },
   menuRoot: {

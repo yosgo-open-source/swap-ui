@@ -1,12 +1,7 @@
-export interface TabProps {
-  style?: React.CSSProperties;
-  label?: React.ReactNode;
-  disabled?: boolean;
-  icon?: any;
-  wrapped?: boolean;
+import { TabProps } from "@material-ui/core";
+
+export interface MyTabProps extends TabProps {
   selected?: boolean;
-  value?: any;
-  onClick?: () => void;
   width?: number | string;
   height?: number | string;
   margin?: number | string;

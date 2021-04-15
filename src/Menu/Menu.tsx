@@ -1,53 +1,11 @@
 import MaterialMenu from "@material-ui/core/Menu";
 import React from "react";
-import { MenuProps } from "./Menu.types";
-import { makeStyles, Theme } from "@material-ui/core";
+import { MyMenuProps } from "./Menu.types";
 
-const Menu: React.FC<MenuProps> = ({
-  children,
-  style,
-  autoFocus,
-  anchorOrigin,
-  anchorPosition,
-  open,
-  anchorEl,
-  onClose,
-  keepMounted,
-  getContentAnchorEl,
-  onEnter,
-  onEntered,
-  onEntering,
-  onExit,
-  onExited,
-  onExiting,
-  transformOrigin,
-}) => {
-  const useStyles = makeStyles((theme: Theme) => ({
-    root: {
-      //SWAPTheme調整
-    },
-  }));
-  const classes = useStyles();
+const Menu: React.FC<MyMenuProps> = (props) => {
+  const { children, open, ...other } = props;
   return (
-    <MaterialMenu
-      className={classes.root}
-      style={style}
-      open={open}
-      anchorEl={anchorEl}
-      keepMounted={keepMounted}
-      onClose={onClose}
-      anchorOrigin={anchorOrigin}
-      anchorPosition={anchorPosition}
-      getContentAnchorEl={getContentAnchorEl}
-      autoFocus={autoFocus}
-      onEnter={onEnter}
-      onEntered={onEntered}
-      onEntering={onEntering}
-      onExit={onExit}
-      onExited={onExited}
-      onExiting={onExiting}
-      transformOrigin={transformOrigin}
-    >
+    <MaterialMenu open={open} {...other}>
       {children}
     </MaterialMenu>
   );

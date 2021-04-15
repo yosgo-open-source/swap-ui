@@ -10,6 +10,7 @@ import MaterialAutocomplete, {
 // Style
 interface StyleProps {
   width: string | number;
+  optionsMaxHeight: string | number;
 }
 
 const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
@@ -71,7 +72,8 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
       color: theme.primary.primary800,
     },
   },
-  listbox: {
+  listbox: (props) => ({
+    maxHeight: props.optionsMaxHeight,
     "&::-webkit-scrollbar": {
       backgroundColor: "transparent",
       width: 5,
@@ -87,7 +89,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     "&::-webkit-scrollbar-track-piece:end": {
       marginBottom: 12,
     },
-  },
+  }),
   popperDisablePortal: {
     position: "relative",
   },
@@ -167,9 +169,13 @@ const AutoComplete: React.FC<MyAutoCompleteProps> = (
     getOptionLabel,
     noOptionsText,
     renderInput,
+    optionsMaxHeight,
     ...other
   } = props;
-  const styleProps: StyleProps = { width: width };
+  const styleProps: StyleProps = {
+    width: width,
+    optionsMaxHeight: optionsMaxHeight,
+  };
   const classes = useStyles(styleProps);
   const id = open ? "simple" : undefined;
   return (
@@ -230,7 +236,7 @@ const AutoComplete: React.FC<MyAutoCompleteProps> = (
                         placeholder={placeholder}
                         ref={params.InputProps.ref}
                         inputProps={params.inputProps}
-                        // autoFocus
+                        autoFocus
                         onChange={() =>
                           setTypeNoOptionValue(!typeNoOptionValue)
                         }

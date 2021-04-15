@@ -13,6 +13,7 @@ export interface TaxTextFieldProps {
   domainOnClick?: () => void;
   codeValue?: any;
   domainValue?: any;
+  domainCodeValue?: any;
   codeError?: boolean;
   codeHelperText?: React.ReactNode;
   domainError?: boolean;

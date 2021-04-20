@@ -18,6 +18,7 @@ export interface TaxTextFieldProps {
   codeHelperText?: React.ReactNode;
   domainError?: boolean;
   domainHelperText?: React.ReactNode;
+  mobile?: boolean;
 }
 
 export type IncomeCodeProps = "9A" | "9B" | "50";

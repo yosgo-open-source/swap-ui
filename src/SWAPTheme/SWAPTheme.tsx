@@ -159,6 +159,12 @@ const SWAPDefaultTheme = {
         },
       },
     },
+    // IconButton fix safari padding problem
+    MuiIconButton: {
+      root: {
+        padding: 0,
+      },
+    },
   },
 };
 

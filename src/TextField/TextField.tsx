@@ -6,6 +6,7 @@ import { makeStyles, Theme } from "@material-ui/core";
 // Style
 interface StyleProps {
   width: number | string;
+  selectWidth: number | string;
   height: number | string;
   select: boolean;
 }
@@ -13,6 +14,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
   inputRoot: (props) => ({
     width: props.width,
     height: props.height,
+    padding: "0px 16px",
     backgroundColor: "white",
     fontSize: 16,
     lineHeight: 1.4,
@@ -50,12 +52,13 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
       "-webkit-box-shadow": "0 0 0 100px #FFFFFF inset",
     },
     "&::placeholder": { color: theme.black.black700, opacity: 1 },
-    padding: "0px 16px",
+    padding: 0,
   },
   selectRoot: (props) => ({
     borderRadius: 8,
     fontWeight: 400,
     width: props.width,
+    minWidth: props.selectWidth,
     height: props.height,
     display: "flex",
     alignItems: "center",
@@ -64,9 +67,12 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
       borderRadius: 8,
     },
   }),
-  icon: { color: theme.black.black1000 },
+  icon: { color: theme.black.black700 },
+  labelRoot: {
+    "&.Mui-error": { color: theme.black.black700 },
+  },
   shrink: {
-    transform: "translate(14px, -4px) scale(0.75) !important",
+    transform: "translate(14px, -4px) !important",
     backgroundColor: "white",
     fontSize: 12,
     fontWeight: 700,
@@ -89,16 +95,19 @@ const TextField: React.FC<MyTextFieldProps> = (props): React.ReactElement => {
     InputLabelProps,
     SelectProps,
     select,
+    fullWidth,
     ...other
   } = props;
   const styleProps: StyleProps = {
     width: width,
+    selectWidth: fullWidth ? "100%" : "unset",
     height: height,
     select: select,
   };
   const classes = useStyles(styleProps);
   return (
     <MaterialTextField
+      fullWidth={fullWidth}
       select={select}
       {...other}
       variant="outlined"
@@ -111,6 +120,7 @@ const TextField: React.FC<MyTextFieldProps> = (props): React.ReactElement => {
       }}
       InputLabelProps={{
         classes: {
+          root: classes.labelRoot,
           shrink: classes.shrink,
         },
         ...InputLabelProps,
@@ -120,8 +130,8 @@ const TextField: React.FC<MyTextFieldProps> = (props): React.ReactElement => {
         MenuProps: {
           getContentAnchorEl: null,
           anchorOrigin: {
-            vertical: -6,
-            horizontal: "left",
+            vertical: -9,
+            horizontal: -16,
           },
         },
         ...SelectProps,

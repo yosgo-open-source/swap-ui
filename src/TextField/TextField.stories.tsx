@@ -41,7 +41,13 @@ const Demo: Story<MyTextFieldProps> = (args) => {
         <div>
           Placeholder
           <SWAPSpace />
-          <TextField width={240} height={56} placeholder="Placeholder" />
+          <TextField
+            multiline
+            rows={3}
+            width={240}
+            height={90}
+            placeholder="Placeholder"
+          />
           <SWAPSpace />
           <TextField
             width={240}
@@ -133,7 +139,7 @@ const Demo: Story<MyTextFieldProps> = (args) => {
           </TextField>
         </div>
         <div>
-          Default
+          <div> Default</div>
           <SWAPSpace />
           <TextField
             width={240}

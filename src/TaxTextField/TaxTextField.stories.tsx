@@ -5,6 +5,7 @@ import TaxTextField from "../TaxTextField/TaxTextField";
 import { TaxTextFieldProps } from "../TaxTextField/TaxTextField.types";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import Modal from "../Modal/Modal";
+import { useBreakpoints } from "..";
 
 export default {
   title: "TaxTextField",
@@ -26,15 +27,21 @@ const Demo: Story<TaxTextFieldProps> = (args) => {
   const [domainCodeValue, setDomainCodeValue] = React.useState("");
   const [codeError, setCodeError] = React.useState(false);
   const [domainError, setDomainError] = React.useState(false);
+  const [value, setValue] = React.useState("");
+  const matchMD = useBreakpoints("md");
   return (
     <SWAPTheme>
       <Modal
+        mobile={!matchMD}
+        fullWidth={!matchMD}
+        maxWidth={640}
         open
         onClose={() => {}}
         title="TEST"
         children={
           step === 1 ? (
             <TaxTextField
+              mobile={!matchMD}
               onChange={(value: any) => {
                 const {
                   incomeCode,
@@ -45,6 +52,7 @@ const Demo: Story<TaxTextFieldProps> = (args) => {
                 setCodeValue(incomeCode);
                 setDomainValue(expenseCodeAndLabel);
                 setDomainCodeValue(expenseCode);
+                setValue(JSON.stringify(value));
               }}
               codeValue={codeValue}
               domainValue={domainValue}
@@ -72,6 +80,7 @@ const Demo: Story<TaxTextFieldProps> = (args) => {
             } else if (codeValue !== "50" && !domainValue) {
               setDomainError(true);
             } else {
+              alert(value);
               setStep(step + 1);
             }
           },

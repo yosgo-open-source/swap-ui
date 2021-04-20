@@ -1,4 +1,5 @@
 export interface ModalProps {
+  multiline?: boolean;
   titleStyle?: React.CSSProperties;
   open: boolean;
   checked?: boolean;

@@ -20,7 +20,11 @@ export default {
   },
 };
 
-const Demo: Story<SWAPShareProps> = (args) => <SWAPShare {...args} />;
+const Demo: Story<SWAPShareProps> = (args) => (
+  <SWAPTheme>
+    <SWAPShare {...args} />
+  </SWAPTheme>
+);
 export const 認識 = Demo.bind({});
 認識.args = {
   url: "https://swap.work",

@@ -33,4 +33,5 @@ export interface MyAutoCompleteProps extends OmitAutocompleteProps {
   renderInput?: (params: AutocompleteRenderInputParams) => React.ReactNode;
   disableFreeInput?: boolean;
   optionsMaxHeight?: string | number;
+  anchorOrigin?: { horizontal?: string | number; vertical?: string | number };
 }

@@ -11,6 +11,8 @@ import MaterialAutocomplete, {
 interface StyleProps {
   width: string | number;
   optionsMaxHeight: string | number;
+  marginTop: string | number;
+  marginLeft: string | number;
 }
 
 const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
@@ -23,8 +25,8 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     fontSize: 13,
     color: "#586069",
     backgroundColor: "#fff",
-    marginTop: -62,
-    marginLeft: -5,
+    marginTop: props.marginTop,
+    marginLeft: props.marginLeft,
     boxSizing: "border-box",
   }),
   header: {
@@ -81,7 +83,6 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     "&::-webkit-scrollbar-thumb": {
       backgroundColor: theme.black.black600,
       borderRadius: 100,
-      // borderRight: "4px white solid",
     },
     "&::-webkit-scrollbar-track-piece:start": {
       marginTop: 12,
@@ -170,12 +171,16 @@ const AutoComplete: React.FC<MyAutoCompleteProps> = (
     noOptionsText,
     renderInput,
     optionsMaxHeight,
+    anchorOrigin,
     ...other
   } = props;
   const styleProps: StyleProps = {
     width: width,
     optionsMaxHeight: optionsMaxHeight,
+    marginTop: anchorOrigin ? anchorOrigin.vertical : -65,
+    marginLeft: anchorOrigin ? anchorOrigin.horizontal : -0,
   };
+
   const classes = useStyles(styleProps);
   const id = open ? "simple" : undefined;
   return (
@@ -184,7 +189,7 @@ const AutoComplete: React.FC<MyAutoCompleteProps> = (
         id={id}
         open={open}
         anchorEl={anchorEl}
-        placement={placement}
+        placement="bottom-start"
         className={classes.popper}
       >
         <div className={classes.header}>

@@ -22,11 +22,10 @@ export default {
 
 const Demo: Story<ModalProps> = (args) => {
   const [open, setOpen] = useState(false);
-  const [onExit, setOnExit] = useState(false);
-
-  const handleClose = () => {
-    setOnExit(true);
-  };
+  // const ref = useRef<HTMLDivElement>(null);
+  // useEffect(() => {
+  //   console.log(ref);
+  // }, []);
   return (
     <SWAPTheme>
       <Typography variant="subtitle1">基本 Modal</Typography>
@@ -49,6 +48,9 @@ const Demo: Story<ModalProps> = (args) => {
 
 export const 認識 = Demo.bind({});
 認識.args = {
+  // mobile: true,
+  // fullWidth: true,
+  // multiline: true,
   title: "我是標題",
   helpText: "我是副標題",
   size: "small",

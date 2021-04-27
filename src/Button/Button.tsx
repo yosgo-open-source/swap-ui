@@ -1,5 +1,5 @@
 import MaterialButton from "@material-ui/core/Button";
-import React, { useState } from "react";
+import React from "react";
 import { MyButtonProps } from "./Button.types";
 import { makeStyles, Theme, useTheme } from "@material-ui/core";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -15,7 +15,6 @@ const Button: React.FC<MyButtonProps> = (props) => {
     onClick,
     ...other
   } = props;
-  const [noFocus, setNoFocus] = useState(false);
   const theme = useTheme();
   const useStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -125,43 +124,39 @@ const Button: React.FC<MyButtonProps> = (props) => {
             ? theme.danger.danger900
             : theme.primary.primary500,
       },
-      noFocus: null,
-      "&:focus": {
-        boxShadow: noFocus
-          ? null
-          : variant === "black"
-          ? "0px 0px 0px 4px #CCCCCC"
-          : variant === "danger"
-          ? "0px 0px 0px 4px #FFCCD0"
-          : "0px 0px 0px 4px #D7DFF8",
-        backgroundColor: noFocus
-          ? null
-          : variant === "primary"
-          ? theme.primary.primary400
-          : variant === "secondary"
-          ? theme.primary.primary50
-          : variant === "tertiary"
-          ? theme.primary.primary50
-          : variant === "text"
-          ? theme.primary.primary50
-          : variant === "black"
-          ? theme.black.black400
-          : variant === "danger"
-          ? theme.danger.danger600
-          : theme.primary.primary400,
-        border: noFocus
-          ? null
-          : variant === "secondary"
-          ? `1px solid ${theme.primary.primary400}`
-          : variant === "tertiary"
-          ? `1px solid ${theme.primary.primary400}`
-          : variant === "text"
-          ? `1px solid ${theme.primary.primary400}`
-          : variant === "black"
-          ? `1px solid ${theme.black.black800}`
-          : variant === "danger"
-          ? `1px solid ${theme.danger.dangerA11y}`
-          : `1px solid ${theme.primary.primary600}`,
+      "&:focus-visible": {
+        boxShadow:
+          variant === "black"
+            ? "0px 0px 0px 4px #CCCCCC"
+            : variant === "danger"
+            ? "0px 0px 0px 4px #FFCCD0"
+            : "0px 0px 0px 4px #D7DFF8",
+        backgroundColor:
+          variant === "primary"
+            ? theme.primary.primary400
+            : variant === "secondary"
+            ? theme.primary.primary50
+            : variant === "tertiary"
+            ? theme.primary.primary50
+            : variant === "text"
+            ? theme.primary.primary50
+            : variant === "black"
+            ? theme.black.black400
+            : variant === "danger"
+            ? theme.danger.danger600
+            : theme.primary.primary400,
+        border:
+          variant === "secondary"
+            ? `1px solid ${theme.primary.primary400}`
+            : variant === "tertiary"
+            ? `1px solid ${theme.primary.primary400}`
+            : variant === "text"
+            ? `1px solid ${theme.primary.primary400}`
+            : variant === "black"
+            ? `1px solid ${theme.black.black800}`
+            : variant === "danger"
+            ? `1px solid ${theme.danger.dangerA11y}`
+            : `1px solid ${theme.primary.primary600}`,
       },
       "&:disabled": {
         opacity: 0.4,
@@ -210,7 +205,6 @@ const Button: React.FC<MyButtonProps> = (props) => {
       disableElevation
       disableFocusRipple
       onClick={(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        setNoFocus(true);
         onClick(event);
       }}
       size="medium"

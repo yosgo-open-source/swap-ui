@@ -72,9 +72,9 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     "&.Mui-error": { color: theme.black.black700 },
   },
   shrink: {
-    transform: "translate(14px, -4px) !important",
+    transform: "translate(14px, -6px) !important",
     backgroundColor: "white",
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 700,
     color: theme.black.black800,
     padding: "0 4px",

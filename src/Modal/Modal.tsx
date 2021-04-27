@@ -3,11 +3,11 @@ import {
   Paper,
   IconButton,
   Divider,
-  Fade,
   Slide,
   makeStyles,
   Theme,
   Box,
+  Backdrop,
 } from "@material-ui/core";
 import MaterialModal from "@material-ui/core/Modal";
 import CloseIcon from "@material-ui/icons/Close";
@@ -18,37 +18,62 @@ import { ModalProps } from "./Modal.types";
 import Typography from "../Typography/Typography";
 import Button from "../Button/Button";
 import { useBreakpoints } from "..";
+import { animated, useSpring } from "react-spring";
 
-const ModalOpenEffect = React.forwardRef(
-  (
-    props: {
-      slide: boolean;
-      in: boolean;
-      children: any;
+interface ModalTransitionEffectProps {
+  children?: React.ReactElement;
+  in: boolean;
+  slide?: boolean;
+  onEnter?: () => {};
+  onExited?: () => {};
+}
+const ModalTransitionEffect = React.forwardRef<
+  HTMLDivElement,
+  ModalTransitionEffectProps
+>(function ModalTransitionEffect(props, ref) {
+  const { in: open, slide, children, onEnter, onExited, ...other } = props;
+  const style = useSpring({
+    config: { duration: 200 },
+    from: { opacity: 0, transform: "translateY(50px)" },
+    to: {
+      opacity: open ? 1 : 0,
+      transform: open ? "translateY(0px)" : "translateY(50px)",
     },
-    ref
-  ) => {
-    return (
-      <>
-        {props.slide ? (
-          <Slide
-            in={props.in}
-            direction="up"
-            mountOnEnter
-            unmountOnExit
-            timeout={{ enter: 300, exit: 300 }}
-          >
-            {props.children}
-          </Slide>
-        ) : (
-          <Fade in={props.in} timeout={{ enter: 300, exit: 0 }}>
-            {props.children}
-          </Fade>
-        )}
-      </>
-    );
-  }
-);
+    onStart: () => {
+      if (open && onEnter) {
+        onEnter();
+      }
+    },
+    onRest: () => {
+      if (!open && onExited) {
+        onExited();
+      }
+    },
+  });
+
+  return (
+    <>
+      {slide ? (
+        <Slide
+          in={open}
+          direction="up"
+          mountOnEnter
+          unmountOnExit
+          timeout={{ enter: 300, exit: 300 }}
+        >
+          {children}
+        </Slide>
+      ) : (
+        <animated.div
+          style={{ outline: "none", transition: "ease-in-out", ...style }}
+          {...other}
+        >
+          {children}
+        </animated.div>
+      )}
+    </>
+  );
+});
 
 const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
   const {
@@ -88,11 +113,11 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
       if ((helpText || multiline) && !label) {
         setClientHeight(window.innerHeight - 64 - 73 - 64);
       } else if (!helpText && label) {
-        setClientHeight(window.innerHeight - 64 - 57 - 99);
+        setClientHeight(window.innerHeight - 64 - 56 - 99);
       } else if ((helpText || multiline) && label) {
         setClientHeight(window.innerHeight - 64 - 73 - 99);
       } else {
-        setClientHeight(window.innerHeight - 64 - 57 - 64);
+        setClientHeight(window.innerHeight - 64 - 56 - 64);
       }
     }
   }, []);
@@ -105,6 +130,9 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
       justifyContent: "center",
       border: "unset",
       borderRadius: 12,
+    },
+    backdrop: {
+      transition: "all 0.2s ease-in-out !important",
     },
     modal: {
       margin: fullWidth
@@ -139,12 +167,12 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
       padding: headpadding
         ? headpadding
         : mobile
-        ? helpText || multiline
-          ? "12px 16px"
-          : "17px 16px"
-        : helpText || multiline
-        ? "16px 24px"
-        : "19.5px 24px",
+        ? disCloseIcon && !helpText && !multiline
+          ? "17px 16px"
+          : "12px 16px"
+        : disCloseIcon && !helpText && !multiline
+        ? "19.5px 24px"
+        : "16px 24px",
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
@@ -387,8 +415,8 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
     },
     closeIconButton: {
       padding: 0,
-      width: 20,
-      height: 20,
+      width: 32,
+      height: 32,
       borderRadius: 8,
       "&:hover": {
         borderRadius: 8,
@@ -405,6 +433,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
       height: 20,
     },
     body: {
+      transition: "all 0.2s ease-in-out",
       height: height ? height : "100%",
       padding: bodyPadding ? bodyPadding : mobile ? 16 : 24,
       position: "relative",
@@ -454,8 +483,13 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
   const classes = useStyles();
 
   return (
-    <MaterialModal open={open} className={classes.root}>
-      <ModalOpenEffect in={open} slide={fullWidth}>
+    <MaterialModal
+      open={open}
+      className={classes.root}
+      BackdropComponent={Backdrop}
+      BackdropProps={{ className: classes.backdrop }}
+    >
+      <ModalTransitionEffect in={open} slide={fullWidth}>
         <Paper className={classes.modal}>
           {/* Head */}
           <div className={classes.head} style={titleStyle}>
@@ -600,7 +634,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
             ) : null}
           </Box>
         </Paper>
-      </ModalOpenEffect>
+      </ModalTransitionEffect>
     </MaterialModal>
   );
 });

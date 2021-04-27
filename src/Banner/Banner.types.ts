@@ -6,4 +6,5 @@ export interface BannerProps extends BoxProps {
   mobile?: boolean;
   width?: string | number;
   height?: string | number;
+  icon?: React.ReactNode;
 }

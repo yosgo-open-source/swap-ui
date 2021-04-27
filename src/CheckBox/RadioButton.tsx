@@ -2,20 +2,24 @@ import MaterialRadioButton from "@material-ui/core/Radio";
 import React from "react";
 import { RadioMyButtonProps } from "./RadioButton.types";
 import { FormControlLabel, makeStyles, Theme } from "@material-ui/core";
+// Style
+interface StyleProps {
+  disableHover: boolean;
+}
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
+const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
+  root: (props) => ({
     width: 40,
     height: 40,
     boxShadow: "none",
     "&:hover": {
-      backgroundColor: theme.black.black300,
+      backgroundColor: props.disableHover ? "unset" : theme.black.black300,
     },
     "&.Mui-checked:hover": {
-      backgroundColor: theme.black.black300,
+      backgroundColor: props.disableHover ? "unset" : theme.black.black300,
     },
-  },
-  icon: {
+  }),
+  icon: (props) => ({
     position: "absolute",
     width: "24px",
     height: "24px",
@@ -23,16 +27,23 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.black.white,
     border: `1px solid ${theme.black.black500}`,
     "input:hover ~ &": {
-      border: `1px solid ${theme.black.black1000}`,
+      border: props.disableHover
+        ? `1px solid ${theme.black.black500}`
+        : `1px solid ${theme.black.black1000}`,
+    },
+    "input:focus-visible ~ &": {
+      boxShadow: "0px 0px 0px 4px #D7DFF8",
     },
     "input:disabled ~ &": {
       opacity: 0.4,
     },
     "input:disabled:hover ~ &": {
-      border: `1px solid ${theme.black.black500}`,
+      border: props.disableHover
+        ? `1px solid ${theme.black.black500}`
+        : `1px solid ${theme.black.black500}`,
     },
-  },
-  checked_icon: {
+  }),
+  checked_icon: (props) => ({
     position: "absolute",
     width: 24,
     height: 24,
@@ -43,24 +54,34 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.primary.primary400,
     border: `1px solid ${theme.primary.primary600}`,
     "input:hover ~ &": {
-      border: `1px solid ${theme.primary.primaryA11y}`,
+      border: props.disableHover
+        ? `1px solid ${theme.primary.primary600}`
+        : `1px solid ${theme.primary.primaryA11y}`,
+    },
+    "input:focus-visible ~ &": {
+      boxShadow: "0px 0px 0px 4px #D7DFF8",
     },
     "input:disabled ~ &": {
       opacity: 0.4,
     },
     "input:disabled:hover ~ &": {
-      border: `1px solid ${theme.primary.primary600}`,
+      border: props.disableHover
+        ? `1px solid ${theme.primary.primary600}`
+        : `1px solid ${theme.primary.primary600}`,
     },
-  },
+  }),
 }));
 const RadioButton: React.FC<RadioMyButtonProps> = (props) => {
-  const { label, labelPlacement, ...other } = props;
-
-  const classes = useStyles();
+  const { label, labelPlacement, disableHover, ...other } = props;
+  const styleProps: StyleProps = {
+    disableHover: disableHover,
+  };
+  const classes = useStyles(styleProps);
   return (
     <FormControlLabel
       label={label}
       labelPlacement={labelPlacement}
+      style={{ marginRight: 0 }}
       control={
         <MaterialRadioButton
           disableFocusRipple

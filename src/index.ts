@@ -49,6 +49,11 @@ import AutoComplete, {
 } from "./AutoComplete/AutoComplete";
 import Skeleton from "./Skeleton/Skeleton";
 import Dropdown from "./Dropdown/Dropdown";
+import RadioList from "./CheckBox/RadioList";
+import CheckBoxList from "./CheckBox/CheckBoxList";
+import IconButton from "./IconButton/IconButton";
+import Link from "./Link/Link";
+import Paper from "./Paper/Paper";
 
 export {
   SWAPAppBar,
@@ -98,4 +103,9 @@ export {
   AutocompleteCloseReason,
   Skeleton,
   Dropdown,
+  RadioList,
+  IconButton,
+  Link,
+  CheckBoxList,
+  Paper,
 };

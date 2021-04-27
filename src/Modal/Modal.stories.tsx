@@ -7,7 +7,11 @@ import SWAPSpace from "../SWAPSpace/SWAPSpace";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import Modal from "./Modal";
 import Button from "../Button/Button";
-
+import Progress from "../Progress/Progress";
+import TaxTextField from "../TaxTextField/TaxTextField";
+import MyTypography from "../Typography/Typography";
+import TextField from "../TextField/TextField";
+import Banner from "../Banner/Banner";
 export default {
   title: "Modal",
   component: Modal,
@@ -22,10 +26,6 @@ export default {
 
 const Demo: Story<ModalProps> = (args) => {
   const [open, setOpen] = useState(false);
-  // const ref = useRef<HTMLDivElement>(null);
-  // useEffect(() => {
-  //   console.log(ref);
-  // }, []);
   return (
     <SWAPTheme>
       <Typography variant="subtitle1">基本 Modal</Typography>
@@ -41,7 +41,7 @@ const Demo: Story<ModalProps> = (args) => {
       >
         Open
       </Button>
-      <Modal {...args} open={open} onClose={() => setOpen(false)} />
+      <Modal mobile {...args} open={open} onClose={() => setOpen(false)} />
     </SWAPTheme>
   );
 };
@@ -279,6 +279,284 @@ export const 類型 = () => {
         />
       </div>
       <SWAPSpace size="l" />
+    </SWAPTheme>
+  );
+};
+
+export const 動畫 = () => {
+  const [open, setOpen] = useState(false);
+  const [step, setStep] = useState(1);
+  const [codeValue, setCodeValue] = React.useState("");
+  const [domainValue, setDomainValue] = useState("");
+  const [domainCodeValue, setDomainCodeValue] = React.useState("");
+  const [caseDescription, setCaseDescription]: any = useState("");
+  const [codeError, setCodeError] = React.useState(false);
+  const [domainError, setDomainError] = React.useState(false);
+  return (
+    <SWAPTheme>
+      <div>
+        <Typography variant="subtitle1">Modal </Typography>
+        <Typography variant="body2" color="textSecondary">
+          動畫
+        </Typography>
+        <SWAPSpace />
+        <Button size="small" onClick={() => setOpen(true)}>
+          Scroll
+        </Button>
+        <Modal
+          title="內容多於視野範圍"
+          helpText="內容區域限制高度且可滾動！"
+          open={open}
+          onClose={() => setOpen(false)}
+          size="medium"
+          primaryButton={{
+            title: "下一步",
+            onClick: () => {
+              setStep(step + 1);
+            },
+          }}
+          secondaryButton={{
+            title: "上一步",
+            onClick: () => {
+              setStep(step - 1);
+            },
+          }}
+          height={step === 1 ? 445 : step === 2 ? 335 : 430}
+        >
+          <div style={{}}>
+            <Progress
+              count={3}
+              step={step}
+              label={["第一步", "第二步", "第三步"]}
+            />
+            <div
+              style={{
+                height: 1,
+                width: "100%",
+                margin: "16px 0",
+                backgroundColor: "#cccccc",
+              }}
+            />
+            {step === 1 ? (
+              <div style={{}}>
+                <MyTypography variant="title">請選擇案件類型</MyTypography>
+                <SWAPSpace />
+                <TaxTextField
+                  codeValue={codeValue}
+                  domainValue={domainValue}
+                  domainCodeValue={domainCodeValue}
+                  onChange={(v) => {
+                    const { incomeCode, expenseCode, expenseCodeAndLabel } = v;
+                    setCodeValue(incomeCode);
+                    setDomainValue(expenseCodeAndLabel);
+                    setDomainCodeValue(expenseCode);
+                  }}
+                  codeError={codeError}
+                  domainError={domainError}
+                  codeOnClick={() => setCodeError(false)}
+                  domainOnClick={() => setDomainError(false)}
+                />
+                <SWAPSpace />
+                <MyTypography variant="subtitle">
+                  若不確定案件所得的申報類別，建議 點此查詢
+                </MyTypography>
+                <div
+                  style={{
+                    height: 1,
+                    width: "100%",
+                    margin: "16px 0",
+                    backgroundColor: "#cccccc",
+                  }}
+                />
+                <MyTypography variant="title">請描述你的服務內容</MyTypography>
+                <SWAPSpace size={4} />
+                <MyTypography variant="caption2" color="black700">
+                  本欄將顯示於請款單與勞報單上，請勿寫得過於簡短，建議包含服務公司、服務時間以及服務內容
+                </MyTypography>
+                <SWAPSpace />
+                <TextField
+                  multiline
+                  rows={3}
+                  fullWidth
+                  height={92}
+                  value={caseDescription}
+                  placeholder="範例: 於 2020/1/1~2020/1/31 協助 〇〇〇  公司製作 〇〇〇"
+                  onChange={(e: any) => {
+                    setCaseDescription(e.target.value);
+                  }}
+                />
+              </div>
+            ) : step === 2 ? (
+              <div
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <>
+                  <SWAPSpace />
+                  <MyTypography variant="title">請輸入請款金額</MyTypography>
+                  <SWAPSpace size={8} />
+                  <MyTypography variant="caption2" color="black800">
+                    請輸入未稅金額或是含稅金額，系統將自動計算(營業稅 5%)
+                  </MyTypography>
+                  <SWAPSpace />
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                    }}
+                  >
+                    <TextField
+                      height={56}
+                      fullWidth
+                      label="未稅金額"
+                      type="text"
+                      inputProps={{
+                        inputMode: "numeric",
+                        pattern: "[0-9]*",
+                      }}
+                      value={1232}
+                      style={{ marginRight: 8 }}
+                    />
+                    <TextField
+                      height={56}
+                      fullWidth
+                      label="含稅金額(業主付款金額)"
+                      type="text"
+                      inputProps={{
+                        inputMode: "numeric",
+                        pattern: "[0-9]*",
+                      }}
+                      value={2367234}
+                    />
+                  </div>
+                  <SWAPSpace />
+                  <Banner
+                    children={
+                      <div>
+                        含稅金額 = (未稅金額 + (未稅金額 x 0.0211)) x 1.05
+                        <br /> 因所得申報類別為 50 薪資，依據規定業主須負擔
+                        2.11% 的<b>二代健保補充保費</b>。
+                      </div>
+                    }
+                  />
+                </>
+              </div>
+            ) : (
+              <div
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <>
+                  <SWAPSpace />
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
+                    <MyTypography variant="body1">
+                      業主付款金額(TWD)
+                    </MyTypography>
+                    <MyTypography variant="h6" style={{ fontWeight: 400 }}>
+                      123123{" "}
+                    </MyTypography>
+                  </div>
+                  <SWAPSpace />
+                  <MyTypography variant="subtitle">我的請款單明細</MyTypography>
+                  <SWAPSpace size="s" />
+                  <div
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <MyTypography variant="body1">未稅金額(TWD)</MyTypography>
+                    <MyTypography variant="h6" style={{ fontWeight: 400 }}>
+                      2342345{" "}
+                    </MyTypography>
+                  </div>
+                  <SWAPSpace size={8} />
+                  <div
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      <MyTypography variant="body1" style={{ marginRight: 4 }}>
+                        扣除手續費(TWD)
+                      </MyTypography>
+                    </div>
+                    <MyTypography
+                      variant="h6"
+                      color="danger800"
+                      style={{ fontWeight: 400 }}
+                    >
+                      90809890{" "}
+                    </MyTypography>
+                  </div>
+                  <SWAPSpace size={8} />
+                  <div
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <MyTypography variant="body1">優惠券折抵(TWD)</MyTypography>
+                    <MyTypography variant="subtitle" color="primary400">
+                      使用優惠券
+                    </MyTypography>
+                  </div>
+                  {/* Line */}
+                  <div
+                    style={{
+                      width: "100%",
+                      height: 1,
+                      backgroundColor: "#cccccc",
+                      margin: "12px 0px",
+                    }}
+                  />
+                  {/* SP */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <MyTypography variant="body1">實收點數(SP)</MyTypography>
+                    <MyTypography variant="h6">8907789 </MyTypography>
+                  </div>
+                  <SWAPSpace />
+                  <Banner
+                    children={
+                      <div>
+                        當業主完成付款後，系統將自動扣除手續費，您的帳戶將增加
+                        <b> 3453245 SWAP Points</b>，每 1 SWAP Points 等同 1 TWD
+                        案件款項。
+                      </div>
+                    }
+                  />
+                </>
+              </div>
+            )}
+          </div>
+        </Modal>
+      </div>
     </SWAPTheme>
   );
 };

@@ -6,6 +6,7 @@ export type TaxFiledValueProps = {
   expenseCode: ExpenseCodeProps;
   expenseLabel: string;
   taxDescription: string;
+  expenseCodeAndLabel: string;
 };
 export interface TaxTextFieldProps {
   onChange?: (value: TaxFiledValueProps) => void;

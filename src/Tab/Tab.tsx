@@ -33,10 +33,8 @@ const Tab: React.FC<MyTabProps> = (props) => {
       opacity: 1,
       color: theme.black.black700,
     },
-    selected: {
-      color: "#000000",
-    },
     indicatorRoot: {
+      color: selected ? "#000000" : "unset",
       width: width ? width : 56,
       height: height ? height : 56,
       display: "flex",
@@ -45,7 +43,7 @@ const Tab: React.FC<MyTabProps> = (props) => {
       position: "relative",
     },
     selected_indicator: {
-      animation: "$selected 400ms ",
+      animation: animation ? "$selected 300ms " : "unset",
       height: 4,
       width: "100%",
       backgroundColor: theme.primary.primary400,
@@ -66,7 +64,6 @@ const Tab: React.FC<MyTabProps> = (props) => {
       classes={{
         root: classes.root,
         textColorInherit: classes.text,
-        selected: classes.selected,
       }}
       label={
         <div className={classes.indicatorRoot}>

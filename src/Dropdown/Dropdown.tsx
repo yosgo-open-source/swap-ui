@@ -44,7 +44,6 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     //SWAPTheme調整
     width: props.width ? props.width : "100%",
   }),
-
   inputRoot: (props) => ({
     height: props.height
       ? props.height >= 56
@@ -63,7 +62,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
       backgroundColor: "white",
       fontWeight: 700,
     },
-    "&:focus": {
+    "&:focus-visible": {
       color: theme.black.black1000,
       backgroundColor: "white",
       fontWeight: 700,

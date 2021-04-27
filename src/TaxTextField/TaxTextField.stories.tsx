@@ -34,7 +34,7 @@ const Demo: Story<TaxTextFieldProps> = (args) => {
       <Modal
         mobile={!matchMD}
         fullWidth={!matchMD}
-        maxWidth={640}
+        size="medium"
         open
         onClose={() => {}}
         title="TEST"

@@ -33,7 +33,7 @@ const useStyles = makeStyles<Theme, StyleProps>(() => ({
 const Banner: React.FC<BannerProps> = (props): React.ReactElement => {
   const [alignStart, setAlignStart] = useState(false);
   const theme = useTheme();
-  const { variant, width, height, mobile, children, ...other } = props;
+  const { icon, variant, width, height, mobile, children, ...other } = props;
   const styleProps: StyleProps = {
     backgroundColor:
       variant === "normal"
@@ -75,7 +75,11 @@ const Banner: React.FC<BannerProps> = (props): React.ReactElement => {
   return (
     <div ref={ref} className={classes.root} {...other}>
       <div className={classes.icon}>
-        {variant === "normal" || variant === "info" || variant === "error" ? (
+        {icon ? (
+          icon
+        ) : variant === "normal" ||
+          variant === "info" ||
+          variant === "error" ? (
           <svg
             width="24"
             height="24"

@@ -28,20 +28,22 @@ const Demo: Story<ModalProps> = (args) => {
   const [open, setOpen] = useState(false);
   return (
     <SWAPTheme>
-      <Typography variant="subtitle1">基本 Modal</Typography>
-      <Typography variant="body2" color="textSecondary">
-        點擊下方Button，下方 open 屬性調整為 true，以開啟 Modal。
-      </Typography>
-      <br />
-      <Button
-        size="small"
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
-        Open
-      </Button>
-      <Modal mobile {...args} open={open} onClose={() => setOpen(false)} />
+      <div style={{ height: 800 }}>
+        <Typography variant="subtitle1">基本 Modal</Typography>
+        <Typography variant="body2" color="textSecondary">
+          點擊下方Button，下方 open 屬性調整為 true，以開啟 Modal。
+        </Typography>
+        <br />
+        <Button
+          size="small"
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          Open
+        </Button>
+        <Modal mobile {...args} open={open} onClose={() => setOpen(false)} />
+      </div>
     </SWAPTheme>
   );
 };

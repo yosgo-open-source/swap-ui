@@ -26,13 +26,22 @@ interface ModalTransitionEffectProps {
   slide?: boolean;
   onEnter?: () => {};
   onExited?: () => {};
+  style?: React.CSSProperties;
 }
 const ModalTransitionEffect = React.forwardRef<
   HTMLDivElement,
   ModalTransitionEffectProps
 >(function ModalTransitionEffect(props, ref) {
-  const { in: open, slide, children, onEnter, onExited, ...other } = props;
-  const style = useSpring({
+  const {
+    in: open,
+    slide,
+    children,
+    onEnter,
+    onExited,
+    style,
+    ...other
+  } = props;
+  const defaultStyle = useSpring({
     config: { duration: 200 },
     from: { opacity: 0, transform: "translateY(50px)" },
     to: {
@@ -65,7 +74,10 @@ const ModalTransitionEffect = React.forwardRef<
         </Slide>
       ) : (
         <animated.div
-          style={{ outline: "none", transition: "ease-in-out", ...style }}
+          style={{
+            ...style,
+            ...defaultStyle,
+          }}
           {...other}
         >
           {children}
@@ -122,7 +134,6 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
     }
   }, []);
   const match_XS = useBreakpoints("xs");
-  const match_SM = useBreakpoints("sm");
   const useStyles = makeStyles((theme: Theme) => ({
     root: {
       display: "flex",
@@ -135,13 +146,6 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
       transition: "all 0.2s ease-in-out !important",
     },
     modal: {
-      margin: fullWidth
-        ? null
-        : match_SM
-        ? "0px 24px"
-        : match_XS
-        ? "0px 16px"
-        : "0px 8px",
       width: width
         ? width
         : size === "large"
@@ -489,7 +493,19 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
       BackdropComponent={Backdrop}
       BackdropProps={{ className: classes.backdrop }}
     >
-      <ModalTransitionEffect in={open} slide={fullWidth}>
+      <ModalTransitionEffect
+        in={open}
+        slide={fullWidth}
+        style={{
+          margin: fullWidth ? null : match_XS ? "0px 24px" : "0px 16px",
+          outline: "none",
+          transition: "ease-in-out",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Paper className={classes.modal}>
           {/* Head */}
           <div className={classes.head} style={titleStyle}>

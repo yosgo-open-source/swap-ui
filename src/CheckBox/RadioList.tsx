@@ -28,7 +28,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
       ? 76
       : 54,
     padding: props.line
-      ? "20px 16px"
+      ? "16px 20px"
       : props.multiline
       ? "12px 16px"
       : "15px 16px",
@@ -42,6 +42,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     justifyContent: "space-between",
     cursor: "pointer",
     backgroundColor: props.checked ? theme.primary.primary50 : "white",
+    "-webkit-tap-highlight-color": "transparent",
     "&:hover": {
       backgroundColor: props.checked
         ? theme.primary.primary50
@@ -103,6 +104,7 @@ const RadioList: React.FC<RadioListProps> = (props) => {
             <Typography
               variant="title"
               style={{
+                maxWidth: 56,
                 minWidth: 56,
                 textAlign: "center",
                 wordBreak: "break-word",

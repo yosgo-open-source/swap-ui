@@ -41,7 +41,7 @@ const Chip: React.FC<ChipProps> = (props): React.ReactElement => {
   const styleProps: StyleProps = {
     backgroundColor:
       outlined || !contained
-        ? null
+        ? theme.black.white
         : variant === "neutral"
         ? theme.black.black300
         : variant === "primary"

@@ -92,7 +92,11 @@ const RadioList: React.FC<RadioListProps> = (props) => {
           alignItems: "center",
         }}
       >
-        <RadioButton disableHover checked={Boolean(checked)} />
+        <RadioButton
+          disableHover
+          checked={Boolean(checked)}
+          style={{ marginLeft: 4 }}
+        />
         {line ? (
           <div
             style={{

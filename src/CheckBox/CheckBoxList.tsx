@@ -92,7 +92,11 @@ const CheckBoxList: React.FC<CheckBoxListProps> = (props) => {
           alignItems: "center",
         }}
       >
-        <CheckBox disableHover checked={Boolean(checked)} />
+        <CheckBox
+          disableHover
+          checked={Boolean(checked)}
+          style={{ marginLeft: 4 }}
+        />
         {line ? (
           <div
             style={{

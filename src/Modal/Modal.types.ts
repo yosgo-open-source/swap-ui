@@ -1,4 +1,5 @@
 export interface ModalProps {
+  footer?: React.ReactNode;
   multiline?: boolean;
   titleStyle?: React.CSSProperties;
   open: boolean;
@@ -50,6 +51,7 @@ export interface ModalProps {
       | "danger";
     loading?: boolean;
   };
+  disUnderLine?: boolean;
   disCloseIcon?: boolean;
   icon?: React.ReactNode;
   checkIconColor?:

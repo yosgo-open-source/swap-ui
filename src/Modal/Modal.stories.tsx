@@ -42,7 +42,7 @@ const Demo: Story<ModalProps> = (args) => {
         >
           Open
         </Button>
-        <Modal mobile {...args} open={open} onClose={() => setOpen(false)} />
+        <Modal {...args} open={open} onClose={() => setOpen(false)} />
       </div>
     </SWAPTheme>
   );
@@ -59,6 +59,18 @@ export const 認識 = Demo.bind({});
   label: "Label",
   children: (
     <div>
+      <div
+        style={{ height: 20, marginBottom: 16, backgroundColor: "#ececec" }}
+      />{" "}
+      <div
+        style={{ height: 20, marginBottom: 16, backgroundColor: "#ececec" }}
+      />{" "}
+      <div
+        style={{ height: 20, marginBottom: 16, backgroundColor: "#ececec" }}
+      />{" "}
+      <div
+        style={{ height: 20, marginBottom: 16, backgroundColor: "#ececec" }}
+      />{" "}
       <div
         style={{ height: 20, marginBottom: 16, backgroundColor: "#ececec" }}
       />

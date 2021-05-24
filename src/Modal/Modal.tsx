@@ -118,8 +118,12 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
     onExit,
     bodyMaxHeight,
     multiline,
+    disUnderLine,
+    footer,
   } = props;
   const [clientHeight, setClientHeight] = useState(0);
+  const [scorllbarWidth, setScorllbarWidth] = useState(0);
+
   useEffect(() => {
     if (mobile && fullWidth) {
       if ((helpText || multiline) && !label) {
@@ -133,6 +137,13 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
       }
     }
   }, []);
+
+  useEffect(() => {
+    const scrollbar_width: number =
+      window.innerWidth - document.body.clientWidth;
+    setScorllbarWidth(scrollbar_width / 2);
+  }, []);
+
   const match_XS = useBreakpoints("xs");
   const useStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -141,6 +152,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
       justifyContent: "center",
       border: "unset",
       borderRadius: 12,
+      margin: match_XS ? "0px 24px" : "0px 16px",
     },
     backdrop: {
       transition: "all 0.2s ease-in-out !important",
@@ -497,13 +509,14 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
         in={open}
         slide={fullWidth}
         style={{
-          margin: fullWidth ? null : match_XS ? "0px 24px" : "0px 16px",
           outline: "none",
           transition: "ease-in-out",
           width: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          left: open ? 0 : scorllbarWidth,
+          position: "absolute",
         }}
       >
         <Paper className={classes.modal}>
@@ -586,68 +599,79 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
               </Box>
             </>
           ) : null}
-          {label || secondaryButton || primaryButton ? <Divider /> : null}
+          {(label || secondaryButton || primaryButton) && !disUnderLine ? (
+            <Divider />
+          ) : null}
           {/* Footer */}
           <Box className={classes.footer}>
-            {!buttonFullWidth || !footerDisplayColumn ? (
-              <Box marginBottom={mobile ? (label ? "12px" : 0) : 0}>
-                <Typography variant={mobile ? "title" : "h6"}>
-                  {label}
-                </Typography>
-              </Box>
-            ) : null}
+            {footer ? (
+              footer
+            ) : (
+              <>
+                {!buttonFullWidth || !footerDisplayColumn ? (
+                  <Box marginBottom={mobile ? (label ? "12px" : 0) : 0}>
+                    <Typography variant={mobile ? "title" : "h6"}>
+                      {label}
+                    </Typography>
+                  </Box>
+                ) : null}
 
-            {secondaryButton || primaryButton ? (
-              <Box className={classes.footerButton}>
-                <Box
-                  width={
-                    mobile && !buttonFullWidth && !footerDisplayColumn
-                      ? null
-                      : "100%"
-                  }
-                  marginRight={!footerDisplayColumn ? 1 : 0}
-                >
-                  {secondaryButton ? (
-                    <Button
-                      fullWidth={buttonFullWidth || footerDisplayColumn}
-                      variant={
-                        secondaryButton.variant
-                          ? secondaryButton.variant
-                          : "secondary"
+                {secondaryButton || primaryButton ? (
+                  <Box className={classes.footerButton}>
+                    <Box
+                      width={
+                        mobile && !buttonFullWidth && !footerDisplayColumn
+                          ? null
+                          : "100%"
                       }
-                      size="small"
-                      onClick={secondaryButton.onClick}
-                      disabled={secondaryButton.disabled}
-                      loading={secondaryButton.loading}
-                      style={secondaryButton.style}
+                      marginRight={!footerDisplayColumn ? 1 : 0}
                     >
-                      {secondaryButton.title}
-                    </Button>
-                  ) : null}
-                </Box>
-                <Box width="100%" marginBottom={footerDisplayColumn ? 1 : 0}>
-                  {primaryButton ? (
-                    <Button
-                      fullWidth={
-                        buttonFullWidth || footerDisplayColumn || mobile
-                      }
-                      variant={
-                        primaryButton.variant
-                          ? primaryButton.variant
-                          : "primary"
-                      }
-                      size="small"
-                      onClick={primaryButton.onClick}
-                      disabled={primaryButton.disabled}
-                      loading={primaryButton.loading}
-                      style={primaryButton.style}
+                      {secondaryButton ? (
+                        <Button
+                          fullWidth={buttonFullWidth || footerDisplayColumn}
+                          variant={
+                            secondaryButton.variant
+                              ? secondaryButton.variant
+                              : "secondary"
+                          }
+                          size="small"
+                          onClick={secondaryButton.onClick}
+                          disabled={secondaryButton.disabled}
+                          loading={secondaryButton.loading}
+                          style={secondaryButton.style}
+                        >
+                          {secondaryButton.title}
+                        </Button>
+                      ) : null}
+                    </Box>
+                    <Box
+                      width="100%"
+                      marginBottom={footerDisplayColumn ? 1 : 0}
                     >
-                      {primaryButton.title}
-                    </Button>
-                  ) : null}
-                </Box>
-              </Box>
-            ) : null}
+                      {primaryButton ? (
+                        <Button
+                          fullWidth={
+                            buttonFullWidth || footerDisplayColumn || mobile
+                          }
+                          variant={
+                            primaryButton.variant
+                              ? primaryButton.variant
+                              : "primary"
+                          }
+                          size="small"
+                          onClick={primaryButton.onClick}
+                          disabled={primaryButton.disabled}
+                          loading={primaryButton.loading}
+                          style={primaryButton.style}
+                        >
+                          {primaryButton.title}
+                        </Button>
+                      ) : null}
+                    </Box>
+                  </Box>
+                ) : null}
+              </>
+            )}
           </Box>
         </Paper>
       </ModalTransitionEffect>

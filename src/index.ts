@@ -54,6 +54,7 @@ import CheckBoxList from "./CheckBox/CheckBoxList";
 import IconButton from "./IconButton/IconButton";
 import Link from "./Link/Link";
 import Paper from "./Paper/Paper";
+import Switch from "./Switch/Switch";
 
 export {
   SWAPAppBar,
@@ -108,4 +109,5 @@ export {
   Link,
   CheckBoxList,
   Paper,
+  Switch,
 };

@@ -27,11 +27,7 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
       : props.line
       ? 76
       : 54,
-    padding: props.line
-      ? "16px 20px"
-      : props.multiline
-      ? "12px 16px"
-      : "15px 16px",
+    padding: props.line ? "16px" : props.multiline ? "12px 16px" : "15px 16px",
     border: props.checked
       ? `1px solid ${theme.primary.primary400}`
       : `1px solid ${theme.black.black500}`,

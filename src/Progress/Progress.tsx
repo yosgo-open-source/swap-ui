@@ -26,7 +26,6 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     width: props.size,
     height: props.size,
     borderRadius: "50%",
-
     // cursor: props.stepCursor,
   }),
 }));
@@ -101,6 +100,8 @@ const Progress: React.FC<ProgressProps> = (props): React.ReactElement => {
                     i === step - 1
                       ? `2px solid ${theme.primary.primary800}`
                       : null,
+                  boxShadow:
+                    i === step - 1 ? "0px 0px 0px 4px #D7DFF8" : "unset",
                 }}
               >
                 {i + 1}

@@ -115,6 +115,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
     maxWidth,
     disCloseIcon,
     titleStyle,
+    bodyStyle,
     onExit,
     bodyMaxHeight,
     multiline,
@@ -152,7 +153,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
       justifyContent: "center",
       border: "unset",
       borderRadius: 12,
-      margin: match_XS ? "0px 24px" : "0px 16px",
+      margin: fullWidth ? 0 : match_XS ? "0px 24px" : "0px 16px",
     },
     backdrop: {
       transition: "all 0.2s ease-in-out !important",
@@ -580,16 +581,49 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
                   backgroundColor: onExit ? "#6d6d6d" : "#DADADA",
                 }}
               />
-              <Box className={classes.body}>
+              <Box
+                id="body"
+                className={classes.body}
+                style={{
+                  ...bodyStyle,
+                }}
+              >
                 {onExit ? (
                   <div
                     style={{
-                      position: "absolute",
-                      width: "100%",
-                      height: "100%",
+                      marginLeft: bodyPadding
+                        ? -bodyPadding
+                        : mobile
+                        ? -16
+                        : -24,
+                      marginTop: bodyPadding
+                        ? -bodyPadding
+                        : mobile
+                        ? -16
+                        : -24,
+                      position:
+                        bodyMaxHeight || height || (mobile && fullWidth)
+                          ? "fixed"
+                          : "absolute",
+                      width: width
+                        ? width
+                        : size === "large"
+                        ? 800
+                        : size === "medium"
+                        ? 640
+                        : size === "small"
+                        ? 480
+                        : size === "extraSmall"
+                        ? 320
+                        : "100%",
+                      height: bodyMaxHeight
+                        ? bodyMaxHeight
+                        : height
+                        ? height
+                        : mobile && fullWidth
+                        ? clientHeight
+                        : "100%",
                       background: "black",
-                      top: -0,
-                      left: -0,
                       opacity: 0.5,
                       zIndex: 10,
                     }}

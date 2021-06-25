@@ -2,6 +2,7 @@ export interface ModalProps {
   footer?: React.ReactNode;
   multiline?: boolean;
   titleStyle?: React.CSSProperties;
+  bodyStyle?: React.CSSProperties;
   open: boolean;
   checked?: boolean;
   failed?: boolean;

@@ -14,15 +14,15 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     color: props.color,
     fontWeight: 700,
     borderRadius: 4,
-    padding: 8,
     lineHeight: 1.4,
-    border: "1px solid transparent",
-    "&:focus-visible": {
-      border: `1px solid ${theme.primary.primary400}`,
-    },
+    outline: "none",
+    boxSizing: "border-box",
   }),
   focusVisible: {
+    boxSizing: "border-box",
     outline: "none",
+    padding: 8,
+    border: `1px solid ${theme.primary.primary400}`,
   },
 }));
 

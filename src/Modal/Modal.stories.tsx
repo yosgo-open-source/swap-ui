@@ -42,7 +42,12 @@ const Demo: Story<ModalProps> = (args) => {
         >
           Open
         </Button>
-        <Modal {...args} open={open} onClose={() => setOpen(false)} />
+        <Modal
+          bodyStyle={{ overflowY: "unset" }}
+          {...args}
+          open={open}
+          onClose={() => setOpen(false)}
+        />
       </div>
     </SWAPTheme>
   );
@@ -130,6 +135,8 @@ export const 類型 = () => {
   const [scrollOpen, setScrollOpen] = useState(false);
   const [iconOpen, setIconOpen] = useState(false);
   const [onExitOpen, setOnExitOpen] = useState(false);
+  const [onExitScrollOpen, setOnExitScrollOpen] = useState(false);
+
   const [success, setSuccess] = useState(true);
   const [fail, setFail] = useState(false);
   const [otherIcon, setOtherIcon] = useState(false);
@@ -249,6 +256,9 @@ export const 類型 = () => {
         <Button size="small" onClick={() => setOnExitOpen(true)}>
           OnExit
         </Button>
+        <Button size="small" onClick={() => setOnExitScrollOpen(true)}>
+          OnExit (有scroll)
+        </Button>
         <Modal
           title="重要Modal"
           open={onExitOpen}
@@ -291,6 +301,49 @@ export const 類型 = () => {
             </div>
           }
         />
+        <Modal
+          bodyMaxHeight={400}
+          title="重要Modal"
+          open={onExitScrollOpen}
+          // open
+          onClose={() => setOnExit(true)}
+          onExit={onExit}
+          size="medium"
+          label={onExit ? "確定要關閉嗎?" : null}
+          primaryButton={{
+            title: onExit ? "確定關閉" : "確認",
+            onClick: () => {
+              if (onExit) {
+                window.location.reload();
+              } else {
+                setOnExitScrollOpen(false);
+              }
+            },
+          }}
+          secondaryButton={{
+            title: onExit ? "先不關閉" : "關閉",
+            onClick: () => {
+              if (onExit) {
+                setOnExit(false);
+              } else {
+                setOnExit(true);
+              }
+            },
+          }}
+          children={
+            <div style={{ textAlign: "center" }}>
+              {Array.from(Array(16).keys()).map((i: any) => (
+                <div
+                  style={{
+                    height: 20,
+                    marginBottom: "16px",
+                    backgroundColor: "#ececec",
+                  }}
+                />
+              ))}
+            </div>
+          }
+        />
       </div>
       <SWAPSpace size="l" />
     </SWAPTheme>
@@ -321,7 +374,9 @@ export const 動畫 = () => {
           title="內容多於視野範圍"
           helpText="內容區域限制高度且可滾動！"
           open={open}
-          onClose={() => setOpen(false)}
+          onClose={() => {
+            setOpen(false);
+          }}
           size="medium"
           primaryButton={{
             title: "下一步",

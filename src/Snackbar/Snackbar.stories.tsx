@@ -5,7 +5,9 @@ import { MySnackbarProps } from "../Snackbar/Snackbar.types";
 import SWAPTheme from "../SWAPTheme/SWAPTheme";
 import Snackbar from "../Snackbar/Snackbar";
 import Button from "../Button/Button";
-import { Box, IconButton, Link, useTheme } from "@material-ui/core";
+import IconButton from "../IconButton/IconButton";
+
+import { Box, Link, useTheme } from "@material-ui/core";
 export default {
   title: "Snackbar",
   component: Snackbar,
@@ -88,42 +90,30 @@ const Demo: Story<MySnackbarProps> = (args) => {
         transitionDirection="up"
         variant="success"
         onClose={() => setOpen2(false)}
-        message={
-          <Box display="flex" alignItems="center">
-            <svg
-              width="18"
-              height="14"
-              viewBox="0 0 18 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ marginRight: 11 }}
-            >
-              <path
-                d="M18 2.00003L6 14L0.5 8.50003L1.91 7.09003L6 11.17L16.59 0.590027L18 2.00003Z"
-                fill="white"
-              />
-            </svg>
-            你已經成功送出表單。
-          </Box>
-        }
+        message="你已經成功送出表單。"
         action={
-          <IconButton
-            style={{ padding: 0, marginRight: 11, marginLeft: 13 }}
-            onClick={() => setOpen2(false)}
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+          <>
+            <IconButton
+              width={24}
+              height={24}
+              hoverColor="#00751B"
+              style={{ padding: 0 }}
+              onClick={() => setOpen2(false)}
             >
-              <path
-                d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"
-                fill="white"
-              />
-            </svg>
-          </IconButton>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"
+                  fill="white"
+                />
+              </svg>
+            </IconButton>
+          </>
         }
       />
       <Snackbar

@@ -6,12 +6,14 @@ import { MyIconButtonProps } from "./IconButton.types";
 // Style
 interface StyleProps {
   hoverBackgroundColor: string;
+  width: number | string;
+  height: number | string;
 }
 
 const useStyles = makeStyles<Theme, StyleProps>(() => ({
   root: (props) => ({
-    width: 32,
-    height: 32,
+    width: props.width,
+    height: props.height,
     borderRadius: 8,
     "&:hover": {
       backgroundColor: props.hoverBackgroundColor,
@@ -20,11 +22,13 @@ const useStyles = makeStyles<Theme, StyleProps>(() => ({
 }));
 
 const IconButton: React.FC<MyIconButtonProps> = (props): React.ReactElement => {
-  const { hoverColor, ...other } = props;
+  const { hoverColor, width, height, ...other } = props;
   const theme = useTheme();
   const styleProps: StyleProps = {
-    hoverBackgroundColor:
-      hoverColor === "primary50"
+    width: width ? width : 32,
+    height: height ? height : 32,
+    hoverBackgroundColor: hoverColor
+      ? hoverColor === "primary50"
         ? theme.primary.primary50
         : hoverColor === "primary100"
         ? theme.primary.primary100
@@ -134,7 +138,8 @@ const IconButton: React.FC<MyIconButtonProps> = (props): React.ReactElement => {
         ? theme.black.black900
         : hoverColor === "black1000"
         ? theme.black.black1000
-        : theme.black.black400,
+        : hoverColor
+      : theme.black.black400,
   };
   const classes = useStyles(styleProps);
 

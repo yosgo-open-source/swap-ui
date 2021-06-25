@@ -1,6 +1,8 @@
 import { IconButtonProps } from "@material-ui/core";
 
 export interface MyIconButtonProps extends IconButtonProps {
+  width?: number | string;
+  height?: number | string;
   hoverColor?:
     | "primary"
     | "secondary"
@@ -59,5 +61,6 @@ export interface MyIconButtonProps extends IconButtonProps {
     | "black700"
     | "black800"
     | "black900"
-    | "black1000";
+    | "black1000"
+    | string;
 }

@@ -1,4 +1,5 @@
 import { TooltipProps } from "@material-ui/core";
+import React from "react";
 
 export interface MyTooltipProps
   extends Pick<TooltipProps, Exclude<keyof TooltipProps, "children">> {
@@ -12,4 +13,5 @@ export interface MyTooltipProps
   marginRight?: number;
   marginLeft?: number;
   width?: string | number;
+  childrenStyle?: React.CSSProperties;
 }

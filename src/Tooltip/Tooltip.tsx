@@ -45,6 +45,7 @@ const Tooltip: React.FC<MyTooltipProps> = (props): React.ReactElement => {
     light,
     children,
     width,
+    childrenStyle,
     ...other
   } = props;
   const styleProps: StyleProps = {
@@ -88,6 +89,7 @@ const Tooltip: React.FC<MyTooltipProps> = (props): React.ReactElement => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          ...childrenStyle,
         }}
       >
         {children}

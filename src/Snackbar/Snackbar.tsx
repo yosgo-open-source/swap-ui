@@ -3,7 +3,6 @@ import React from "react";
 import { MySnackbarProps } from "./Snackbar.types";
 import { Fade, makeStyles, Slide, SlideProps, Theme } from "@material-ui/core";
 import IconButton from "../IconButton/IconButton";
-import useBreakpoints from "../utils/useBreakpoints";
 
 type TransitionProps = Omit<SlideProps, "direction">;
 
@@ -115,9 +114,6 @@ const Snackbar: React.FC<MySnackbarProps> = (props) => {
     variant: variant,
   };
   const classes = useStyles(styleProps);
-  const desktop: boolean = useBreakpoints("md");
-  console.log(desktop);
-
   return (
     <MaterialSnackBar
       {...other}

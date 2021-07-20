@@ -3,11 +3,19 @@ import styled from "styled-components";
 
 import { SWAPLogoProps } from "./SWAPLogo.types";
 
-import logo01 from "./SWAP_web logo.svg";
-import logo02 from "./SWAP_web logo-white.svg";
-import logo03 from "./SWAP BIZ_web logo_test-01.svg";
+import logo_normal from "./SWAP_web logo.svg";
+import logo_normal_dark from "./SWAP_web logo-white.svg";
+import logo_biz from "./SWAP BIZ_web logo_test-01.svg";
+import logo_biz_zh_tw from "./Blue - Biz.svg";
+import logo_black from "./Color=Black.svg";
+import logo_black_dark from "./Color=White.svg";
+import logo_icon from "./Color=Blue.svg";
+import logo_icon_black from "./Color=White_icon.svg";
 
 const SWAPLogo: React.FC<SWAPLogoProps> = ({
+  black = false,
+  iconOnly = false,
+  chinese = false,
   business = false,
   size = "middle",
   dark = false,
@@ -22,11 +30,23 @@ const SWAPLogo: React.FC<SWAPLogoProps> = ({
           style={{ width: width, height: height }}
           src={(() => {
             if (business) {
-              return logo03;
+              if (chinese) {
+                return logo_biz_zh_tw;
+              }
+              return logo_biz;
+            } else if (black) {
+              if (iconOnly) {
+                return logo_icon_black;
+              } else if (dark) {
+                return logo_black_dark;
+              }
+              return logo_black;
+            } else if (iconOnly) {
+              return logo_icon;
             } else if (dark) {
-              return logo02;
+              return logo_normal_dark;
             } else {
-              return logo01;
+              return logo_normal;
             }
           })()}
         />
@@ -44,8 +64,12 @@ const SWAPLogoWrap = styled.div`
         return "30px";
       } else if (size === "middle") {
         return "40px";
-      } else if ((size = "large")) {
+      } else if (size === "large") {
         return "48px";
+      } else if (size && typeof size === "number") {
+        return `${size}px`;
+      } else if (size && typeof size === "string") {
+        return size;
       } else {
         return "100%";
       }
@@ -56,8 +80,12 @@ const SWAPLogoWrap = styled.div`
           return "48px";
         } else if (size === "middle") {
           return "72px";
-        } else if ((size = "large")) {
+        } else if (size === "large") {
           return "81px";
+        } else if (size && typeof size === "number") {
+          return `${size}px`;
+        } else if (size && typeof size === "string") {
+          return size;
         } else {
           return "42px";
         }

@@ -23,8 +23,12 @@ const Demo: Story<SWAPLogoProps> = (args) => <SWAPLogo {...args} />;
 
 export const 認識 = Demo.bind({});
 認識.args = {
-  size: "middle",
+  size: "small",
   business: false,
+  chinese: false,
+  black: false,
+  dark: false,
+  iconOnly: false,
 };
 
 export const 顏色 = () => {

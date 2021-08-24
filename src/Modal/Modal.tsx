@@ -121,6 +121,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
     multiline,
     disUnderLine,
     footer,
+    isFreshchatOpen,
   } = props;
   const [clientHeight, setClientHeight] = useState(0);
   const [scorllbarWidth, setScorllbarWidth] = useState(0);
@@ -144,6 +145,15 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
       window.innerWidth - document.body.clientWidth;
     setScorllbarWidth(scrollbar_width / 2);
   }, []);
+
+  useEffect(() => {
+    if (!isFreshchatOpen) {
+      const elem: any = document.getElementById("fc_frame");
+      if (elem) {
+        elem.style["display"] = open ? "none" : "block";
+      }
+    }
+  }, [open]);
 
   const match_XS = useBreakpoints("xs");
   const useStyles = makeStyles((theme: Theme) => ({
@@ -498,7 +508,6 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
     },
   }));
   const classes = useStyles();
-
   return (
     <MaterialModal
       open={open}

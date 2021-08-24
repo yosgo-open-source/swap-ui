@@ -173,4 +173,5 @@ export interface ModalProps {
     | "black800"
     | "black900"
     | "black1000";
+  isFreshchatOpen?: boolean;
 }

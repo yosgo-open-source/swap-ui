@@ -26,11 +26,9 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
       borderColor: theme.black.black500,
     },
     "&.Mui-focused": {
-      boxShadow: props.select ? "unset" : "0px 0px 0px 4px #D7DFF8",
+      boxShadow: "0px 0px 0px 4px #D7DFF8",
       "& fieldset": {
-        border: props.select
-          ? `1px solid ${theme.black.black1000} !important`
-          : `1px solid ${theme.primary.primary400} !important`,
+        border: `1px solid ${theme.primary.primary400} !important`,
         borderWidth: "1px !important",
       },
       "&.Mui-error": {

@@ -55,6 +55,10 @@ import IconButton from "./IconButton/IconButton";
 import Link from "./Link/Link";
 import Paper from "./Paper/Paper";
 import Switch from "./Switch/Switch";
+import DatePicker from "./DatePicker/DatePicker";
+import Breadcrumb from "./Breadcrumb/Breadcrumb";
+import BreadcrumbItem from "./BreadcrumbItem/BreadcrumbItem";
+import Card from "./Card/Card";
 
 export {
   SWAPAppBar,
@@ -110,4 +114,8 @@ export {
   CheckBoxList,
   Paper,
   Switch,
+  DatePicker,
+  Breadcrumb,
+  BreadcrumbItem,
+  Card,
 };

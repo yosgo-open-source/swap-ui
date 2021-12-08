@@ -24,6 +24,8 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
   codeOnClick,
   domainOnClick,
   mobile,
+  codeFocused,
+  domainFocused,
 }) => {
   const [modalIncome, setModalIncome]: any = useState("");
   const [modalExpense, setModalExpense]: any = useState("");
@@ -94,6 +96,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
       {/* 選擇申報類別 */}
       <div style={{ width: "100%" }}>
         <TextField
+          focused={codeFocused}
           fullWidth
           select
           error={codeError}
@@ -172,6 +175,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
               {codeValue === "9B" ? (
                 // 9B Select
                 <TextField
+                  focused={domainFocused}
                   select
                   fullWidth
                   error={domainError}
@@ -242,6 +246,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
                 // 9A AutoComplete
                 <>
                   <TextField
+                    focused={domainFocused}
                     error={domainError}
                     helperText={domainHelperText}
                     fullWidth

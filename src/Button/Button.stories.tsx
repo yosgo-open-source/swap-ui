@@ -47,7 +47,7 @@ export const 類型 = () => {
         style={{
           display: "flex",
           justifyContent: "space-around",
-          width: 950,
+          width: 1000,
           fontWeight: 700,
         }}
       >
@@ -56,11 +56,12 @@ export const 類型 = () => {
         <div>Secondary</div>
         <div>Tertiary</div>
         <div>Text</div>
+        <div>Black</div>
         <div>Danger</div>
       </div>
       <SWAPSpace size="m" />
       <div
-        style={{ display: "flex", justifyContent: "space-around", width: 950 }}
+        style={{ display: "flex", justifyContent: "space-around", width: 1000 }}
       >
         <div style={{ width: 140, textAlign: "center", fontWeight: 700 }}>
           Text Only
@@ -77,13 +78,16 @@ export const 類型 = () => {
         <Button variant="text" minWidth={140}>
           button
         </Button>
+        <Button variant="black" minWidth={140}>
+          button
+        </Button>
         <Button variant="danger" minWidth={140}>
           button
         </Button>
       </div>
       <SWAPSpace size="m" />
       <div
-        style={{ display: "flex", justifyContent: "space-around", width: 950 }}
+        style={{ display: "flex", justifyContent: "space-around", width: 1000 }}
       >
         <div style={{ width: 140, textAlign: "center", fontWeight: 700 }}>
           Text + Right Icon
@@ -117,6 +121,13 @@ export const 類型 = () => {
           button
         </Button>
         <Button
+          variant="black"
+          endIcon={<AccountCircleOutlinedIcon />}
+          minWidth={140}
+        >
+          button
+        </Button>
+        <Button
           variant="danger"
           endIcon={<AccountCircleOutlinedIcon />}
           minWidth={140}
@@ -126,7 +137,7 @@ export const 類型 = () => {
       </div>
       <SWAPSpace size="m" />
       <div
-        style={{ display: "flex", justifyContent: "space-around", width: 950 }}
+        style={{ display: "flex", justifyContent: "space-around", width: 1000 }}
       >
         <div style={{ width: 140, textAlign: "center", fontWeight: 700 }}>
           Left Icon + Text{" "}
@@ -160,6 +171,13 @@ export const 類型 = () => {
           button
         </Button>
         <Button
+          variant="black"
+          startIcon={<AccountCircleOutlinedIcon />}
+          minWidth={140}
+        >
+          button
+        </Button>
+        <Button
           variant="danger"
           startIcon={<AccountCircleOutlinedIcon />}
           minWidth={140}
@@ -169,10 +187,9 @@ export const 類型 = () => {
       </div>
       <SWAPSpace size="m" />
       <div
-        style={{ display: "flex", justifyContent: "space-around", width: 950 }}
+        style={{ display: "flex", justifyContent: "space-around", width: 1000 }}
       >
         <div style={{ width: 140, textAlign: "center", fontWeight: 700 }}>
-          {" "}
           Icon Only
         </div>
         <Button variant="primary" minWidth={140}>
@@ -185,6 +202,9 @@ export const 類型 = () => {
           <AccountCircleOutlinedIcon fontSize="small" />
         </Button>
         <Button variant="text" minWidth={140}>
+          <AccountCircleOutlinedIcon fontSize="small" />
+        </Button>
+        <Button variant="black" minWidth={140}>
           <AccountCircleOutlinedIcon fontSize="small" />
         </Button>
         <Button variant="danger" minWidth={140}>
@@ -214,7 +234,7 @@ export const 狀態 = () => {
         <div> F：Focus</div>
       </div>
       <div
-        style={{ display: "flex", justifyContent: "space-around", width: 950 }}
+        style={{ display: "flex", justifyContent: "space-around", width: 1000 }}
       >
         <Button variant="primary" minWidth={140}>
           D H P F
@@ -237,7 +257,7 @@ export const 狀態 = () => {
       </div>
       <SWAPSpace size="m" />
       <div
-        style={{ display: "flex", justifyContent: "space-around", width: 950 }}
+        style={{ display: "flex", justifyContent: "space-around", width: 1000 }}
       >
         <Button variant="primary" minWidth={140} disabled>
           Disabled
@@ -260,7 +280,7 @@ export const 狀態 = () => {
       </div>
       <SWAPSpace size="m" />
       <div
-        style={{ display: "flex", justifyContent: "space-around", width: 950 }}
+        style={{ display: "flex", justifyContent: "space-around", width: 1000 }}
       >
         <Button variant="primary" minWidth={140} loading>
           Loading

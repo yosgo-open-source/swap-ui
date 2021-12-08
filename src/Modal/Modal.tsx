@@ -127,7 +127,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
   const [scorllbarWidth, setScorllbarWidth] = useState(0);
 
   useEffect(() => {
-    if (mobile && fullWidth) {
+    if (mobile || fullWidth) {
       if ((helpText || multiline) && !label) {
         setClientHeight(window.innerHeight - 64 - 73 - 64);
       } else if (!helpText && label) {
@@ -138,7 +138,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
         setClientHeight(window.innerHeight - 64 - 56 - 64);
       }
     }
-  }, []);
+  }, [fullWidth, mobile]);
 
   useEffect(() => {
     const scrollbar_width: number =
@@ -467,7 +467,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
       pointerEvents: onExit ? "none" : "unset",
       maxHeight: bodyMaxHeight
         ? bodyMaxHeight
-        : mobile && fullWidth
+        : fullWidth
         ? clientHeight
         : "unset",
       overflowY: !onExit ? "scroll" : "hidden",
@@ -652,10 +652,15 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
             ) : (
               <>
                 {!buttonFullWidth || !footerDisplayColumn ? (
-                  <Box marginBottom={mobile ? (label ? "12px" : 0) : 0}>
-                    <Typography variant={mobile ? "title" : "h6"}>
-                      {label}
-                    </Typography>
+                  <Box
+                    marginBottom={mobile ? (label ? "12px" : 0) : 0}
+                    style={{
+                      fontSize: mobile ? 16 : 18,
+                      fontWeight: 700,
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {label}
                   </Box>
                 ) : null}
 
@@ -667,7 +672,9 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
                           ? null
                           : "100%"
                       }
-                      marginRight={!footerDisplayColumn ? 1 : 0}
+                      marginRight={
+                        !footerDisplayColumn && secondaryButton ? 1 : 0
+                      }
                     >
                       {secondaryButton ? (
                         <Button

@@ -25,7 +25,7 @@ const Button: React.FC<MyButtonProps> = (props) => {
           : variant === "secondary"
           ? theme.primary.primary400
           : variant === "tertiary"
-          ? theme.primary.primary500
+          ? theme.black.black800
           : variant === "text"
           ? theme.primary.primary400
           : variant === "black"
@@ -39,7 +39,7 @@ const Button: React.FC<MyButtonProps> = (props) => {
           : variant === "secondary"
           ? theme.black.white
           : variant === "tertiary"
-          ? theme.primary.primary50
+          ? theme.black.black400
           : variant === "text"
           ? theme.black.white
           : variant === "black"
@@ -89,7 +89,7 @@ const Button: React.FC<MyButtonProps> = (props) => {
             : variant === "secondary"
             ? theme.primary.primary50
             : variant === "tertiary"
-            ? theme.primary.primary100
+            ? theme.black.black500
             : variant === "text"
             ? theme.primary.primary50
             : variant === "black"
@@ -115,7 +115,7 @@ const Button: React.FC<MyButtonProps> = (props) => {
             : variant === "secondary"
             ? theme.primary.primary100
             : variant === "tertiary"
-            ? theme.primary.primary200
+            ? theme.black.black600
             : variant === "text"
             ? theme.primary.primary100
             : variant === "black"
@@ -130,6 +130,8 @@ const Button: React.FC<MyButtonProps> = (props) => {
             ? "0px 0px 0px 4px #CCCCCC"
             : variant === "danger"
             ? "0px 0px 0px 4px #FFCCD0"
+            : variant === "tertiary"
+            ? "0px 0px 0px 4px rgba(0, 0, 0, 0.1)"
             : "0px 0px 0px 4px #D7DFF8",
         backgroundColor:
           variant === "primary"
@@ -137,7 +139,7 @@ const Button: React.FC<MyButtonProps> = (props) => {
             : variant === "secondary"
             ? theme.primary.primary50
             : variant === "tertiary"
-            ? theme.primary.primary50
+            ? theme.black.black400
             : variant === "text"
             ? theme.primary.primary50
             : variant === "black"
@@ -149,7 +151,7 @@ const Button: React.FC<MyButtonProps> = (props) => {
           variant === "secondary"
             ? `1px solid ${theme.primary.primary400}`
             : variant === "tertiary"
-            ? `1px solid ${theme.primary.primary400}`
+            ? `1px solid ${theme.black.black600}`
             : variant === "text"
             ? `1px solid ${theme.primary.primary400}`
             : variant === "black"
@@ -166,7 +168,7 @@ const Button: React.FC<MyButtonProps> = (props) => {
             : variant === "secondary"
             ? theme.black.white
             : variant === "tertiary"
-            ? theme.primary.primary100
+            ? theme.black.black400
             : variant === "text"
             ? theme.black.white
             : variant === "black"
@@ -180,7 +182,7 @@ const Button: React.FC<MyButtonProps> = (props) => {
             : variant === "secondary"
             ? theme.primary.primary400
             : variant === "tertiary"
-            ? theme.primary.primary500
+            ? theme.black.black800
             : variant === "text"
             ? theme.primary.primary400
             : variant === "black"

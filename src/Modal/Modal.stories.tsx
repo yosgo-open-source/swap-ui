@@ -170,8 +170,9 @@ export const 類型 = () => {
               <Typography variant="body2">
                 ↓ 這裡的內容很長喔，所以可以捲動 ↓
               </Typography>
-              {Array.from(Array(20).keys()).map((i: any) => (
+              {Array.from(Array(20).keys()).map((_i, i: number) => (
                 <div
+                  key={i}
                   style={{
                     height: 20,
                     margin: "16px 0",
@@ -233,8 +234,9 @@ export const 類型 = () => {
               <Typography variant="body2" style={{ textAlign: "center" }}>
                 試著點擊下方按鈕可切換Icon！
               </Typography>
-              {Array.from(Array(6).keys()).map((i: any) => (
+              {Array.from(Array(6).keys()).map((_i, i: number) => (
                 <div
+                  key={i}
                   style={{
                     height: 20,
                     marginTop: "16px",
@@ -289,8 +291,9 @@ export const 類型 = () => {
           }}
           children={
             <div style={{ textAlign: "center" }}>
-              {Array.from(Array(6).keys()).map((i: any) => (
+              {Array.from(Array(6).keys()).map((_i, i: number) => (
                 <div
+                  key={i}
                   style={{
                     height: 20,
                     marginBottom: "16px",
@@ -332,8 +335,9 @@ export const 類型 = () => {
           }}
           children={
             <div style={{ textAlign: "center" }}>
-              {Array.from(Array(16).keys()).map((i: any) => (
+              {Array.from(Array(16).keys()).map((_i, i: number) => (
                 <div
+                  key={i}
                   style={{
                     height: 20,
                     marginBottom: "16px",

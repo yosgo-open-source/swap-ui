@@ -20,7 +20,7 @@ export default {
 
 const Demo: Story<DatePickerProps> = (args) => {
   const [open, setOpen] = useState(false);
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState("2021-12-30");
   const isMobile = useMediaQuery("(max-width:768px)");
   return (
     <SWAPTheme>
@@ -78,6 +78,7 @@ const Demo: Story<DatePickerProps> = (args) => {
             title: "選擇日期",
           }}
           style={{ marginBottom: 16 }}
+          value={date}
           getValue={(d) => setDate(d)}
         />
       </div>

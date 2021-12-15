@@ -53,60 +53,8 @@ const Demo: Story<ChipProps> = (args) => {
             outlined
             variant="success"
             style={{ marginBottom: 20 }}
-            icon={
-              <div
-                style={{
-                  width: 16,
-                  height: 16,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <svg
-                  width="12"
-                  height="10"
-                  viewBox="0 0 12 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12 1.16667L4 9.16667L0.333334 5.5L1.27333 4.56L4 7.28L11.06 0.226669L12 1.16667Z"
-                    fill="#00821E"
-                  />
-                </svg>
-              </div>
-            }
           />
-          <Chip
-            label="Label"
-            contained
-            variant="success"
-            icon={
-              <div
-                style={{
-                  width: 16,
-                  height: 16,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <svg
-                  width="12"
-                  height="10"
-                  viewBox="0 0 12 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12 1.16667L4 9.16667L0.333334 5.5L1.27333 4.56L4 7.28L11.06 0.226669L12 1.16667Z"
-                    fill="#00821E"
-                  />
-                </svg>
-              </div>
-            }
-          />
+          <Chip label="Label" contained variant="success" />
         </div>
         <div>
           <Chip

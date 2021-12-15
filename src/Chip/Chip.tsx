@@ -22,7 +22,7 @@ const useStyles = makeStyles<Theme, StyleProps>(() => ({
     height: props.height,
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "center",
   }),
 }));
 
@@ -52,7 +52,7 @@ const Chip: React.FC<ChipProps> = (props): React.ReactElement => {
         ? theme.danger.danger50
         : theme.primary.primary50,
     width: width ? width : "fit-content",
-    height: height ? height : "fit-content",
+    height: height ? height : 24,
     border:
       outlined || !contained
         ? variant === "neutral"
@@ -65,7 +65,7 @@ const Chip: React.FC<ChipProps> = (props): React.ReactElement => {
           ? `1px solid ${theme.danger.danger800}`
           : `1px solid ${theme.primary.primary800}`
         : null,
-    padding: outlined || !contained ? "3.5px 8px" : "3.5px 9px",
+    padding: outlined || !contained ? "0px 8px" : "0px 9px",
   };
   const classes = useStyles(styleProps);
   return (
@@ -83,13 +83,28 @@ const Chip: React.FC<ChipProps> = (props): React.ReactElement => {
             ? "danger800"
             : "primary800"
         }
-        style={{ marginRight: icon ? 4 : 0 }}
+        style={{ marginRight: variant === "success" ? 4 : 0 }}
       >
         {label}
       </Typography>
-      {icon}
+      {variant === "success" && !icon ? icon_success : icon}
     </div>
   );
 };
+
+const icon_success = (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M14 4.66666L6 12.6667L2.33333 9L3.27333 8.06L6 10.78L13.06 3.72666L14 4.66666Z"
+      fill="#00821E"
+    />
+  </svg>
+);
 
 export default Chip;

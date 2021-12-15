@@ -11,4 +11,5 @@ export interface DatePickerProps extends BoxProps {
   max?: string;
   defaultValue?: string;
   getValue?: (date: string) => void;
+  value?: string;
 }

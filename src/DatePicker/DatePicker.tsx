@@ -97,6 +97,7 @@ const DatePicker: React.FC<DatePickerProps> = (props): React.ReactElement => {
     ModalProps,
     defaultValue,
     getValue,
+    value,
     ...other
   } = props;
   const [year, setYear] = useState(Number(new Date().getFullYear()));
@@ -133,13 +134,20 @@ const DatePicker: React.FC<DatePickerProps> = (props): React.ReactElement => {
           getValue(`${year}-${month}`);
         }
       } else if (format === "day") {
-        getValue(date);
+        getValue(date.replace(/\//g, "-"));
       } else {
         getValue(String(year));
       }
       setIsClicked(false);
     }
   }, [isClicked]);
+
+  useEffect(() => {
+    if (value) {
+      setDate(changeDateFormatToSlash(value));
+    }
+  }, [value]);
+
   return (
     <div {...other}>
       {format !== "day" ? (
@@ -322,8 +330,8 @@ const DatePicker: React.FC<DatePickerProps> = (props): React.ReactElement => {
               <Typography variant="h6">
                 <span style={{ fontWeight: 400 }}>已選擇：</span>
                 {date &&
-                  `${date.split("-")[0]}年${date.split("-")[1]}月${
-                    date.split("-")[2]
+                  `${date.split("/")[0]}年${date.split("/")[1]}月${
+                    date.split("/")[2]
                   }日`}
               </Typography>
             ) : (
@@ -333,8 +341,8 @@ const DatePicker: React.FC<DatePickerProps> = (props): React.ReactElement => {
                 </Typography>
                 <Typography variant="subtitle">
                   {date &&
-                    `${date.split("-")[0]}年${date.split("-")[1]}月${
-                      date.split("-")[2]
+                    `${date.split("/")[0]}年${date.split("/")[1]}月${
+                      date.split("/")[2]
                     }日`}
                 </Typography>
               </>
@@ -503,16 +511,18 @@ const Calendar = ({
 }: CalendarProps) => {
   const isBigMonth: boolean =
     (month <= 7 && month % 2 !== 0) || (month >= 8 && month % 2 === 0);
-  const today = defaultValue ? new Date(defaultValue) : new Date();
-  const selectedYear = Number(date.split("-")[0]);
-  const selectedMonth = Number(date.split("-")[1]);
-  const selectedDate = Number(date.split("-")[2]);
+  const today = defaultValue
+    ? new Date(changeDateFormatToSlash(defaultValue))
+    : new Date();
+  const selectedYear = Number(date.split("/")[0]);
+  const selectedMonth = Number(date.split("/")[1]);
+  const selectedDate = Number(date.split("/")[2]);
 
-  const msOfMin = min ? new Date(min).getTime() : 0;
-  const msOfMax = max ? new Date(max).getTime() : 0;
-  const msOfFirstDayOfMonth = new Date(`${year}-${month}-1`).getTime();
+  const msOfMin = min ? new Date(changeDateFormatToSlash(min)).getTime() : 0;
+  const msOfMax = max ? new Date(changeDateFormatToSlash(max)).getTime() : 0;
+  const msOfFirstDayOfMonth = new Date(`${year}/${month}/1`).getTime();
   const msOfLastDayOfMonth = new Date(
-    `${year}-${month}-${
+    `${year}/${month}/${
       month === 2 ? (year % 4 === 0 ? 29 : 28) : isBigMonth ? 31 : 30
     }`
   ).getTime();
@@ -612,7 +622,7 @@ const Calendar = ({
             month === today.getMonth() + 1 &&
             dateNumber === today.getDate();
 
-          const msOfDate = new Date(`${year}-${month}-${dateNumber}`).getTime();
+          const msOfDate = new Date(`${year}/${month}/${dateNumber}`).getTime();
           const disabled: boolean =
             (msOfMin !== 0 && msOfDate < msOfMin) ||
             (msOfMax !== 0 && msOfDate > msOfMax);
@@ -621,7 +631,7 @@ const Calendar = ({
               key={i}
               className={classes.date}
               onClick={() => {
-                setDate(`${year}-${month}-${dateNumber}`);
+                setDate(`${year}/${month}/${dateNumber}`);
                 setIsClicked(true);
               }}
               style={{
@@ -648,8 +658,13 @@ const Calendar = ({
 };
 
 const firstDayOfMonth = (year: number, month: number) => {
-  const firstDay = year + "-" + month + "-" + 1;
+  const firstDay = year + "/" + month + "/" + 1;
+
   return new Date(firstDay).getDay();
+};
+
+const changeDateFormatToSlash = (date: string) => {
+  return date.replace(/-/g, "/");
 };
 
 const verticalline = (

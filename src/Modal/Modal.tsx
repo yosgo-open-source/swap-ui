@@ -507,7 +507,6 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
         className: classes.backdrop,
         style: { overflow: "auto", WebkitOverflowScrolling: "touch" },
       }}
-      style={{ overflow: "auto", WebkitOverflowScrolling: "touch" }}
     >
       <ModalTransitionEffect
         in={open}

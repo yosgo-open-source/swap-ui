@@ -11,14 +11,22 @@ interface StyleProps {
   select: boolean;
 }
 const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
+  root: {
+    "& .MuiFormHelperText-contained": {
+      marginLeft: 16,
+      marginRight: 16,
+    },
+  },
   inputRoot: (props) => ({
     width: props.width,
     height: props.height,
     padding: "0px 16px",
     backgroundColor: "white",
     fontSize: 16,
-    lineHeight: 1.4,
+    lineHeight: "unset",
     fontWeight: 400,
+    display: "flex",
+    alignItems: "center",
     "& fieldset": {
       "& legend": {
         width: "0.01px",
@@ -46,11 +54,18 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     },
   }),
   input: {
+    fontSize: 16,
+    lineHeight: "unset",
+    fontWeight: 400,
+    display: "flex",
+    alignItems: "center",
     "&:-webkit-autofill": {
       "-webkit-box-shadow": "0 0 0 100px #FFFFFF inset",
     },
     "&::placeholder": { color: theme.black.black700, opacity: 1 },
     padding: 0,
+    margin: 0,
+    height: "fit-content",
   },
   selectRoot: (props) => ({
     borderRadius: 8,
@@ -70,7 +85,11 @@ const useStyles = makeStyles<Theme, StyleProps>((theme: Theme) => ({
     "&.Mui-error": { color: theme.black.black700 },
   },
   shrink: {
-    transform: "translate(14px, -6px) !important",
+    transform: "translate(14px, -10px) !important",
+    height: 20,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "white",
     fontSize: 14,
     fontWeight: 700,
@@ -108,6 +127,7 @@ const TextField: React.FC<MyTextFieldProps> = (props): React.ReactElement => {
       fullWidth={fullWidth}
       select={select}
       {...other}
+      className={classes.root}
       variant="outlined"
       InputProps={{
         classes: {

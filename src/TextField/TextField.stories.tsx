@@ -31,7 +31,7 @@ const Demo: Story<MyTextFieldProps> = (args) => {
   return (
     <SWAPTheme>
       調整看看！
-      <div style={{ width: 800 }}>
+      <div style={{ width: 800, marginTop: 16 }}>
         <TextField {...args} />
       </div>
       <SWAPSpace size="m" />

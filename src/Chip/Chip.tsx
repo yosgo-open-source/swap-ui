@@ -1,6 +1,5 @@
 import { makeStyles, Theme, useTheme } from "@material-ui/core";
 import React from "react";
-import Typography from "../Typography/Typography";
 import { ChipProps } from "./Chip.types";
 
 // Style
@@ -10,6 +9,8 @@ interface StyleProps {
   height: string | number;
   border: string;
   padding: string;
+  color: string;
+  marginRight: number;
 }
 
 const useStyles = makeStyles<Theme, StyleProps>(() => ({
@@ -23,6 +24,11 @@ const useStyles = makeStyles<Theme, StyleProps>(() => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    fontSize: "0.75rem",
+    lineHeight: 1.4,
+    fontWeight: 700,
+    marginRight: props.marginRight,
+    color: props.color,
   }),
 }));
 
@@ -66,27 +72,22 @@ const Chip: React.FC<ChipProps> = (props): React.ReactElement => {
           : `1px solid ${theme.primary.primary800}`
         : null,
     padding: outlined || !contained ? "0px 8px" : "0px 9px",
+    color:
+      variant === "neutral"
+        ? theme.black.black800
+        : variant === "primary"
+        ? theme.primary.primary800
+        : variant === "success"
+        ? theme.success.success800
+        : variant === "danger"
+        ? theme.danger.danger800
+        : theme.primary.primary800,
+    marginRight: variant === "success" ? 4 : 0,
   };
   const classes = useStyles(styleProps);
   return (
     <div className={classes.root} {...other}>
-      <Typography
-        variant="caption1"
-        color={
-          variant === "neutral"
-            ? "black800"
-            : variant === "primary"
-            ? "primary800"
-            : variant === "success"
-            ? "success800"
-            : variant === "danger"
-            ? "danger800"
-            : "primary800"
-        }
-        style={{ marginRight: variant === "success" ? 4 : 0 }}
-      >
-        {label}
-      </Typography>
+      {label}
       {variant === "success" && !icon ? icon_success : icon}
     </div>
   );

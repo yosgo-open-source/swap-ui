@@ -25,7 +25,7 @@ const useStyles = makeStyles<Theme, StyleProps>(() => ({
     alignItems: "center",
     justifyContent: "center",
     fontSize: "0.75rem",
-    lineHeight: 1.4,
+    lineHeight: "17px",
     fontWeight: 700,
     marginRight: props.marginRight,
     color: props.color,

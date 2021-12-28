@@ -10,7 +10,6 @@ interface StyleProps {
   border: string;
   padding: string;
   color: string;
-  marginRight: number;
 }
 
 const useStyles = makeStyles<Theme, StyleProps>(() => ({
@@ -27,7 +26,6 @@ const useStyles = makeStyles<Theme, StyleProps>(() => ({
     fontSize: "0.75rem",
     lineHeight: "17px",
     fontWeight: 700,
-    marginRight: props.marginRight,
     color: props.color,
   }),
 }));
@@ -82,12 +80,13 @@ const Chip: React.FC<ChipProps> = (props): React.ReactElement => {
         : variant === "danger"
         ? theme.danger.danger800
         : theme.primary.primary800,
-    marginRight: variant === "success" ? 4 : 0,
   };
   const classes = useStyles(styleProps);
   return (
     <div className={classes.root} {...other}>
-      {label}
+      <span style={{ marginRight: variant === "success" ? 4 : 0 }}>
+        {label}
+      </span>
       {variant === "success" && !icon ? icon_success : icon}
     </div>
   );

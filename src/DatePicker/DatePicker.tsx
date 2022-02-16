@@ -102,10 +102,17 @@ const DatePicker: React.FC<DatePickerProps> = (props): React.ReactElement => {
   } = props;
   const [year, setYear] = useState(Number(new Date().getFullYear()));
   const [month, setMonth] = useState(Number(new Date().getMonth() + 1));
-  const [nextMonth, setNextMonth] = useState(1);
+  const [nextMonth, setNextMonth] = useState(Number(new Date().getMonth() + 2));
   const [date, setDate] = useState("");
   const [isOpenMonthSelector, setIsOpenMonthSelector] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+
+  useEffect(() => {
+    if (month === 12) {
+      setNextMonth(1);
+    }
+  }, []);
+
   useEffect(() => {
     if (format === "month") {
       if (month % 2 === 0) {

@@ -19,6 +19,7 @@ import Typography from "../Typography/Typography";
 import Button from "../Button/Button";
 import { useBreakpoints } from "..";
 import { animated, useSpring } from "react-spring";
+import Tooltip from "../Tooltip/Tooltip";
 
 interface ModalTransitionEffectProps {
   children?: React.ReactElement;
@@ -670,21 +671,41 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
                       }
                     >
                       {secondaryButton ? (
-                        <Button
-                          fullWidth={buttonFullWidth || footerDisplayColumn}
-                          variant={
-                            secondaryButton.variant
-                              ? secondaryButton.variant
-                              : "secondary"
-                          }
-                          size="small"
-                          onClick={secondaryButton.onClick}
-                          disabled={secondaryButton.disabled}
-                          loading={secondaryButton.loading}
-                          style={secondaryButton.style}
-                        >
-                          {secondaryButton.title}
-                        </Button>
+                        secondaryButton.tooltip ? (
+                          <Tooltip {...secondaryButton.tooltip}>
+                            <Button
+                              fullWidth={buttonFullWidth || footerDisplayColumn}
+                              variant={
+                                secondaryButton.variant
+                                  ? secondaryButton.variant
+                                  : "secondary"
+                              }
+                              size="small"
+                              onClick={secondaryButton.onClick}
+                              disabled={secondaryButton.disabled}
+                              loading={secondaryButton.loading}
+                              style={secondaryButton.style}
+                            >
+                              {secondaryButton.title}
+                            </Button>
+                          </Tooltip>
+                        ) : (
+                          <Button
+                            fullWidth={buttonFullWidth || footerDisplayColumn}
+                            variant={
+                              secondaryButton.variant
+                                ? secondaryButton.variant
+                                : "secondary"
+                            }
+                            size="small"
+                            onClick={secondaryButton.onClick}
+                            disabled={secondaryButton.disabled}
+                            loading={secondaryButton.loading}
+                            style={secondaryButton.style}
+                          >
+                            {secondaryButton.title}
+                          </Button>
+                        )
                       ) : null}
                     </Box>
                     <Box
@@ -692,23 +713,45 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
                       marginBottom={footerDisplayColumn ? 1 : 0}
                     >
                       {primaryButton ? (
-                        <Button
-                          fullWidth={
-                            buttonFullWidth || footerDisplayColumn || mobile
-                          }
-                          variant={
-                            primaryButton.variant
-                              ? primaryButton.variant
-                              : "primary"
-                          }
-                          size="small"
-                          onClick={primaryButton.onClick}
-                          disabled={primaryButton.disabled}
-                          loading={primaryButton.loading}
-                          style={primaryButton.style}
-                        >
-                          {primaryButton.title}
-                        </Button>
+                        primaryButton.tooltip ? (
+                          <Tooltip {...primaryButton.tooltip}>
+                            <Button
+                              fullWidth={
+                                buttonFullWidth || footerDisplayColumn || mobile
+                              }
+                              variant={
+                                primaryButton.variant
+                                  ? primaryButton.variant
+                                  : "primary"
+                              }
+                              size="small"
+                              onClick={primaryButton.onClick}
+                              disabled={primaryButton.disabled}
+                              loading={primaryButton.loading}
+                              style={primaryButton.style}
+                            >
+                              {primaryButton.title}
+                            </Button>
+                          </Tooltip>
+                        ) : (
+                          <Button
+                            fullWidth={
+                              buttonFullWidth || footerDisplayColumn || mobile
+                            }
+                            variant={
+                              primaryButton.variant
+                                ? primaryButton.variant
+                                : "primary"
+                            }
+                            size="small"
+                            onClick={primaryButton.onClick}
+                            disabled={primaryButton.disabled}
+                            loading={primaryButton.loading}
+                            style={primaryButton.style}
+                          >
+                            {primaryButton.title}
+                          </Button>
+                        )
                       ) : null}
                     </Box>
                   </Box>

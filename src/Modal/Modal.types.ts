@@ -1,3 +1,7 @@
+import { MyTooltipProps } from "../Tooltip/Tooltip.types";
+
+type OmitTooltipProps = Omit<MyTooltipProps, "children">;
+
 export interface ModalProps {
   footer?: React.ReactNode;
   multiline?: boolean;
@@ -37,6 +41,7 @@ export interface ModalProps {
       | "black"
       | "danger";
     loading?: boolean;
+    tooltip?: OmitTooltipProps;
   };
   primaryButton?: {
     title?: string | React.ReactNode;
@@ -51,6 +56,7 @@ export interface ModalProps {
       | "black"
       | "danger";
     loading?: boolean;
+    tooltip?: OmitTooltipProps;
   };
   disUnderLine?: boolean;
   disCloseIcon?: boolean;

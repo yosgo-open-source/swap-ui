@@ -172,6 +172,7 @@ const AutoComplete: React.FC<MyAutoCompleteProps> = (
     renderInput,
     optionsMaxHeight,
     anchorOrigin,
+    addNewOptionsText,
     ...other
   } = props;
   const styleProps: StyleProps = {
@@ -212,18 +213,17 @@ const AutoComplete: React.FC<MyAutoCompleteProps> = (
           noOptionsText={
             disableFreeInput ? (
               "無此選項"
-            ) : noOptionsText ? (
-              noOptionsText
             ) : (
               <div className={classes.noOptionValue}>
-                無此選項
+                {noOptionsText ? noOptionsText : "無此選項"}
                 <div
                   className={classes.linkText}
                   onMouseDown={() => {
                     handleNoOptionsValueChange(noOptionValue.value);
                   }}
                 >
-                  使用 「{noOptionValue.value}」
+                  {addNewOptionsText ? addNewOptionsText : "使用"} 「
+                  {noOptionValue.value}」
                 </div>
               </div>
             )

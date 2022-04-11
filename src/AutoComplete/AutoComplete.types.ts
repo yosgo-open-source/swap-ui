@@ -34,4 +34,5 @@ export interface MyAutoCompleteProps extends OmitAutocompleteProps {
   disableFreeInput?: boolean;
   optionsMaxHeight?: string | number;
   anchorOrigin?: { horizontal?: string | number; vertical?: string | number };
+  addNewOptionsText?: string;
 }

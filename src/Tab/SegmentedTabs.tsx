@@ -1,7 +1,7 @@
 import MaterialTabs from "@material-ui/core/Tabs";
 import React from "react";
 import { SegmentedTabsProps } from "./SegmentedTabs.types";
-import { makeStyles, Theme } from "@material-ui/core";
+import { makeStyles, TabScrollButton, Theme } from "@material-ui/core";
 
 // Style
 interface StyleProps {
@@ -51,6 +51,23 @@ const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
         indicator: classes.indicator,
       }}
       indicatorColor="primary"
+      ScrollButtonComponent={(props) => {
+        //自訂按鈕，disabled 時不顯示按鈕
+        console.log(props);
+        if (props.disabled === true) {
+          return (
+            <div
+              style={{
+                width: "5px",
+                transition: "width 1s",
+                transitionTimingFunction: "ease-in-out",
+              }}
+            />
+          );
+        } else {
+          return <TabScrollButton {...props} />;
+        }
+      }}
     >
       {children}
     </MaterialTabs>

@@ -93,6 +93,19 @@ const Demo: Story<MyTabsProps> = (args) => {
       <TabPanel value={value} index={2}>
         3
       </TabPanel>
+      <SWAPSpace size="l" />
+      <SegmentedTabs
+        value={4}
+        width={300}
+        scrollButtons="on"
+        variant="scrollable"
+      >
+        <SegmentedTab width={76} label="我的帳戶" onClick={() => {}} />
+        <SegmentedTab width={76} label="我的優惠券" onClick={() => {}} />
+        <SegmentedTab width={76} label="手續費" onClick={() => {}} />
+        <SegmentedTab width={76} label="我的方案" onClick={() => {}} />
+        <SegmentedTab width={76} label="財力證明" onClick={() => {}} />
+      </SegmentedTabs>
     </SWAPTheme>
   );
 };

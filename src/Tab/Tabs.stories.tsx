@@ -95,16 +95,16 @@ const Demo: Story<MyTabsProps> = (args) => {
       </TabPanel>
       <SWAPSpace size="l" />
       <SegmentedTabs
-        value={4}
+        value={3}
         width={300}
         scrollButtons="on"
         variant="scrollable"
       >
-        <SegmentedTab width={76} label="我的帳戶" onClick={() => {}} />
-        <SegmentedTab width={76} label="我的優惠券" onClick={() => {}} />
-        <SegmentedTab width={76} label="手續費" onClick={() => {}} />
-        <SegmentedTab width={76} label="我的方案" onClick={() => {}} />
-        <SegmentedTab width={76} label="財力證明" onClick={() => {}} />
+        <SegmentedTab label="我的帳戶" onClick={() => {}} />
+        <SegmentedTab label="我的優惠券" onClick={() => {}} />
+        <SegmentedTab label="請款手續費紀錄" onClick={() => {}} />
+        <SegmentedTab label="我的方案" onClick={() => {}} />
+        <SegmentedTab label="財力證明" onClick={() => {}} />
       </SegmentedTabs>
     </SWAPTheme>
   );

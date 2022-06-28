@@ -106,6 +106,7 @@ const Demo: Story<MyTabsProps> = (args) => {
         <SegmentedTab label="我的方案" onClick={() => {}} />
         <SegmentedTab label="財力證明" onClick={() => {}} />
       </SegmentedTabs>
+      <SWAPSpace size="l" />
     </SWAPTheme>
   );
 };

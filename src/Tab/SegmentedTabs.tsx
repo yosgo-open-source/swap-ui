@@ -2,6 +2,7 @@ import MaterialTabs from "@material-ui/core/Tabs";
 import React, { useEffect, useRef } from "react";
 import { SegmentedTabsProps } from "./SegmentedTabs.types";
 import { makeStyles, Theme } from "@material-ui/core";
+import smoothscroll from "smoothscroll-polyfill";
 
 // Style
 interface StyleProps {
@@ -53,6 +54,7 @@ const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
   const tabsRef = useRef(null);
 
   useEffect(() => {
+    smoothscroll.polyfill();
     if (
       tabsRef &&
       tabsRef.current &&
@@ -67,8 +69,8 @@ const SegmentedTabs: React.FC<SegmentedTabsProps> = ({
         setTimeout(() => {
           el.scrollIntoView({
             behavior: "smooth",
-            block: "end",
-            inline: "nearest",
+            block: "nearest",
+            inline: "center",
           });
         }, 1000);
       }

@@ -1,18 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 
 import { SWAPSpaceProps } from "./SWAPSpace.types";
 
 const SWAPSpace: React.FC<SWAPSpaceProps> = ({ size }) => {
-  return (
-    <div>
-      <SWAPSpaceWrap size={size} />
-    </div>
-  );
-};
-
-const SWAPSpaceWrap = styled.div`
-  height: ${({ size }: SWAPSpaceProps) => {
+  const height = () => {
     if (size === "xxs") {
       return 4;
     } else if (size === "xs") {
@@ -34,7 +25,8 @@ const SWAPSpaceWrap = styled.div`
     } else if (typeof size === "number") {
       return size;
     } else return 16;
-  }}px;
-`;
+  };
+  return <div style={{ height: `${height()}px` }} />;
+};
 
 export default SWAPSpace;

@@ -2,7 +2,7 @@ import React from "react";
 
 import { SWAPSpaceProps } from "./SWAPSpace.types";
 
-const SWAPSpace: React.FC<SWAPSpaceProps> = ({ size }) => {
+const SWAPSpace: React.FC<SWAPSpaceProps> = React.memo(({ size }) => {
   const height = () => {
     if (size === "xxs") {
       return 4;
@@ -27,6 +27,6 @@ const SWAPSpace: React.FC<SWAPSpaceProps> = ({ size }) => {
     } else return 16;
   };
   return <div style={{ height: `${height()}px` }} />;
-};
+});
 
 export default SWAPSpace;

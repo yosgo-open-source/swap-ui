@@ -4,23 +4,21 @@ import { ContainerProps } from "./Container.types";
 import { makeStyles } from "@material-ui/core";
 import { useBreakpoints } from "..";
 
-const Container: React.FC<ContainerProps> = ({
-  children,
-  style,
-  maxWidth,
-  padding,
-}) => {
-  const XXS = useBreakpoints("xxs");
-  const XS = useBreakpoints("xs");
-  const SM = useBreakpoints("sm");
-  const MD = useBreakpoints("md");
-  const LG = useBreakpoints("lg");
-  const XL = useBreakpoints("xl");
-  const XXL = useBreakpoints("xxl");
-
-  const useStyles = makeStyles({
-    root: {
-      maxWidth: maxWidth
+interface styleProps {
+  maxWidth: any;
+  padding: any;
+  XXL: any;
+  XL: any;
+  LG: any;
+  MD: any;
+  SM: any;
+  XS: any;
+  XXS: any;
+}
+const useStyles = makeStyles({
+  root: {
+    maxWidth: ({ maxWidth, XXL, XL, LG }: styleProps) =>
+      maxWidth
         ? maxWidth === "lg"
           ? 960
           : maxWidth === "xl"
@@ -35,7 +33,8 @@ const Container: React.FC<ContainerProps> = ({
         : LG
         ? 960
         : null,
-      padding: padding
+    padding: ({ padding, XXL, XL, LG, MD, SM, XS, XXS }: styleProps) =>
+      padding
         ? padding === "xxs"
           ? "0px 8px"
           : padding === "xs"
@@ -60,9 +59,34 @@ const Container: React.FC<ContainerProps> = ({
         : XXS
         ? "0px 8px"
         : null,
-    },
+  },
+});
+
+const Container: React.FC<ContainerProps> = ({
+  children,
+  style,
+  maxWidth,
+  padding,
+}) => {
+  const XXS = useBreakpoints("xxs");
+  const XS = useBreakpoints("xs");
+  const SM = useBreakpoints("sm");
+  const MD = useBreakpoints("md");
+  const LG = useBreakpoints("lg");
+  const XL = useBreakpoints("xl");
+  const XXL = useBreakpoints("xxl");
+
+  const classes = useStyles({
+    maxWidth,
+    padding,
+    XXL,
+    XL,
+    LG,
+    MD,
+    SM,
+    XS,
+    XXS,
   });
-  const classes = useStyles();
   return (
     <MaterialContainer className={classes.root} style={style}>
       {children}

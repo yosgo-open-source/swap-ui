@@ -24,4 +24,5 @@ export interface SWAPModalProps {
   errorMessage?: string;
   closeWindowOnSuccessMessage?: boolean;
   reloadOnWindowClose?: boolean;
+  fullScreen?: boolean;
 }

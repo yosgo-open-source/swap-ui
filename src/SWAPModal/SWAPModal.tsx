@@ -60,7 +60,8 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
   errorMessage,
   closeWindowOnSuccessMessage,
   reloadOnWindowClose,
-}) => {
+  fullScreen
+  }) => {
   const [sm, setSm] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
 
@@ -131,7 +132,7 @@ const SWAPModal: React.FC<SWAPModalProps> = ({
       <Fade in={open} timeout={{ enter: 300, exit: 300 }}>
         <SWAPModalWrap id={`modal_wrap_${title}`}>
           <ModalOpenEffect in={open} sm={sm}>
-            <Paper className="modal_inner" id={`modal_inner_${title}`}>
+            <Paper className={`modal_inner ${fullScreen ? 'full_screen' : ''}`} id={`modal_inner_${title}`}>
               {/**視窗標題區域 */}
               <div className="modal_inner_header" id={`modal_header_${title}`}>
                 <Container maxWidth="lg">
@@ -362,6 +363,10 @@ const SWAPModalWrap = styled.div`
       background: white;
       z-index: 1;
     }
+  }
+  .full_screen {
+    width: 100vw;
+    height: 100vh;
   }
   @media screen and (max-width: 960px) {
     align-items: flex-end;

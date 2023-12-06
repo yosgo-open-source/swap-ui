@@ -89,6 +89,7 @@ const ModalTransitionEffect = React.forwardRef<
 });
 interface styleProps {
   fullWidth: any;
+  fullScreen: any;
   match_XS: any;
   width: any;
   size: any;
@@ -119,15 +120,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: "center",
     border: "unset",
     borderRadius: 12,
-    margin: ({ fullWidth, match_XS }: styleProps) =>
-      fullWidth ? 0 : match_XS ? "0px 24px" : "0px 16px",
+    margin: ({ fullWidth, fullScreen, match_XS }: styleProps) =>
+      (fullWidth || fullScreen) ? 0 : match_XS ? "0px 24px" : "0px 16px",
   },
   backdrop: {
     transition: "all 0.2s ease-in-out !important",
   },
   modal: {
-    width: ({ width, size }: styleProps) =>
-      width
+    width: ({ fullScreen, width, size }: styleProps) =>
+        fullScreen
+        ? "100vw"
+        : width
         ? width
         : size === "large"
         ? 800
@@ -139,17 +142,17 @@ const useStyles = makeStyles((theme: Theme) => ({
         ? 320
         : "100%",
     maxWidth: ({ maxWidth }: styleProps) => maxWidth,
-    borderRadius: ({ fullWidth }: styleProps) =>
-      fullWidth ? "12px 12px 0px 0px" : 12,
+    borderRadius: ({ fullWidth, fullScreen }: styleProps) =>
+      fullScreen ? 0 : fullWidth ? "12px 12px 0px 0px" : 12,
     border: "unset",
-    boxShadow: theme.boxShadow.l,
+    boxShadow: ({ fullScreen }: styleProps) => fullScreen ? "unset" : theme.boxShadow.l,
     display: "flex",
     flexDirection: "column",
     outline: 0,
   },
   head: {
     height: "100%",
-    borderRadius: "12px 12px 0px 0px",
+    borderRadius: ({ fullScreen }: styleProps) => fullScreen ? 0 : "12px 12px 0px 0px",
     padding: ({
       headpadding,
       mobile,
@@ -427,13 +430,19 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   body: {
     transition: "all 0.2s ease-in-out",
-    height: ({ height }: styleProps) => (height ? height : "100%"),
+    height: ({ fullScreen, height }: styleProps) => fullScreen ? "calc(100vh - 146px)" : height ? height : "100%",
     padding: ({ bodyPadding, mobile }: styleProps) =>
       bodyPadding ? bodyPadding : mobile ? 16 : 24,
     position: "relative",
     pointerEvents: ({ onExit }: styleProps) => (onExit ? "none" : "unset"),
-    maxHeight: ({ bodyMaxHeight, fullWidth, clientHeight }: styleProps) =>
-      bodyMaxHeight ? bodyMaxHeight : fullWidth ? clientHeight : "unset",
+    maxHeight: ({ bodyMaxHeight, fullWidth, fullScreen, clientHeight }: styleProps) =>
+      fullScreen
+        ? "calc(100vh - 146px)"
+        : bodyMaxHeight
+        ? bodyMaxHeight
+        : fullWidth
+        ? clientHeight
+        : "unset",
     overflowY: ({ onExit }: styleProps) => (!onExit ? "scroll" : "hidden"),
     "&::-webkit-scrollbar": {
       backgroundColor: "transparent",
@@ -497,6 +506,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
     primaryButton,
     mobile,
     fullWidth,
+    fullScreen,
     bodyPadding,
     maxWidth,
     disCloseIcon,
@@ -534,6 +544,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
   const match_XS = useBreakpoints("xs");
   const classes = useStyles({
     fullWidth,
+    fullScreen,
     match_XS,
     width,
     size,
@@ -568,7 +579,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
     >
       <ModalTransitionEffect
         in={open}
-        slide={fullWidth}
+        slide={fullWidth || fullScreen}
         style={{
           outline: "none",
           transition: "ease-in-out",
@@ -662,7 +673,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
                         ? -16
                         : -24,
                       position:
-                        bodyMaxHeight || height || (mobile && fullWidth)
+                        bodyMaxHeight || height || (mobile && fullWidth) || fullScreen
                           ? "fixed"
                           : "absolute",
                       width: width
@@ -676,7 +687,9 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
                         : size === "extraSmall"
                         ? 320
                         : "100%",
-                      height: bodyMaxHeight
+                      height: fullScreen
+                        ? "100vh"
+                        : bodyMaxHeight
                         ? bodyMaxHeight
                         : height
                         ? height

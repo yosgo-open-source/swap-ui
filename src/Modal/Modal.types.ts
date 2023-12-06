@@ -14,6 +14,7 @@ export interface ModalProps {
   footerDisplayColumn?: boolean;
   mobile?: boolean;
   fullWidth?: boolean;
+  fullScreen?: boolean;
   onClose: () => void;
   width?: string | number;
   maxWidth?: string | number;

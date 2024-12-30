@@ -121,14 +121,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     border: "unset",
     borderRadius: 12,
     margin: ({ fullWidth, fullScreen, match_XS }: styleProps) =>
-      (fullWidth || fullScreen) ? 0 : match_XS ? "0px 24px" : "0px 16px",
+      fullWidth || fullScreen ? 0 : match_XS ? "0px 24px" : "0px 16px",
   },
   backdrop: {
     transition: "all 0.2s ease-in-out !important",
   },
   modal: {
     width: ({ fullScreen, width, size }: styleProps) =>
-        fullScreen
+      fullScreen
         ? "100vw"
         : width
         ? width
@@ -145,14 +145,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: ({ fullWidth, fullScreen }: styleProps) =>
       fullScreen ? 0 : fullWidth ? "12px 12px 0px 0px" : 12,
     border: "unset",
-    boxShadow: ({ fullScreen }: styleProps) => fullScreen ? "unset" : theme.boxShadow.l,
+    boxShadow: ({ fullScreen }: styleProps) =>
+      fullScreen ? "unset" : theme.boxShadow.l,
     display: "flex",
     flexDirection: "column",
     outline: 0,
   },
   head: {
     height: "100%",
-    borderRadius: ({ fullScreen }: styleProps) => fullScreen ? 0 : "12px 12px 0px 0px",
+    borderRadius: ({ fullScreen }: styleProps) =>
+      fullScreen ? 0 : "12px 12px 0px 0px",
     padding: ({
       headpadding,
       mobile,
@@ -430,14 +432,20 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   body: {
     transition: "all 0.2s ease-in-out",
-    height: ({ fullScreen, height }: styleProps) => fullScreen ? "calc(100vh - 146px)" : height ? height : "100%",
+    height: ({ fullScreen, height }: styleProps) =>
+      fullScreen ? "calc(100dvh - 146px)" : height ? height : "100%",
     padding: ({ bodyPadding, mobile }: styleProps) =>
       bodyPadding ? bodyPadding : mobile ? 16 : 24,
     position: "relative",
     pointerEvents: ({ onExit }: styleProps) => (onExit ? "none" : "unset"),
-    maxHeight: ({ bodyMaxHeight, fullWidth, fullScreen, clientHeight }: styleProps) =>
+    maxHeight: ({
+      bodyMaxHeight,
+      fullWidth,
+      fullScreen,
+      clientHeight,
+    }: styleProps) =>
       fullScreen
-        ? "calc(100vh - 146px)"
+        ? "calc(100dvh - 146px)"
         : bodyMaxHeight
         ? bodyMaxHeight
         : fullWidth
@@ -673,7 +681,10 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
                         ? -16
                         : -24,
                       position:
-                        bodyMaxHeight || height || (mobile && fullWidth) || fullScreen
+                        bodyMaxHeight ||
+                        height ||
+                        (mobile && fullWidth) ||
+                        fullScreen
                           ? "fixed"
                           : "absolute",
                       width: width
@@ -688,7 +699,7 @@ const Modal: React.FC<ModalProps> = React.forwardRef((props, ref) => {
                         ? 320
                         : "100%",
                       height: fullScreen
-                        ? "100vh"
+                        ? "100dvh"
                         : bodyMaxHeight
                         ? bodyMaxHeight
                         : height

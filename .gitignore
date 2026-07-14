@@ -3,3 +3,5 @@ build/
 storybook-static/
 .DS_Store
 .idea/
+.baseline/
+docs/superpowers/baseline/v1-screenshots/

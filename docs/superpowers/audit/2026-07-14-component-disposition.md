@@ -78,6 +78,7 @@
 | SWAPTaxField | 元件本體淘汰；稅務常數匯出保留（見下） |
 | AutocompleteCloseReason | 型別 re-export，v2 由 `@mui/material` 直接取得 |
 | （LandingPage） | **未在 index.ts 匯出**，屬死程式碼，隨 v1 封存（使用者已確認用不到） |
+| （Table） | **未在 index.ts 匯出**（src/Table 存在且有 story，但從未公開），死程式碼隨 v1 封存；產品端用 MUI 原生 Table |
 
 ## 保留匯出（EXPORT，非元件）
 

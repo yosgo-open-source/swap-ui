@@ -131,7 +131,7 @@ SWAPTheme 元件由 v2 的 `SWAPThemeProvider` + `createSwapTheme` 接替（角�
 2. **功能**：Vitest 測試全綠；客製元件 props 行為與 v1 相同。
 3. **效能**：以 Phase 0 基準對照，低階裝置實測——stylesheet 數量降至常數級；頁面互動不掉幀、不閃退。
 4. **DX**：安裝後包一層 `SWAPThemeProvider` 即可用；自訂 variant / token 有完整 TypeScript 提示。
-5. **互動實測**：透過 Chrome MCP 實際開啟新版 Storybook，逐元件點擊操作（點按鈕、開 Modal、切 Tab、填表單、調整 controls 面板的 props），確認每個 props 都運作正常、無 console 錯誤。
+5. **互動實測與新舊體驗比對**：透過 Chrome MCP 同時開啟 v1（gh-pages 成品，重現方法見 baseline/README.md）與 v2 兩版 Storybook，逐元件點擊操作（點按鈕、開 Modal、切 Tab、填表單、調整 controls 面板的 props），確認每個 props 運作正常、無 console 錯誤，且互動體驗（開闔、動畫、鍵盤操作）與 v1 一致或更好。
 
 ## 9. 風險與對策
 

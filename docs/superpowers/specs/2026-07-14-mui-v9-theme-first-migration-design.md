@@ -62,16 +62,19 @@ swap-ui v2 不再逐一「包裝」MUI 元件，而是一個**品牌 theme 套�
 ### 4.2 元件去向（初步分類，Phase 0 審計後定案）
 
 **A. 下沉為 theme（刪除元件檔，改用 MUI 原生 + styleOverrides / custom variants）：**
-AppBar、AutoComplete、Breadcrumb、BreadcrumbItem、Button、Card、CheckBox / CheckBoxList / RadioButton / RadioList、Chip、CircularProgress、Container、IconButton、Link、Menu / MenuItem / Select、Modal、Pagination、Paper、Progress、Skeleton、Snackbar、Switch、Tab / Tabs / TabPanel、Table、TextField、Tooltip、Typography。
+AutoComplete、Breadcrumb、BreadcrumbItem、Button、CheckBox / RadioButton、Chip、CircularProgress、Container、IconButton、Link、Menu / MenuItem / Select、Pagination、Paper、Skeleton、Switch、Tab / Tabs / TabPanel、TextField、Tooltip、Typography。
+
+（2026-07-14 審計後修正：Modal、Snackbar、Card、Progress、RadioList / CheckBoxList 為組合型元件，theme 無法表達組合結構，經使用者裁決改列 B 類「薄 CUSTOM wrapper」；AppBar 實為寫死的官網導覽列，裁決改列 C 類淘汰。詳見 `docs/superpowers/audit/2026-07-14-component-disposition.md`。）
 
 SWAP 特有的 variant（如 Button 的 `primary / secondary / tertiary / text / black / danger` 與 `small / medium / large` 尺寸）以 module augmentation 註冊為 MUI 合法 variant——產品端寫法幾乎不變（`<Button variant="primary">` 照舊），只是 import 來源改為 `@mui/material`。
 
 **B. 保留為客製元件（在 MUI v9 + Emotion 上重寫，props 盡量沿用）：**
-SWAPLogo、SWAPShare、TaxTextField（現役使用中）、Banner、DatePicker、Dropdown、SegmentedTab / SegmentedTabs（審計確認實際使用情況）。
+SWAPLogo、SWAPShare、TaxTextField（現役使用中）、Banner（內部改用 MUI Alert 實作）、DatePicker（改基於 `@mui/x-date-pickers` 的薄 wrapper）、Dropdown、SegmentedTab / SegmentedTabs。
+薄組合 wrapper（底層全用 MUI + theme，對外 props 沿用 v1）：Modal（MUI Dialog）、Snackbar、Card、Progress、RadioList / CheckBoxList。
 另保留稅務常數的具名匯出（SWAPTaxDescription、SWAPTaxExpenseLabel、SWAPTaxIncomeLabel、SWAPExpenseTypes、SWAPIncomeTypes）——目前未被使用但維持輸出，移至獨立的 tax 模組。
 
 **C. 淘汰（需求方已確認：SWAP 前綴元件為歷史包袱，均已被同名新版取代）：**
-SWAPAppBar、SWAPBanner、SWAPCopyField、SWAPDialog、SWAPModal、SWAPSpace、SWAPTaxField（元件本體；稅務常數匯出如上保留）、LandingPage。
+SWAPAppBar、SWAPBanner、SWAPCopyField、SWAPDialog、SWAPModal、SWAPSpace、SWAPTaxField（元件本體；稅務常數匯出如上保留）、LandingPage、AppBar（審計發現為寫死的官網導覽列，使用者裁決淘汰）。
 SWAPTheme 元件由 v2 的 `SWAPThemeProvider` + `createSwapTheme` 接替（角色保留、形式改變）。
 其餘純轉發、無加值的 wrapper 與死程式碼於審計時逐一判定（候選：Styles 等）。
 

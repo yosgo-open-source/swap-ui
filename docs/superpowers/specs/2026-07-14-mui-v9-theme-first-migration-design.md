@@ -121,6 +121,15 @@ SWAPTheme 元件由 v2 的 `SWAPThemeProvider` + `createSwapTheme` 接替（角�
 - peerDependencies：`@mui/material`、`react`、`react-dom`（Emotion 由 @mui/material 依賴自帶）。
 - SSR：套件本身 framework-agnostic；文件附 Next.js（@mui/material-nextjs **9.1.1**）與 React Router / 純 SPA 兩種接入指南。
 
+### 6.1 發佈安全規則（保護現役產品）
+
+現役產品端使用 `"@yosgo/swap-ui": "^1.0.142"`，registry 現況 `latest` = 1.0.142，尚無任何 2.x 發佈。以下規則確保 v2 開發與發佈期間，現役產品不會意外升級：
+
+- **caret 範圍天然隔離**：`^1.0.142` = `>=1.0.142 <2.0.0`，永遠不會解析到 2.x，預發佈版（`2.0.0-beta` 等）連 1.x 範圍都不符合。產品端 server 重啟不重裝依賴；重新部署用 `npm ci`（釘 lockfile）或 `npm install`（範圍內最高 1.x）皆碰不到 v2。
+- **所有 v2 預發佈一律 `npm publish --tag next`**：npm 預設會把任何版本（含 `2.0.0-beta`）推上 `latest`，導致 `npm install @yosgo/swap-ui`（不帶版本）的新安裝者抓到 beta。發 beta/alpha 一律加 `--tag next`，正式 `2.0.0` 穩定後才發到 `latest`。
+- **發版前檢查**：每次 `npm publish` 前確認 `npm dist-tag ls @yosgo/swap-ui`，確保 `latest` 仍指向預期版本。
+- 此規則的實作步驟寫入 Phase 4（發佈）計劃。
+
 ## 7. 執行階段
 
 | Phase | 內容 | 產出 |

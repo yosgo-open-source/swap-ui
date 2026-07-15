@@ -5,3 +5,4 @@ storybook-static/
 .idea/
 .baseline/
 docs/superpowers/baseline/v1-screenshots/
+*storybook.log

@@ -99,11 +99,18 @@ SWAPTheme 元件由 v2 的 `SWAPThemeProvider` + `createSwapTheme` 接替（角�
 | UI 基底 | @material-ui/core 4.11 + lab alpha | @mui/material **9.2.0** + @mui/icons-material **9.2.0**（Pagination / Skeleton / Autocomplete 已入 core，不再需要 lab） |
 | 樣式引擎 | JSS + styled-components 5 | Emotion 11（@emotion/react **11.14.0**、@emotion/styled **11.14.1**）；styled-components 移除 |
 | React | 17 | **19.2.7**（peer range `>=18`） |
-| TypeScript | 3.7 | **7.0.2**（Phase 1 最先驗證工具鏈相容性；退階選項 6.0.3 / 5.9.3） |
+| TypeScript | 3.7 | **6.0.3**（Phase 1 實測定版：TS 7.0.2 的原生編譯器不提供 tsup d.ts 產生所需的 JS compiler API，故退階至 6.0.3；語言特性與 7 同步，待 tsup 生態跟上 TS 7 再升） |
 | 打包 | Rollup 1 | tsup **8.5.1**（ESM + CJS、自動 d.ts、tree-shakable） |
-| Storybook | 6 | **10.5.0**（Vite builder） |
-| 測試 | Jest 24 + ts-jest | Vitest **4.1.10** + @testing-library/react **16.3.2** |
+| Storybook | 6 | **10.5.0**（Vite builder；addon：a11y、docs、mcp） |
+| 測試 | Jest 24 + ts-jest | Vitest **4.1.10** + @testing-library/react **16.3.2**（jsdom 單元測試） |
 | 字體 | 第三方 CDN @font-face | @fontsource/noto-sans-tc **5.2.9** + @fontsource/m-plus-rounded-1c **5.2.10**，自托管打包 |
+
+### 測試策略（兩層，缺一不可）
+
+1. **jsdom 單元/整合測試（Vitest + RTL）**：Phase 1 已就緒，每個元件的行為斷言跑在此層。
+2. **瀏覽器互動測試（`@storybook/addon-vitest`）**：**Phase 2/3 補裝**（使用者 2026-07-15 明確要求）。它把每個 story 的 `play` 互動腳本當成真實瀏覽器測試，進 CI 自動守回歸。Phase 1 暫不裝的原因：(a) 此版本組合有 `aria-query` 相依 bug；(b) 現階段無元件、無 `play` 腳本，裝了是空負擔。待 Phase 2 有真正元件與互動腳本時導入，屆時 aria-query 版本問題預期已隨生態更新解除（若未解，以 npm overrides 釘版本繞過）。
+3. **Chromatic 視覺回歸**：暫不採用（使用者裁決）；日後 UI 庫穩定、需像素級雲端把關時再評估。
+4. **Chrome MCP 人工驗收**：見 §8.5，負責遷移期間新舊體驗的人在迴圈比對，與上述自動化測試互補。
 
 ## 6. 套件對外介面（v2.0.0）
 

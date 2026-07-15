@@ -53,11 +53,13 @@
     "react": ">=18",
     "react-dom": ">=18"
   },
+  "dependencies": {
+    "@fontsource/m-plus-rounded-1c": "5.2.10",
+    "@fontsource/noto-sans-tc": "5.2.9"
+  },
   "devDependencies": {
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
-    "@fontsource/m-plus-rounded-1c": "5.2.10",
-    "@fontsource/noto-sans-tc": "5.2.9",
     "@mui/icons-material": "9.2.0",
     "@mui/material": "9.2.0",
     "@storybook/addon-a11y": "^10.5.0",

@@ -10,8 +10,9 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["src"],
+  "include": ["src", "vitest.config.ts", "vitest.setup.ts", "tsup.config.ts"],
   "exclude": ["legacy", "node_modules", "build"]
 }

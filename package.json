@@ -13,7 +13,9 @@
       "require": "./build/index.cjs"
     }
   },
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "sideEffects": false,
   "scripts": {
     "build": "tsup",
@@ -28,14 +30,23 @@
     "type": "git",
     "url": "git+https://github.com/yosgo-open-source/swap-ui.git"
   },
-  "keywords": ["React", "Component", "Library", "MUI", "Design-Tokens", "Storybook"],
+  "keywords": [
+    "React",
+    "Component",
+    "Library",
+    "MUI",
+    "Design-Tokens",
+    "Storybook"
+  ],
   "author": "kcin1993",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yosgo-open-source/swap-ui/issues"
   },
   "homepage": "https://github.com/yosgo-open-source/swap-ui",
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "@mui/material": "^9.0.0",
     "react": ">=18",
@@ -52,7 +63,7 @@
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "tsup": "8.5.1",
-    "typescript": "7.0.2",
+    "typescript": "^6.0.3",
     "vitest": "4.1.10"
   }
 }

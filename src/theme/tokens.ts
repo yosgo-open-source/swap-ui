@@ -1,0 +1,96 @@
+export const swapColors = {
+  primary: {
+    primary50: "#E6E9F8",
+    primary100: "#C1C7ED",
+    primary200: "#97A3E1",
+    primary300: "#6C7FD5",
+    primary400: "#4862CC",
+    primary500: "#1747C2",
+    primary600: "#0F3FB8",
+    primary700: "#0035AC",
+    primary800: "#1F3C8E",
+    primary900: "#002BA1",
+    primaryA11y: "#071E60",
+  },
+  secondary: {
+    secondary50: "#FEF8E3",
+    secondary100: "#FCECB7",
+    secondary200: "#FBDF8A",
+    secondary300: "#FAD45C",
+    secondary400: "#F9C93F",
+    secondary500: "#F8C131",
+    secondary600: "#F7B52C",
+    secondary700: "#F6A128",
+    secondary800: "#F59225",
+    secondary900: "#F27521",
+    secondaryA11y: "#E5640C",
+  },
+  danger: {
+    danger50: "#FFEBED",
+    danger100: "#FFCCD0",
+    danger200: "#F99894",
+    danger300: "#F26E6A",
+    danger400: "#FC4A43",
+    danger500: "#FF3622",
+    danger600: "#F32A23",
+    danger700: "#E11C1E",
+    danger800: "#D40F14",
+    danger900: "#C60003",
+    dangerA11y: "#A80003",
+  },
+  success: {
+    success50: "#E6F6E8",
+    success100: "#C3E8C6",
+    success200: "#9BD9A1",
+    success300: "#70CB7A",
+    success400: "#4CC05D",
+    success500: "#1EB43F",
+    success600: "#10A535",
+    success700: "#00932A",
+    success800: "#00821E",
+    success900: "#006305",
+    successA11y: "#015C16",
+  },
+  black: {
+    white: "#FFFFFF",
+    black100: "#F9F9F9",
+    black200: "#F6F6F6",
+    black300: "#F2F2F2",
+    black400: "#ECECEC",
+    black500: "#CCCCCC",
+    black600: "#909090",
+    black700: "#6F6F6F",
+    black800: "#4B4B4B",
+    black900: "#2D2D2D",
+    black1000: "#000000",
+  },
+} as const;
+
+export const swapRadius = {
+  s: "4px",
+  m: "8px",
+  l: "12px",
+  xl: "20px",
+} as const;
+
+export const swapShadows = {
+  s: "0px 2px 4px rgba(0, 0, 0, 0.12)",
+  m: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+  l: "0px 6px 24px rgba(0, 0, 0, 0.1)",
+  xl: "0px 8px 40px rgba(0, 0, 0, 0.12)",
+} as const;
+
+export const swapBreakpoints = {
+  xxs: 0,
+  xs: 375,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+  xxl: 1400,
+} as const;
+
+// @fontsource 的 font-family 名稱（含空格），與 v1 的 "MPLUSRounded1c" 不同
+export const swapFontFamily = ['"M PLUS Rounded 1c"', '"Noto Sans TC"', "sans-serif"].join(", ");
+
+export type SwapColors = typeof swapColors;

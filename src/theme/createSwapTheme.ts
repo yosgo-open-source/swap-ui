@@ -36,6 +36,11 @@ export function createSwapTheme(options?: ThemeOptions): Theme {
         MuiTypography: {
           defaultProps: { variantMapping: swapTypographyVariantMapping },
         },
+        MuiSkeleton: {
+          styleOverrides: {
+            root: { backgroundColor: c.black.black400, transform: "unset" },
+          },
+        },
         MuiButton: {
           defaultProps: {
             variant: "primary",

@@ -1,0 +1,24 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as SkeletonStories from "./Skeleton.stories";
+
+<Meta of={SkeletonStories} />
+
+# Skeleton
+
+載入中的骨架佔位。SWAP 主題把底色統一為淺灰 `black400`、取消預設縮放（實心矩形）。
+用原生 MUI Skeleton 即可，樣式由 theme 自動套用。
+
+## 使用時機
+
+- 資料載入時先顯示版面骨架，減少畫面跳動與空白等待感。
+- `variant`：文字列用 `text`、圖片/區塊用 `rectangular`、頭像用 `circular`。
+
+## 基本用法
+
+<Source language="tsx" code={`import Skeleton from "@mui/material/Skeleton";
+
+<Skeleton variant="rectangular" height={80} />`} />
+
+## 形狀
+
+<Canvas of={SkeletonStories.Shapes} />

@@ -33,6 +33,12 @@ test("options 可覆蓋", () => {
   expect(t.palette.primary.main).toBe("#000000");
 });
 
+test("MuiSkeleton override 就位", () => {
+  const t = createSwapTheme();
+  const root = t.components?.MuiSkeleton?.styleOverrides?.root as { backgroundColor?: string } | undefined;
+  expect(root?.backgroundColor).toBe("#ECECEC"); // black400
+});
+
 test("typography variants 併入 theme", () => {
   const t = createSwapTheme();
   const typ = t.typography as unknown as Record<string, { fontSize?: string; fontWeight?: number }>;

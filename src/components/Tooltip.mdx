@@ -1,0 +1,26 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as TooltipStories from "./Tooltip.stories";
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+滑鼠停留時顯示的補充說明。預設深色底白字；`light` 切淺色、`arrow` 加指向箭頭。
+
+## 使用時機
+
+- 為圖示按鈕、縮寫、需要解釋的欄位提供補充說明，不佔版面。
+- 說明較短用預設；需要指向特定元素用 `arrow`。
+- 淺色背景區域若深色 tooltip 太重，可用 `light`。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Tooltip } from "@yosgo/swap-ui";
+
+<Tooltip title="說明文字" arrow>
+  <IconButton>...</IconButton>
+</Tooltip>`} />
+
+## 樣式
+
+<Canvas of={TooltipStories.Variants} />

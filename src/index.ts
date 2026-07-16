@@ -16,5 +16,7 @@ export { default as Chip } from "./components/Chip";
 export type { ChipProps } from "./components/Chip.types";
 export { default as CircularProgress } from "./components/CircularProgress";
 export type { CircularProgressProps } from "./components/CircularProgress.types";
+export { default as Tooltip } from "./components/Tooltip";
+export type { TooltipProps } from "./components/Tooltip.types";
 
 export const SWAP_UI_VERSION = "2.0.0-alpha.0";

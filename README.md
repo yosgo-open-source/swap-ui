@@ -15,8 +15,8 @@ SWAP（[www.swap.work](https://www.swap.work)）的品牌 UI 套件，基於 [MU
 # 安裝
 
 ```bash
-# peerDependencies
-npm i react react-dom @mui/material
+# peerDependencies（emotion 是 @mui/material 的 optional peer，必須明確安裝）
+npm i react react-dom @mui/material @emotion/react @emotion/styled
 
 # swap-ui
 npm i @yosgo/swap-ui

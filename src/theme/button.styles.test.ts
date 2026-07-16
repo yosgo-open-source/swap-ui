@@ -30,7 +30,7 @@ test("每個 variant 為 loading spinner 設可見顏色（非 MUI 預設隱形�
     (v) => (v.props as { variant?: string }).variant,
   );
   for (const v of colored) {
-    const indicator = (v.style as Record<string, { color?: string }>)[
+    const indicator = (v.style as unknown as Record<string, { color?: string }>)[
       "& .MuiButton-loadingIndicator"
     ];
     expect(indicator?.color).toBeTruthy();

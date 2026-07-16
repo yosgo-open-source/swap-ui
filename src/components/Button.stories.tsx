@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { expect, fn, userEvent, within } from "storybook/test";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
@@ -58,11 +59,18 @@ export const Playground: Story = {
     children: "Button",
     loading: false,
     disabled: false,
+    onClick: fn(),
   },
   argTypes: {
     variant: { control: "select", options: VARIANTS },
     size: { control: "select", options: SIZES },
     loading: { control: "boolean" },
     disabled: { control: "boolean" },
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole("button", { name: "Button" });
+    await userEvent.click(button);
+    await expect(args.onClick).toHaveBeenCalledOnce();
   },
 };

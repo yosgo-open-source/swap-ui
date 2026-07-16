@@ -29,4 +29,5 @@ export const Dark: Story = {
 
 export const Playground: Story = {
   args: { dark: false, size: 32, thickness: 5 },
+  argTypes: { size: { control: "number" } },
 };

@@ -19,4 +19,5 @@ export const States: Story = {
 
 export const Playground: Story = {
   args: { label: "同意服務條款", disabled: false, disableHover: false },
+  argTypes: { label: { control: "text" }, icon: { control: false }, checkedIcon: { control: false } },
 };

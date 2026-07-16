@@ -66,6 +66,8 @@ export const Playground: Story = {
     style: {}
   },
   argTypes: {
+    children: { control: "text" },
+    style: { control: false },
     variant: { control: "select", options: SWAP_TYPOGRAPHY_VARIANTS },
     color: {
       control: "select",

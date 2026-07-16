@@ -18,5 +18,9 @@ export const Shapes: Story = {
 
 export const Playground: Story = {
   args: { variant: "rectangular", width: 240, height: 80 },
-  argTypes: { variant: { control: "select", options: ["text", "rectangular", "circular"] } },
+  argTypes: {
+    variant: { control: "select", options: ["text", "rectangular", "circular"] },
+    width: { control: "number" },
+    height: { control: "number" },
+  },
 };

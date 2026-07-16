@@ -62,6 +62,7 @@ export const Playground: Story = {
     onClick: fn(),
   },
   argTypes: {
+    children: { control: "text" },
     variant: { control: "select", options: VARIANTS },
     size: { control: "select", options: SIZES },
     loading: { control: "boolean" },

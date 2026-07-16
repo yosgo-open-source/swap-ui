@@ -30,5 +30,11 @@ export const Contained: Story = {
 
 export const Playground: Story = {
   args: { variant: "primary", label: "標籤", contained: false },
-  argTypes: { variant: { control: "select", options: VARIANTS } },
+  argTypes: {
+    variant: { control: "select", options: VARIANTS },
+    label: { control: "text" },
+    width: { control: "text" },
+    height: { control: "number" },
+    icon: { control: false },
+  },
 };

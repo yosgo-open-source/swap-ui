@@ -21,4 +21,5 @@ export const Group: Story = {
 
 export const Playground: Story = {
   args: { label: "選項", disabled: false, disableHover: false },
+  argTypes: { label: { control: "text" } },
 };

@@ -50,6 +50,7 @@ export const Collapsed: Story = {
 
 export const Playground: Story = {
   args: { maxItems: 3, separator: "/" },
+  argTypes: { separator: { control: "text" }, maxItems: { control: "number" } },
   render: (args) => (
     <Breadcrumb {...args}>
       {[

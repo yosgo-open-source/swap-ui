@@ -21,6 +21,7 @@ export const Basic: Story = {
 
 export const Playground: Story = {
   args: { width: 360, height: "auto" },
+  argTypes: { width: { control: "number" }, height: { control: "text" } },
   render: (args) => (
     <Paper {...args}>
       <Typography variant="title">卡片標題</Typography>

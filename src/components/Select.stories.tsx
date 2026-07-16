@@ -34,5 +34,6 @@ export const WithHelper: Story = {
 
 export const Playground: Story = {
   args: { placeholder: "請款類別", helperText: "", error: false, disabled: false, dropdown: false },
+  argTypes: { helperText: { control: "text" }, width: { control: "text" }, height: { control: "number" } },
   render: (args) => <Demo {...args} />,
 };

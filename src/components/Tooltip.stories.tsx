@@ -25,6 +25,7 @@ export const Variants: Story = {
 
 export const Playground: Story = {
   args: { title: "說明文字", light: false, arrow: false, width: 240, open: true },
+  argTypes: { title: { control: "text" }, width: { control: "number" } },
   render: (args) => (
     <Stack sx={{ p: 6, alignItems: "flex-start" }}>
       <Tooltip {...args}>

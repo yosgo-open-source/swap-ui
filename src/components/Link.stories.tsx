@@ -23,6 +23,7 @@ export const Colors: Story = {
 export const Playground: Story = {
   args: { children: "連結文字", color: "primary400", href: "#" },
   argTypes: {
+    children: { control: "text" },
     color: { control: "select", options: ["primary400", "danger800", "black800", "black1000"] },
   },
 };

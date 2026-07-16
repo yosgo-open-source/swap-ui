@@ -44,6 +44,12 @@ export const Playground: Story = {
     hoverFontColor: "",
     hoverIconColor: "",
   },
+  argTypes: {
+    children: { control: "text" },
+    width: { control: "number" },
+    height: { control: "number" },
+    iconChildren: { control: false },
+  },
   render: (args) => (
     <MenuList sx={{ width: 200, border: "1px solid #ECECEC", borderRadius: "8px" }}>
       <MenuItem {...args} />

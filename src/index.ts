@@ -70,6 +70,15 @@ export { default as SegmentedTab } from "./components/SegmentedTab";
 export { default as SegmentedTabs } from "./components/SegmentedTabs";
 export type { SegmentedTabProps, SegmentedTabsProps } from "./components/SegmentedTab.types";
 
+export {
+  SWAPIncomeTypes,
+  SWAPExpenseTypes,
+  SWAPTaxIncomeLabel,
+  SWAPTaxExpenseLabel,
+  SWAPTaxDescription,
+} from "./tax/constants";
+export type { IncomeCodeProps, ExpenseCodeProps, TaxFiledValueProps } from "./components/TaxTextField.types";
+
 export { default as useBreakpoints } from "./hooks/useBreakpoints";
 
 export const SWAP_UI_VERSION = "2.0.0-alpha.0";

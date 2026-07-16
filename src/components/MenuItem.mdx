@@ -1,0 +1,30 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as MenuItemStories from "./MenuItem.stories";
+
+<Meta of={MenuItemStories} />
+
+# MenuItem
+
+選單項目（14px 粗體、hover 品牌色）。搭配原生 MUI Menu 使用。
+
+> v1 的 `Menu` 是純轉發、無任何加值，v2 不再匯出——選單容器直接
+> `import Menu from "@mui/material/Menu"`。
+
+## 使用時機
+
+- 下拉操作選單（更多操作、右鍵選單）內的項目。
+- `iconChildren` 在項目尾端放圖示；hover 三色（底/字/圖示）可個別覆蓋——破壞性操作可換成 danger 色系。
+
+## 基本用法
+
+<Source language="tsx" code={`import { MenuItem } from "@yosgo/swap-ui";
+import Menu from "@mui/material/Menu";
+
+<Menu anchorEl={anchorEl} open={open} onClose={close}>
+  <MenuItem onClick={onEdit}>編輯</MenuItem>
+  <MenuItem hoverBackgroundColor="#FFEBED" hoverFontColor="#D40F14">刪除</MenuItem>
+</Menu>`} />
+
+## 搭配選單
+
+<Canvas of={MenuItemStories.WithMenu} />

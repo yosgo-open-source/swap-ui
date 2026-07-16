@@ -10,3 +10,10 @@ test("augmentation 讓 swap palette 與自訂斷點通過型別檢查", () => {
   expect(theme.palette.swap.primary.primary400).toBe("#4862CC");
   expect(theme.breakpoints.values.xxl).toBe(1400);
 });
+
+test("typography 自訂 variant 通過型別檢查", () => {
+  const theme = createTheme({
+    typography: { d1: { fontSize: "4.5rem" }, tiny2_loose: { fontSize: "0.625rem" } },
+  });
+  expect(theme.typography.d1.fontSize).toBe("4.5rem");
+});

@@ -1,0 +1,27 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as RadioButtonStories from "./RadioButton.stories";
+
+<Meta of={RadioButtonStories} />
+
+# RadioButton
+
+單選圓鈕（24px、品牌藍選中）。搭配 MUI `RadioGroup` 管理互斥選取。
+
+## 使用時機
+
+- 少量互斥選項（2–5 個）全部攤開讓使用者比較時。
+- 選項多時改用 Select 下拉；可複選用 CheckBox。
+
+## 基本用法
+
+<Source language="tsx" code={`import { RadioButton } from "@yosgo/swap-ui";
+import RadioGroup from "@mui/material/RadioGroup";
+
+<RadioGroup value={plan} onChange={(e) => setPlan(e.target.value)}>
+  <RadioButton value="monthly" label="月繳" />
+  <RadioButton value="yearly" label="年繳" />
+</RadioGroup>`} />
+
+## 群組
+
+<Canvas of={RadioButtonStories.Group} />

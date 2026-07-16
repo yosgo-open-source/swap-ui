@@ -1,0 +1,24 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as SWAPShareStories from "./SWAPShare.stories";
+
+<Meta of={SWAPShareStories} />
+
+# SWAPShare
+
+一列社群分享按鈕：Messenger、LINE、Email。
+
+## 使用時機
+
+- 分享請款單、個人頁等公開連結。
+- `url` 留空時分享當前頁網址；`emailSubject` / `sharedContent` 帶入 Email 主旨與內文。
+- Messenger 在行動裝置走 App 深連結、桌面走網頁對話框（沿 v1 行為）。
+
+## 基本用法
+
+<Source language="tsx" code={`import { SWAPShare } from "@yosgo/swap-ui";
+
+<SWAPShare url={publicUrl} emailSubject="推薦你看看" sharedContent="說明文字" />`} />
+
+## 基本
+
+<Canvas of={SWAPShareStories.Basic} />

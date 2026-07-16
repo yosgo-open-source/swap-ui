@@ -72,6 +72,8 @@ export type { SegmentedTabProps, SegmentedTabsProps } from "./components/Segment
 
 export { default as SWAPLogo } from "./components/SWAPLogo";
 export type { SWAPLogoProps } from "./components/SWAPLogo.types";
+export { default as SWAPShare } from "./components/SWAPShare";
+export type { SWAPShareProps } from "./components/SWAPShare.types";
 
 export {
   SWAPIncomeTypes,

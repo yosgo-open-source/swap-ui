@@ -70,6 +70,9 @@ const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
           </Typography>
         </Box>
         <MuiAutocomplete
+          // listbox 需留在面板內（v1 行為）：不 disablePortal 會被 portal 到 body，
+          // 跑出外框且與已選面板重疊（使用者回報的兩個問題同根因）
+          disablePortal
           {...other}
           open
           options={options}
@@ -112,7 +115,15 @@ const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
                 "&::-webkit-scrollbar-track-piece:end": { marginBottom: "12px" },
               },
             },
-            popper: { sx: { position: "relative" } },
+            // popper.js 會寫入 inline 的 absolute/transform，需 !important 拉回文流，
+            // 讓清單留在面板內、排在已選面板下方
+            popper: {
+              sx: {
+                position: "static !important",
+                transform: "none !important",
+                width: "100% !important",
+              },
+            },
           }}
           noOptionsText={
             disableFreeInput ? (

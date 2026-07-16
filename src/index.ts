@@ -18,5 +18,7 @@ export { default as CircularProgress } from "./components/CircularProgress";
 export type { CircularProgressProps } from "./components/CircularProgress.types";
 export { default as Tooltip } from "./components/Tooltip";
 export type { TooltipProps } from "./components/Tooltip.types";
+export { default as Container } from "./components/Container";
+export type { ContainerProps } from "./components/Container.types";
 
 export const SWAP_UI_VERSION = "2.0.0-alpha.0";

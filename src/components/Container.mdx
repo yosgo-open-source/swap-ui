@@ -1,0 +1,24 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as ContainerStories from "./Container.stories";
+
+<Meta of={ContainerStories} />
+
+# Container
+
+限制內容最大寬度並置中的版面容器。不指定 `maxWidth`/`padding` 時，會依裝置斷點自動調整。
+
+## 使用時機
+
+- 頁面主要內容區包一層 Container，避免在寬螢幕上文字/元素過度延展。
+- `maxWidth`：一般內容 `lg`(960)、較寬 `xl`(1140)、最寬 `xxl`(1320)。
+- 不傳 props 即為響應式預設（手機留較小邊距、大螢幕置中不留邊）。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Container } from "@yosgo/swap-ui";
+
+<Container maxWidth="lg">{children}</Container>`} />
+
+## maxWidth
+
+<Canvas of={ContainerStories.MaxWidths} />

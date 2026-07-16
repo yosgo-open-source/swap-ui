@@ -1,0 +1,25 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as SWAPLogoStories from "./SWAPLogo.stories";
+
+<Meta of={SWAPLogoStories} />
+
+# SWAPLogo
+
+SWAP 品牌 logo（8 種資產：一般/黑白/純圖示/BIZ 英中/各深色版）。
+
+## 使用時機
+
+- 導覽列、頁尾、登入頁等品牌露出。
+- 深色背景加 `dark`；BIZ 產品線用 `business`（中文版加 `chinese`）。
+- `size`：small 30 / middle 40 / large 48（BIZ 為 48/72/81），也可給數字或 CSS 長度。
+
+## 基本用法
+
+<Source language="tsx" code={`import { SWAPLogo } from "@yosgo/swap-ui";
+
+<SWAPLogo size="small" />
+<SWAPLogo business chinese />`} />
+
+## 全部變體
+
+<Canvas of={SWAPLogoStories.Variants} />

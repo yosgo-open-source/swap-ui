@@ -70,6 +70,9 @@ export { default as SegmentedTab } from "./components/SegmentedTab";
 export { default as SegmentedTabs } from "./components/SegmentedTabs";
 export type { SegmentedTabProps, SegmentedTabsProps } from "./components/SegmentedTab.types";
 
+export { default as SWAPLogo } from "./components/SWAPLogo";
+export type { SWAPLogoProps } from "./components/SWAPLogo.types";
+
 export {
   SWAPIncomeTypes,
   SWAPExpenseTypes,

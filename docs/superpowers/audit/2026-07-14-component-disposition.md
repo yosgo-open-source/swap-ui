@@ -34,7 +34,7 @@
 | TabPanel | THEME | `@mui/lab TabPanel` 或 28 行自寫 | value/index | — | lab v9 尚在 beta（9.0.0-beta.6），計劃二決定用 lab 或自寫 |
 | Snackbar | CUSTOM | `Snackbar` | ⚠️ variant(success/error)、transitionDirection、revertButton、closeIcon、icon、checkIcon、errorIcon | 2 variant × 進場方向 | ✅ 裁決：薄 CUSTOM wrapper（底層 MUI Snackbar + theme，props 沿用 v1） |
 | Modal | CUSTOM | `Dialog` | ⚠️ 849 行、20+ props：size(4 檔)、primaryButton/secondaryButton(含 tooltip/loading)、icon、fullScreen、dvh 修正… | 4 size × mobile/desktop × fullScreen + 按鈕組合 | ✅ 裁決：CUSTOM（MUI Dialog 上的薄組合層，props 沿用 v1） |
-| Banner | CUSTOM | 內部用 `Alert` 實作 | variant(info/normal/success/warning/error)、mobile、icon | 5 variant | ✅ 裁決：CUSTOM，內部映射 Alert severity，props 沿用 v1 |
+| Banner | CUSTOM | 忠實自繪（Box+icon+Typography） | variant(info/normal/success/warning/error)、mobile、icon | 5 variant | ✅ 裁決（2026-07-16 更新）：CUSTOM 忠實自繪——v1 視覺為全自訂組合，套 Alert 需對抗其 DOM/樣式；props 沿用 v1 |
 | Chip | THEME | `Chip` | variant(neutral/primary/success/danger)、outlined、contained、icon | 4 variant × outlined/contained | v1 實作基於 Box 而非 MuiChip，樣式簡單 |
 | CircularProgress | THEME | `CircularProgress` | dark、size、thickness | dark/light | 50 行，純轉發+配色 |
 | Pagination | THEME | `Pagination`（v9 core） | 透傳 lab PaginationProps | hover/selected | |
@@ -96,7 +96,7 @@
 
 1. **AppBar** → DROP（寫死的官網導覽列，非通用元件）。
 2. **Modal、Snackbar、Card、RadioList、CheckBoxList、Progress** → **薄 CUSTOM wrapper**：底層全用 MUI + theme，對外 props 沿用 v1，產品端繼續從 swap-ui import、用法不變。
-3. **Banner** → CUSTOM，內部用 MUI Alert 實作，props 沿用 v1。
+3. **Banner** → CUSTOM 忠實自繪（2026-07-16 由「內部用 Alert」更新，使用者同意），props 沿用 v1。
 4. **DatePicker** → 改用 `@mui/x-date-pickers` + 薄 wrapper 沿用 v1 props。
 5. **Select / AutoComplete / Dropdown**：自訂 props 面大且三者功能重疊，計劃二逐 prop 細審（對應 v9 slotProps 或裁撤）——未裁決，屬計劃二工作。
 

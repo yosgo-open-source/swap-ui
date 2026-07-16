@@ -47,3 +47,18 @@ export const Collapsed: Story = {
     </Breadcrumb>
   ),
 };
+
+export const Playground: Story = {
+  args: { maxItems: 3, separator: "/" },
+  render: (args) => (
+    <Breadcrumb {...args}>
+      {[
+        <BreadcrumbItem key="1" href="#">首頁</BreadcrumbItem>,
+        <BreadcrumbItem key="2" href="#">會員中心</BreadcrumbItem>,
+        <BreadcrumbItem key="3" href="#">請款</BreadcrumbItem>,
+        <BreadcrumbItem key="4" href="#">2026</BreadcrumbItem>,
+        <BreadcrumbItem key="5" last>七月帳單</BreadcrumbItem>,
+      ]}
+    </Breadcrumb>
+  ),
+};

@@ -15,3 +15,8 @@ export const Shapes: Story = {
     </Stack>
   ),
 };
+
+export const Playground: Story = {
+  args: { variant: "rectangular", width: 240, height: 80 },
+  argTypes: { variant: { control: "select", options: ["text", "rectangular", "circular"] } },
+};

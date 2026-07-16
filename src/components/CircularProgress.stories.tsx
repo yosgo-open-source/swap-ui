@@ -26,3 +26,7 @@ export const Dark: Story = {
     </Stack>
   ),
 };
+
+export const Playground: Story = {
+  args: { dark: false, size: 32, thickness: 5 },
+};

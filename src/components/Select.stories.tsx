@@ -8,7 +8,9 @@ const meta: Meta<typeof Select> = { title: "Inputs/Select", component: Select };
 export default meta;
 type Story = StoryObj<typeof Select>;
 
-const Demo: React.FC<{ error?: boolean; helperText?: React.ReactNode }> = (p) => {
+import type { SelectProps } from "./Select.types";
+
+const Demo: React.FC<Partial<SelectProps>> = (p) => {
   const [v, setV] = React.useState("");
   return (
     <Select placeholder="請款類別" value={v} onChange={(e) => setV(e.target.value as string)} {...p}>
@@ -28,4 +30,9 @@ export const WithHelper: Story = {
       <Demo error helperText="必填欄位" />
     </Stack>
   ),
+};
+
+export const Playground: Story = {
+  args: { placeholder: "請款類別", helperText: "", error: false, disabled: false, dropdown: false },
+  render: (args) => <Demo {...args} />,
 };

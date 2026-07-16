@@ -1,6 +1,7 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Menu from "@mui/material/Menu";
+import MenuList from "@mui/material/MenuList";
 import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 import MenuItem from "./MenuItem";
@@ -35,3 +36,17 @@ const Demo: React.FC = () => {
 };
 
 export const WithMenu: Story = { render: () => <Demo /> };
+
+export const Playground: Story = {
+  args: {
+    children: "選單項目",
+    hoverBackgroundColor: "",
+    hoverFontColor: "",
+    hoverIconColor: "",
+  },
+  render: (args) => (
+    <MenuList sx={{ width: 200, border: "1px solid #ECECEC", borderRadius: "8px" }}>
+      <MenuItem {...args} />
+    </MenuList>
+  ),
+};

@@ -18,3 +18,7 @@ export const Group: Story = {
     </RadioGroup>
   ),
 };
+
+export const Playground: Story = {
+  args: { label: "選項", disabled: false, disableHover: false },
+};

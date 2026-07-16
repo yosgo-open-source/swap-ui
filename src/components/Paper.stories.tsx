@@ -18,3 +18,15 @@ export const Basic: Story = {
     </div>
   ),
 };
+
+export const Playground: Story = {
+  args: { width: 360, height: "auto" },
+  render: (args) => (
+    <Paper {...args}>
+      <Typography variant="title">卡片標題</Typography>
+      <Typography variant="body2" color="tertiary">
+        調整右側 controls 看效果。
+      </Typography>
+    </Paper>
+  ),
+};

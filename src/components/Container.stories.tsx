@@ -18,3 +18,16 @@ export const MaxWidths: Story = {
     </>
   ),
 };
+
+export const Playground: Story = {
+  args: { maxWidth: "lg", padding: "sm" },
+  argTypes: {
+    maxWidth: { control: "select", options: ["lg", "xl", "xxl"] },
+    padding: { control: "select", options: ["xxs", "xs", "sm", "md"] },
+  },
+  render: (args) => (
+    <Container {...args}>
+      <div style={{ background: "#E6E9F8", padding: 8, textAlign: "center" }}>內容區</div>
+    </Container>
+  ),
+};

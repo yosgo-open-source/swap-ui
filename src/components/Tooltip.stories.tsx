@@ -22,3 +22,14 @@ export const Variants: Story = {
     </Stack>
   ),
 };
+
+export const Playground: Story = {
+  args: { title: "說明文字", light: false, arrow: false, width: 240, open: true },
+  render: (args) => (
+    <Stack sx={{ p: 6, alignItems: "flex-start" }}>
+      <Tooltip {...args}>
+        <Button variant="secondary">目標元素</Button>
+      </Tooltip>
+    </Stack>
+  ),
+};

@@ -1,0 +1,24 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as LinkStories from "./Link.stories";
+
+<Meta of={LinkStories} />
+
+# Link
+
+文字連結。粗體、hover 顯示底線，鍵盤 focus 帶品牌色外框。
+
+## 使用時機
+
+- 導向其他頁面或外部資源的行內文字。
+- 觸發「動作」（送出、開 Modal）請用 Button 的 `text` variant，不要用 Link。
+- `color` 接 SWAP token 名（如 `primary400`）；不指定為黑色。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Link } from "@yosgo/swap-ui";
+
+<Link href="/pricing" color="primary400">查看方案</Link>`} />
+
+## 顏色
+
+<Canvas of={LinkStories.Colors} />

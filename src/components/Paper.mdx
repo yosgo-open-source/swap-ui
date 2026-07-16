@@ -1,0 +1,24 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as PaperStories from "./Paper.stories";
+
+<Meta of={PaperStories} />
+
+# Paper
+
+帶外框與陰影的內容容器（12 圓角、xl 陰影），內距依裝置自動調整（桌機 40 / 平板 24 / 手機 16）。
+
+## 使用時機
+
+- 需要把一組內容框成一個視覺區塊（表單卡片、資訊卡、設定區塊）。
+- 預設寬高填滿父容器；用 `width` / `height` 指定固定尺寸。
+- 需要更輕的分隔（無陰影）時，用一般 MUI Paper 或 Card 而非此元件。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Paper } from "@yosgo/swap-ui";
+
+<Paper>{children}</Paper>`} />
+
+## 基本樣式
+
+<Canvas of={PaperStories.Basic} />

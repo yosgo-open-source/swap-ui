@@ -32,3 +32,14 @@ test("options 可覆蓋", () => {
   const t = createSwapTheme({ palette: { primary: { main: "#000000" } } });
   expect(t.palette.primary.main).toBe("#000000");
 });
+
+test("typography variants 併入 theme", () => {
+  const t = createSwapTheme();
+  const typ = t.typography as unknown as Record<string, { fontSize?: string; fontWeight?: number }>;
+  expect(typ.d1.fontSize).toBe("4.5rem");
+  expect(typ.button_l.fontWeight).toBe(700);
+  const mapping = t.components?.MuiTypography?.defaultProps?.variantMapping as
+    | Record<string, string>
+    | undefined;
+  expect(mapping?.d1).toBe("h1");
+});

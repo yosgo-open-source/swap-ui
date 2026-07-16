@@ -3,6 +3,7 @@ import { deepmerge } from "@mui/utils";
 import "./augmentation";
 import { swapColors, swapRadius, swapShadows, swapBreakpoints, swapFontFamily } from "./tokens";
 import { buttonRootStyles, buttonVariants } from "./button.styles";
+import { swapTypographyVariants, swapTypographyVariantMapping } from "./typography.styles";
 
 const c = swapColors;
 
@@ -30,8 +31,11 @@ export function createSwapTheme(options?: ThemeOptions): Theme {
         },
       },
       shape: { borderRadius: 8 },
-      typography: { fontFamily: swapFontFamily },
+      typography: { fontFamily: swapFontFamily, ...swapTypographyVariants },
       components: {
+        MuiTypography: {
+          defaultProps: { variantMapping: swapTypographyVariantMapping },
+        },
         MuiButton: {
           defaultProps: {
             variant: "primary",

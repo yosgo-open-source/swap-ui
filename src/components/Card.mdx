@@ -1,0 +1,36 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as CardStories from "./Card.stories";
+
+<Meta of={CardStories} />
+
+# Card
+
+帶底部操作按鈕列的內容卡片。`loading` 時整卡自動換成骨架。
+
+## 使用時機
+
+- 清單中的資料卡片（請款單、專案）且卡片本身帶操作（查看/刪除）。
+- 純內容區塊（無按鈕列）用 Paper。
+- `buttons` 由左到右排列、均分寬度；破壞性操作放最後並用 `variant: "danger"`。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Card } from "@yosgo/swap-ui";
+
+<Card
+  loading={isLoading}
+  buttons={[
+    { title: "查看明細", onClick: view },
+    { title: "刪除", variant: "danger", onClick: remove },
+  ]}
+>
+  {content}
+</Card>`} />
+
+## 按鈕列
+
+<Canvas of={CardStories.WithButtons} />
+
+## 載入骨架
+
+<Canvas of={CardStories.Loading} />

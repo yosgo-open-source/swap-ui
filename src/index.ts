@@ -50,6 +50,8 @@ export type { TabProps, TabsProps, TabPanelProps } from "./components/Tab.types"
 
 export { default as Banner } from "./components/Banner";
 export type { BannerProps } from "./components/Banner.types";
+export { default as Card } from "./components/Card";
+export type { CardProps, CardButtonItem } from "./components/Card.types";
 export { default as AutoComplete } from "./components/AutoComplete";
 export type { AutoCompleteProps } from "./components/AutoComplete.types";
 export type { AutocompleteCloseReason } from "./components/AutoComplete";

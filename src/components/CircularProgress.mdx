@@ -1,0 +1,28 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as CPStories from "./CircularProgress.stories";
+
+<Meta of={CPStories} />
+
+# CircularProgress
+
+環形載入指示。SWAP 版是雙層圓環（淺色底環 + 品牌色轉環），比單環更清楚。
+
+## 使用時機
+
+- 局部載入（按鈕內、卡片內、小區塊）用小尺寸；整頁載入用大尺寸置中。
+- 深色背景上加 `dark`，圓環自動改用白色系。
+- 注意：此元件由雙層圓環組成，僅接受 `dark` / `size` / `thickness` 與容器 `style`／`className`。
+
+## 基本用法
+
+<Source language="tsx" code={`import { CircularProgress } from "@yosgo/swap-ui";
+
+<CircularProgress size={32} />`} />
+
+## 尺寸
+
+<Canvas of={CPStories.Sizes} />
+
+## 深色背景
+
+<Canvas of={CPStories.Dark} />

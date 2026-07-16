@@ -30,5 +30,7 @@ export { default as Breadcrumb } from "./components/Breadcrumb";
 export type { BreadcrumbProps } from "./components/Breadcrumb.types";
 export { default as BreadcrumbItem } from "./components/BreadcrumbItem";
 export type { BreadcrumbItemProps } from "./components/BreadcrumbItem.types";
+export { default as TextField } from "./components/TextField";
+export type { TextFieldProps } from "./components/TextField.types";
 
 export const SWAP_UI_VERSION = "2.0.0-alpha.0";

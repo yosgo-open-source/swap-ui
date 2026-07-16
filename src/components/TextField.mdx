@@ -1,0 +1,25 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as TextFieldStories from "./TextField.stories";
+
+<Meta of={TextFieldStories} />
+
+# TextField
+
+表單文字輸入框。label 浮在邊框上、focus 顯示品牌色光圈、錯誤時紅框。
+
+## 使用時機
+
+- 單行/多行文字輸入（`multiline`）；下拉選擇可用 `select` 模式搭配 MenuItem。
+- 驗證失敗時給 `error` + `helperText` 說明原因。
+- 寬高可用 `width` / `height` 指定，或 `fullWidth` 撐滿。
+
+## 基本用法
+
+<Source language="tsx" code={`import { TextField } from "@yosgo/swap-ui";
+
+<TextField label="信箱" placeholder="you@example.com"
+  error={!valid} helperText={!valid ? "格式不正確" : ""} />`} />
+
+## 狀態
+
+<Canvas of={TextFieldStories.States} />

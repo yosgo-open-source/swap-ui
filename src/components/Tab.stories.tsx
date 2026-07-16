@@ -43,4 +43,10 @@ export const Playground: Story = {
     fontSize: { control: "number" },
     margin: { control: "text" },
   },
+  // Tab 需在 Tabs 容器內渲染（MUI 9 context 約束）
+  render: (args) => (
+    <Tabs value={0}>
+      <Tab {...args} />
+    </Tabs>
+  ),
 };

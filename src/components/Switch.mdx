@@ -1,0 +1,23 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as SwitchStories from "./Switch.stories";
+
+<Meta of={SwitchStories} />
+
+# Switch
+
+開關切換（40×24）。開啟時品牌藍軌道、thumb 帶藍勾。
+
+## 使用時機
+
+- **立即生效**的二元設定（開啟通知、切換模式）——切了就生效，不需按「儲存」。
+- 需要送出表單才生效的勾選用 CheckBox。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Switch } from "@yosgo/swap-ui";
+
+<Switch checked={enabled} onChange={(e) => setEnabled(e.target.checked)} />`} />
+
+## 狀態
+
+<Canvas of={SwitchStories.States} />

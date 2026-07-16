@@ -36,5 +36,7 @@ export { default as CheckBox } from "./components/CheckBox";
 export type { CheckBoxProps } from "./components/CheckBox.types";
 export { default as RadioButton } from "./components/RadioButton";
 export type { RadioButtonProps } from "./components/RadioButton.types";
+export { default as Switch } from "./components/Switch";
+export type { SwitchProps } from "./components/Switch.types";
 
 export const SWAP_UI_VERSION = "2.0.0-alpha.0";

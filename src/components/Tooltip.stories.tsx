@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Tooltip from "./Tooltip";
 
-const meta: Meta<typeof Tooltip> = { title: "Components/Tooltip", component: Tooltip };
+const meta: Meta<typeof Tooltip> = { title: "Display/Tooltip", component: Tooltip };
 export default meta;
 type Story = StoryObj<typeof Tooltip>;
 

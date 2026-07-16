@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import Paper from "./Paper";
 import Typography from "./Typography";
 
-const meta: Meta<typeof Paper> = { title: "Components/Paper", component: Paper };
+const meta: Meta<typeof Paper> = { title: "Display/Paper", component: Paper };
 export default meta;
 type Story = StoryObj<typeof Paper>;
 

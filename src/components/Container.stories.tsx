@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Container from "./Container";
 
-const meta: Meta<typeof Container> = { title: "Components/Container", component: Container };
+const meta: Meta<typeof Container> = { title: "Layout/Container", component: Container };
 export default meta;
 type Story = StoryObj<typeof Container>;
 

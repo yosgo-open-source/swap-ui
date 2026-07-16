@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import CircularProgress from "./CircularProgress";
 
 const meta: Meta<typeof CircularProgress> = {
-  title: "Components/CircularProgress",
+  title: "Feedback/CircularProgress",
   component: CircularProgress,
 };
 export default meta;

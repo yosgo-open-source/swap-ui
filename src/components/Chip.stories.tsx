@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import Stack from "@mui/material/Stack";
 import Chip from "./Chip";
 
-const meta: Meta<typeof Chip> = { title: "Components/Chip", component: Chip };
+const meta: Meta<typeof Chip> = { title: "Display/Chip", component: Chip };
 export default meta;
 type Story = StoryObj<typeof Chip>;
 

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
 
-const meta: Meta<typeof Skeleton> = { title: "Components/Skeleton", component: Skeleton };
+const meta: Meta<typeof Skeleton> = { title: "Feedback/Skeleton", component: Skeleton };
 export default meta;
 type Story = StoryObj<typeof Skeleton>;
 

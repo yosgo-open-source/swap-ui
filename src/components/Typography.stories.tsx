@@ -4,7 +4,7 @@ import Typography from "./Typography";
 import { SWAP_TYPOGRAPHY_VARIANTS } from "../theme/typography.styles";
 
 const meta: Meta<typeof Typography> = {
-  title: "Components/Typography",
+  title: "Display/Typography",
   component: Typography,
 };
 export default meta;

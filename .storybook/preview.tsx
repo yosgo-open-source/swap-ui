@@ -16,6 +16,12 @@ const preview: Preview = {
       // 'off' - skip a11y checks entirely
       test: "todo",
     },
+    options: {
+      storySort: {
+        method: "alphabetical",
+        order: ["Inputs", "Display", "Feedback", "Navigation", "Layout"],
+      },
+    },
   },
   decorators: [
     (Story) => (

@@ -7,7 +7,7 @@ const VARIANTS = ["primary", "secondary", "tertiary", "text", "black", "danger"]
 const SIZES = ["small", "medium", "large"] as const;
 
 const meta: Meta<typeof Button> = {
-  title: "Components/Button",
+  title: "Inputs/Button",
   component: Button,
 };
 export default meta;

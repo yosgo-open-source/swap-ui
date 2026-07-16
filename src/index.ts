@@ -24,5 +24,7 @@ export { default as Paper } from "./components/Paper";
 export type { PaperProps } from "./components/Paper.types";
 export { default as Link } from "./components/Link";
 export type { LinkProps } from "./components/Link.types";
+export { default as IconButton } from "./components/IconButton";
+export type { IconButtonProps } from "./components/IconButton.types";
 
 export const SWAP_UI_VERSION = "2.0.0-alpha.0";

@@ -76,6 +76,8 @@ export { default as SWAPShare } from "./components/SWAPShare";
 export type { SWAPShareProps } from "./components/SWAPShare.types";
 export { default as TaxTextField } from "./components/TaxTextField";
 export type { TaxTextFieldProps } from "./components/TaxTextField.types";
+export { default as DatePicker } from "./components/DatePicker";
+export type { DatePickerProps } from "./components/DatePicker.types";
 
 export {
   SWAPIncomeTypes,

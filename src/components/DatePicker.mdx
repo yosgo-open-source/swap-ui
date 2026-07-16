@@ -1,0 +1,31 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as DatePickerStories from "./DatePicker.stories";
+
+<Meta of={DatePickerStories} />
+
+# DatePicker
+
+日期選擇彈窗。v2 起改基於 MUI X Date Pickers（日曆視覺與 v1 不同，props 與回呼格式沿 v1）。
+
+## 使用時機
+
+- 選擇單一日期/月份/年份（`format` 控制精度）。
+- `getValue` 回傳字串格式沿 v1：`"YYYY"`／`"YYYY-M"`／`"YYYY-M-D"`（**不補零**）。
+- `min` / `max` 限制可選範圍；`ModalProps` 可調彈窗（標題、尺寸等）。
+
+## 基本用法
+
+<Source language="tsx" code={`import { DatePicker } from "@yosgo/swap-ui";
+
+<DatePicker
+  open={open} onClose={close}
+  format="day" value={date}
+  min="2026-01-01" max="2026-12-31"
+  getValue={(d) => setDate(d)}
+/>`} />
+
+## 三種精度
+
+<Canvas of={DatePickerStories.Day} />
+<Canvas of={DatePickerStories.Month} />
+<Canvas of={DatePickerStories.Year} />

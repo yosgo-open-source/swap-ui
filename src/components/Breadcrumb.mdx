@@ -1,0 +1,32 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as BreadcrumbStories from "./Breadcrumb.stories";
+
+<Meta of={BreadcrumbStories} />
+
+# Breadcrumb
+
+麵包屑導覽，標示當前頁在層級中的位置。最後一項用 `last`（黑色粗體、不可點）。
+
+## 使用時機
+
+- 層級三層以上的頁面（列表 → 分類 → 詳情），幫使用者快速回上層。
+- 層級太深時給 `maxItems`，中間項會收合成「⋯」選單。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Breadcrumb, BreadcrumbItem } from "@yosgo/swap-ui";
+
+<Breadcrumb>
+  {[
+    <BreadcrumbItem key="1" href="/">首頁</BreadcrumbItem>,
+    <BreadcrumbItem key="2" last>目前頁面</BreadcrumbItem>,
+  ]}
+</Breadcrumb>`} />
+
+## 基本
+
+<Canvas of={BreadcrumbStories.Basic} />
+
+## 收合（maxItems）
+
+<Canvas of={BreadcrumbStories.Collapsed} />

@@ -26,5 +26,9 @@ export { default as Link } from "./components/Link";
 export type { LinkProps } from "./components/Link.types";
 export { default as IconButton } from "./components/IconButton";
 export type { IconButtonProps } from "./components/IconButton.types";
+export { default as Breadcrumb } from "./components/Breadcrumb";
+export type { BreadcrumbProps } from "./components/Breadcrumb.types";
+export { default as BreadcrumbItem } from "./components/BreadcrumbItem";
+export type { BreadcrumbItemProps } from "./components/BreadcrumbItem.types";
 
 export const SWAP_UI_VERSION = "2.0.0-alpha.0";

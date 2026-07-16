@@ -38,5 +38,7 @@ export { default as RadioButton } from "./components/RadioButton";
 export type { RadioButtonProps } from "./components/RadioButton.types";
 export { default as Switch } from "./components/Switch";
 export type { SwitchProps } from "./components/Switch.types";
+export { default as Select } from "./components/Select";
+export type { SelectProps } from "./components/Select.types";
 
 export const SWAP_UI_VERSION = "2.0.0-alpha.0";

@@ -1,0 +1,32 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as SelectStories from "./Select.stories";
+
+<Meta of={SelectStories} />
+
+# Select
+
+下拉選單（FormControl 組合，含浮動 label 與 helperText）。
+
+## 使用時機
+
+- 選項較多（5+）或空間有限的單選；少量選項攤開比較用 RadioButton。
+- `placeholder` 同時是浮動 label；`helperText` 放說明或錯誤訊息（配 `error`）。
+- 選單位置可用 `vertical` / `horizontal` / `transformOrigin` 微調。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Select } from "@yosgo/swap-ui";
+import MenuItem from "@mui/material/MenuItem";
+
+<Select placeholder="類別" value={v} onChange={(e) => setV(e.target.value)}>
+  <MenuItem value="design">設計費</MenuItem>
+  <MenuItem value="dev">開發費</MenuItem>
+</Select>`} />
+
+## 基本
+
+<Canvas of={SelectStories.Basic} />
+
+## 說明與錯誤
+
+<Canvas of={SelectStories.WithHelper} />

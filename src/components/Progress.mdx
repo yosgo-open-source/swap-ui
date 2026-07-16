@@ -1,0 +1,24 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as ProgressStories from "./Progress.stories";
+
+<Meta of={ProgressStories} />
+
+# Progress
+
+步驟進度條。目前步以白底藍框光圈突顯，完成步實心藍。
+
+## 使用時機
+
+- 多步驟流程（申請、註冊、結帳）標示目前位置。
+- `step` 從 1 起算；`label` 依序對應各步。
+- 環形載入用 CircularProgress；非步驟式進度另尋 LinearProgress。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Progress } from "@yosgo/swap-ui";
+
+<Progress step={2} count={4} label={["填寫資料", "確認內容", "送出", "完成"]} />`} />
+
+## 基本
+
+<Canvas of={ProgressStories.Basic} />

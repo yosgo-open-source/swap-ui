@@ -52,6 +52,8 @@ export { default as Banner } from "./components/Banner";
 export type { BannerProps } from "./components/Banner.types";
 export { default as Card } from "./components/Card";
 export type { CardProps, CardButtonItem } from "./components/Card.types";
+export { default as Progress } from "./components/Progress";
+export type { ProgressProps } from "./components/Progress.types";
 export { default as AutoComplete } from "./components/AutoComplete";
 export type { AutoCompleteProps } from "./components/AutoComplete.types";
 export type { AutocompleteCloseReason } from "./components/AutoComplete";

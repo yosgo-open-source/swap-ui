@@ -1,0 +1,36 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as RadioListStories from "./RadioList.stories";
+
+<Meta of={RadioListStories} />
+
+# RadioList / CheckBoxList
+
+可點選的選項卡片（內嵌 Radio / CheckBox）。選中時品牌藍框藍底。
+
+## 使用時機
+
+- 方案選擇（單選用 RadioList）、通知偏好（多選用 CheckBoxList）等需要「大點擊面積 + 說明文字」的選項。
+- 三種版型：預設（說明靠右）、`multiline`（說明在標題下）、`line`（標題｜直線｜長說明）。
+- `checked` 與點擊邏輯由使用端控制（整張卡片可點）。
+
+## 基本用法
+
+<Source language="tsx" code={`import { RadioList } from "@yosgo/swap-ui";
+
+<RadioList
+  checked={plan === "monthly"}
+  onClick={() => setPlan("monthly")}
+  title="月繳" subtitle="NT$ 300 / 月"
+/>`} />
+
+## 單選
+
+<Canvas of={RadioListStories.Basic} />
+
+## 三種版型
+
+<Canvas of={RadioListStories.Modes} />
+
+## 多選（CheckBoxList）
+
+<Canvas of={RadioListStories.CheckBoxes} />

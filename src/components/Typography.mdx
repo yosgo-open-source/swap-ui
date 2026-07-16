@@ -1,0 +1,47 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as TypographyStories from "./Typography.stories";
+
+<Meta of={TypographyStories} />
+
+# Typography
+
+SWAP 品牌排版元件，涵蓋 32 種字級 variant。`variant` 決定字級／字重／行高，
+`color` 決定文字顏色，`mode="dark"` 切換深色底適用的文字色。從 `@yosgo/swap-ui` 匯入。
+
+## 使用時機
+
+- **標題**：頁面主標用 `d1`–`d4`（Display）或 `h1`–`h6`；區塊標題用 `title` / `subtitle`。
+- **內文**：段落用 `body1` / `body2`；需要更寬鬆行距時用 `_loose` 版（如 `body1_loose`）。
+- **輔助文字**：說明、標註用 `caption1` / `caption2`；極小字用 `small*` / `tiny*`。
+- **顏色**：一般文字用語意色 `primary`（主）／`secondary`（次）／`tertiary`（輔）；
+  需要品牌色或狀態色時用 token 名（如 `primary400`、`danger800`）。
+- **深色底**：文字放在深色背景時加 `mode="dark"`，語意色會自動改用亮色。
+
+## 基本用法
+
+<Source
+  language="tsx"
+  code={`import { Typography } from "@yosgo/swap-ui";
+
+<Typography variant="body1" color="primary">
+  一般內文
+</Typography>`}
+/>
+
+## 字級一覽
+
+32 種 variant 的大小與粗細層次。
+
+<Canvas of={TypographyStories.Scale} />
+
+## 顏色
+
+`primary` / `secondary` / `tertiary` 是文字色語意（黑／深灰／灰，非品牌藍）；token 名對應該色階。
+
+<Canvas of={TypographyStories.Colors} />
+
+## 深色模式
+
+加 `mode="dark"`，語意色自動改亮色。
+
+<Canvas of={TypographyStories.DarkMode} />

@@ -58,7 +58,13 @@ export const DarkMode: Story = {
 };
 
 export const Playground: Story = {
-  args: { variant: "body1", color: "primary", children: "SWAP Typography" },
+  args: {
+    variant: "subtitle",
+    color: "tertiary",
+    children: "SWAP Typography",
+    mode: "",
+    style: {}
+  },
   argTypes: {
     variant: { control: "select", options: SWAP_TYPOGRAPHY_VARIANTS },
     color: {

@@ -6,3 +6,4 @@ storybook-static/
 .baseline/
 docs/superpowers/baseline/v1-screenshots/
 *storybook.log
+*.tgz

@@ -1,0 +1,43 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as ModalStories from "./Modal.stories";
+
+<Meta of={ModalStories} />
+
+# Modal
+
+對話彈窗（head / body / footer 完整組合）。四檔尺寸、成功/失敗圖示、行動版底部彈出與全螢幕。
+
+## 使用時機
+
+- 需要使用者**確認或決策**的操作（送出、刪除）；單純通知用 Snackbar。
+- `size`：extraSmall 320 / small 480 / medium 640 / large 800。
+- 行動版：`mobile` 調整字級與間距，搭 `fullWidth` 從底部滑出；`fullScreen` 全螢幕。
+- `primaryButton` / `secondaryButton` 支援 loading、disabled、tooltip；`footer` 可整段自訂。
+- `checked` / `failed` 在標題前顯示成功/警告圖示（`checkIconColor` / `iconColor` 給 token 名）。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Modal } from "@yosgo/swap-ui";
+
+<Modal
+  open={open} onClose={close}
+  title="確認送出請款單？" size="small"
+  secondaryButton={{ title: "取消", onClick: close }}
+  primaryButton={{ title: "送出", onClick: submit, loading }}
+>
+  送出後將通知業主付款。
+</Modal>`} />
+
+## 基本 / 說明文字
+
+<Canvas of={ModalStories.Basic} />
+<Canvas of={ModalStories.WithHelpText} />
+
+## 成功 / 失敗圖示
+
+<Canvas of={ModalStories.Checked} />
+<Canvas of={ModalStories.Failed} />
+
+## 行動版底部彈出
+
+<Canvas of={ModalStories.FullWidthMobile} />

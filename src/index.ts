@@ -54,6 +54,8 @@ export { default as Card } from "./components/Card";
 export type { CardProps, CardButtonItem } from "./components/Card.types";
 export { default as Progress } from "./components/Progress";
 export type { ProgressProps } from "./components/Progress.types";
+export { default as Modal } from "./components/Modal";
+export type { ModalProps, ModalButtonItem } from "./components/Modal.types";
 export { default as Snackbar } from "./components/Snackbar";
 export type { SnackbarProps } from "./components/Snackbar.types";
 export { default as RadioList } from "./components/RadioList";

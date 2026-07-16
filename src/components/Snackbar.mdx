@@ -1,0 +1,31 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as SnackbarStories from "./Snackbar.stories";
+
+<Meta of={SnackbarStories} />
+
+# Snackbar
+
+操作後的暫時回饋（底部浮出）。支援語意配色、收回操作、關閉鈕與四向進場。
+
+## 使用時機
+
+- 操作完成/失敗的**短暫**通知（儲存成功、刪除完成）；常駐提示用 Banner。
+- 可復原的操作（刪除）給 `revertButton`，預設文案「收回操作」。
+- `variant="success" + checkIcon`、`variant="error" + errorIcon` 是標準組合。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Snackbar } from "@yosgo/swap-ui";
+
+<Snackbar
+  open={open} autoHideDuration={3000} onClose={close}
+  message="已刪除 1 筆資料"
+  revertButton={{ onClick: undo }}
+  closeIcon={{ onClick: close }}
+/>`} />
+
+## 預設 / 成功 / 失敗
+
+<Canvas of={SnackbarStories.Default} />
+<Canvas of={SnackbarStories.Success} />
+<Canvas of={SnackbarStories.Error} />

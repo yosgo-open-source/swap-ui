@@ -48,6 +48,10 @@ export { default as Tabs } from "./components/Tabs";
 export { default as TabPanel } from "./components/TabPanel";
 export type { TabProps, TabsProps, TabPanelProps } from "./components/Tab.types";
 
+export { default as SegmentedTab } from "./components/SegmentedTab";
+export { default as SegmentedTabs } from "./components/SegmentedTabs";
+export type { SegmentedTabProps, SegmentedTabsProps } from "./components/SegmentedTab.types";
+
 export { default as useBreakpoints } from "./hooks/useBreakpoints";
 
 export const SWAP_UI_VERSION = "2.0.0-alpha.0";

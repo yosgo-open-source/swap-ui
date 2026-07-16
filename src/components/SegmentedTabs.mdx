@@ -1,0 +1,26 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as SegmentedTabsStories from "./SegmentedTabs.stories";
+
+<Meta of={SegmentedTabsStories} />
+
+# SegmentedTab / SegmentedTabs
+
+分段切換（膠囊型頁籤，外框圓角容器）。`slide` 開啟時選中底色以滑動動畫移動。
+
+## 使用時機
+
+- 同層級的檢視切換（清單/圖表、我的/全部），選項少且等權重時比 Tab 更聚焦。
+- 選項多到需要橫向捲動時加 `variant="scrollable"`（初載會自動把選中項捲進視野）。
+
+## 基本用法
+
+<Source language="tsx" code={`import { SegmentedTab, SegmentedTabs } from "@yosgo/swap-ui";
+
+<SegmentedTabs value={value} onChange={(_, v) => setValue(v)} slide>
+  <SegmentedTab label="我的請款單" />
+  <SegmentedTab label="SWAP Point 明細" />
+</SegmentedTabs>`} />
+
+## 基本 vs slide
+
+<Canvas of={SegmentedTabsStories.Compare} />

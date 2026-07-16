@@ -1,0 +1,24 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as BannerStories from "./Banner.stories";
+
+<Meta of={BannerStories} />
+
+# Banner
+
+頁面內的狀態提示橫幅。以 `variant` 決定語意配色與預設圖示。
+
+## 使用時機
+
+- 需要**常駐**在頁面/區塊內的提示（權限不足、功能維護中、操作結果說明）。
+- 操作後的**暫時**回饋用 Snackbar；重要決策用 Modal。
+- 內容較長時會自動改為頂部對齊（手機可強制 `mobile`）。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Banner } from "@yosgo/swap-ui";
+
+<Banner variant="warning">此功能將於 7/20 進行維護，期間暫停服務。</Banner>`} />
+
+## 五種語意
+
+<Canvas of={BannerStories.Variants} />

@@ -9,5 +9,6 @@ export const Basic: Story = { args: { count: 10, defaultPage: 3 } };
 export const Many: Story = { args: { count: 30, defaultPage: 15, siblingCount: 1 } };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["count", "defaultPage", "siblingCount", "disabled"] } },
   args: { count: 10, defaultPage: 1, siblingCount: 1, disabled: false },
 };

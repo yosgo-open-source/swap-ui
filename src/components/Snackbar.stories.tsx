@@ -38,6 +38,7 @@ export const Error: Story = {
 export const SlideUp: Story = { render: () => <Demo transitionDirection="up" /> };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["message", "variant", "checkIcon", "errorIcon", "transitionDirection"] } },
   args: {
     message: "已刪除 1 筆資料",
     variant: undefined,

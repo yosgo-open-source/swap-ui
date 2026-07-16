@@ -44,6 +44,7 @@ const CheckDemo: React.FC = () => {
 export const CheckBoxes: Story = { render: () => <CheckDemo /> };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["checked", "title", "subtitle", "multiline", "line", "width"] } },
   args: { checked: true, title: "月繳", subtitle: "NT$ 300 / 月", multiline: false, line: false },
   argTypes: {
     title: { control: "text" },

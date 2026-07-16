@@ -30,6 +30,7 @@ export const Sizes: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["width", "height", "helperText"] } },
   args: { width: 240, height: 40, helperText: "" },
   argTypes: {
     width: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },

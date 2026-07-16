@@ -29,6 +29,7 @@ export const Contained: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["variant", "label", "contained", "outlined", "width", "height"] } },
   args: { variant: "primary", label: "標籤", contained: false },
   argTypes: {
     variant: { control: "select", options: VARIANTS },

@@ -20,6 +20,7 @@ export const Basic: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["width", "height"] } },
   args: { width: 360, height: "auto" },
   argTypes: { width: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } }, height: { control: "text", description: "數字＝px；字串可用任意 CSS 長度（100px / 50% / fit-content）", table: { type: { summary: "number | string" } } } },
   render: (args) => (

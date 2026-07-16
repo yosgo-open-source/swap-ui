@@ -53,6 +53,7 @@ export const States: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["children", "variant", "size", "loading", "disabled"] } },
   args: {
     variant: "primary",
     size: "medium",

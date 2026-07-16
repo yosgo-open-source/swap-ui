@@ -33,7 +33,11 @@ export const WithHelper: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["placeholder", "helperText", "error", "disabled", "dropdown", "width", "height", "vertical", "horizontal"] } },
   args: { placeholder: "請款類別", helperText: "", error: false, disabled: false, dropdown: false },
-  argTypes: { helperText: { control: "text" }, width: { control: "text", description: "數字＝px；字串可用任意 CSS 長度（100px / 50% / fit-content）", table: { type: { summary: "number | string" } } }, height: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } } },
+  argTypes: {
+    vertical: { control: "select", options: ["top", "center", "bottom"], description: "選單垂直錨點" },
+    horizontal: { control: "select", options: ["left", "center", "right"], description: "選單水平錨點" },
+    helperText: { control: "text" }, width: { control: "text", description: "數字＝px；字串可用任意 CSS 長度（100px / 50% / fit-content）", table: { type: { summary: "number | string" } } }, height: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } } },
   render: (args) => <Demo {...args} />,
 };

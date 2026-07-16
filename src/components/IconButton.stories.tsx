@@ -22,3 +22,19 @@ export const Hover: Story = {
     </Stack>
   ),
 };
+
+export const Playground: Story = {
+  parameters: { controls: { include: ["hoverColor", "hoverIconColor", "width", "height", "disabled"] } },
+  args: { hoverColor: "primary50", hoverIconColor: "primary400", width: 32, height: 32, disabled: false },
+  argTypes: {
+    hoverColor: { control: "text", description: "SWAP token 名（如 primary50）或任意 CSS 色" },
+    hoverIconColor: { control: "text", description: "SWAP token 名或任意 CSS 色" },
+    width: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
+    height: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
+  },
+  render: (args) => (
+    <IconButton {...args}>
+      <CloseIcon />
+    </IconButton>
+  ),
+};

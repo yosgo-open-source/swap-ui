@@ -58,6 +58,7 @@ export const DarkMode: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["children", "variant", "color", "mode"] } },
   args: {
     variant: "subtitle",
     color: "tertiary",

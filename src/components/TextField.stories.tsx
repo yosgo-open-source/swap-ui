@@ -18,6 +18,7 @@ export const States: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["label", "placeholder", "helperText", "error", "disabled", "width", "height", "multiline"] } },
   args: {
     label: "標籤",
     placeholder: "請輸入",

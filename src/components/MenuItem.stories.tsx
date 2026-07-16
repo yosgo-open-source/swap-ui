@@ -38,6 +38,7 @@ const Demo: React.FC = () => {
 export const WithMenu: Story = { render: () => <Demo /> };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["children", "hoverBackgroundColor", "hoverFontColor", "hoverIconColor", "width", "height"] } },
   args: {
     children: "選單項目",
     hoverBackgroundColor: "",
@@ -46,6 +47,9 @@ export const Playground: Story = {
   },
   argTypes: {
     children: { control: "text" },
+    hoverBackgroundColor: { control: "text", description: "hover 底色（CSS 色，如 #FFEBED；留空用品牌預設）" },
+    hoverFontColor: { control: "text", description: "hover 文字色（CSS 色；留空用品牌預設）" },
+    hoverIconColor: { control: "text", description: "hover 圖示色（CSS 色；留空用品牌預設）" },
     width: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
     height: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
     iconChildren: { control: false },

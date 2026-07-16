@@ -18,6 +18,7 @@ export const States: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["label", "labelPlacement", "disabled", "disableHover"] } },
   args: { label: "同意服務條款", disabled: false, disableHover: false },
-  argTypes: { label: { control: "text" }, icon: { control: false }, checkedIcon: { control: false } },
+  argTypes: { label: { control: "text" }, labelPlacement: { control: "select", options: ["end", "start", "top", "bottom"], description: "label 相對位置" }, icon: { control: false }, checkedIcon: { control: false } },
 };

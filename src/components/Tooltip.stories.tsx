@@ -24,6 +24,7 @@ export const Variants: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["title", "light", "arrow", "width", "open"] } },
   args: { title: "說明文字", light: false, arrow: false, width: 240, open: true },
   argTypes: { title: { control: "text" }, width: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } } },
   render: (args) => (

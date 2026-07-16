@@ -18,5 +18,6 @@ export const States: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["disabled", "defaultChecked"] } },
   args: { disabled: false, defaultChecked: true },
 };

@@ -20,6 +20,7 @@ export const MaxWidths: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["maxWidth", "padding"] } },
   args: { maxWidth: "lg", padding: "sm" },
   argTypes: {
     maxWidth: { control: "select", options: ["lg", "xl", "xxl"] },

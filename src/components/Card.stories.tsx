@@ -40,6 +40,7 @@ export const Loading: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["loading", "width", "height"] } },
   args: { loading: false, width: 350 },
   argTypes: {
     width: { control: "text", description: "數字＝px；字串可用任意 CSS 長度（100px / 50% / fit-content）", table: { type: { summary: "number | string" } } },

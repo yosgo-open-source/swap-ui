@@ -21,6 +21,7 @@ export const Colors: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["children", "color", "href"] } },
   args: { children: "連結文字", color: "primary400", href: "#" },
   argTypes: {
     children: { control: "text" },

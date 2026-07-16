@@ -54,6 +54,7 @@ export const FullWidthMobile: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["title", "helpText", "size", "width", "disCloseIcon", "fullWidth", "fullScreen", "mobile", "onExit"] } },
   args: {
     title: "確認送出請款單？",
     helpText: "",

@@ -21,6 +21,7 @@ export const Variants: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["variant", "children", "mobile", "width"] } },
   args: { variant: "info", children: "提示訊息內容", mobile: false },
   argTypes: {
     variant: { control: "select", options: VARIANTS },

@@ -35,6 +35,7 @@ export const Basic: Story = { render: () => <Demo /> };
 export const WithAnimation: Story = { render: () => <Demo animation /> };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["label", "selected", "noIndicator", "animation", "width", "height", "fontSize", "margin"] } },
   args: { label: "分頁", selected: true, noIndicator: false, animation: true },
   argTypes: {
     label: { control: "text" },

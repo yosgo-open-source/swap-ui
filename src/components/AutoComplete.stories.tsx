@@ -9,7 +9,9 @@ type Story = StoryObj<typeof AutoComplete>;
 
 const BANKS = ["台灣銀行", "國泰世華", "玉山銀行", "中國信託", "台新銀行", "富邦銀行"];
 
-const Demo: React.FC<{ disableFreeInput?: boolean }> = (p) => {
+import type { AutoCompleteProps } from "./AutoComplete.types";
+
+const Demo: React.FC<Partial<AutoCompleteProps>> = (p) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [selected, setSelected] = React.useState<string>("");
   return (
@@ -43,3 +45,16 @@ const Demo: React.FC<{ disableFreeInput?: boolean }> = (p) => {
 
 export const Basic: Story = { render: () => <Demo /> };
 export const DisableFreeInput: Story = { render: () => <Demo disableFreeInput /> };
+
+export const Playground: Story = {
+  parameters: { controls: { include: ["title", "placeholder", "disableFreeInput", "width", "optionsMaxHeight", "addNewOptionsText"] } },
+  args: { title: "選擇銀行", placeholder: "搜尋銀行", disableFreeInput: false, width: 320, optionsMaxHeight: 200 },
+  argTypes: {
+    title: { control: "text" },
+    placeholder: { control: "text" },
+    addNewOptionsText: { control: "text", description: "自由輸入連結文案（預設「使用」）" },
+    width: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
+    optionsMaxHeight: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
+  },
+  render: (args) => <Demo {...args} />,
+};

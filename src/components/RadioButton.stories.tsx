@@ -20,6 +20,7 @@ export const Group: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["label", "labelPlacement", "disabled", "disableHover"] } },
   args: { label: "選項", disabled: false, disableHover: false },
-  argTypes: { label: { control: "text" } },
+  argTypes: { label: { control: "text" }, labelPlacement: { control: "select", options: ["end", "start", "top", "bottom"], description: "label 相對位置" } },
 };

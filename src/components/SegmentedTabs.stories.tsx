@@ -27,6 +27,7 @@ export const Basic: Story = { render: () => <Demo /> };
 export const Slide: Story = { render: () => <Demo slide /> };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["slide", "width"] } },
   args: { slide: true, width: "fit-content" },
   argTypes: {
     width: { control: "text", description: "數字（px）或 CSS 寬度字串；fit-content 貼合內容" },

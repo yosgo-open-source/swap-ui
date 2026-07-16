@@ -14,6 +14,7 @@ export const Basic: Story = {
 };
 
 export const Playground: Story = {
+  parameters: { controls: { include: ["step", "count", "size"] } },
   args: { step: 2, count: 4, label: ["填寫資料", "確認內容", "送出", "完成"] },
   argTypes: {
     step: { control: "number" },

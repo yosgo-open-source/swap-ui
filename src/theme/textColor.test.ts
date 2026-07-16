@@ -1,4 +1,10 @@
-import { resolveSwapTextColor } from "./textColor";
+import { resolveSwapTextColor, swapTokenMap } from "./textColor";
+
+test("swapTokenMap 攤平表", () => {
+  expect(swapTokenMap.primary400).toBe("#4862CC");
+  expect(swapTokenMap.black1000).toBe("#000000");
+  expect(swapTokenMap.white).toBe("#FFFFFF");
+});
 
 test("語意色隨 mode 變", () => {
   expect(resolveSwapTextColor("primary")).toBe("#000000"); // light: black1000

@@ -7,6 +7,7 @@ export const buttonRootStyles = {
   borderRadius: "8px",
   fontWeight: 700,
   lineHeight: 1.125,
+  whiteSpace: "nowrap" as const, // v1 將 children 包 nowrap 容器：按鈕文字不換行
 };
 
 // 每個 variant 一組色彩；狀態（hover/active/focus-visible/disabled）以巢狀選擇器表達

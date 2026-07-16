@@ -11,16 +11,19 @@ export interface SwapTypographyProps {
   style?: React.CSSProperties;
 }
 
-const Typography: React.FC<SwapTypographyProps> = ({
+// React.memo 沿用 v1（排版元件常大量重複渲染）
+const Typography: React.FC<SwapTypographyProps> = React.memo(function Typography({
   variant = "body1",
   color,
   mode,
   children,
   style,
-}) => (
-  <MuiTypography variant={variant} sx={{ color: resolveSwapTextColor(color, mode) }} style={style}>
-    {children}
-  </MuiTypography>
-);
+}) {
+  return (
+    <MuiTypography variant={variant} sx={{ color: resolveSwapTextColor(color, mode) }} style={style}>
+      {children}
+    </MuiTypography>
+  );
+});
 
 export default Typography;

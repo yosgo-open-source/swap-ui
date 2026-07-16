@@ -7,11 +7,14 @@ const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(function Text
   { width, height, sx, ...rest },
   ref,
 ) {
+  // v1 依賴使用端必傳 height、否則欄位高度坍塌（垂直 padding 為 0）。
+  // v2 改善：預設 48px（與 Button medium 同高）；multiline 維持自動高度。
+  const resolvedHeight = height ?? (rest.multiline ? undefined : 48);
   const ourStyles = {
     "& .MuiFormHelperText-root": { marginLeft: "16px", marginRight: "16px" },
     "& .MuiOutlinedInput-root": {
       width: width ?? undefined,
-      height: height ?? undefined,
+      height: resolvedHeight,
       padding: "0px 16px",
       backgroundColor: "white",
       fontSize: 16,
@@ -41,13 +44,34 @@ const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(function Text
       color: c.black.black800,
       "&.Mui-focused, &.Mui-error": { color: c.black.black800 },
     },
+    // select 模式（v1 selectRoot）
+    "& .MuiSelect-select": {
+      borderRadius: "8px",
+      fontWeight: 400,
+      minWidth: rest.fullWidth ? "100%" : "unset",
+      display: "flex",
+      alignItems: "center",
+      "&:focus": { backgroundColor: "white", borderRadius: "8px" },
+    },
+    "& .MuiSelect-icon": { color: c.black.black700 },
   };
+  // v1 select 模式的選單定位（anchorOrigin -9/-16）
+  const slotProps = rest.select
+    ? {
+        ...rest.slotProps,
+        select: {
+          MenuProps: { anchorOrigin: { vertical: -9 as const, horizontal: -16 as const } },
+          ...(rest.slotProps?.select as object | undefined),
+        },
+      }
+    : rest.slotProps;
   return (
     <MuiTextField
       ref={ref}
       variant="outlined"
       sx={[ourStyles, ...(Array.isArray(sx) ? sx : [sx])]}
       {...rest}
+      slotProps={slotProps}
     />
   );
 });

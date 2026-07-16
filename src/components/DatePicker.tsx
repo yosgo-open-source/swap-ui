@@ -37,7 +37,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
       open={open}
       onClose={() => onClose?.()}
       title="選擇日期"
-      size="extraSmall"
+      width="fit-content"
+      bodyPadding={8}
       mobile={mobile}
       {...ModalProps}
     >

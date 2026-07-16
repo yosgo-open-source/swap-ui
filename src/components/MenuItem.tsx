@@ -15,6 +15,7 @@ const MenuItem = React.forwardRef<HTMLLIElement, MenuItemProps>(function MenuIte
     hoverIconColor,
     rippleColor,
     iconChildren,
+    button: _button, // v4 遺留 prop，丟棄避免流入 DOM
     sx,
     ...rest
   },

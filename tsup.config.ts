@@ -14,4 +14,5 @@ export default defineConfig({
     "@emotion/react",
     "@emotion/styled",
   ],
+  loader: { ".svg": "dataurl" },
 });

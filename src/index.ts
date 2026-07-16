@@ -43,6 +43,11 @@ export type { SelectProps } from "./components/Select.types";
 export { default as MenuItem } from "./components/MenuItem";
 export type { MenuItemProps } from "./components/MenuItem.types";
 
+export { default as Tab } from "./components/Tab";
+export { default as Tabs } from "./components/Tabs";
+export { default as TabPanel } from "./components/TabPanel";
+export type { TabProps, TabsProps, TabPanelProps } from "./components/Tab.types";
+
 export { default as useBreakpoints } from "./hooks/useBreakpoints";
 
 export const SWAP_UI_VERSION = "2.0.0-alpha.0";

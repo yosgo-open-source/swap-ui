@@ -18,5 +18,16 @@ export const States: Story = {
 };
 
 export const Playground: Story = {
-  args: { label: "標籤", placeholder: "請輸入", error: false, disabled: false, helperText: "" },
+  args: {
+    label: "標籤",
+    placeholder: "請輸入",
+    error: false,
+    disabled: false,
+    helperText: "",
+    height: 80,
+  },
+  argTypes: {
+    height: { control: "number" },
+    width: { control: "text" },
+  },
 };

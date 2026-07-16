@@ -35,6 +35,15 @@ const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(function Text
       "&::placeholder": { color: c.black.black700, opacity: 1 },
       "&:-webkit-autofill": { WebkitBoxShadow: "0 0 0 100px #FFFFFF inset" },
     },
+    // resting label 垂直置中隨欄位高度自適應（MUI 預設偏移是按 56px 高算的，
+    // 48px 下會偏下 ~3.5px；label 行高約 23px）
+    ...(typeof resolvedHeight === "number"
+      ? {
+          "& .MuiInputLabel-root:not(.MuiInputLabel-shrink)": {
+            transform: `translate(14px, ${Math.round((resolvedHeight - 23) / 2)}px)`,
+          },
+        }
+      : {}),
     "& .MuiInputLabel-root.MuiInputLabel-shrink": {
       transform: "translate(14px, -10px)",
       backgroundColor: "white",

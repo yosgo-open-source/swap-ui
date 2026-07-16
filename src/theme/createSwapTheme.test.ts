@@ -33,6 +33,13 @@ test("options 可覆蓋", () => {
   expect(t.palette.primary.main).toBe("#000000");
 });
 
+test("MuiPagination/MuiPaginationItem override 就位", () => {
+  const t = createSwapTheme();
+  expect(t.components?.MuiPagination?.defaultProps?.shape).toBe("rounded");
+  const item = t.components?.MuiPaginationItem?.styleOverrides?.root as Record<string, unknown>;
+  expect(item.width).toBe(24);
+});
+
 test("MuiSkeleton override 就位", () => {
   const t = createSwapTheme();
   const root = t.components?.MuiSkeleton?.styleOverrides?.root as { backgroundColor?: string } | undefined;

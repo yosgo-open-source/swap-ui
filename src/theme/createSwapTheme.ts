@@ -41,6 +41,38 @@ export function createSwapTheme(options?: ThemeOptions): Theme {
             root: { backgroundColor: c.black.black400, transform: "unset" },
           },
         },
+        MuiPagination: {
+          defaultProps: { shape: "rounded", variant: "outlined" },
+        },
+        MuiPaginationItem: {
+          styleOverrides: {
+            root: {
+              minWidth: 24,
+              width: 24,
+              height: 24,
+              borderRadius: "5px",
+              borderColor: c.black.black500,
+              color: c.black.black800,
+              padding: 0,
+              margin: "0px 2px",
+              fontSize: 11,
+              fontWeight: 700,
+              lineHeight: 1.4,
+              transition: "color 250ms, background-color 250ms",
+              "&:hover": {
+                borderColor: c.black.black800,
+                backgroundColor: c.black.white,
+              },
+              "&.Mui-selected": {
+                color: c.black.white,
+                backgroundColor: c.primary.primary400,
+                border: "none",
+                boxShadow: swapShadows.s,
+                "&:hover": { backgroundColor: c.primary.primary400 },
+              },
+            },
+          },
+        },
         MuiButton: {
           defaultProps: {
             variant: "primary",

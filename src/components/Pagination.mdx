@@ -1,0 +1,27 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as PaginationStories from "./Pagination.stories";
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+分頁導覽。SWAP 樣式（24px 方塊、品牌藍選中態）由 theme 自動套用，直接用原生 MUI Pagination。
+
+## 使用時機
+
+- 清單/表格資料量大需要分頁時；`count` 為總頁數，`onChange` 取得目標頁。
+- 無限捲動的行動裝置情境可考慮不用分頁。
+
+## 基本用法
+
+<Source language="tsx" code={`import Pagination from "@mui/material/Pagination";
+
+<Pagination count={10} page={page} onChange={(e, p) => setPage(p)} />`} />
+
+## 基本
+
+<Canvas of={PaginationStories.Basic} />
+
+## 多頁（省略號）
+
+<Canvas of={PaginationStories.Many} />

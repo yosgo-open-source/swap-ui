@@ -1,0 +1,28 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as DropdownStories from "./Dropdown.stories";
+
+<Meta of={DropdownStories} />
+
+# Dropdown
+
+輕量下拉選擇（無浮動 label，粗體選值）。適合工具列上的篩選條件。
+
+## 使用時機
+
+- 頁面/清單的篩選器（時間範圍、排序方式）——選值本身就是說明，不需要 label。
+- 表單欄位（需要 label、錯誤狀態）用 Select。
+- `height` ≥ 56 時自動放大字級與內距。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Dropdown } from "@yosgo/swap-ui";
+import MenuItem from "@mui/material/MenuItem";
+
+<Dropdown value={range} onChange={(e) => setRange(e.target.value)} width={240} height={40}>
+  <MenuItem value="7d">近 7 天</MenuItem>
+  <MenuItem value="30d">近 30 天</MenuItem>
+</Dropdown>`} />
+
+## 尺寸
+
+<Canvas of={DropdownStories.Sizes} />

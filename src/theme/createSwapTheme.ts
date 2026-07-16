@@ -2,6 +2,7 @@ import { createTheme, type Theme, type ThemeOptions } from "@mui/material/styles
 import { deepmerge } from "@mui/utils";
 import "./augmentation";
 import { swapColors, swapRadius, swapShadows, swapBreakpoints, swapFontFamily } from "./tokens";
+import { buttonRootStyles, buttonVariants } from "./button.styles";
 
 const c = swapColors;
 
@@ -31,6 +32,16 @@ export function createSwapTheme(options?: ThemeOptions): Theme {
       shape: { borderRadius: 8 },
       typography: { fontFamily: swapFontFamily },
       components: {
+        MuiButton: {
+          defaultProps: {
+            variant: "primary",
+            disableElevation: true,
+            disableFocusRipple: true,
+          },
+          styleOverrides: {
+            root: { ...buttonRootStyles, variants: buttonVariants },
+          },
+        },
         MuiCard: {
           styleOverrides: {
             root: { borderRadius: "18px", border: "1px solid rgba(0, 0, 0, 0.13)" },

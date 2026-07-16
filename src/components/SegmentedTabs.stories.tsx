@@ -27,9 +27,20 @@ export const Basic: Story = { render: () => <Demo /> };
 export const Slide: Story = { render: () => <Demo slide /> };
 
 export const Playground: Story = {
-  args: { slide: true, width: 420 },
-  argTypes: { width: { control: "number" } },
+  args: { slide: true, width: "fit-content" },
+  argTypes: {
+    width: { control: "text", description: "數字（px）或 CSS 寬度字串；fit-content 貼合內容" },
+  },
   render: (args) => <Demo {...args} />,
+};
+
+export const FitContent: Story = {
+  render: () => (
+    <Stack spacing={2}>
+      <Demo />
+      <Demo width="fit-content" />
+    </Stack>
+  ),
 };
 
 export const Compare: Story = {

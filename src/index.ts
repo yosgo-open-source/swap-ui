@@ -32,5 +32,9 @@ export { default as BreadcrumbItem } from "./components/BreadcrumbItem";
 export type { BreadcrumbItemProps } from "./components/BreadcrumbItem.types";
 export { default as TextField } from "./components/TextField";
 export type { TextFieldProps } from "./components/TextField.types";
+export { default as CheckBox } from "./components/CheckBox";
+export type { CheckBoxProps } from "./components/CheckBox.types";
+export { default as RadioButton } from "./components/RadioButton";
+export type { RadioButtonProps } from "./components/RadioButton.types";
 
 export const SWAP_UI_VERSION = "2.0.0-alpha.0";

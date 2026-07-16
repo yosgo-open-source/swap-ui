@@ -1,0 +1,30 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as TaxTextFieldStories from "./TaxTextField.stories";
+
+<Meta of={TaxTextFieldStories} />
+
+# TaxTextField
+
+稅務申報類別欄位組（所得類別 + 執行業務類別連動）。
+
+## 使用時機
+
+- 請款流程的稅務申報區塊。內建規則：**9A/9B 才有費用類別**（選項依來源過濾；9A 用搜尋選單、9B 用下拉）、**50 薪資無費用類別**。
+- 選定後 `onChange` 回傳完整組合值（代號、標籤、稅務說明、`[代號] 標籤` 組字）。
+- 相關常數（`SWAPIncomeTypes`、`SWAPTaxDescription` 等）也由 swap-ui 匯出，可自行組 UI。
+
+## 基本用法
+
+<Source language="tsx" code={`import { TaxTextField } from "@yosgo/swap-ui";
+
+<TaxTextField
+  codeValue={value?.incomeCode ?? ""}
+  domainValue={value?.expenseCodeAndLabel ?? ""}
+  domainCodeValue={value?.expenseCode ?? ""}
+  onChange={setValue}
+/>`} />
+
+## 基本 / 行動版
+
+<Canvas of={TaxTextFieldStories.Basic} />
+<Canvas of={TaxTextFieldStories.Mobile} />

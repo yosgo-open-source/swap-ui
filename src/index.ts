@@ -74,6 +74,8 @@ export { default as SWAPLogo } from "./components/SWAPLogo";
 export type { SWAPLogoProps } from "./components/SWAPLogo.types";
 export { default as SWAPShare } from "./components/SWAPShare";
 export type { SWAPShareProps } from "./components/SWAPShare.types";
+export { default as TaxTextField } from "./components/TaxTextField";
+export type { TaxTextFieldProps } from "./components/TaxTextField.types";
 
 export {
   SWAPIncomeTypes,

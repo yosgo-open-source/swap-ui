@@ -6,6 +6,7 @@ import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import { swapColors as c } from "../theme/tokens";
 import type { SelectProps } from "./Select.types";
+import { cssSize } from "../utils/cssSize";
 
 const Select: React.FC<SelectProps> = ({
   children,
@@ -41,7 +42,7 @@ const Select: React.FC<SelectProps> = ({
     <FormControl
       variant="outlined"
       style={style}
-      sx={{ width: width ?? "100%" }}
+      sx={{ width: cssSize(width) ?? "100%" }}
     >
       <InputLabel
         style={placeholderStyle}

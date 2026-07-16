@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import { swapColors as c } from "../theme/tokens";
 import type { ChipProps } from "./Chip.types";
+import { cssSize } from "../utils/cssSize";
 
 const SHADE = {
   neutral: { fill: c.black.black300, border: c.black.black500, text: c.black.black800 },
@@ -33,8 +34,8 @@ const Chip = React.forwardRef<HTMLDivElement, ChipProps>(function Chip(
     fontSize: "0.75rem",
     lineHeight: "17px",
     fontWeight: 700,
-    width: width ?? "fit-content",
-    height: height ?? 24,
+    width: cssSize(width) ?? "fit-content",
+    height: cssSize(height) ?? 24,
     padding: isOutlined ? "0px 8px" : "0px 9px",
     backgroundColor: isOutlined ? c.black.white : s.fill,
     border: isOutlined ? `1px solid ${s.border}` : "none",

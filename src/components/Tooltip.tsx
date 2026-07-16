@@ -2,6 +2,7 @@ import * as React from "react";
 import MuiTooltip from "@mui/material/Tooltip";
 import { swapColors as c, swapShadows } from "../theme/tokens";
 import type { TooltipProps } from "./Tooltip.types";
+import { cssSize } from "../utils/cssSize";
 
 function resolveMargin(p: TooltipProps): string | number {
   if (p.margin) return p.margin;
@@ -37,7 +38,7 @@ const Tooltip: React.FC<TooltipProps> = (props) => {
     padding: arrow ? "7.5px 12px" : "12px",
     boxShadow: swapShadows.m,
     border: light ? `1px solid ${c.black.black500}` : "none",
-    maxWidth: width,
+    maxWidth: cssSize(width),
     fontSize: 12,
     lineHeight: 1.4,
     fontWeight: arrow ? 700 : 400,

@@ -20,7 +20,7 @@ export const Playground: Story = {
   args: { variant: "rectangular", width: 240, height: 80 },
   argTypes: {
     variant: { control: "select", options: ["text", "rectangular", "circular"] },
-    width: { control: "number" },
-    height: { control: "number" },
+    width: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
+    height: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
   },
 };

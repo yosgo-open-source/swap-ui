@@ -5,6 +5,7 @@ import FormHelperText from "@mui/material/FormHelperText";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import { swapColors as c } from "../theme/tokens";
 import type { DropdownProps } from "./Dropdown.types";
+import { cssSize } from "../utils/cssSize";
 
 const Dropdown: React.FC<DropdownProps> = ({
   children,
@@ -35,7 +36,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     "& .MuiSelect-icon": { marginTop: "2px", width: 20, height: 20, color: c.black.black800 },
   };
   return (
-    <FormControl variant="outlined" style={formControlStyle} sx={{ width: width ?? "100%" }}>
+    <FormControl variant="outlined" style={formControlStyle} sx={{ width: cssSize(width) ?? "100%" }}>
       <MuiSelect
         {...rest}
         inputProps={inputProps}

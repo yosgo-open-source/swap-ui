@@ -3,6 +3,7 @@ import MuiPaper from "@mui/material/Paper";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { swapColors as c, swapShadows, swapBreakpoints as bp } from "../theme/tokens";
 import type { PaperProps } from "./Paper.types";
+import { cssSize } from "../utils/cssSize";
 
 const Paper = React.forwardRef<HTMLDivElement, PaperProps>(function Paper(
   { width, height, sx, ...rest },
@@ -15,8 +16,8 @@ const Paper = React.forwardRef<HTMLDivElement, PaperProps>(function Paper(
     boxShadow: swapShadows.xl,
     borderRadius: "12px",
     border: `1px solid ${c.black.black500}`,
-    width: width ?? "100%",
-    height: height ?? "100%",
+    width: cssSize(width) ?? "100%",
+    height: cssSize(height) ?? "100%",
     padding: `${padding}px`,
   };
   return (

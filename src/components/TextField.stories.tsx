@@ -27,7 +27,7 @@ export const Playground: Story = {
     height: 80,
   },
   argTypes: {
-    height: { control: "number" },
-    width: { control: "text" },
+    height: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
+    width: { control: "text", description: "數字＝px；字串可用任意 CSS 長度（100px / 50% / fit-content）", table: { type: { summary: "number | string" } } },
   },
 };

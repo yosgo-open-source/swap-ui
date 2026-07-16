@@ -2,6 +2,7 @@ import * as React from "react";
 import MuiTextField from "@mui/material/TextField";
 import { swapColors as c } from "../theme/tokens";
 import type { TextFieldProps } from "./TextField.types";
+import { cssSize } from "../utils/cssSize";
 
 const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(function TextField(
   { width, height, sx, ...rest },
@@ -9,11 +10,11 @@ const TextField = React.forwardRef<HTMLDivElement, TextFieldProps>(function Text
 ) {
   // v1 依賴使用端必傳 height、否則欄位高度坍塌（垂直 padding 為 0）。
   // v2 改善：預設 48px（與 Button medium 同高）；multiline 維持自動高度。
-  const resolvedHeight = height ?? (rest.multiline ? undefined : 48);
+  const resolvedHeight = cssSize(height) ?? (rest.multiline ? undefined : 48);
   const ourStyles = {
     "& .MuiFormHelperText-root": { marginLeft: "16px", marginRight: "16px" },
     "& .MuiOutlinedInput-root": {
-      width: width ?? undefined,
+      width: cssSize(width),
       height: resolvedHeight,
       padding: "0px 16px",
       backgroundColor: "white",

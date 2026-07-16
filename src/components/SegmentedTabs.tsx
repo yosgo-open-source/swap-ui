@@ -2,6 +2,7 @@ import * as React from "react";
 import MuiTabs from "@mui/material/Tabs";
 import { swapColors as c } from "../theme/tokens";
 import type { SegmentedTabsProps } from "./SegmentedTab.types";
+import { cssSize } from "../utils/cssSize";
 
 const SegmentedTabs = React.forwardRef<HTMLDivElement, SegmentedTabsProps>(function SegmentedTabs(
   { children, width, slide, sx, ...rest },
@@ -23,7 +24,7 @@ const SegmentedTabs = React.forwardRef<HTMLDivElement, SegmentedTabsProps>(funct
   }, []);
 
   const ourStyles = {
-    width,
+    width: cssSize(width),
     boxSizing: "border-box" as const,
     border: `1px solid ${c.black.black500}`,
     borderRadius: "9px",

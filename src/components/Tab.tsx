@@ -3,6 +3,7 @@ import MuiTab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { swapColors as c } from "../theme/tokens";
 import type { TabProps } from "./Tab.types";
+import { cssSize } from "../utils/cssSize";
 
 const Tab = React.forwardRef<HTMLDivElement, TabProps>(function Tab(
   { label, selected, width, height, margin, fontSize, noIndicator, animation, sx, ...rest },
@@ -29,8 +30,8 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(function Tab(
       label={
         <Box
           sx={{
-            width: width ?? 56,
-            height: height ?? 56,
+            width: cssSize(width) ?? 56,
+            height: cssSize(height) ?? 56,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",

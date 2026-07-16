@@ -8,6 +8,7 @@ import { alpha } from "@mui/material/styles";
 import { swapColors as c, swapShadows } from "../theme/tokens";
 import Typography from "./Typography";
 import type { AutoCompleteProps } from "./AutoComplete.types";
+import { cssSize } from "../utils/cssSize";
 
 const checkSvg = (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +54,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
           border: `1px solid ${c.black.black500}`,
           boxShadow: swapShadows.m,
           borderRadius: "8px",
-          width: width ?? 320,
+          width: cssSize(width) ?? 320,
           zIndex: 1301,
           fontSize: 13,
           color: "#586069",
@@ -88,7 +89,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
             },
             listbox: {
               sx: {
-                maxHeight: optionsMaxHeight,
+                maxHeight: cssSize(optionsMaxHeight),
                 "& .MuiAutocomplete-option": {
                   fontSize: 14,
                   fontWeight: 700,

@@ -1,6 +1,7 @@
 import * as React from "react";
 import MuiTab from "@mui/material/Tab";
 import type { SegmentedTabProps } from "./SegmentedTab.types";
+import { cssSize } from "../utils/cssSize";
 
 const SegmentedTab = React.forwardRef<HTMLDivElement, SegmentedTabProps>(function SegmentedTab(
   { width, height, fontSize, flex, sx, ...rest },
@@ -10,8 +11,8 @@ const SegmentedTab = React.forwardRef<HTMLDivElement, SegmentedTabProps>(functio
     textTransform: "unset" as const,
     padding: "12px 16px",
     minWidth: 0,
-    minHeight: height ?? 40,
-    width: width ?? "fit-content",
+    minHeight: cssSize(height) ?? 40,
+    width: cssSize(width) ?? "fit-content",
     fontWeight: 700,
     fontSize: fontSize ?? 14,
     lineHeight: 1.4,

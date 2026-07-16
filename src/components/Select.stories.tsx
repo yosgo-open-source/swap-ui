@@ -34,6 +34,6 @@ export const WithHelper: Story = {
 
 export const Playground: Story = {
   args: { placeholder: "請款類別", helperText: "", error: false, disabled: false, dropdown: false },
-  argTypes: { helperText: { control: "text" }, width: { control: "text" }, height: { control: "number" } },
+  argTypes: { helperText: { control: "text" }, width: { control: "text", description: "數字＝px；字串可用任意 CSS 長度（100px / 50% / fit-content）", table: { type: { summary: "number | string" } } }, height: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } } },
   render: (args) => <Demo {...args} />,
 };

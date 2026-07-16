@@ -2,11 +2,12 @@ import * as React from "react";
 import MuiCircularProgress from "@mui/material/CircularProgress";
 import { swapColors as c } from "../theme/tokens";
 import type { CircularProgressProps } from "./CircularProgress.types";
+import { cssSize } from "../utils/cssSize";
 
 const CircularProgress = React.forwardRef<HTMLDivElement, CircularProgressProps>(
   function CircularProgress({ dark, size = 20, thickness = 5, style, ...rest }, ref) {
     return (
-      <div ref={ref} style={{ position: "relative", width: size, height: size, ...style }} {...rest}>
+      <div ref={ref} style={{ position: "relative", width: cssSize(size), height: cssSize(size), ...style }} {...rest}>
         <MuiCircularProgress
           variant="determinate"
           value={100}

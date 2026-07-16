@@ -32,8 +32,8 @@ export const Sizes: Story = {
 export const Playground: Story = {
   args: { width: 240, height: 40, helperText: "" },
   argTypes: {
-    width: { control: "number" },
-    height: { control: "number" },
+    width: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
+    height: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
     helperText: { control: "text" },
   },
   render: (args) => <Demo {...args} />,

@@ -38,8 +38,8 @@ export const Playground: Story = {
   args: { label: "分頁", selected: true, noIndicator: false, animation: true },
   argTypes: {
     label: { control: "text" },
-    width: { control: "number" },
-    height: { control: "number" },
+    width: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
+    height: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
     fontSize: { control: "number" },
     margin: { control: "text" },
   },

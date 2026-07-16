@@ -3,6 +3,7 @@ import MuiIconButton from "@mui/material/IconButton";
 import { swapTokenMap } from "../theme/textColor";
 import { swapColors as c } from "../theme/tokens";
 import type { IconButtonProps } from "./IconButton.types";
+import { cssSize } from "../utils/cssSize";
 
 const resolve = (v?: string) => (v ? (swapTokenMap[v] ?? v) : undefined);
 
@@ -13,8 +14,8 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(function
   const hoverBg = resolve(hoverColor) ?? c.black.black400;
   const hoverFill = resolve(hoverIconColor);
   const ourStyles = {
-    width,
-    height,
+    width: cssSize(width),
+    height: cssSize(height),
     borderRadius: "8px",
     "&:hover": {
       backgroundColor: hoverBg,

@@ -33,8 +33,8 @@ export const Playground: Story = {
   argTypes: {
     variant: { control: "select", options: VARIANTS },
     label: { control: "text" },
-    width: { control: "text" },
-    height: { control: "number" },
+    width: { control: "text", description: "數字＝px；字串可用任意 CSS 長度（100px / 50% / fit-content）", table: { type: { summary: "number | string" } } },
+    height: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
     icon: { control: false },
   },
 };

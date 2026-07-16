@@ -46,8 +46,8 @@ export const Playground: Story = {
   },
   argTypes: {
     children: { control: "text" },
-    width: { control: "number" },
-    height: { control: "number" },
+    width: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
+    height: { control: "number", description: "單位 px", table: { type: { summary: "number | string" } } },
     iconChildren: { control: false },
   },
   render: (args) => (

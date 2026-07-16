@@ -1,0 +1,34 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as AutoCompleteStories from "./AutoComplete.stories";
+
+<Meta of={AutoCompleteStories} />
+
+# AutoComplete
+
+搜尋式選單（常開 Popper 面板：標題 + 搜尋框 + 選項清單）。支援「找不到選項時以輸入值新增」的自由輸入流程。
+
+## 使用時機
+
+- 選項很多需要搜尋過濾（銀行、申報類別）。
+- 允許使用者新增不在清單中的值時，保留自由輸入（點「使用 『輸入值』」觸發 `handleNoOptionsValueChange`）；不允許則 `disableFreeInput`。
+- 由 `open` + `anchorEl` 控制開闔（通常掛在一顆按鈕上）。
+
+## 基本用法
+
+<Source language="tsx" code={`import { AutoComplete } from "@yosgo/swap-ui";
+
+<AutoComplete
+  open={Boolean(anchorEl)} anchorEl={anchorEl}
+  title="選擇銀行" placeholder="搜尋銀行"
+  options={banks} getOptionLabel={(o) => o}
+  onChange={(_, v) => select(v)}
+  handleNoOptionsValueChange={(v) => addAndSelect(v)}
+/>`} />
+
+## 基本（含自由輸入）
+
+<Canvas of={AutoCompleteStories.Basic} />
+
+## 關閉自由輸入
+
+<Canvas of={AutoCompleteStories.DisableFreeInput} />

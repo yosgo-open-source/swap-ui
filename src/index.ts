@@ -48,6 +48,9 @@ export { default as Tabs } from "./components/Tabs";
 export { default as TabPanel } from "./components/TabPanel";
 export type { TabProps, TabsProps, TabPanelProps } from "./components/Tab.types";
 
+export { default as AutoComplete } from "./components/AutoComplete";
+export type { AutoCompleteProps } from "./components/AutoComplete.types";
+export type { AutocompleteCloseReason } from "./components/AutoComplete";
 export { default as Dropdown } from "./components/Dropdown";
 export type { DropdownProps } from "./components/Dropdown.types";
 export { default as SegmentedTab } from "./components/SegmentedTab";

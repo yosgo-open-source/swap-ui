@@ -1,0 +1,28 @@
+import { Meta, Canvas, Source } from "@storybook/addon-docs/blocks";
+import * as ChipStories from "./Chip.stories";
+
+<Meta of={ChipStories} />
+
+# Chip
+
+標示狀態或分類的小標籤。以 `variant` 決定語意配色，`contained` 切換填色/描邊。
+
+## 使用時機
+
+- **狀態標記**（成功/危險/一般）→ 對應 `success` / `danger` / `neutral`。
+- **分類/標籤**：預設描邊樣式較輕，適合大量並列；需要強調時用 `contained` 填色。
+- `success` 會自動帶綠勾，不需另外傳 `icon`。
+
+## 基本用法
+
+<Source language="tsx" code={`import { Chip } from "@yosgo/swap-ui";
+
+<Chip variant="success" contained label="已完成" />`} />
+
+## 描邊（預設）
+
+<Canvas of={ChipStories.Outlined} />
+
+## 填色（contained）
+
+<Canvas of={ChipStories.Contained} />

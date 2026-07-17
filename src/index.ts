@@ -90,4 +90,4 @@ export type { IncomeCodeProps, ExpenseCodeProps, TaxFiledValueProps } from "./co
 
 export { default as useBreakpoints } from "./hooks/useBreakpoints";
 
-export const SWAP_UI_VERSION = "2.0.0-alpha.0";
+export const SWAP_UI_VERSION = "2.0.0-beta.1";

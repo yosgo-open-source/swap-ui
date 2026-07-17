@@ -72,4 +72,4 @@ npm dist-tag ls @yosgo/swap-ui
 
 # v1 → v2
 
-v1 原始碼封存於 `legacy/v1-src/`（master 分支保持 v1 原樣）。**遷移指南見 [MIGRATION.md](./MIGRATION.md)**（import 對照表、breaking 清單、Next.js / React Router 接入、常見錯誤對照），Storybook 手冊側欄最上方亦有同步的「遷移指南」頁。
+v1 原始碼封存於 `legacy/v1-src/`（master 分支保持 v1 原樣）。**遷移指南見 [MIGRATION.md](https://github.com/yosgo-open-source/swap-ui/blob/v2/MIGRATION.md)**（import 對照表、breaking 清單、Next.js / React Router 接入、常見錯誤對照），Storybook 手冊側欄最上方亦有同步的「遷移指南」頁。

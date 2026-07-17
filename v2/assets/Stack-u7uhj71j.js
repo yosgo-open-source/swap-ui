@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";import{_ as t,n,t as r,v as i}from"./styled-1csGAVYW.js";import{r as a,t as o}from"./DefaultPropsProvider-DNw0Mz9p.js";var s,c=e((()=>{t(),r(),o(),s=i({createStyledComponent:n(`div`,{name:`MuiStack`,slot:`Root`}),useThemeProps:e=>a({props:e,name:`MuiStack`})})})),l=e((()=>{c()}));export{s as n,c as r,l as t};

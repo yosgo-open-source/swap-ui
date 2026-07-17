@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";function t(e){return typeof e==`string`&&/^\d+(\.\d+)?$/.test(e.trim())?Number(e):e}var n=e((()=>{}));export{n,t};

@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";import{nt as t,tt as n}from"./styled-1csGAVYW.js";function r(e,n,r=`Mui`){let i={};return n.forEach(n=>{i[n]=t(e,n,r)}),i}var i=e((()=>{n()})),a=e((()=>{i()}));export{r as n,i as r,a as t};

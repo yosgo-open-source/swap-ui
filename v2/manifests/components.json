@@ -1,0 +1,4701 @@
+{
+  "v": 0,
+  "components": {
+    "inputs-autocomplete": {
+      "id": "inputs-autocomplete",
+      "name": "AutoComplete",
+      "path": "./src/components/AutoComplete.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "AutoComplete",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/AutoComplete.tsx",
+        "actualName": "AutoComplete",
+        "exportName": "default",
+        "props": {
+          "open": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "Popper 是否開啟（此元件為常開選單型，由使用端控制）"
+          },
+          "placement": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "| \"bottom-end\" | \"bottom-start\" | \"bottom\"\n| \"left-end\" | \"left-start\" | \"left\"\n| \"right-end\" | \"right-start\" | \"right\"\n| \"top-end\" | \"top-start\" | \"top\"",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"bottom-end\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"bottom-start\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"bottom\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"left-end\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"left-start\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"left\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"right-end\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"right-start\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"right\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"top-end\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"top-start\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"top\""
+                }
+              ]
+            },
+            "description": "Popper 位置（v1 宣告但未生效；v2 起實際生效，預設 bottom-start）"
+          },
+          "anchorEl": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "null | HTMLElement",
+              "elements": [
+                {
+                  "name": "null"
+                },
+                {
+                  "name": "HTMLElement"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "title": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "placeholder": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "optionsMaxHeight": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "anchorOrigin": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "object",
+              "raw": "{ horizontal?: string | number; vertical?: string | number }",
+              "signature": {
+                "properties": [
+                  {
+                    "key": "horizontal",
+                    "value": {
+                      "name": "union",
+                      "raw": "string | number",
+                      "elements": [
+                        {
+                          "name": "string"
+                        },
+                        {
+                          "name": "number"
+                        }
+                      ],
+                      "required": false
+                    }
+                  },
+                  {
+                    "key": "vertical",
+                    "value": {
+                      "name": "union",
+                      "raw": "string | number",
+                      "elements": [
+                        {
+                          "name": "string"
+                        },
+                        {
+                          "name": "number"
+                        }
+                      ],
+                      "required": false
+                    }
+                  }
+                ]
+              }
+            },
+            "description": "調整 Popper 位置（對應 v1：margin 偏移，預設 vertical -65 / horizontal 0）"
+          },
+          "value": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": "已選中的顯示內容（有值時顯示已選面板）"
+          },
+          "disableFreeInput": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "關閉自由輸入（無選項時只顯示「無此選項」）"
+          },
+          "addNewOptionsText": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "自由輸入連結文案（預設「使用」）"
+          },
+          "handleNoOptionsValueChange": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(inputValue: string) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "string"
+                    },
+                    "name": "inputValue"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": "使用者點「使用 『輸入值』」時回呼"
+          },
+          "helperText": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "renderInput": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(params: AutocompleteRenderInputParams) => React.ReactNode",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "AutocompleteRenderInputParams"
+                    },
+                    "name": "params"
+                  }
+                ],
+                "return": {
+                  "name": "ReactReactNode",
+                  "raw": "React.ReactNode"
+                }
+              }
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "Partial"
+        ]
+      },
+      "stories": [
+        {
+          "id": "inputs-autocomplete--basic",
+          "name": "Basic",
+          "snippet": "const Basic = () => <Demo />;"
+        },
+        {
+          "id": "inputs-autocomplete--disable-free-input",
+          "name": "Disable Free Input",
+          "snippet": "const DisableFreeInput = () => <Demo disableFreeInput />;"
+        },
+        {
+          "id": "inputs-autocomplete--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Demo\n    title=\"選擇銀行\"\n    placeholder=\"搜尋銀行\"\n    disableFreeInput={false}\n    width={320}\n    optionsMaxHeight={200} />;"
+        }
+      ],
+      "import": "import { AutoComplete } from \"@yosgo/swap-ui\";\nimport Button from \"@mui/material/Button\";",
+      "docs": {
+        "inputs-autocomplete--docs": {
+          "id": "inputs-autocomplete--docs",
+          "name": "Docs",
+          "path": "./src/components/AutoComplete.mdx",
+          "title": "Inputs/AutoComplete",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as AutoCompleteStories from \"./AutoComplete.stories\";\n\n<Meta of={AutoCompleteStories} />\n\n# AutoComplete\n\n搜尋式選單（常開 Popper 面板：標題 + 搜尋框 + 選項清單）。支援「找不到選項時以輸入值新增」的自由輸入流程。\n\n## 使用時機\n\n- 選項很多需要搜尋過濾（銀行、申報類別）。\n- 允許使用者新增不在清單中的值時，保留自由輸入（點「使用 『輸入值』」觸發 `handleNoOptionsValueChange`）；不允許則 `disableFreeInput`。\n- 由 `open` + `anchorEl` 控制開闔（通常掛在一顆按鈕上）。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { AutoComplete } from \"@yosgo/swap-ui\";\n\n<AutoComplete\n  open={Boolean(anchorEl)} anchorEl={anchorEl}\n  title=\"選擇銀行\" placeholder=\"搜尋銀行\"\n  options={banks} getOptionLabel={(o) => o}\n  onChange={(_, v) => select(v)}\n  handleNoOptionsValueChange={(v) => addAndSelect(v)}\n/>`} />\n\n## 基本（含自由輸入）\n\n<Canvas of={AutoCompleteStories.Basic} />\n\n## 關閉自由輸入\n\n<Canvas of={AutoCompleteStories.DisableFreeInput} />\n",
+          "summary": "# AutoComplete 搜尋式選單（常開 Popper 面板：標題 + 搜尋框 + 選項清單）。支援「找不到選項時以輸入值新增」的自由輸入流程。 ## 使用時機 - 選項很多..."
+        }
+      }
+    },
+    "inputs-button": {
+      "id": "inputs-button",
+      "name": "Button",
+      "path": "./src/components/Button.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/chenbeilun/Desktop/kcin/github/swap-ui/node_modules/@mui/material/Button/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "inputs-button--variants",
+          "name": "Variants",
+          "snippet": "const Variants = () => (\n  <Stack direction=\"row\" spacing={2}>\n    {VARIANTS.map((v) => (\n      <Button key={v} variant={v}>\n        {v}\n      </Button>\n    ))}\n  </Stack>\n);"
+        },
+        {
+          "id": "inputs-button--sizes",
+          "name": "Sizes",
+          "snippet": "const Sizes = () => (\n  <Stack direction=\"row\" spacing={2} sx={{ alignItems: \"center\" }}>\n\n    {SIZES.map((s) => (\n      <Button key={s} variant=\"primary\" size={s}>\n        {s}\n      </Button>\n    ))}\n  </Stack>\n);"
+        },
+        {
+          "id": "inputs-button--states",
+          "name": "States",
+          "snippet": "const States = () => (\n  <Stack direction=\"row\" spacing={2}>\n    <Button variant=\"primary\">normal</Button>\n    <Button variant=\"primary\" disabled>\n      disabled\n    </Button>\n    <Button variant=\"primary\" loading>\n      loading\n    </Button>\n  </Stack>\n);"
+        },
+        {
+          "id": "inputs-button--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Button\n    variant=\"primary\"\n    size=\"medium\"\n    loading={false}\n    disabled={false}\n    onClick={fn()}>Button</Button>;"
+        }
+      ],
+      "import": "import Button from \"@mui/material/Button\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "inputs-button--docs": {
+          "id": "inputs-button--docs",
+          "name": "Docs",
+          "path": "./src/components/Button.mdx",
+          "title": "Inputs/Button",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as ButtonStories from \"./Button.stories\";\n\n<Meta of={ButtonStories} />\n\n# Button\n\n觸發主要動作的按鈕。以 `variant` 決定視覺層級。用法與原生 MUI Button 相同——\n從 `@mui/material/Button` 匯入即可，SWAP 品牌樣式由 theme 自動套用（需在最外層包一層 `SWAPThemeProvider`）。\n\n## 使用時機\n\n- **主要動作**（送出、確認、下一步）→ `variant=\"primary\"`\n- **次要動作**（取消、上一步）→ `variant=\"secondary\"`\n- **低強度動作**（更多、輔助操作）→ `variant=\"tertiary\"` 或 `variant=\"text\"`\n- **危險動作**（刪除、解除綁定）→ `variant=\"danger\"`\n- 一個畫面**聚焦一顆 primary**，避免多顆主按鈕分散注意力。\n\n## 基本用法\n\n<Source\n  language=\"tsx\"\n  code={`import Button from \"@mui/material/Button\";\n\n<Button variant=\"primary\" onClick={handleSubmit}>\n  送出\n</Button>`}\n/>\n\n## variant 一覽\n\n六種視覺層級。切到下方範例的「Show code」可看並複製對應寫法。\n\n<Canvas of={ButtonStories.Variants} />\n\n## 尺寸\n\n以 `size` 配合版面密度：`small` 40px、`medium` 48px、`large` 56px。\n\n<Canvas of={ButtonStories.Sizes} />\n\n## 狀態\n\n`disabled` 半透明且不可點；`loading` 顯示轉圈並鎖住點擊（用 v9 原生 `loading` prop）。\n\n<Canvas of={ButtonStories.States} />\n",
+          "summary": "# Button 觸發主要動作的按鈕。以 `variant` 決定視覺層級。用法與原生 MUI Button 相同—— 從 `@mui/material/Button` 匯入即可，..."
+        }
+      }
+    },
+    "inputs-checkbox": {
+      "id": "inputs-checkbox",
+      "name": "CheckBox",
+      "path": "./src/components/CheckBox.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "CheckBox",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/CheckBox.tsx",
+        "actualName": "CheckBox",
+        "exportName": "default",
+        "props": {
+          "label": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "labelPlacement": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"top\" | \"start\" | \"bottom\" | \"end\"",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"top\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"start\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"bottom\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"end\""
+                }
+              ]
+            },
+            "description": ""
+          },
+          "disableHover": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "MuiCheckboxProps"
+        ]
+      },
+      "stories": [
+        {
+          "id": "inputs-checkbox--states",
+          "name": "States",
+          "snippet": "const States = () => (\n  <Stack direction=\"row\" spacing={2}>\n    <CheckBox label=\"未勾選\" />\n    <CheckBox label=\"已勾選\" defaultChecked />\n    <CheckBox label=\"停用\" disabled />\n    <CheckBox label=\"停用已勾\" disabled defaultChecked />\n  </Stack>\n);"
+        },
+        {
+          "id": "inputs-checkbox--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <CheckBox label=\"同意服務條款\" disabled={false} disableHover={false} />;"
+        }
+      ],
+      "import": "import { CheckBox } from \"@yosgo/swap-ui\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "inputs-checkbox--docs": {
+          "id": "inputs-checkbox--docs",
+          "name": "Docs",
+          "path": "./src/components/CheckBox.mdx",
+          "title": "Inputs/CheckBox",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as CheckBoxStories from \"./CheckBox.stories\";\n\n<Meta of={CheckBoxStories} />\n\n# CheckBox\n\n核取方塊（24px、品牌藍勾選）。內建 label 排版與 40×40 點擊區。\n\n## 使用時機\n\n- 多選、單一開關同意（條款勾選）。\n- 互斥單選用 RadioButton；即時生效的開關用 Switch。\n- `labelPlacement` 控制文字位置；密集列表可用 `disableHover` 關閉 hover 底色。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { CheckBox } from \"@yosgo/swap-ui\";\n\n<CheckBox label=\"同意服務條款\" checked={agreed}\n  onChange={(e) => setAgreed(e.target.checked)} />`} />\n\n## 狀態\n\n<Canvas of={CheckBoxStories.States} />\n",
+          "summary": "# CheckBox 核取方塊（24px、品牌藍勾選）。內建 label 排版與 40×40 點擊區。 ## 使用時機 - 多選、單一開關同意（條款勾選）。 - 互斥單選用 Rad..."
+        }
+      }
+    },
+    "inputs-datepicker": {
+      "id": "inputs-datepicker",
+      "name": "DatePicker",
+      "path": "./src/components/DatePicker.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "DatePicker",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/DatePicker.tsx",
+        "actualName": "DatePicker",
+        "exportName": "default",
+        "props": {
+          "format": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"year\" | \"month\" | \"day\"",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"year\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"month\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"day\""
+                }
+              ]
+            },
+            "description": "選擇精度：年 / 月 / 日（預設 day）",
+            "defaultValue": {
+              "value": "\"day\"",
+              "computed": false
+            }
+          },
+          "open": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "false",
+              "computed": false
+            }
+          },
+          "onClose": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "() => void",
+              "signature": {
+                "arguments": [],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          },
+          "mobile": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "ModalProps": {
+            "required": false,
+            "tsType": {
+              "name": "Omit",
+              "elements": [
+                {
+                  "name": "ModalProps"
+                },
+                {
+                  "name": "union",
+                  "raw": "\"open\" | \"onClose\"",
+                  "elements": [
+                    {
+                      "name": "literal",
+                      "value": "\"open\""
+                    },
+                    {
+                      "name": "literal",
+                      "value": "\"onClose\""
+                    }
+                  ]
+                }
+              ],
+              "raw": "Omit<ModalProps, \"open\" | \"onClose\">"
+            },
+            "description": ""
+          },
+          "min": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "最小/最大可選日期（YYYY-MM-DD 等 dayjs 可解析字串）"
+          },
+          "max": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "defaultValue": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "value": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "getValue": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(date: string) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "string"
+                    },
+                    "name": "date"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": "選定回呼；字串格式沿 v1：year \"YYYY\"、month \"YYYY-M\"、day \"YYYY-M-D\"（不補零）"
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "inputs-datepicker--day",
+          "name": "Day",
+          "snippet": "const Day = () => <Demo format=\"day\" />;"
+        },
+        {
+          "id": "inputs-datepicker--month",
+          "name": "Month",
+          "snippet": "const Month = () => <Demo format=\"month\" />;"
+        },
+        {
+          "id": "inputs-datepicker--year",
+          "name": "Year",
+          "snippet": "const Year = () => <Demo format=\"year\" />;"
+        },
+        {
+          "id": "inputs-datepicker--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Demo format=\"day\" min=\"\" max=\"\" mobile={false} />;"
+        }
+      ],
+      "import": "import Button from \"@mui/material/Button\";\nimport { DatePicker, Typography } from \"@yosgo/swap-ui\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "inputs-datepicker--docs": {
+          "id": "inputs-datepicker--docs",
+          "name": "Docs",
+          "path": "./src/components/DatePicker.mdx",
+          "title": "Inputs/DatePicker",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as DatePickerStories from \"./DatePicker.stories\";\n\n<Meta of={DatePickerStories} />\n\n# DatePicker\n\n日期選擇彈窗。v2 起改基於 MUI X Date Pickers（日曆視覺與 v1 不同，props 與回呼格式沿 v1）。\n\n## 使用時機\n\n- 選擇單一日期/月份/年份（`format` 控制精度）。\n- `getValue` 回傳字串格式沿 v1：`\"YYYY\"`／`\"YYYY-M\"`／`\"YYYY-M-D\"`（**不補零**）。\n- `min` / `max` 限制可選範圍；`ModalProps` 可調彈窗（標題、尺寸等）。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { DatePicker } from \"@yosgo/swap-ui\";\n\n<DatePicker\n  open={open} onClose={close}\n  format=\"day\" value={date}\n  min=\"2026-01-01\" max=\"2026-12-31\"\n  getValue={(d) => setDate(d)}\n/>`} />\n\n## 三種精度\n\n<Canvas of={DatePickerStories.Day} />\n<Canvas of={DatePickerStories.Month} />\n<Canvas of={DatePickerStories.Year} />\n",
+          "summary": "# DatePicker 日期選擇彈窗。v2 起改基於 MUI X Date Pickers（日曆視覺與 v1 不同，props 與回呼格式沿 v1）。 ## 使用時機 - 選擇單..."
+        }
+      }
+    },
+    "inputs-dropdown": {
+      "id": "inputs-dropdown",
+      "name": "Dropdown",
+      "path": "./src/components/Dropdown.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Dropdown",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Dropdown.tsx",
+        "actualName": "Dropdown",
+        "exportName": "default",
+        "props": {
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "helperText": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "helperTextStyle": {
+            "required": false,
+            "tsType": {
+              "name": "ReactCSSProperties",
+              "raw": "React.CSSProperties"
+            },
+            "description": ""
+          },
+          "formControlStyle": {
+            "required": false,
+            "tsType": {
+              "name": "ReactCSSProperties",
+              "raw": "React.CSSProperties"
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "Omit"
+        ]
+      },
+      "stories": [
+        {
+          "id": "inputs-dropdown--sizes",
+          "name": "Sizes",
+          "snippet": "const Sizes = () => (\n  <Stack spacing={3} sx={{ width: 240 }}>\n    <Demo height={40} />\n    <Demo height={56} />\n  </Stack>\n);"
+        },
+        {
+          "id": "inputs-dropdown--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Demo width={240} height={40} helperText=\"\" />;"
+        }
+      ],
+      "import": "import { Dropdown } from \"@yosgo/swap-ui\";\nimport MenuItem from \"@mui/material/MenuItem\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "inputs-dropdown--docs": {
+          "id": "inputs-dropdown--docs",
+          "name": "Docs",
+          "path": "./src/components/Dropdown.mdx",
+          "title": "Inputs/Dropdown",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as DropdownStories from \"./Dropdown.stories\";\n\n<Meta of={DropdownStories} />\n\n# Dropdown\n\n輕量下拉選擇（無浮動 label，粗體選值）。適合工具列上的篩選條件。\n\n## 使用時機\n\n- 頁面/清單的篩選器（時間範圍、排序方式）——選值本身就是說明，不需要 label。\n- 表單欄位（需要 label、錯誤狀態）用 Select。\n- `height` ≥ 56 時自動放大字級與內距。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Dropdown } from \"@yosgo/swap-ui\";\nimport MenuItem from \"@mui/material/MenuItem\";\n\n<Dropdown value={range} onChange={(e) => setRange(e.target.value)} width={240} height={40}>\n  <MenuItem value=\"7d\">近 7 天</MenuItem>\n  <MenuItem value=\"30d\">近 30 天</MenuItem>\n</Dropdown>`} />\n\n## 尺寸\n\n<Canvas of={DropdownStories.Sizes} />\n",
+          "summary": "# Dropdown 輕量下拉選擇（無浮動 label，粗體選值）。適合工具列上的篩選條件。 ## 使用時機 - 頁面/清單的篩選器（時間範圍、排序方式）——選值本身就是說明，不需..."
+        }
+      }
+    },
+    "inputs-iconbutton": {
+      "id": "inputs-iconbutton",
+      "name": "IconButton",
+      "path": "./src/components/IconButton.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "IconButton",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/IconButton.tsx",
+        "actualName": "IconButton",
+        "exportName": "default",
+        "props": {
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "32",
+              "computed": false
+            }
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "32",
+              "computed": false
+            }
+          },
+          "hoverColor": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "hover 底色：SWAP token 名或任意 CSS 色，預設 black400"
+          },
+          "hoverIconColor": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "hover 時 svg path 的 fill：token 名或任意 CSS 色"
+          }
+        },
+        "composes": [
+          "MuiIconButtonProps"
+        ]
+      },
+      "stories": [
+        {
+          "id": "inputs-iconbutton--hover",
+          "name": "Hover",
+          "snippet": "const Hover = () => (\n  <Stack direction=\"row\" spacing={2}>\n    <IconButton>\n      <CloseIcon />\n    </IconButton>\n    <IconButton hoverColor=\"primary50\" hoverIconColor=\"primary400\">\n      <CloseIcon />\n    </IconButton>\n    <IconButton hoverColor=\"danger50\" hoverIconColor=\"danger800\">\n      <CloseIcon />\n    </IconButton>\n  </Stack>\n);"
+        },
+        {
+          "id": "inputs-iconbutton--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <IconButton\n    hoverColor=\"primary50\"\n    hoverIconColor=\"primary400\"\n    width={32}\n    height={32}\n    disabled={false}>\n    <CloseIcon />\n</IconButton>;"
+        }
+      ],
+      "import": "import CloseIcon from \"@mui/icons-material/Close\";\nimport { IconButton } from \"@yosgo/swap-ui\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "inputs-iconbutton--docs": {
+          "id": "inputs-iconbutton--docs",
+          "name": "Docs",
+          "path": "./src/components/IconButton.mdx",
+          "title": "Inputs/IconButton",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as IconButtonStories from \"./IconButton.stories\";\n\n<Meta of={IconButtonStories} />\n\n# IconButton\n\n純圖示按鈕（32×32、圓角 8）。hover 顯示底色，可用 `hoverColor` / `hoverIconColor` 客製。\n\n## 使用時機\n\n- 空間有限的操作（關閉、更多、編輯）；務必搭配 Tooltip 或 aria-label 說明用途。\n- 語意提示：中性操作用預設灰、主要用 primary 系、破壞性用 danger 系 hover 色。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { IconButton } from \"@yosgo/swap-ui\";\n\n<IconButton hoverColor=\"danger50\" hoverIconColor=\"danger800\" aria-label=\"刪除\">\n  <DeleteIcon />\n</IconButton>`} />\n\n## Hover 配色\n\n<Canvas of={IconButtonStories.Hover} />\n",
+          "summary": "# IconButton 純圖示按鈕（32×32、圓角 8）。hover 顯示底色，可用 `hoverColor` / `hoverIconColor` 客製。 ## 使用時機 -..."
+        }
+      }
+    },
+    "inputs-menuitem": {
+      "id": "inputs-menuitem",
+      "name": "MenuItem",
+      "path": "./src/components/MenuItem.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "MenuItem",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/MenuItem.tsx",
+        "actualName": "MenuItem",
+        "exportName": "default",
+        "props": {
+          "button": {
+            "required": false,
+            "tsType": {
+              "name": "literal",
+              "value": "true"
+            },
+            "description": "@deprecated MUI v4 遺留 prop，v9 已無作用，僅為型別相容保留"
+          },
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "hoverBackgroundColor": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "hoverFontColor": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "hoverIconColor": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "rippleColor": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "iconChildren": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "MuiMenuItemProps"
+        ]
+      },
+      "stories": [
+        {
+          "id": "inputs-menuitem--with-menu",
+          "name": "With Menu",
+          "snippet": "const WithMenu = () => <Demo />;"
+        },
+        {
+          "id": "inputs-menuitem--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <MenuList sx={{ width: 200, border: \"1px solid #ECECEC\", borderRadius: \"8px\" }}>\n    <MenuItem hoverBackgroundColor=\"\" hoverFontColor=\"\" hoverIconColor=\"\">選單項目</MenuItem>\n</MenuList>;"
+        }
+      ],
+      "import": "import Button from \"@mui/material/Button\";\nimport EditIcon from \"@mui/icons-material/Edit\";\nimport Menu from \"@mui/material/Menu\";\nimport { MenuItem } from \"@yosgo/swap-ui\";\nimport MenuList from \"@mui/material/MenuList\";",
+      "docs": {
+        "inputs-menuitem--docs": {
+          "id": "inputs-menuitem--docs",
+          "name": "Docs",
+          "path": "./src/components/MenuItem.mdx",
+          "title": "Inputs/MenuItem",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as MenuItemStories from \"./MenuItem.stories\";\n\n<Meta of={MenuItemStories} />\n\n# MenuItem\n\n選單項目（14px 粗體、hover 品牌色）。搭配原生 MUI Menu 使用。\n\n> v1 的 `Menu` 是純轉發、無任何加值，v2 不再匯出——選單容器直接\n> `import Menu from \"@mui/material/Menu\"`。\n\n## 使用時機\n\n- 下拉操作選單（更多操作、右鍵選單）內的項目。\n- `iconChildren` 在項目尾端放圖示；hover 三色（底/字/圖示）可個別覆蓋——破壞性操作可換成 danger 色系。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { MenuItem } from \"@yosgo/swap-ui\";\nimport Menu from \"@mui/material/Menu\";\n\n<Menu anchorEl={anchorEl} open={open} onClose={close}>\n  <MenuItem onClick={onEdit}>編輯</MenuItem>\n  <MenuItem hoverBackgroundColor=\"#FFEBED\" hoverFontColor=\"#D40F14\">刪除</MenuItem>\n</Menu>`} />\n\n## 搭配選單\n\n<Canvas of={MenuItemStories.WithMenu} />\n",
+          "summary": "# MenuItem 選單項目（14px 粗體、hover 品牌色）。搭配原生 MUI Menu 使用。 > v1 的 `Menu` 是純轉發、無任何加值，v2 不再匯出——選單容..."
+        }
+      }
+    },
+    "inputs-radiobutton": {
+      "id": "inputs-radiobutton",
+      "name": "RadioButton",
+      "path": "./src/components/RadioButton.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "RadioButton",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/RadioButton.tsx",
+        "actualName": "RadioButton",
+        "exportName": "default",
+        "props": {
+          "label": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "labelPlacement": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"top\" | \"start\" | \"bottom\" | \"end\"",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"top\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"start\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"bottom\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"end\""
+                }
+              ]
+            },
+            "description": ""
+          },
+          "disableHover": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "MuiRadioProps"
+        ]
+      },
+      "stories": [
+        {
+          "id": "inputs-radiobutton--group",
+          "name": "Group",
+          "snippet": "const Group = () => (\n  <RadioGroup defaultValue=\"monthly\">\n    <Stack direction=\"row\" spacing={2}>\n      <RadioButton value=\"monthly\" label=\"月繳\" />\n      <RadioButton value=\"yearly\" label=\"年繳\" />\n      <RadioButton value=\"none\" label=\"停用\" disabled />\n    </Stack>\n  </RadioGroup>\n);"
+        },
+        {
+          "id": "inputs-radiobutton--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <RadioButton label=\"選項\" disabled={false} disableHover={false} />;"
+        }
+      ],
+      "import": "import { RadioButton } from \"@yosgo/swap-ui\";\nimport RadioGroup from \"@mui/material/RadioGroup\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "inputs-radiobutton--docs": {
+          "id": "inputs-radiobutton--docs",
+          "name": "Docs",
+          "path": "./src/components/RadioButton.mdx",
+          "title": "Inputs/RadioButton",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as RadioButtonStories from \"./RadioButton.stories\";\n\n<Meta of={RadioButtonStories} />\n\n# RadioButton\n\n單選圓鈕（24px、品牌藍選中）。搭配 MUI `RadioGroup` 管理互斥選取。\n\n## 使用時機\n\n- 少量互斥選項（2–5 個）全部攤開讓使用者比較時。\n- 選項多時改用 Select 下拉；可複選用 CheckBox。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { RadioButton } from \"@yosgo/swap-ui\";\nimport RadioGroup from \"@mui/material/RadioGroup\";\n\n<RadioGroup value={plan} onChange={(e) => setPlan(e.target.value)}>\n  <RadioButton value=\"monthly\" label=\"月繳\" />\n  <RadioButton value=\"yearly\" label=\"年繳\" />\n</RadioGroup>`} />\n\n## 群組\n\n<Canvas of={RadioButtonStories.Group} />\n",
+          "summary": "# RadioButton 單選圓鈕（24px、品牌藍選中）。搭配 MUI `RadioGroup` 管理互斥選取。 ## 使用時機 - 少量互斥選項（2–5 個）全部攤開讓使用者..."
+        }
+      }
+    },
+    "inputs-radiolist": {
+      "id": "inputs-radiolist",
+      "name": "RadioList",
+      "path": "./src/components/RadioList.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "RadioList",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/RadioList.tsx",
+        "actualName": "RadioList",
+        "exportName": "default",
+        "props": {
+          "title": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "subtitle": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "checked": {
+            "required": true,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "multiline": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "title 下方顯示 subtitle（窄卡模式）"
+          },
+          "line": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "title 與 subtitle 以直線分隔（寬卡模式）"
+          },
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "Omit"
+        ]
+      },
+      "stories": [
+        {
+          "id": "inputs-radiolist--basic",
+          "name": "Basic",
+          "snippet": "const Basic = () => <RadioDemo />;"
+        },
+        {
+          "id": "inputs-radiolist--modes",
+          "name": "Modes",
+          "snippet": "const Modes = () => (\n  <Stack spacing={2}>\n    <RadioList checked title=\"預設\" subtitle=\"右側說明\" />\n    <RadioList checked multiline title=\"multiline\" subtitle=\"說明在標題下方\" />\n    <RadioList checked line title=\"line\" subtitle=\"標題與說明之間以直線分隔，適合較長的說明文字內容。\" />\n  </Stack>\n);"
+        },
+        {
+          "id": "inputs-radiolist--check-boxes",
+          "name": "Check Boxes",
+          "snippet": "const CheckBoxes = () => <CheckDemo />;"
+        },
+        {
+          "id": "inputs-radiolist--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <RadioList checked title=\"月繳\" subtitle=\"NT$ 300 / 月\" multiline={false} line={false} />;"
+        }
+      ],
+      "import": "import { CheckBoxList, RadioList } from \"@yosgo/swap-ui\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "inputs-radiolist--docs": {
+          "id": "inputs-radiolist--docs",
+          "name": "Docs",
+          "path": "./src/components/RadioList.mdx",
+          "title": "Inputs/RadioList",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as RadioListStories from \"./RadioList.stories\";\n\n<Meta of={RadioListStories} />\n\n# RadioList / CheckBoxList\n\n可點選的選項卡片（內嵌 Radio / CheckBox）。選中時品牌藍框藍底。\n\n## 使用時機\n\n- 方案選擇（單選用 RadioList）、通知偏好（多選用 CheckBoxList）等需要「大點擊面積 + 說明文字」的選項。\n- 三種版型：預設（說明靠右）、`multiline`（說明在標題下）、`line`（標題｜直線｜長說明）。\n- `checked` 與點擊邏輯由使用端控制（整張卡片可點）。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { RadioList } from \"@yosgo/swap-ui\";\n\n<RadioList\n  checked={plan === \"monthly\"}\n  onClick={() => setPlan(\"monthly\")}\n  title=\"月繳\" subtitle=\"NT$ 300 / 月\"\n/>`} />\n\n## 單選\n\n<Canvas of={RadioListStories.Basic} />\n\n## 三種版型\n\n<Canvas of={RadioListStories.Modes} />\n\n## 多選（CheckBoxList）\n\n<Canvas of={RadioListStories.CheckBoxes} />\n",
+          "summary": "# RadioList / CheckBoxList 可點選的選項卡片（內嵌 Radio / CheckBox）。選中時品牌藍框藍底。 ## 使用時機 - 方案選擇（單選用 Rad..."
+        }
+      }
+    },
+    "inputs-select": {
+      "id": "inputs-select",
+      "name": "Select",
+      "path": "./src/components/Select.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Select",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Select.tsx",
+        "actualName": "Select",
+        "exportName": "default",
+        "props": {
+          "children": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "style": {
+            "required": false,
+            "tsType": {
+              "name": "ReactCSSProperties",
+              "raw": "React.CSSProperties"
+            },
+            "description": ""
+          },
+          "disabled": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "helperText": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "error": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "fullWidth": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "type": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "InputProps": {
+            "required": false,
+            "tsType": {
+              "name": "object"
+            },
+            "description": "傳入底層 input 的屬性（v1 的 InputProps，對應 MUI Select 的 inputProps）"
+          },
+          "label": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "@deprecated v1 起即無作用，僅為型別相容保留"
+          },
+          "rows": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": "@deprecated v1 起即無作用，僅為型別相容保留"
+          },
+          "rowsMax": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": "@deprecated v1 起即無作用，僅為型別相容保留"
+          },
+          "multiline": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "@deprecated v1 起即無作用，僅為型別相容保留"
+          },
+          "select": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "@deprecated v1 起即無作用，僅為型別相容保留"
+          },
+          "value": {
+            "required": false,
+            "tsType": {
+              "name": "unknown"
+            },
+            "description": ""
+          },
+          "onChange": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(event: SelectChangeEvent<unknown>, child: React.ReactNode) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "SelectChangeEvent",
+                      "elements": [
+                        {
+                          "name": "unknown"
+                        }
+                      ],
+                      "raw": "SelectChangeEvent<unknown>"
+                    },
+                    "name": "event"
+                  },
+                  {
+                    "type": {
+                      "name": "ReactReactNode",
+                      "raw": "React.ReactNode"
+                    },
+                    "name": "child"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          },
+          "autoFocus": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "placeholder": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "required": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "defaultValue": {
+            "required": false,
+            "tsType": {
+              "name": "unknown"
+            },
+            "description": ""
+          },
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "vertical": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"top\" | \"center\" | \"bottom\" | number",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"top\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"center\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"bottom\""
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "\"bottom\"",
+              "computed": false
+            }
+          },
+          "horizontal": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"left\" | \"center\" | \"right\" | number",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"left\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"center\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"right\""
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "\"left\"",
+              "computed": false
+            }
+          },
+          "open": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "placeholderStyle": {
+            "required": false,
+            "tsType": {
+              "name": "ReactCSSProperties",
+              "raw": "React.CSSProperties"
+            },
+            "description": ""
+          },
+          "selectStyle": {
+            "required": false,
+            "tsType": {
+              "name": "ReactCSSProperties",
+              "raw": "React.CSSProperties"
+            },
+            "description": ""
+          },
+          "helperTextStyle": {
+            "required": false,
+            "tsType": {
+              "name": "ReactCSSProperties",
+              "raw": "React.CSSProperties"
+            },
+            "description": ""
+          },
+          "onClick": {
+            "required": false,
+            "tsType": {
+              "name": "ReactMouseEventHandler",
+              "raw": "React.MouseEventHandler<HTMLDivElement>",
+              "elements": [
+                {
+                  "name": "HTMLDivElement"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "transformOrigin": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "object",
+              "raw": "{\n  horizontal: \"center\" | \"left\" | \"right\" | number;\n  vertical: \"bottom\" | \"center\" | \"top\" | number;\n}",
+              "signature": {
+                "properties": [
+                  {
+                    "key": "horizontal",
+                    "value": {
+                      "name": "union",
+                      "raw": "\"center\" | \"left\" | \"right\" | number",
+                      "elements": [
+                        {
+                          "name": "literal",
+                          "value": "\"center\""
+                        },
+                        {
+                          "name": "literal",
+                          "value": "\"left\""
+                        },
+                        {
+                          "name": "literal",
+                          "value": "\"right\""
+                        },
+                        {
+                          "name": "number"
+                        }
+                      ],
+                      "required": true
+                    }
+                  },
+                  {
+                    "key": "vertical",
+                    "value": {
+                      "name": "union",
+                      "raw": "\"bottom\" | \"center\" | \"top\" | number",
+                      "elements": [
+                        {
+                          "name": "literal",
+                          "value": "\"bottom\""
+                        },
+                        {
+                          "name": "literal",
+                          "value": "\"center\""
+                        },
+                        {
+                          "name": "literal",
+                          "value": "\"top\""
+                        },
+                        {
+                          "name": "number"
+                        }
+                      ],
+                      "required": true
+                    }
+                  }
+                ]
+              }
+            },
+            "description": ""
+          },
+          "paddingLeft": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "paddingTop": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "dropdown": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "inputs-select--basic",
+          "name": "Basic",
+          "snippet": "const Basic = () => <Demo />;"
+        },
+        {
+          "id": "inputs-select--with-helper",
+          "name": "With Helper",
+          "snippet": "const WithHelper = () => (\n  <Stack spacing={3}>\n    <Demo helperText=\"選擇這筆請款的類別\" />\n    <Demo error helperText=\"必填欄位\" />\n  </Stack>\n);"
+        },
+        {
+          "id": "inputs-select--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Demo\n    placeholder=\"請款類別\"\n    helperText=\"\"\n    error={false}\n    disabled={false}\n    dropdown={false} />;"
+        }
+      ],
+      "import": "import MenuItem from \"@mui/material/MenuItem\";\nimport { Select } from \"@yosgo/swap-ui\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "inputs-select--docs": {
+          "id": "inputs-select--docs",
+          "name": "Docs",
+          "path": "./src/components/Select.mdx",
+          "title": "Inputs/Select",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as SelectStories from \"./Select.stories\";\n\n<Meta of={SelectStories} />\n\n# Select\n\n下拉選單（FormControl 組合，含浮動 label 與 helperText）。\n\n## 使用時機\n\n- 選項較多（5+）或空間有限的單選；少量選項攤開比較用 RadioButton。\n- `placeholder` 同時是浮動 label；`helperText` 放說明或錯誤訊息（配 `error`）。\n- 選單位置可用 `vertical` / `horizontal` / `transformOrigin` 微調。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Select } from \"@yosgo/swap-ui\";\nimport MenuItem from \"@mui/material/MenuItem\";\n\n<Select placeholder=\"類別\" value={v} onChange={(e) => setV(e.target.value)}>\n  <MenuItem value=\"design\">設計費</MenuItem>\n  <MenuItem value=\"dev\">開發費</MenuItem>\n</Select>`} />\n\n## 基本\n\n<Canvas of={SelectStories.Basic} />\n\n## 說明與錯誤\n\n<Canvas of={SelectStories.WithHelper} />\n",
+          "summary": "# Select 下拉選單（FormControl 組合，含浮動 label 與 helperText）。 ## 使用時機 - 選項較多（5+）或空間有限的單選；少量選項攤開比較用..."
+        }
+      }
+    },
+    "inputs-switch": {
+      "id": "inputs-switch",
+      "name": "Switch",
+      "path": "./src/components/Switch.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Switch",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Switch.tsx",
+        "actualName": "Switch",
+        "exportName": "default",
+        "composes": [
+          "MuiSwitchProps"
+        ]
+      },
+      "stories": [
+        {
+          "id": "inputs-switch--states",
+          "name": "States",
+          "snippet": "const States = () => (\n  <Stack direction=\"row\" spacing={2}>\n    <Switch />\n    <Switch defaultChecked />\n    <Switch disabled />\n    <Switch disabled defaultChecked />\n  </Stack>\n);"
+        },
+        {
+          "id": "inputs-switch--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Switch disabled={false} defaultChecked />;"
+        }
+      ],
+      "import": "import Stack from \"@mui/material/Stack\";\nimport { Switch } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "inputs-switch--docs": {
+          "id": "inputs-switch--docs",
+          "name": "Docs",
+          "path": "./src/components/Switch.mdx",
+          "title": "Inputs/Switch",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as SwitchStories from \"./Switch.stories\";\n\n<Meta of={SwitchStories} />\n\n# Switch\n\n開關切換（40×24）。開啟時品牌藍軌道、thumb 帶藍勾。\n\n## 使用時機\n\n- **立即生效**的二元設定（開啟通知、切換模式）——切了就生效，不需按「儲存」。\n- 需要送出表單才生效的勾選用 CheckBox。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Switch } from \"@yosgo/swap-ui\";\n\n<Switch checked={enabled} onChange={(e) => setEnabled(e.target.checked)} />`} />\n\n## 狀態\n\n<Canvas of={SwitchStories.States} />\n",
+          "summary": "# Switch 開關切換（40×24）。開啟時品牌藍軌道、thumb 帶藍勾。 ## 使用時機 - **立即生效**的二元設定（開啟通知、切換模式）——切了就生效，不需按「儲存」..."
+        }
+      }
+    },
+    "inputs-taxtextfield": {
+      "id": "inputs-taxtextfield",
+      "name": "TaxTextField",
+      "path": "./src/components/TaxTextField.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "TaxTextField",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/TaxTextField.tsx",
+        "actualName": "TaxTextField",
+        "exportName": "default",
+        "props": {
+          "onChange": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "(value: TaxFiledValueProps) => void",
+              "signature": {
+                "arguments": [
+                  {
+                    "type": {
+                      "name": "signature",
+                      "type": "object",
+                      "raw": "{\n  incomeCode: IncomeCodeProps;\n  incomeLabel: string;\n  expenseCode: ExpenseCodeProps;\n  expenseLabel: string;\n  taxDescription: string;\n  expenseCodeAndLabel: string;\n}",
+                      "signature": {
+                        "properties": [
+                          {
+                            "key": "incomeCode",
+                            "value": {
+                              "name": "union",
+                              "raw": "\"9A\" | \"9B\" | \"50\"",
+                              "elements": [
+                                {
+                                  "name": "literal",
+                                  "value": "\"9A\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"9B\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"50\""
+                                }
+                              ],
+                              "required": true
+                            }
+                          },
+                          {
+                            "key": "incomeLabel",
+                            "value": {
+                              "name": "string",
+                              "required": true
+                            }
+                          },
+                          {
+                            "key": "expenseCode",
+                            "value": {
+                              "name": "union",
+                              "raw": "| \"10\"\n| \"11\"\n| \"12\"\n| \"13\"\n| \"14\"\n| \"15\"\n| \"16\"\n| \"17\"\n| \"18\"\n| \"19\"\n| \"20\"\n| \"21\"\n| \"22\"\n| \"23\"\n| \"24\"\n| \"25\"\n| \"26\"\n| \"27\"\n| \"28\"\n| \"29\"\n| \"30\"\n| \"31\"\n| \"32\"\n| \"33\"\n| \"34\"\n| \"35\"\n| \"36\"\n| \"37\"\n| \"38\"\n| \"39\"\n| \"40\"\n| \"41\"\n| \"42\"\n| \"43\"\n| \"44\"\n| \"45\"\n| \"46\"\n| \"47\"\n| \"48\"\n| \"49\"\n| \"50\"\n| \"51\"\n| \"52\"\n| \"53\"\n| \"54\"\n| \"55\"\n| \"56\"\n| \"57\"\n| \"58\"\n| \"59\"\n| \"60\"\n| \"61\"\n| \"62\"\n| \"63\"\n| \"64\"\n| \"65\"\n| \"66\"\n| \"67\"\n| \"68\"\n| \"69\"\n| \"70\"\n| \"71\"\n| \"72\"\n| \"73\"\n| \"74\"\n| \"75\"\n| \"76\"\n| \"77\"\n| \"78\"\n| \"79\"\n| \"80\"\n| \"81\"\n| \"82\"\n| \"83\"\n| \"84\"\n| \"85\"\n| \"86\"\n| \"87\"\n| \"88\"\n| \"89\"\n| \"90\"\n| \"91\"\n| \"92\"\n| \"93\"\n| \"94\"\n| \"95\"\n| \"96\"\n| \"97\"\n| \"98\"\n| \"99\"\n| \"\"\n| undefined",
+                              "elements": [
+                                {
+                                  "name": "literal",
+                                  "value": "\"10\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"11\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"12\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"13\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"14\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"15\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"16\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"17\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"18\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"19\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"20\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"21\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"22\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"23\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"24\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"25\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"26\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"27\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"28\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"29\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"30\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"31\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"32\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"33\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"34\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"35\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"36\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"37\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"38\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"39\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"40\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"41\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"42\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"43\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"44\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"45\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"46\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"47\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"48\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"49\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"50\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"51\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"52\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"53\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"54\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"55\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"56\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"57\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"58\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"59\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"60\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"61\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"62\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"63\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"64\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"65\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"66\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"67\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"68\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"69\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"70\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"71\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"72\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"73\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"74\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"75\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"76\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"77\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"78\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"79\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"80\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"81\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"82\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"83\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"84\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"85\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"86\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"87\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"88\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"89\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"90\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"91\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"92\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"93\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"94\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"95\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"96\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"97\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"98\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"99\""
+                                },
+                                {
+                                  "name": "literal",
+                                  "value": "\"\""
+                                },
+                                {
+                                  "name": "undefined"
+                                }
+                              ],
+                              "required": true
+                            }
+                          },
+                          {
+                            "key": "expenseLabel",
+                            "value": {
+                              "name": "string",
+                              "required": true
+                            }
+                          },
+                          {
+                            "key": "taxDescription",
+                            "value": {
+                              "name": "string",
+                              "required": true
+                            }
+                          },
+                          {
+                            "key": "expenseCodeAndLabel",
+                            "value": {
+                              "name": "string",
+                              "required": true
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "name": "value"
+                  }
+                ],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          },
+          "codeOnClick": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "() => void",
+              "signature": {
+                "arguments": [],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          },
+          "domainOnClick": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "() => void",
+              "signature": {
+                "arguments": [],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          },
+          "codeValue": {
+            "required": false,
+            "tsType": {
+              "name": "any"
+            },
+            "description": ""
+          },
+          "domainValue": {
+            "required": false,
+            "tsType": {
+              "name": "any"
+            },
+            "description": ""
+          },
+          "domainCodeValue": {
+            "required": false,
+            "tsType": {
+              "name": "any"
+            },
+            "description": ""
+          },
+          "codeError": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "codeHelperText": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "domainError": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "domainHelperText": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "mobile": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "codeFocused": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "domainFocused": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "inputs-taxtextfield--basic",
+          "name": "Basic",
+          "snippet": "const Basic = () => <Demo />;"
+        },
+        {
+          "id": "inputs-taxtextfield--mobile",
+          "name": "Mobile",
+          "snippet": "const Mobile = () => <Demo mobile />;"
+        },
+        {
+          "id": "inputs-taxtextfield--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <TaxTextField\n    mobile={false}\n    codeError={false}\n    codeHelperText=\"\"\n    domainError={false}\n    domainHelperText=\"\"\n    codeValue=\"9A\"\n    domainValue=\"\" />;"
+        }
+      ],
+      "import": "import Stack from \"@mui/material/Stack\";\nimport { TaxTextField, Typography } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "inputs-taxtextfield--docs": {
+          "id": "inputs-taxtextfield--docs",
+          "name": "Docs",
+          "path": "./src/components/TaxTextField.mdx",
+          "title": "Inputs/TaxTextField",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as TaxTextFieldStories from \"./TaxTextField.stories\";\n\n<Meta of={TaxTextFieldStories} />\n\n# TaxTextField\n\n稅務申報類別欄位組（所得類別 + 執行業務類別連動）。\n\n## 使用時機\n\n- 請款流程的稅務申報區塊。內建規則：**9A/9B 才有費用類別**（選項依來源過濾；9A 用搜尋選單、9B 用下拉）、**50 薪資無費用類別**。\n- 選定後 `onChange` 回傳完整組合值（代號、標籤、稅務說明、`[代號] 標籤` 組字）。\n- 相關常數（`SWAPIncomeTypes`、`SWAPTaxDescription` 等）也由 swap-ui 匯出，可自行組 UI。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { TaxTextField } from \"@yosgo/swap-ui\";\n\n<TaxTextField\n  codeValue={value?.incomeCode ?? \"\"}\n  domainValue={value?.expenseCodeAndLabel ?? \"\"}\n  domainCodeValue={value?.expenseCode ?? \"\"}\n  onChange={setValue}\n/>`} />\n\n## 基本 / 行動版\n\n<Canvas of={TaxTextFieldStories.Basic} />\n<Canvas of={TaxTextFieldStories.Mobile} />\n",
+          "summary": "# TaxTextField 稅務申報類別欄位組（所得類別 + 執行業務類別連動）。 ## 使用時機 - 請款流程的稅務申報區塊。內建規則：**9A/9B 才有費用類別**（選項依..."
+        }
+      }
+    },
+    "inputs-textfield": {
+      "id": "inputs-textfield",
+      "name": "TextField",
+      "path": "./src/components/TextField.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "TextField",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/TextField.tsx",
+        "actualName": "TextField",
+        "exportName": "default",
+        "props": {
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "inputs-textfield--states",
+          "name": "States",
+          "snippet": "const States = () => (\n  <Stack spacing={3} sx={{ width: 320, pt: 1 }}>\n    <TextField label=\"姓名\" placeholder=\"請輸入姓名\" />\n    <TextField label=\"信箱\" error helperText=\"格式不正確\" defaultValue=\"not-an-email\" />\n    <TextField label=\"唯讀\" disabled defaultValue=\"不可編輯\" />\n    <TextField label=\"含說明\" helperText=\"這是輔助說明文字\" />\n  </Stack>\n);"
+        },
+        {
+          "id": "inputs-textfield--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <TextField\n    label=\"標籤\"\n    placeholder=\"請輸入\"\n    error={false}\n    disabled={false}\n    helperText=\"\"\n    height={80} />;"
+        }
+      ],
+      "import": "import Stack from \"@mui/material/Stack\";\nimport { TextField } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "inputs-textfield--docs": {
+          "id": "inputs-textfield--docs",
+          "name": "Docs",
+          "path": "./src/components/TextField.mdx",
+          "title": "Inputs/TextField",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as TextFieldStories from \"./TextField.stories\";\n\n<Meta of={TextFieldStories} />\n\n# TextField\n\n表單文字輸入框。label 浮在邊框上、focus 顯示品牌色光圈、錯誤時紅框。\n\n## 使用時機\n\n- 單行/多行文字輸入（`multiline`）；下拉選擇可用 `select` 模式搭配 MenuItem。\n- 驗證失敗時給 `error` + `helperText` 說明原因。\n- 寬高可用 `width` / `height` 指定，或 `fullWidth` 撐滿。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { TextField } from \"@yosgo/swap-ui\";\n\n<TextField label=\"信箱\" placeholder=\"you@example.com\"\n  error={!valid} helperText={!valid ? \"格式不正確\" : \"\"} />`} />\n\n## 狀態\n\n<Canvas of={TextFieldStories.States} />\n",
+          "summary": "# TextField 表單文字輸入框。label 浮在邊框上、focus 顯示品牌色光圈、錯誤時紅框。 ## 使用時機 - 單行/多行文字輸入（`multiline`）；下拉選擇..."
+        }
+      }
+    },
+    "display-card": {
+      "id": "display-card",
+      "name": "Card",
+      "path": "./src/components/Card.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Card",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Card.tsx",
+        "actualName": "Card",
+        "exportName": "default",
+        "props": {
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "bodyStyle": {
+            "required": false,
+            "tsType": {
+              "name": "ReactCSSProperties",
+              "raw": "React.CSSProperties"
+            },
+            "description": ""
+          },
+          "buttons": {
+            "required": false,
+            "tsType": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "CardButtonItem"
+                }
+              ],
+              "raw": "CardButtonItem[]"
+            },
+            "description": ""
+          },
+          "loading": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "BoxProps"
+        ]
+      },
+      "stories": [
+        {
+          "id": "display-card--with-buttons",
+          "name": "With Buttons",
+          "snippet": "const WithButtons = () => (\n  <Card\n    buttons={[\n      { title: \"查看明細\" },\n      { title: \"刪除\", variant: \"danger\" },\n    ]}\n  >\n    <Body />\n  </Card>\n);"
+        },
+        {
+          "id": "display-card--loading",
+          "name": "Loading",
+          "snippet": "const Loading = () => (\n  <Stack sx={{ height: 200 }}>\n    <Card loading height={200} buttons={[{ title: \"查看明細\" }]}>\n      <Body />\n    </Card>\n  </Stack>\n);"
+        },
+        {
+          "id": "display-card--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Card loading={false} width={350} buttons={[{ title: \"查看明細\" }]}>\n    <Body />\n</Card>;"
+        }
+      ],
+      "import": "import { Card, Typography } from \"@yosgo/swap-ui\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "display-card--docs": {
+          "id": "display-card--docs",
+          "name": "Docs",
+          "path": "./src/components/Card.mdx",
+          "title": "Display/Card",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as CardStories from \"./Card.stories\";\n\n<Meta of={CardStories} />\n\n# Card\n\n帶底部操作按鈕列的內容卡片。`loading` 時整卡自動換成骨架。\n\n## 使用時機\n\n- 清單中的資料卡片（請款單、專案）且卡片本身帶操作（查看/刪除）。\n- 純內容區塊（無按鈕列）用 Paper。\n- `buttons` 由左到右排列、均分寬度；破壞性操作放最後並用 `variant: \"danger\"`。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Card } from \"@yosgo/swap-ui\";\n\n<Card\n  loading={isLoading}\n  buttons={[\n    { title: \"查看明細\", onClick: view },\n    { title: \"刪除\", variant: \"danger\", onClick: remove },\n  ]}\n>\n  {content}\n</Card>`} />\n\n## 按鈕列\n\n<Canvas of={CardStories.WithButtons} />\n\n## 載入骨架\n\n<Canvas of={CardStories.Loading} />\n",
+          "summary": "# Card 帶底部操作按鈕列的內容卡片。`loading` 時整卡自動換成骨架。 ## 使用時機 - 清單中的資料卡片（請款單、專案）且卡片本身帶操作（查看/刪除）。 - 純內容..."
+        }
+      }
+    },
+    "display-chip": {
+      "id": "display-chip",
+      "name": "Chip",
+      "path": "./src/components/Chip.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Chip",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Chip.tsx",
+        "actualName": "Chip",
+        "exportName": "default",
+        "props": {
+          "variant": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"neutral\" | \"primary\" | \"success\" | \"danger\"",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"neutral\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"primary\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"success\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"danger\""
+                }
+              ]
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "\"primary\"",
+              "computed": false
+            }
+          },
+          "outlined": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "contained": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "label": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "icon": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "Omit"
+        ]
+      },
+      "stories": [
+        {
+          "id": "display-chip--outlined",
+          "name": "Outlined",
+          "snippet": "const Outlined = () => (\n  <Stack direction=\"row\" spacing={1}>\n    {VARIANTS.map((v) => (\n      <Chip key={v} variant={v} label={v} />\n    ))}\n  </Stack>\n);"
+        },
+        {
+          "id": "display-chip--contained",
+          "name": "Contained",
+          "snippet": "const Contained = () => (\n  <Stack direction=\"row\" spacing={1}>\n    {VARIANTS.map((v) => (\n      <Chip key={v} variant={v} contained label={v} />\n    ))}\n  </Stack>\n);"
+        },
+        {
+          "id": "display-chip--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Chip variant=\"primary\" label=\"標籤\" contained={false} />;"
+        }
+      ],
+      "import": "import { Chip } from \"@yosgo/swap-ui\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "display-chip--docs": {
+          "id": "display-chip--docs",
+          "name": "Docs",
+          "path": "./src/components/Chip.mdx",
+          "title": "Display/Chip",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as ChipStories from \"./Chip.stories\";\n\n<Meta of={ChipStories} />\n\n# Chip\n\n標示狀態或分類的小標籤。以 `variant` 決定語意配色，`contained` 切換填色/描邊。\n\n## 使用時機\n\n- **狀態標記**（成功/危險/一般）→ 對應 `success` / `danger` / `neutral`。\n- **分類/標籤**：預設描邊樣式較輕，適合大量並列；需要強調時用 `contained` 填色。\n- `success` 會自動帶綠勾，不需另外傳 `icon`。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Chip } from \"@yosgo/swap-ui\";\n\n<Chip variant=\"success\" contained label=\"已完成\" />`} />\n\n## 描邊（預設）\n\n<Canvas of={ChipStories.Outlined} />\n\n## 填色（contained）\n\n<Canvas of={ChipStories.Contained} />\n",
+          "summary": "# Chip 標示狀態或分類的小標籤。以 `variant` 決定語意配色，`contained` 切換填色/描邊。 ## 使用時機 - **狀態標記**（成功/危險/一般）→ 對..."
+        }
+      }
+    },
+    "display-paper": {
+      "id": "display-paper",
+      "name": "Paper",
+      "path": "./src/components/Paper.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Paper",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Paper.tsx",
+        "actualName": "Paper",
+        "exportName": "default",
+        "props": {
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "MuiPaperProps"
+        ]
+      },
+      "stories": [
+        {
+          "id": "display-paper--basic",
+          "name": "Basic",
+          "snippet": "const Basic = () => (\n  <div style={{ width: 360 }}>\n    <Paper>\n      <Typography variant=\"title\">卡片標題</Typography>\n      <Typography variant=\"body2\" color=\"tertiary\">\n        Paper 是帶外框與陰影的內容容器，內距會依裝置自動調整。\n      </Typography>\n    </Paper>\n  </div>\n);"
+        },
+        {
+          "id": "display-paper--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Paper width={360} height=\"auto\">\n    <Typography variant=\"title\">卡片標題</Typography>\n    <Typography variant=\"body2\" color=\"tertiary\">調整右側 controls 看效果。\n              </Typography>\n</Paper>;"
+        }
+      ],
+      "import": "import { Paper, Typography } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "display-paper--docs": {
+          "id": "display-paper--docs",
+          "name": "Docs",
+          "path": "./src/components/Paper.mdx",
+          "title": "Display/Paper",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as PaperStories from \"./Paper.stories\";\n\n<Meta of={PaperStories} />\n\n# Paper\n\n帶外框與陰影的內容容器（12 圓角、xl 陰影），內距依裝置自動調整（桌機 40 / 平板 24 / 手機 16）。\n\n## 使用時機\n\n- 需要把一組內容框成一個視覺區塊（表單卡片、資訊卡、設定區塊）。\n- 預設寬高填滿父容器；用 `width` / `height` 指定固定尺寸。\n- 需要更輕的分隔（無陰影）時，用一般 MUI Paper 或 Card 而非此元件。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Paper } from \"@yosgo/swap-ui\";\n\n<Paper>{children}</Paper>`} />\n\n## 基本樣式\n\n<Canvas of={PaperStories.Basic} />\n",
+          "summary": "# Paper 帶外框與陰影的內容容器（12 圓角、xl 陰影），內距依裝置自動調整（桌機 40 / 平板 24 / 手機 16）。 ## 使用時機 - 需要把一組內容框成一個視覺..."
+        }
+      }
+    },
+    "display-swaplogo": {
+      "id": "display-swaplogo",
+      "name": "SWAPLogo",
+      "path": "./src/components/SWAPLogo.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "SWAPLogo",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/SWAPLogo.tsx",
+        "actualName": "SWAPLogo",
+        "exportName": "default",
+        "props": {
+          "business": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "BIZ 版 logo"
+          },
+          "dark": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "深色背景用（白字版）"
+          },
+          "size": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"small\" | \"middle\" | \"large\" | string | number",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"small\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"middle\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"large\""
+                },
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "chinese": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "BIZ 中文版"
+          },
+          "black": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "黑白版"
+          },
+          "iconOnly": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "只顯示圖示"
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "display-swaplogo--variants",
+          "name": "Variants",
+          "snippet": "const Variants = () => (\n  <Stack spacing={3}>\n    <SWAPLogo />\n    <SWAPLogo black />\n    <SWAPLogo iconOnly />\n    <SWAPLogo business />\n    <SWAPLogo business chinese />\n    <Box sx={{ p: 2, backgroundColor: \"#2D2D2D\", width: \"fit-content\" }}>\n      <Stack direction=\"row\" spacing={3}>\n        <SWAPLogo dark />\n        <SWAPLogo black dark />\n      </Stack>\n    </Box>\n  </Stack>\n);"
+        },
+        {
+          "id": "display-swaplogo--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <SWAPLogo\n    business={false}\n    chinese={false}\n    black={false}\n    iconOnly={false}\n    dark={false}\n    size=\"middle\" />;"
+        }
+      ],
+      "import": "import Box from \"@mui/material/Box\";\nimport Stack from \"@mui/material/Stack\";\nimport { SWAPLogo } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "display-swaplogo--docs": {
+          "id": "display-swaplogo--docs",
+          "name": "Docs",
+          "path": "./src/components/SWAPLogo.mdx",
+          "title": "Display/SWAPLogo",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as SWAPLogoStories from \"./SWAPLogo.stories\";\n\n<Meta of={SWAPLogoStories} />\n\n# SWAPLogo\n\nSWAP 品牌 logo（8 種資產：一般/黑白/純圖示/BIZ 英中/各深色版）。\n\n## 使用時機\n\n- 導覽列、頁尾、登入頁等品牌露出。\n- 深色背景加 `dark`；BIZ 產品線用 `business`（中文版加 `chinese`）。\n- `size`：small 30 / middle 40 / large 48（BIZ 為 48/72/81），也可給數字或 CSS 長度。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { SWAPLogo } from \"@yosgo/swap-ui\";\n\n<SWAPLogo size=\"small\" />\n<SWAPLogo business chinese />`} />\n\n## 全部變體\n\n<Canvas of={SWAPLogoStories.Variants} />\n",
+          "summary": "# SWAPLogo SWAP 品牌 logo（8 種資產：一般/黑白/純圖示/BIZ 英中/各深色版）。 ## 使用時機 - 導覽列、頁尾、登入頁等品牌露出。 - 深色背景加 `..."
+        }
+      }
+    },
+    "display-swapshare": {
+      "id": "display-swapshare",
+      "name": "SWAPShare",
+      "path": "./src/components/SWAPShare.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "SWAPShare",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/SWAPShare.tsx",
+        "actualName": "SWAPShare",
+        "exportName": "default",
+        "props": {
+          "url": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "emailSubject": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "\"\"",
+              "computed": false
+            }
+          },
+          "sharedContent": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "\"\"",
+              "computed": false
+            }
+          },
+          "size": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "36",
+              "computed": false
+            }
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "display-swapshare--basic",
+          "name": "Basic",
+          "snippet": "const Basic = () => (\n  <SWAPShare\n    url=\"https://swap.work\"\n    emailSubject=\"推薦你看看 SWAP\"\n    sharedContent=\"自由工作者的請款平台\"\n  />\n);"
+        },
+        {
+          "id": "display-swapshare--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <SWAPShare url=\"https://swap.work\" emailSubject=\"推薦\" sharedContent=\"內容\" />;"
+        }
+      ],
+      "import": "import { SWAPShare } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "display-swapshare--docs": {
+          "id": "display-swapshare--docs",
+          "name": "Docs",
+          "path": "./src/components/SWAPShare.mdx",
+          "title": "Display/SWAPShare",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as SWAPShareStories from \"./SWAPShare.stories\";\n\n<Meta of={SWAPShareStories} />\n\n# SWAPShare\n\n一列社群分享按鈕：Messenger、LINE、Email。\n\n## 使用時機\n\n- 分享請款單、個人頁等公開連結。\n- `url` 留空時分享當前頁網址；`emailSubject` / `sharedContent` 帶入 Email 主旨與內文。\n- Messenger 在行動裝置走 App 深連結、桌面走網頁對話框（沿 v1 行為）。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { SWAPShare } from \"@yosgo/swap-ui\";\n\n<SWAPShare url={publicUrl} emailSubject=\"推薦你看看\" sharedContent=\"說明文字\" />`} />\n\n## 基本\n\n<Canvas of={SWAPShareStories.Basic} />\n",
+          "summary": "# SWAPShare 一列社群分享按鈕：Messenger、LINE、Email。 ## 使用時機 - 分享請款單、個人頁等公開連結。 - `url` 留空時分享當前頁網址；`e..."
+        }
+      }
+    },
+    "display-tooltip": {
+      "id": "display-tooltip",
+      "name": "Tooltip",
+      "path": "./src/components/Tooltip.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Tooltip",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Tooltip.tsx",
+        "actualName": "Tooltip",
+        "exportName": "default",
+        "props": {
+          "children": {
+            "required": true,
+            "tsType": {
+              "name": "ReactReactElement",
+              "raw": "React.ReactElement"
+            },
+            "description": ""
+          },
+          "dark": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "light": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "arrow": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "margin": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "marginTop": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "marginBottom": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "marginRight": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "marginLeft": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "childrenStyle": {
+            "required": false,
+            "tsType": {
+              "name": "ReactCSSProperties",
+              "raw": "React.CSSProperties"
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "Omit"
+        ]
+      },
+      "stories": [
+        {
+          "id": "display-tooltip--variants",
+          "name": "Variants",
+          "snippet": "const Variants = () => (\n  <Stack direction=\"row\" spacing={4} sx={{ p: 6 }}>\n    <Tooltip title=\"深色（預設）\" open>\n      <Button variant=\"secondary\">dark</Button>\n    </Tooltip>\n    <Tooltip title=\"淺色\" light open>\n      <Button variant=\"secondary\">light</Button>\n    </Tooltip>\n    <Tooltip title=\"帶箭頭\" arrow open>\n      <Button variant=\"secondary\">arrow</Button>\n    </Tooltip>\n  </Stack>\n);"
+        },
+        {
+          "id": "display-tooltip--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Stack sx={{ p: 6, alignItems: \"flex-start\" }}>\n    <Tooltip title=\"說明文字\" light={false} arrow={false} width={240} open>\n        <Button variant=\"secondary\">目標元素</Button>\n    </Tooltip>\n</Stack>;"
+        }
+      ],
+      "import": "import Button from \"@mui/material/Button\";\nimport Stack from \"@mui/material/Stack\";\nimport { Tooltip } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "display-tooltip--docs": {
+          "id": "display-tooltip--docs",
+          "name": "Docs",
+          "path": "./src/components/Tooltip.mdx",
+          "title": "Display/Tooltip",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as TooltipStories from \"./Tooltip.stories\";\n\n<Meta of={TooltipStories} />\n\n# Tooltip\n\n滑鼠停留時顯示的補充說明。預設深色底白字；`light` 切淺色、`arrow` 加指向箭頭。\n\n## 使用時機\n\n- 為圖示按鈕、縮寫、需要解釋的欄位提供補充說明，不佔版面。\n- 說明較短用預設；需要指向特定元素用 `arrow`。\n- 淺色背景區域若深色 tooltip 太重，可用 `light`。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Tooltip } from \"@yosgo/swap-ui\";\n\n<Tooltip title=\"說明文字\" arrow>\n  <IconButton>...</IconButton>\n</Tooltip>`} />\n\n## 樣式\n\n<Canvas of={TooltipStories.Variants} />\n",
+          "summary": "# Tooltip 滑鼠停留時顯示的補充說明。預設深色底白字；`light` 切淺色、`arrow` 加指向箭頭。 ## 使用時機 - 為圖示按鈕、縮寫、需要解釋的欄位提供補充說明..."
+        }
+      }
+    },
+    "display-typography": {
+      "id": "display-typography",
+      "name": "Typography",
+      "path": "./src/components/Typography.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Typography",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Typography.tsx",
+        "actualName": "Typography",
+        "exportName": "default",
+        "props": {
+          "variant": {
+            "required": false,
+            "tsType": {
+              "name": "MuiTypographyProps[\"variant\"]",
+              "raw": "MuiTypographyProps[\"variant\"]"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "\"body1\"",
+              "computed": false
+            }
+          },
+          "color": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"primary\" | \"secondary\" | \"tertiary\" | keyof typeof swapTokenMap",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"primary\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"secondary\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"tertiary\""
+                },
+                {
+                  "name": "union",
+                  "raw": "keyof typeof swapTokenMap",
+                  "elements": [
+                    {
+                      "name": "literal",
+                      "value": "primary50"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "primary100"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "primary200"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "primary300"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "primary400"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "primary500"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "primary600"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "primary700"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "primary800"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "primary900"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "primaryA11y"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "secondary50"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "secondary100"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "secondary200"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "secondary300"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "secondary400"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "secondary500"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "secondary600"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "secondary700"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "secondary800"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "secondary900"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "secondaryA11y"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "danger50"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "danger100"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "danger200"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "danger300"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "danger400"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "danger500"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "danger600"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "danger700"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "danger800"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "danger900"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "dangerA11y"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "success50"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "success100"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "success200"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "success300"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "success400"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "success500"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "success600"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "success700"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "success800"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "success900"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "successA11y"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "white"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "black100"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "black200"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "black300"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "black400"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "black500"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "black600"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "black700"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "black800"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "black900"
+                    },
+                    {
+                      "name": "literal",
+                      "value": "black1000"
+                    }
+                  ]
+                }
+              ]
+            },
+            "description": ""
+          },
+          "mode": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"\" | \"dark\"",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"dark\""
+                }
+              ]
+            },
+            "description": ""
+          },
+          "children": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "style": {
+            "required": false,
+            "tsType": {
+              "name": "ReactCSSProperties",
+              "raw": "React.CSSProperties"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "display-typography--scale",
+          "name": "Scale",
+          "snippet": "const Scale = () => (\n  <Stack spacing={1}>\n    {SWAP_TYPOGRAPHY_VARIANTS.map((v) => (\n      <Typography key={v} variant={v as never}>\n        {v} — SWAP 排版 The quick brown fox\n      </Typography>\n    ))}\n  </Stack>\n);"
+        },
+        {
+          "id": "display-typography--colors",
+          "name": "Colors",
+          "snippet": "const Colors = () => (\n  <Stack spacing={1}>\n    <Typography variant=\"h4\" color=\"primary\">\n      primary（黑）\n    </Typography>\n    <Typography variant=\"h4\" color=\"secondary\">\n      secondary（深灰）\n    </Typography>\n    <Typography variant=\"h4\" color=\"tertiary\">\n      tertiary（灰）\n    </Typography>\n    <Typography variant=\"h4\" color=\"primary400\">\n      primary400（品牌藍）\n    </Typography>\n    <Typography variant=\"h4\" color=\"danger800\">\n      danger800（紅）\n    </Typography>\n  </Stack>\n);"
+        },
+        {
+          "id": "display-typography--dark-mode",
+          "name": "Dark Mode",
+          "snippet": "const DarkMode = () => (\n  <Stack spacing={1} sx={{ p: 2, backgroundColor: \"#2D2D2D\" }}>\n    <Typography variant=\"h4\" color=\"primary\" mode=\"dark\">\n      primary（白）\n    </Typography>\n    <Typography variant=\"h4\" color=\"secondary\" mode=\"dark\">\n      secondary（淺灰）\n    </Typography>\n  </Stack>\n);"
+        },
+        {
+          "id": "display-typography--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Typography variant=\"subtitle\" color=\"tertiary\" mode=\"\" style={{}}>SWAP Typography</Typography>;"
+        }
+      ],
+      "import": "import Stack from \"@mui/material/Stack\";\nimport { Typography } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "display-typography--docs": {
+          "id": "display-typography--docs",
+          "name": "Docs",
+          "path": "./src/components/Typography.mdx",
+          "title": "Display/Typography",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as TypographyStories from \"./Typography.stories\";\n\n<Meta of={TypographyStories} />\n\n# Typography\n\nSWAP 品牌排版元件，涵蓋 32 種字級 variant。`variant` 決定字級／字重／行高，\n`color` 決定文字顏色，`mode=\"dark\"` 切換深色底適用的文字色。從 `@yosgo/swap-ui` 匯入。\n\n## 使用時機\n\n- **標題**：頁面主標用 `d1`–`d4`（Display）或 `h1`–`h6`；區塊標題用 `title` / `subtitle`。\n- **內文**：段落用 `body1` / `body2`；需要更寬鬆行距時用 `_loose` 版（如 `body1_loose`）。\n- **輔助文字**：說明、標註用 `caption1` / `caption2`；極小字用 `small*` / `tiny*`。\n- **顏色**：一般文字用語意色 `primary`（主）／`secondary`（次）／`tertiary`（輔）；\n  需要品牌色或狀態色時用 token 名（如 `primary400`、`danger800`）。\n- **深色底**：文字放在深色背景時加 `mode=\"dark\"`，語意色會自動改用亮色。\n\n## 基本用法\n\n<Source\n  language=\"tsx\"\n  code={`import { Typography } from \"@yosgo/swap-ui\";\n\n<Typography variant=\"body1\" color=\"primary\">\n  一般內文\n</Typography>`}\n/>\n\n## 字級一覽\n\n32 種 variant 的大小與粗細層次。\n\n<Canvas of={TypographyStories.Scale} />\n\n## 顏色\n\n`primary` / `secondary` / `tertiary` 是文字色語意（黑／深灰／灰，非品牌藍）；token 名對應該色階。\n\n<Canvas of={TypographyStories.Colors} />\n\n## 深色模式\n\n加 `mode=\"dark\"`，語意色自動改亮色。\n\n<Canvas of={TypographyStories.DarkMode} />\n",
+          "summary": "# Typography SWAP 品牌排版元件，涵蓋 32 種字級 variant。`variant` 決定字級／字重／行高， `color` 決定文字顏色，`mode=\"dar..."
+        }
+      }
+    },
+    "feedback-banner": {
+      "id": "feedback-banner",
+      "name": "Banner",
+      "path": "./src/components/Banner.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Banner",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Banner.tsx",
+        "actualName": "Banner",
+        "exportName": "default",
+        "props": {
+          "variant": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"info\" | \"normal\" | \"success\" | \"warning\" | \"error\"",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"info\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"normal\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"success\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"warning\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"error\""
+                }
+              ]
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "\"info\"",
+              "computed": false
+            }
+          },
+          "mobile": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "icon": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "BoxProps"
+        ]
+      },
+      "stories": [
+        {
+          "id": "feedback-banner--variants",
+          "name": "Variants",
+          "snippet": "const Variants = () => (\n  <Stack spacing={2} sx={{ maxWidth: 480 }}>\n    {VARIANTS.map((v) => (\n      <Banner key={v} variant={v}>\n        這是 {v} 提示訊息，用來告知使用者目前的狀態或需要注意的事項。\n      </Banner>\n    ))}\n  </Stack>\n);"
+        },
+        {
+          "id": "feedback-banner--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Banner variant=\"info\" mobile={false}>提示訊息內容</Banner>;"
+        }
+      ],
+      "import": "import { Banner } from \"@yosgo/swap-ui\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "feedback-banner--docs": {
+          "id": "feedback-banner--docs",
+          "name": "Docs",
+          "path": "./src/components/Banner.mdx",
+          "title": "Feedback/Banner",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as BannerStories from \"./Banner.stories\";\n\n<Meta of={BannerStories} />\n\n# Banner\n\n頁面內的狀態提示橫幅。以 `variant` 決定語意配色與預設圖示。\n\n## 使用時機\n\n- 需要**常駐**在頁面/區塊內的提示（權限不足、功能維護中、操作結果說明）。\n- 操作後的**暫時**回饋用 Snackbar；重要決策用 Modal。\n- 內容較長時會自動改為頂部對齊（手機可強制 `mobile`）。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Banner } from \"@yosgo/swap-ui\";\n\n<Banner variant=\"warning\">此功能將於 7/20 進行維護，期間暫停服務。</Banner>`} />\n\n## 五種語意\n\n<Canvas of={BannerStories.Variants} />\n",
+          "summary": "# Banner 頁面內的狀態提示橫幅。以 `variant` 決定語意配色與預設圖示。 ## 使用時機 - 需要**常駐**在頁面/區塊內的提示（權限不足、功能維護中、操作結果說..."
+        }
+      }
+    },
+    "feedback-circularprogress": {
+      "id": "feedback-circularprogress",
+      "name": "CircularProgress",
+      "path": "./src/components/CircularProgress.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "CircularProgress",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/CircularProgress.tsx",
+        "actualName": "CircularProgress",
+        "exportName": "default",
+        "props": {
+          "dark": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "size": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "20",
+              "computed": false
+            }
+          },
+          "thickness": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "5",
+              "computed": false
+            }
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "feedback-circularprogress--sizes",
+          "name": "Sizes",
+          "snippet": "const Sizes = () => (\n  <Stack direction=\"row\" spacing={2} sx={{ alignItems: \"center\" }}>\n    <CircularProgress size={20} />\n    <CircularProgress size={32} />\n    <CircularProgress size={48} thickness={4} />\n  </Stack>\n);"
+        },
+        {
+          "id": "feedback-circularprogress--dark",
+          "name": "Dark",
+          "snippet": "const Dark = () => (\n  <Stack direction=\"row\" spacing={2} sx={{ p: 2, backgroundColor: \"#2D2D2D\" }}>\n    <CircularProgress dark size={32} />\n  </Stack>\n);"
+        },
+        {
+          "id": "feedback-circularprogress--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <CircularProgress dark={false} size={32} thickness={5} />;"
+        }
+      ],
+      "import": "import { CircularProgress } from \"@yosgo/swap-ui\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "feedback-circularprogress--docs": {
+          "id": "feedback-circularprogress--docs",
+          "name": "Docs",
+          "path": "./src/components/CircularProgress.mdx",
+          "title": "Feedback/CircularProgress",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as CPStories from \"./CircularProgress.stories\";\n\n<Meta of={CPStories} />\n\n# CircularProgress\n\n環形載入指示。SWAP 版是雙層圓環（淺色底環 + 品牌色轉環），比單環更清楚。\n\n## 使用時機\n\n- 局部載入（按鈕內、卡片內、小區塊）用小尺寸；整頁載入用大尺寸置中。\n- 深色背景上加 `dark`，圓環自動改用白色系。\n- 注意：此元件由雙層圓環組成，僅接受 `dark` / `size` / `thickness` 與容器 `style`／`className`。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { CircularProgress } from \"@yosgo/swap-ui\";\n\n<CircularProgress size={32} />`} />\n\n## 尺寸\n\n<Canvas of={CPStories.Sizes} />\n\n## 深色背景\n\n<Canvas of={CPStories.Dark} />\n",
+          "summary": "# CircularProgress 環形載入指示。SWAP 版是雙層圓環（淺色底環 + 品牌色轉環），比單環更清楚。 ## 使用時機 - 局部載入（按鈕內、卡片內、小區塊）用小尺..."
+        }
+      }
+    },
+    "feedback-modal": {
+      "id": "feedback-modal",
+      "name": "Modal",
+      "path": "./src/components/Modal.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Modal",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Modal.tsx",
+        "actualName": "Modal",
+        "exportName": "default",
+        "props": {
+          "open": {
+            "required": true,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "onClose": {
+            "required": true,
+            "tsType": {
+              "name": "signature",
+              "type": "function",
+              "raw": "() => void",
+              "signature": {
+                "arguments": [],
+                "return": {
+                  "name": "void"
+                }
+              }
+            },
+            "description": ""
+          },
+          "title": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "helpText": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "children": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "footer": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "size": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"medium\" | \"large\" | \"small\" | \"extraSmall\"",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"medium\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"large\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"small\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"extraSmall\""
+                }
+              ]
+            },
+            "description": ""
+          },
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "maxWidth": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "mobile": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "fullWidth": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "fullScreen": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "multiline": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "checked": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "failed": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "icon": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "iconColor": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "icon/checked/failed 圖示顏色（SWAP token 名）"
+          },
+          "checkIconColor": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": ""
+          },
+          "headpadding": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "headChildren": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "titleStyle": {
+            "required": false,
+            "tsType": {
+              "name": "ReactCSSProperties",
+              "raw": "React.CSSProperties"
+            },
+            "description": ""
+          },
+          "bodyStyle": {
+            "required": false,
+            "tsType": {
+              "name": "ReactCSSProperties",
+              "raw": "React.CSSProperties"
+            },
+            "description": ""
+          },
+          "bodyPadding": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          },
+          "bodyMaxHeight": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "label": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "buttonFullWidth": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "footerDisplayColumn": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "secondaryButton": {
+            "required": false,
+            "tsType": {
+              "name": "ModalButtonItem"
+            },
+            "description": ""
+          },
+          "primaryButton": {
+            "required": false,
+            "tsType": {
+              "name": "ModalButtonItem"
+            },
+            "description": ""
+          },
+          "disUnderLine": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "disCloseIcon": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "onExit": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "退場鎖定：內容變暗、不可互動"
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "feedback-modal--basic",
+          "name": "Basic",
+          "snippet": "const Basic = () => <Demo />;"
+        },
+        {
+          "id": "feedback-modal--with-help-text",
+          "name": "With Help Text",
+          "snippet": "const WithHelpText = () => <Demo helpText=\"送出前請再次確認金額與項目。\" />;"
+        },
+        {
+          "id": "feedback-modal--checked",
+          "name": "Checked",
+          "snippet": "const Checked = () => (\n  <Demo buttonText=\"成功狀態\" checked checkIconColor=\"success500\" title=\"請款單已送出\" />\n);"
+        },
+        {
+          "id": "feedback-modal--failed",
+          "name": "Failed",
+          "snippet": "const Failed = () => <Demo buttonText=\"失敗狀態\" failed iconColor=\"danger700\" title=\"送出失敗\" />;"
+        },
+        {
+          "id": "feedback-modal--full-width-mobile",
+          "name": "Full Width Mobile",
+          "snippet": "const FullWidthMobile = () => <Demo buttonText=\"行動版底部彈出\" fullWidth mobile />;"
+        },
+        {
+          "id": "feedback-modal--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Demo\n    title=\"確認送出請款單？\"\n    helpText=\"\"\n    size=\"small\"\n    disCloseIcon={false}\n    fullWidth={false}\n    fullScreen={false}\n    mobile={false}\n    onExit={false} />;"
+        }
+      ],
+      "import": "import Button from \"@mui/material/Button\";\nimport { Modal, Typography } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "feedback-modal--docs": {
+          "id": "feedback-modal--docs",
+          "name": "Docs",
+          "path": "./src/components/Modal.mdx",
+          "title": "Feedback/Modal",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as ModalStories from \"./Modal.stories\";\n\n<Meta of={ModalStories} />\n\n# Modal\n\n對話彈窗（head / body / footer 完整組合）。四檔尺寸、成功/失敗圖示、行動版底部彈出與全螢幕。\n\n## 使用時機\n\n- 需要使用者**確認或決策**的操作（送出、刪除）；單純通知用 Snackbar。\n- `size`：extraSmall 320 / small 480 / medium 640 / large 800。\n- 行動版：`mobile` 調整字級與間距，搭 `fullWidth` 從底部滑出；`fullScreen` 全螢幕。\n- `primaryButton` / `secondaryButton` 支援 loading、disabled、tooltip；`footer` 可整段自訂。\n- `checked` / `failed` 在標題前顯示成功/警告圖示（`checkIconColor` / `iconColor` 給 token 名）。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Modal } from \"@yosgo/swap-ui\";\n\n<Modal\n  open={open} onClose={close}\n  title=\"確認送出請款單？\" size=\"small\"\n  secondaryButton={{ title: \"取消\", onClick: close }}\n  primaryButton={{ title: \"送出\", onClick: submit, loading }}\n>\n  送出後將通知業主付款。\n</Modal>`} />\n\n## 基本 / 說明文字\n\n<Canvas of={ModalStories.Basic} />\n<Canvas of={ModalStories.WithHelpText} />\n\n## 成功 / 失敗圖示\n\n<Canvas of={ModalStories.Checked} />\n<Canvas of={ModalStories.Failed} />\n\n## 行動版底部彈出\n\n<Canvas of={ModalStories.FullWidthMobile} />\n",
+          "summary": "# Modal 對話彈窗（head / body / footer 完整組合）。四檔尺寸、成功/失敗圖示、行動版底部彈出與全螢幕。 ## 使用時機 - 需要使用者**確認或決策**..."
+        }
+      }
+    },
+    "feedback-progress": {
+      "id": "feedback-progress",
+      "name": "Progress",
+      "path": "./src/components/Progress.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Progress",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Progress.tsx",
+        "actualName": "Progress",
+        "exportName": "default",
+        "props": {
+          "step": {
+            "required": true,
+            "tsType": {
+              "name": "number"
+            },
+            "description": "目前進行到第幾步（1 起算）"
+          },
+          "count": {
+            "required": true,
+            "tsType": {
+              "name": "number"
+            },
+            "description": "總步數"
+          },
+          "label": {
+            "required": false,
+            "tsType": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactReactNode",
+                  "raw": "React.ReactNode"
+                }
+              ],
+              "raw": "React.ReactNode[]"
+            },
+            "description": "各步驟下方標籤"
+          },
+          "size": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": "步驟圓直徑，預設 24"
+          },
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "Omit"
+        ]
+      },
+      "stories": [
+        {
+          "id": "feedback-progress--basic",
+          "name": "Basic",
+          "snippet": "const Basic = () => (\n  <div style={{ maxWidth: 480 }}>\n    <Progress step={2} count={4} label={[\"填寫資料\", \"確認內容\", \"送出\", \"完成\"]} />\n  </div>\n);"
+        },
+        {
+          "id": "feedback-progress--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <div style={{ maxWidth: 480 }}>\n    <Progress step={2} count={4} label={[\"填寫資料\", \"確認內容\", \"送出\", \"完成\"]} />\n</div>;"
+        }
+      ],
+      "import": "import { Progress } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "feedback-progress--docs": {
+          "id": "feedback-progress--docs",
+          "name": "Docs",
+          "path": "./src/components/Progress.mdx",
+          "title": "Feedback/Progress",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as ProgressStories from \"./Progress.stories\";\n\n<Meta of={ProgressStories} />\n\n# Progress\n\n步驟進度條。目前步以白底藍框光圈突顯，完成步實心藍。\n\n## 使用時機\n\n- 多步驟流程（申請、註冊、結帳）標示目前位置。\n- `step` 從 1 起算；`label` 依序對應各步。\n- 環形載入用 CircularProgress；非步驟式進度另尋 LinearProgress。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Progress } from \"@yosgo/swap-ui\";\n\n<Progress step={2} count={4} label={[\"填寫資料\", \"確認內容\", \"送出\", \"完成\"]} />`} />\n\n## 基本\n\n<Canvas of={ProgressStories.Basic} />\n",
+          "summary": "# Progress 步驟進度條。目前步以白底藍框光圈突顯，完成步實心藍。 ## 使用時機 - 多步驟流程（申請、註冊、結帳）標示目前位置。 - `step` 從 1 起算；`la..."
+        }
+      }
+    },
+    "feedback-skeleton": {
+      "id": "feedback-skeleton",
+      "name": "Skeleton",
+      "path": "./src/components/Skeleton.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/chenbeilun/Desktop/kcin/github/swap-ui/node_modules/@mui/material/Skeleton/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "feedback-skeleton--shapes",
+          "name": "Shapes",
+          "snippet": "const Shapes = () => (\n  <Stack spacing={1} sx={{ width: 240 }}>\n    <Skeleton variant=\"text\" />\n    <Skeleton variant=\"rectangular\" height={80} />\n    <Skeleton variant=\"circular\" width={40} height={40} />\n  </Stack>\n);"
+        },
+        {
+          "id": "feedback-skeleton--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Skeleton variant=\"rectangular\" width={240} height={80} />;"
+        }
+      ],
+      "import": "import Skeleton from \"@mui/material/Skeleton\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "feedback-skeleton--docs": {
+          "id": "feedback-skeleton--docs",
+          "name": "Docs",
+          "path": "./src/components/Skeleton.mdx",
+          "title": "Feedback/Skeleton",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as SkeletonStories from \"./Skeleton.stories\";\n\n<Meta of={SkeletonStories} />\n\n# Skeleton\n\n載入中的骨架佔位。SWAP 主題把底色統一為淺灰 `black400`、取消預設縮放（實心矩形）。\n用原生 MUI Skeleton 即可，樣式由 theme 自動套用。\n\n## 使用時機\n\n- 資料載入時先顯示版面骨架，減少畫面跳動與空白等待感。\n- `variant`：文字列用 `text`、圖片/區塊用 `rectangular`、頭像用 `circular`。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import Skeleton from \"@mui/material/Skeleton\";\n\n<Skeleton variant=\"rectangular\" height={80} />`} />\n\n## 形狀\n\n<Canvas of={SkeletonStories.Shapes} />\n",
+          "summary": "# Skeleton 載入中的骨架佔位。SWAP 主題把底色統一為淺灰 `black400`、取消預設縮放（實心矩形）。 用原生 MUI Skeleton 即可，樣式由 theme..."
+        }
+      }
+    },
+    "feedback-snackbar": {
+      "id": "feedback-snackbar",
+      "name": "Snackbar",
+      "path": "./src/components/Snackbar.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Snackbar",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Snackbar.tsx",
+        "actualName": "Snackbar",
+        "exportName": "default",
+        "props": {
+          "transitionDirection": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"left\" | \"right\" | \"up\" | \"down\"",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"left\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"right\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"up\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"down\""
+                }
+              ]
+            },
+            "description": ""
+          },
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "string | number",
+              "elements": [
+                {
+                  "name": "string"
+                },
+                {
+                  "name": "number"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "variant": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "\"success\" | \"error\"",
+              "elements": [
+                {
+                  "name": "literal",
+                  "value": "\"success\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"error\""
+                }
+              ]
+            },
+            "description": ""
+          },
+          "revertButton": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "object",
+              "raw": "{\n  label?: React.ReactNode;\n  onClick?: () => void;\n}",
+              "signature": {
+                "properties": [
+                  {
+                    "key": "label",
+                    "value": {
+                      "name": "ReactReactNode",
+                      "raw": "React.ReactNode",
+                      "required": false
+                    }
+                  },
+                  {
+                    "key": "onClick",
+                    "value": {
+                      "name": "signature",
+                      "type": "function",
+                      "raw": "() => void",
+                      "signature": {
+                        "arguments": [],
+                        "return": {
+                          "name": "void"
+                        }
+                      },
+                      "required": false
+                    }
+                  }
+                ]
+              }
+            },
+            "description": ""
+          },
+          "closeIcon": {
+            "required": false,
+            "tsType": {
+              "name": "signature",
+              "type": "object",
+              "raw": "{\n  icon?: React.ReactNode;\n  hoverColor?: string;\n  onClick?: () => void;\n}",
+              "signature": {
+                "properties": [
+                  {
+                    "key": "icon",
+                    "value": {
+                      "name": "ReactReactNode",
+                      "raw": "React.ReactNode",
+                      "required": false
+                    }
+                  },
+                  {
+                    "key": "hoverColor",
+                    "value": {
+                      "name": "string",
+                      "required": false
+                    }
+                  },
+                  {
+                    "key": "onClick",
+                    "value": {
+                      "name": "signature",
+                      "type": "function",
+                      "raw": "() => void",
+                      "signature": {
+                        "arguments": [],
+                        "return": {
+                          "name": "void"
+                        }
+                      },
+                      "required": false
+                    }
+                  }
+                ]
+              }
+            },
+            "description": ""
+          },
+          "icon": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": ""
+          },
+          "checkIcon": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "errorIcon": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "MuiSnackbarProps"
+        ]
+      },
+      "stories": [
+        {
+          "id": "feedback-snackbar--default",
+          "name": "Default",
+          "snippet": "const Default = () => <Demo />;"
+        },
+        {
+          "id": "feedback-snackbar--success",
+          "name": "Success",
+          "snippet": "const Success = () => <Demo variant=\"success\" checkIcon message=\"儲存成功\" />;"
+        },
+        {
+          "id": "feedback-snackbar--error",
+          "name": "Error",
+          "snippet": "const Error = () => <Demo variant=\"error\" errorIcon message=\"儲存失敗，請稍後再試\" />;"
+        },
+        {
+          "id": "feedback-snackbar--slide-up",
+          "name": "Slide Up",
+          "snippet": "const SlideUp = () => <Demo transitionDirection=\"up\" />;"
+        },
+        {
+          "id": "feedback-snackbar--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Demo\n    message=\"已刪除 1 筆資料\"\n    variant={undefined}\n    checkIcon={false}\n    errorIcon={false}\n    transitionDirection={undefined} />;"
+        }
+      ],
+      "import": "import Button from \"@mui/material/Button\";\nimport { Snackbar } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "feedback-snackbar--docs": {
+          "id": "feedback-snackbar--docs",
+          "name": "Docs",
+          "path": "./src/components/Snackbar.mdx",
+          "title": "Feedback/Snackbar",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as SnackbarStories from \"./Snackbar.stories\";\n\n<Meta of={SnackbarStories} />\n\n# Snackbar\n\n操作後的暫時回饋（底部浮出）。支援語意配色、收回操作、關閉鈕與四向進場。\n\n## 使用時機\n\n- 操作完成/失敗的**短暫**通知（儲存成功、刪除完成）；常駐提示用 Banner。\n- 可復原的操作（刪除）給 `revertButton`，預設文案「收回操作」。\n- `variant=\"success\" + checkIcon`、`variant=\"error\" + errorIcon` 是標準組合。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Snackbar } from \"@yosgo/swap-ui\";\n\n<Snackbar\n  open={open} autoHideDuration={3000} onClose={close}\n  message=\"已刪除 1 筆資料\"\n  revertButton={{ onClick: undo }}\n  closeIcon={{ onClick: close }}\n/>`} />\n\n## 預設 / 成功 / 失敗\n\n<Canvas of={SnackbarStories.Default} />\n<Canvas of={SnackbarStories.Success} />\n<Canvas of={SnackbarStories.Error} />\n",
+          "summary": "# Snackbar 操作後的暫時回饋（底部浮出）。支援語意配色、收回操作、關閉鈕與四向進場。 ## 使用時機 - 操作完成/失敗的**短暫**通知（儲存成功、刪除完成）；常駐提示..."
+        }
+      }
+    },
+    "navigation-breadcrumb": {
+      "id": "navigation-breadcrumb",
+      "name": "Breadcrumb",
+      "path": "./src/components/Breadcrumb.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Breadcrumb",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Breadcrumb.tsx",
+        "actualName": "Breadcrumb",
+        "exportName": "default",
+        "props": {
+          "children": {
+            "required": true,
+            "tsType": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactReactNode",
+                  "raw": "React.ReactNode"
+                }
+              ],
+              "raw": "React.ReactNode[]"
+            },
+            "description": ""
+          },
+          "separator": {
+            "required": false,
+            "tsType": {
+              "name": "ReactReactNode",
+              "raw": "React.ReactNode"
+            },
+            "description": "",
+            "defaultValue": {
+              "value": "\"/\"",
+              "computed": false
+            }
+          },
+          "maxItems": {
+            "required": false,
+            "tsType": {
+              "name": "number"
+            },
+            "description": ""
+          }
+        }
+      },
+      "stories": [
+        {
+          "id": "navigation-breadcrumb--basic",
+          "name": "Basic",
+          "snippet": "const Basic = () => (\n  <Breadcrumb>\n    {[\n      <BreadcrumbItem key=\"1\" href=\"#\">\n        首頁\n      </BreadcrumbItem>,\n      <BreadcrumbItem key=\"2\" href=\"#\">\n        會員中心\n      </BreadcrumbItem>,\n      <BreadcrumbItem key=\"3\" last>\n        請款單\n      </BreadcrumbItem>,\n    ]}\n  </Breadcrumb>\n);"
+        },
+        {
+          "id": "navigation-breadcrumb--collapsed",
+          "name": "Collapsed",
+          "snippet": "const Collapsed = () => (\n  <Breadcrumb maxItems={3}>\n    {[\n      <BreadcrumbItem key=\"1\" href=\"#\">\n        首頁\n      </BreadcrumbItem>,\n      <BreadcrumbItem key=\"2\" href=\"#\">\n        會員中心\n      </BreadcrumbItem>,\n      <BreadcrumbItem key=\"3\" href=\"#\">\n        請款\n      </BreadcrumbItem>,\n      <BreadcrumbItem key=\"4\" href=\"#\">\n        2026\n      </BreadcrumbItem>,\n      <BreadcrumbItem key=\"5\" last>\n        七月帳單\n      </BreadcrumbItem>,\n    ]}\n  </Breadcrumb>\n);"
+        },
+        {
+          "id": "navigation-breadcrumb--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Breadcrumb maxItems={3} separator=\"/\">\n    {[\n      <BreadcrumbItem key=\"1\" href=\"#\">首頁</BreadcrumbItem>,\n      <BreadcrumbItem key=\"2\" href=\"#\">會員中心</BreadcrumbItem>,\n      <BreadcrumbItem key=\"3\" href=\"#\">請款</BreadcrumbItem>,\n      <BreadcrumbItem key=\"4\" href=\"#\">2026</BreadcrumbItem>,\n      <BreadcrumbItem key=\"5\" last>七月帳單</BreadcrumbItem>,\n    ]}\n</Breadcrumb>;"
+        }
+      ],
+      "import": "import { Breadcrumb, BreadcrumbItem } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "navigation-breadcrumb--docs": {
+          "id": "navigation-breadcrumb--docs",
+          "name": "Docs",
+          "path": "./src/components/Breadcrumb.mdx",
+          "title": "Navigation/Breadcrumb",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as BreadcrumbStories from \"./Breadcrumb.stories\";\n\n<Meta of={BreadcrumbStories} />\n\n# Breadcrumb\n\n麵包屑導覽，標示當前頁在層級中的位置。最後一項用 `last`（黑色粗體、不可點）。\n\n## 使用時機\n\n- 層級三層以上的頁面（列表 → 分類 → 詳情），幫使用者快速回上層。\n- 層級太深時給 `maxItems`，中間項會收合成「⋯」選單。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Breadcrumb, BreadcrumbItem } from \"@yosgo/swap-ui\";\n\n<Breadcrumb>\n  {[\n    <BreadcrumbItem key=\"1\" href=\"/\">首頁</BreadcrumbItem>,\n    <BreadcrumbItem key=\"2\" last>目前頁面</BreadcrumbItem>,\n  ]}\n</Breadcrumb>`} />\n\n## 基本\n\n<Canvas of={BreadcrumbStories.Basic} />\n\n## 收合（maxItems）\n\n<Canvas of={BreadcrumbStories.Collapsed} />\n",
+          "summary": "# Breadcrumb 麵包屑導覽，標示當前頁在層級中的位置。最後一項用 `last`（黑色粗體、不可點）。 ## 使用時機 - 層級三層以上的頁面（列表 → 分類 → 詳情），..."
+        }
+      }
+    },
+    "navigation-link": {
+      "id": "navigation-link",
+      "name": "Link",
+      "path": "./src/components/Link.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Link",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Link.tsx",
+        "actualName": "Link",
+        "exportName": "default",
+        "props": {
+          "color": {
+            "required": false,
+            "tsType": {
+              "name": "string"
+            },
+            "description": "SWAP token 名（如 primary400）；非 token 一律 black1000"
+          }
+        },
+        "composes": [
+          "Omit"
+        ]
+      },
+      "stories": [
+        {
+          "id": "navigation-link--colors",
+          "name": "Colors",
+          "snippet": "const Colors = () => (\n  <Stack direction=\"row\" spacing={2}>\n    <Link href=\"#\">預設（黑）</Link>\n    <Link href=\"#\" color=\"primary400\">\n      primary400\n    </Link>\n    <Link href=\"#\" color=\"danger800\">\n      danger800\n    </Link>\n  </Stack>\n);"
+        },
+        {
+          "id": "navigation-link--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Link color=\"primary400\" href=\"#\">連結文字</Link>;"
+        }
+      ],
+      "import": "import { Link } from \"@yosgo/swap-ui\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "navigation-link--docs": {
+          "id": "navigation-link--docs",
+          "name": "Docs",
+          "path": "./src/components/Link.mdx",
+          "title": "Navigation/Link",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as LinkStories from \"./Link.stories\";\n\n<Meta of={LinkStories} />\n\n# Link\n\n文字連結。粗體、hover 顯示底線，鍵盤 focus 帶品牌色外框。\n\n## 使用時機\n\n- 導向其他頁面或外部資源的行內文字。\n- 觸發「動作」（送出、開 Modal）請用 Button 的 `text` variant，不要用 Link。\n- `color` 接 SWAP token 名（如 `primary400`）；不指定為黑色。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Link } from \"@yosgo/swap-ui\";\n\n<Link href=\"/pricing\" color=\"primary400\">查看方案</Link>`} />\n\n## 顏色\n\n<Canvas of={LinkStories.Colors} />\n",
+          "summary": "# Link 文字連結。粗體、hover 顯示底線，鍵盤 focus 帶品牌色外框。 ## 使用時機 - 導向其他頁面或外部資源的行內文字。 - 觸發「動作」（送出、開 Modal..."
+        }
+      }
+    },
+    "navigation-pagination": {
+      "id": "navigation-pagination",
+      "name": "Pagination",
+      "path": "./src/components/Pagination.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "Component file in node_modules",
+        "message": "File: /Users/chenbeilun/Desktop/kcin/github/swap-ui/node_modules/@mui/material/Pagination/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+      },
+      "stories": [
+        {
+          "id": "navigation-pagination--basic",
+          "name": "Basic",
+          "snippet": "const Basic = () => <Pagination count={10} defaultPage={3} />;"
+        },
+        {
+          "id": "navigation-pagination--many",
+          "name": "Many",
+          "snippet": "const Many = () => <Pagination count={30} defaultPage={15} siblingCount={1} />;"
+        },
+        {
+          "id": "navigation-pagination--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Pagination count={10} defaultPage={1} siblingCount={1} disabled={false} />;"
+        }
+      ],
+      "import": "import Pagination from \"@mui/material/Pagination\";",
+      "docs": {
+        "navigation-pagination--docs": {
+          "id": "navigation-pagination--docs",
+          "name": "Docs",
+          "path": "./src/components/Pagination.mdx",
+          "title": "Navigation/Pagination",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as PaginationStories from \"./Pagination.stories\";\n\n<Meta of={PaginationStories} />\n\n# Pagination\n\n分頁導覽。SWAP 樣式（24px 方塊、品牌藍選中態）由 theme 自動套用，直接用原生 MUI Pagination。\n\n## 使用時機\n\n- 清單/表格資料量大需要分頁時；`count` 為總頁數，`onChange` 取得目標頁。\n- 無限捲動的行動裝置情境可考慮不用分頁。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import Pagination from \"@mui/material/Pagination\";\n\n<Pagination count={10} page={page} onChange={(e, p) => setPage(p)} />`} />\n\n## 基本\n\n<Canvas of={PaginationStories.Basic} />\n\n## 多頁（省略號）\n\n<Canvas of={PaginationStories.Many} />\n",
+          "summary": "# Pagination 分頁導覽。SWAP 樣式（24px 方塊、品牌藍選中態）由 theme 自動套用，直接用原生 MUI Pagination。 ## 使用時機 - 清單/表..."
+        }
+      }
+    },
+    "navigation-segmentedtabs": {
+      "id": "navigation-segmentedtabs",
+      "name": "SegmentedTabs",
+      "path": "./src/components/SegmentedTabs.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "SegmentedTabs",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/SegmentedTabs.tsx",
+        "actualName": "SegmentedTabs",
+        "exportName": "default",
+        "props": {
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "slide": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "選中底色以 indicator 滑動呈現（切換時有滑動動畫）"
+          }
+        },
+        "composes": [
+          "MuiTabsProps"
+        ]
+      },
+      "stories": [
+        {
+          "id": "navigation-segmentedtabs--basic",
+          "name": "Basic",
+          "snippet": "const Basic = () => <Demo />;"
+        },
+        {
+          "id": "navigation-segmentedtabs--slide",
+          "name": "Slide",
+          "snippet": "const Slide = () => <Demo slide />;"
+        },
+        {
+          "id": "navigation-segmentedtabs--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Demo slide width=\"fit-content\" />;"
+        },
+        {
+          "id": "navigation-segmentedtabs--fit-content",
+          "name": "Fit Content",
+          "snippet": "const FitContent = () => (\n  <Stack spacing={2}>\n    <Demo />\n    <Demo width=\"fit-content\" />\n  </Stack>\n);"
+        },
+        {
+          "id": "navigation-segmentedtabs--compare",
+          "name": "Compare",
+          "snippet": "const Compare = () => (\n  <Stack spacing={2}>\n    <Demo />\n    <Demo slide />\n  </Stack>\n);"
+        }
+      ],
+      "import": "import { SegmentedTab, SegmentedTabs } from \"@yosgo/swap-ui\";\nimport Stack from \"@mui/material/Stack\";",
+      "docs": {
+        "navigation-segmentedtabs--docs": {
+          "id": "navigation-segmentedtabs--docs",
+          "name": "Docs",
+          "path": "./src/components/SegmentedTabs.mdx",
+          "title": "Navigation/SegmentedTabs",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as SegmentedTabsStories from \"./SegmentedTabs.stories\";\n\n<Meta of={SegmentedTabsStories} />\n\n# SegmentedTab / SegmentedTabs\n\n分段切換（膠囊型頁籤，外框圓角容器）。`slide` 開啟時選中底色以滑動動畫移動。\n\n## 使用時機\n\n- 同層級的檢視切換（清單/圖表、我的/全部），選項少且等權重時比 Tab 更聚焦。\n- 選項多到需要橫向捲動時加 `variant=\"scrollable\"`（初載會自動把選中項捲進視野）。\n- **寬度**：預設撐滿父容器（沿 v1）；要讓外框貼合 tab 內容，傳 `width=\"fit-content\"`；也可給具體數字。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { SegmentedTab, SegmentedTabs } from \"@yosgo/swap-ui\";\n\n<SegmentedTabs value={value} onChange={(_, v) => setValue(v)} slide>\n  <SegmentedTab label=\"我的請款單\" />\n  <SegmentedTab label=\"SWAP Point 明細\" />\n</SegmentedTabs>`} />\n\n## 基本 vs slide\n\n<Canvas of={SegmentedTabsStories.Compare} />\n",
+          "summary": "# SegmentedTab / SegmentedTabs 分段切換（膠囊型頁籤，外框圓角容器）。`slide` 開啟時選中底色以滑動動畫移動。 ## 使用時機 - 同層級的檢視..."
+        }
+      }
+    },
+    "navigation-tab": {
+      "id": "navigation-tab",
+      "name": "Tab",
+      "path": "./src/components/Tab.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Tab",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Tab.tsx",
+        "actualName": "Tab",
+        "exportName": "default",
+        "props": {
+          "selected": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "width": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "margin": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "fontSize": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": ""
+          },
+          "noIndicator": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          },
+          "animation": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "MuiTabProps"
+        ]
+      },
+      "stories": [
+        {
+          "id": "navigation-tab--basic",
+          "name": "Basic",
+          "snippet": "const Basic = () => <Demo />;"
+        },
+        {
+          "id": "navigation-tab--with-animation",
+          "name": "With Animation",
+          "snippet": "const WithAnimation = () => <Demo animation />;"
+        },
+        {
+          "id": "navigation-tab--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Tabs value={0}>\n    <Tab label=\"分頁\" selected noIndicator={false} animation />\n</Tabs>;"
+        }
+      ],
+      "import": "import { Tab, TabPanel, Tabs, Typography } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "navigation-tab--docs": {
+          "id": "navigation-tab--docs",
+          "name": "Docs",
+          "path": "./src/components/Tab.mdx",
+          "title": "Navigation/Tab",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as TabStories from \"./Tab.stories\";\n\n<Meta of={TabStories} />\n\n# Tab / Tabs / TabPanel\n\n頁籤導覽。選中的 Tab 底部顯示 4px 品牌藍指示條（可加展開動畫）。\n\n## 使用時機\n\n- 同一頁面內切換平行內容區（總覽/明細/設定）。\n- `selected` 需由使用端依 value 傳入（指示條由 Tab 自繪）；`animation` 開啟 300ms 展開動畫；`noIndicator` 隱藏指示條。\n- 內容區用 `TabPanel`（value/index 對應顯示）。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Tab, Tabs, TabPanel } from \"@yosgo/swap-ui\";\n\n<Tabs value={value} onChange={(_, v) => setValue(v)}>\n  <Tab label=\"總覽\" selected={value === 0} />\n  <Tab label=\"明細\" selected={value === 1} />\n</Tabs>\n<TabPanel value={value} index={0}>總覽內容</TabPanel>\n<TabPanel value={value} index={1}>明細內容</TabPanel>`} />\n\n## 基本\n\n<Canvas of={TabStories.Basic} />\n\n## 指示條動畫\n\n<Canvas of={TabStories.WithAnimation} />\n",
+          "summary": "# Tab / Tabs / TabPanel 頁籤導覽。選中的 Tab 底部顯示 4px 品牌藍指示條（可加展開動畫）。 ## 使用時機 - 同一頁面內切換平行內容區（總覽/明細..."
+        }
+      }
+    },
+    "layout-container": {
+      "id": "layout-container",
+      "name": "Container",
+      "path": "./src/components/Container.stories.tsx",
+      "jsDocTags": {},
+      "reactDocgen": {
+        "description": "",
+        "methods": [],
+        "displayName": "Container",
+        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Container.tsx",
+        "actualName": "Container",
+        "exportName": "default",
+        "props": {
+          "maxWidth": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | \"lg\" | \"xl\" | \"xxl\"",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "literal",
+                  "value": "\"lg\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"xl\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"xxl\""
+                }
+              ]
+            },
+            "description": ""
+          },
+          "padding": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | \"xxs\" | \"xs\" | \"sm\" | \"md\"",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "literal",
+                  "value": "\"xxs\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"xs\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"sm\""
+                },
+                {
+                  "name": "literal",
+                  "value": "\"md\""
+                }
+              ]
+            },
+            "description": ""
+          }
+        },
+        "composes": [
+          "Omit"
+        ]
+      },
+      "stories": [
+        {
+          "id": "layout-container--max-widths",
+          "name": "Max Widths",
+          "snippet": "const MaxWidths = () => (\n  <>\n    {([\"lg\", \"xl\", \"xxl\"] as const).map((m) => (\n      <Container key={m} maxWidth={m}>\n        <div style={{ background: \"#E6E9F8\", padding: 8, marginBottom: 8, textAlign: \"center\" }}>\n          maxWidth={m}\n        </div>\n      </Container>\n    ))}\n  </>\n);"
+        },
+        {
+          "id": "layout-container--playground",
+          "name": "Playground",
+          "snippet": "const Playground = () => <Container maxWidth=\"lg\" padding=\"sm\">\n    <div style={{ background: \"#E6E9F8\", padding: 8, textAlign: \"center\" }}>內容區</div>\n</Container>;"
+        }
+      ],
+      "import": "import { Container } from \"@yosgo/swap-ui\";",
+      "docs": {
+        "layout-container--docs": {
+          "id": "layout-container--docs",
+          "name": "Docs",
+          "path": "./src/components/Container.mdx",
+          "title": "Layout/Container",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as ContainerStories from \"./Container.stories\";\n\n<Meta of={ContainerStories} />\n\n# Container\n\n限制內容最大寬度並置中的版面容器。不指定 `maxWidth`/`padding` 時，會依裝置斷點自動調整。\n\n## 使用時機\n\n- 頁面主要內容區包一層 Container，避免在寬螢幕上文字/元素過度延展。\n- `maxWidth`：一般內容 `lg`(960)、較寬 `xl`(1140)、最寬 `xxl`(1320)。\n- 不傳 props 即為響應式預設（手機留較小邊距、大螢幕置中不留邊）。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Container } from \"@yosgo/swap-ui\";\n\n<Container maxWidth=\"lg\">{children}</Container>`} />\n\n## maxWidth\n\n<Canvas of={ContainerStories.MaxWidths} />\n",
+          "summary": "# Container 限制內容最大寬度並置中的版面容器。不指定 `maxWidth`/`padding` 時，會依裝置斷點自動調整。 ## 使用時機 - 頁面主要內容區包一層 C..."
+        }
+      }
+    }
+  },
+  "meta": {
+    "docgen": "react-docgen",
+    "durationMs": 512
+  }
+}

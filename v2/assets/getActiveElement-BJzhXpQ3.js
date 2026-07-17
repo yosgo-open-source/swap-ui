@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-DaJ6WEGw.js";function t(e){let t=e.activeElement;for(;t?.shadowRoot?.activeElement!=null;)t=t.shadowRoot.activeElement;return t}var n=e((()=>{})),r=e((()=>{n()})),i,a=e((()=>{r(),i=t}));export{n as a,t as i,a as n,r,i as t};

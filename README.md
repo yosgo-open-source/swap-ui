@@ -10,7 +10,7 @@ SWAP（[www.swap.work](https://www.swap.work)）的品牌 UI 套件，基於 [MU
 2. **swap-ui 只提供 MUI 沒有的東西**。品牌資產（SWAPLogo）、組合元件（Modal、Card、Snackbar…）、業務元件（TaxTextField）與 design tokens。
 3. **效能**。v1（MUI v4 + JSS）的 runtime 樣式爆量問題在 v2（Emotion + theme 靜態化 + CSS variables）根治。
 
-元件預覽與使用手冊：`npm run storybook` 或瀏覽 <a href="https://yosgo-open-source.github.io/swap-ui/" target="_blank">Storybook</a>（每個元件都有「Docs」使用指南與可互動的 Playground）。
+元件預覽與使用手冊：`npm run storybook` 或瀏覽 <a href="https://yosgo-open-source.github.io/swap-ui/v2/" target="_blank">Storybook</a>（v1 手冊仍在 <a href="https://yosgo-open-source.github.io/swap-ui/" target="_blank">根路徑</a>）（每個元件都有「Docs」使用指南與可互動的 Playground）。
 
 # 安裝
 

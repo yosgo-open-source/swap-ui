@@ -211,4 +211,4 @@ MUI v4 遺留 prop,v9 已無此概念。型別上保留(標 `@deprecated`)所以
 
 ---
 
-各元件的完整 props 與可互動範例,見 [Storybook 手冊](https://yosgo-open-source.github.io/swap-ui/)(每個元件都有 Docs 頁與 Playground)。
+各元件的完整 props 與可互動範例,見 [v2 Storybook 手冊](https://yosgo-open-source.github.io/swap-ui/v2/)(每個元件都有 Docs 頁與 Playground);v1 手冊保留於[根路徑](https://yosgo-open-source.github.io/swap-ui/)供對照。

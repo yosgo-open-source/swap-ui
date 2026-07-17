@@ -1,0 +1,54 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { ColorTokens, RadiusTokens, ShadowTokens, BreakpointTokens, FontTokens } from "./TokenPreview";
+
+<Meta title="Design Tokens" />
+
+# Design Tokens
+
+SWAP 品牌的設計常數（色彩、圓角、陰影、斷點、字體），由 `@yosgo/swap-ui` 具名匯出。
+取代 v1 的 `Styles` 預覽小工具——v1 是 import 一個元件來「看」token，v2 直接 import「值」來用，本頁負責預覽。
+
+```tsx
+import { swapColors, swapRadius, swapShadows, swapBreakpoints } from "@yosgo/swap-ui";
+
+// 搭配 sx 使用
+<Box
+  sx={{
+    color: swapColors.primary.primary700,
+    borderRadius: swapRadius.m,
+    boxShadow: swapShadows.m,
+  }}
+/>
+```
+
+同一組值也掛在 theme 上（`theme.palette.swap`），寫 styleOverrides 或 sx callback 時可直接取用：
+
+```tsx
+sx={(theme) => ({ color: theme.palette.swap.primary.primary700 })}
+```
+
+## 色彩
+
+**點擊色票可複製色碼。**
+
+<ColorTokens />
+
+## 圓角（swapRadius）
+
+<RadiusTokens />
+
+## 陰影（swapShadows）
+
+<ShadowTokens />
+
+## 斷點（swapBreakpoints）
+
+沿用 v1 的自訂斷點值（非 MUI 預設），已寫入 theme，`useBreakpoints` hook 與 `theme.breakpoints` 皆以此為準：
+
+<BreakpointTokens />
+
+## 字體（swapFontFamily）
+
+`SWAPThemeProvider` 內建自托管字體（@fontsource），不需另外引入：
+
+<FontTokens />

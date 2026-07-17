@@ -1,0 +1,8 @@
+import { Meta, Markdown } from "@storybook/addon-docs/blocks";
+import MigrationRaw from "../MIGRATION.md?raw";
+
+<Meta title="遷移指南" />
+
+{/* 內容單一來源:repo 根目錄 MIGRATION.md,此頁僅負責渲染 */}
+
+<Markdown>{MigrationRaw}</Markdown>

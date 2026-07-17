@@ -19,7 +19,7 @@ const preview: Preview = {
     options: {
       storySort: {
         method: "alphabetical",
-        order: ["Inputs", "Display", "Feedback", "Navigation", "Layout"],
+        order: ["遷移指南", "Design Tokens", "Inputs", "Display", "Feedback", "Navigation", "Layout"],
       },
     },
   },

@@ -10,7 +10,7 @@
         "description": "",
         "methods": [],
         "displayName": "AutoComplete",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/AutoComplete.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/AutoComplete.tsx",
         "actualName": "AutoComplete",
         "exportName": "default",
         "props": {
@@ -303,7 +303,7 @@
       "jsDocTags": {},
       "error": {
         "name": "Component file in node_modules",
-        "message": "File: /Users/chenbeilun/Desktop/kcin/github/swap-ui/node_modules/@mui/material/Button/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+        "message": "File: /home/runner/work/swap-ui/swap-ui/node_modules/@mui/material/Button/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
       },
       "stories": [
         {
@@ -348,7 +348,7 @@
         "description": "",
         "methods": [],
         "displayName": "CheckBox",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/CheckBox.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/CheckBox.tsx",
         "actualName": "CheckBox",
         "exportName": "default",
         "props": {
@@ -431,7 +431,7 @@
         "description": "",
         "methods": [],
         "displayName": "DatePicker",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/DatePicker.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/DatePicker.tsx",
         "actualName": "DatePicker",
         "exportName": "default",
         "props": {
@@ -616,7 +616,7 @@
         "description": "",
         "methods": [],
         "displayName": "Dropdown",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Dropdown.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Dropdown.tsx",
         "actualName": "Dropdown",
         "exportName": "default",
         "props": {
@@ -705,7 +705,7 @@
         "description": "",
         "methods": [],
         "displayName": "IconButton",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/IconButton.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/IconButton.tsx",
         "actualName": "IconButton",
         "exportName": "default",
         "props": {
@@ -801,7 +801,7 @@
         "description": "",
         "methods": [],
         "displayName": "MenuItem",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/MenuItem.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/MenuItem.tsx",
         "actualName": "MenuItem",
         "exportName": "default",
         "props": {
@@ -919,7 +919,7 @@
         "description": "",
         "methods": [],
         "displayName": "RadioButton",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/RadioButton.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/RadioButton.tsx",
         "actualName": "RadioButton",
         "exportName": "default",
         "props": {
@@ -1002,7 +1002,7 @@
         "description": "",
         "methods": [],
         "displayName": "RadioList",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/RadioList.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/RadioList.tsx",
         "actualName": "RadioList",
         "exportName": "default",
         "props": {
@@ -1123,7 +1123,7 @@
         "description": "",
         "methods": [],
         "displayName": "Select",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Select.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Select.tsx",
         "actualName": "Select",
         "exportName": "default",
         "props": {
@@ -1558,7 +1558,7 @@
         "description": "",
         "methods": [],
         "displayName": "Switch",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Switch.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Switch.tsx",
         "actualName": "Switch",
         "exportName": "default",
         "composes": [
@@ -1598,7 +1598,7 @@
         "description": "",
         "methods": [],
         "displayName": "TaxTextField",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/TaxTextField.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/TaxTextField.tsx",
         "actualName": "TaxTextField",
         "exportName": "default",
         "props": {
@@ -2199,7 +2199,7 @@
         "description": "",
         "methods": [],
         "displayName": "TextField",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/TextField.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/TextField.tsx",
         "actualName": "TextField",
         "exportName": "default",
         "props": {
@@ -2270,7 +2270,7 @@
         "description": "",
         "methods": [],
         "displayName": "Card",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Card.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Card.tsx",
         "actualName": "Card",
         "exportName": "default",
         "props": {
@@ -2377,7 +2377,7 @@
         "description": "",
         "methods": [],
         "displayName": "Chip",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Chip.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Chip.tsx",
         "actualName": "Chip",
         "exportName": "default",
         "props": {
@@ -2516,7 +2516,7 @@
         "description": "",
         "methods": [],
         "displayName": "Paper",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Paper.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Paper.tsx",
         "actualName": "Paper",
         "exportName": "default",
         "props": {
@@ -2590,7 +2590,7 @@
         "description": "",
         "methods": [],
         "displayName": "SWAPLogo",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/SWAPLogo.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/SWAPLogo.tsx",
         "actualName": "SWAPLogo",
         "exportName": "default",
         "props": {
@@ -2724,7 +2724,7 @@
         "description": "",
         "methods": [],
         "displayName": "SWAPShare",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/SWAPShare.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/SWAPShare.tsx",
         "actualName": "SWAPShare",
         "exportName": "default",
         "props": {
@@ -2803,7 +2803,7 @@
         "description": "",
         "methods": [],
         "displayName": "Tooltip",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Tooltip.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Tooltip.tsx",
         "actualName": "Tooltip",
         "exportName": "default",
         "props": {
@@ -2942,7 +2942,7 @@
         "description": "",
         "methods": [],
         "displayName": "Typography",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Typography.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Typography.tsx",
         "actualName": "Typography",
         "exportName": "default",
         "props": {
@@ -3285,7 +3285,7 @@
         "description": "",
         "methods": [],
         "displayName": "Banner",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Banner.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Banner.tsx",
         "actualName": "Banner",
         "exportName": "default",
         "props": {
@@ -3408,7 +3408,7 @@
         "description": "",
         "methods": [],
         "displayName": "CircularProgress",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/CircularProgress.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/CircularProgress.tsx",
         "actualName": "CircularProgress",
         "exportName": "default",
         "props": {
@@ -3490,7 +3490,7 @@
         "description": "",
         "methods": [],
         "displayName": "Modal",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Modal.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Modal.tsx",
         "actualName": "Modal",
         "exportName": "default",
         "props": {
@@ -3861,7 +3861,7 @@
         "description": "",
         "methods": [],
         "displayName": "Progress",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Progress.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Progress.tsx",
         "actualName": "Progress",
         "exportName": "default",
         "props": {
@@ -3961,7 +3961,7 @@
       "jsDocTags": {},
       "error": {
         "name": "Component file in node_modules",
-        "message": "File: /Users/chenbeilun/Desktop/kcin/github/swap-ui/node_modules/@mui/material/Skeleton/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+        "message": "File: /home/runner/work/swap-ui/swap-ui/node_modules/@mui/material/Skeleton/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
       },
       "stories": [
         {
@@ -3996,7 +3996,7 @@
         "description": "",
         "methods": [],
         "displayName": "Snackbar",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Snackbar.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Snackbar.tsx",
         "actualName": "Snackbar",
         "exportName": "default",
         "props": {
@@ -4230,7 +4230,7 @@
         "description": "",
         "methods": [],
         "displayName": "Breadcrumb",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Breadcrumb.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Breadcrumb.tsx",
         "actualName": "Breadcrumb",
         "exportName": "default",
         "props": {
@@ -4307,7 +4307,7 @@
         "description": "",
         "methods": [],
         "displayName": "Link",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Link.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Link.tsx",
         "actualName": "Link",
         "exportName": "default",
         "props": {
@@ -4354,7 +4354,7 @@
       "jsDocTags": {},
       "error": {
         "name": "Component file in node_modules",
-        "message": "File: /Users/chenbeilun/Desktop/kcin/github/swap-ui/node_modules/@mui/material/Pagination/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
+        "message": "File: /home/runner/work/swap-ui/swap-ui/node_modules/@mui/material/Pagination/index.mjs\nError:\nComponent files in node_modules are not supported.\nThe distributed files in node_modules usually don't contain the necessary comments or types needed to analyze component information.\nConfigure TypeScript path aliases to map your package name to the source file instead.\n\nExample (tsconfig.json):\n{\n  \"compilerOptions\": {\n    \"baseUrl\": \".\",\n    \"paths\": {\n      \"@design-system/button\": [\"src/components/Button.tsx\"],\n      \"@design-system/*\": [\"src/components/*\"]\n    }\n  }\n}\n\nThen import using:\nimport { Button } from '@design-system/button'\n\nStorybook resolves tsconfig paths automatically.\nCode:\n/* File in node_modules */"
       },
       "stories": [
         {
@@ -4394,7 +4394,7 @@
         "description": "",
         "methods": [],
         "displayName": "SegmentedTabs",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/SegmentedTabs.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/SegmentedTabs.tsx",
         "actualName": "SegmentedTabs",
         "exportName": "default",
         "props": {
@@ -4474,7 +4474,7 @@
         "description": "",
         "methods": [],
         "displayName": "Tab",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Tab.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Tab.tsx",
         "actualName": "Tab",
         "exportName": "default",
         "props": {
@@ -4606,7 +4606,7 @@
         "description": "",
         "methods": [],
         "displayName": "Container",
-        "definedInFile": "/Users/chenbeilun/Desktop/kcin/github/swap-ui/src/components/Container.tsx",
+        "definedInFile": "/home/runner/work/swap-ui/swap-ui/src/components/Container.tsx",
         "actualName": "Container",
         "exportName": "default",
         "props": {
@@ -4696,6 +4696,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 512
+    "durationMs": 753
   }
 }

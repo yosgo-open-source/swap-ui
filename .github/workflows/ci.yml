@@ -19,3 +19,28 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm run storybook:build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: storybook-static
+          path: storybook-static
+
+  # v2 分支 CI 綠燈後，自動部署 Storybook 到 gh-pages 的 v2/ 子目錄。
+  # destination_dir 只覆蓋 v2/，根目錄的 v1 手冊不受影響。
+  deploy-storybook:
+    if: github.ref == 'refs/heads/v2' && github.event_name == 'push'
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: storybook-static
+          path: storybook-static
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./storybook-static
+          publish_branch: gh-pages
+          destination_dir: v2
+          commit_message: "deploy: v2 Storybook（CI 自動部署）"

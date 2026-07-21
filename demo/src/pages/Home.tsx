@@ -20,7 +20,7 @@ export default function Home() {
       <div>
         <Typography variant="h4">SWAP UI v2 Demo</Typography>
         <Typography variant="body2_loose" color="secondary">
-          以下元件全部來自 npm pack 出的 tarball——與產品端將安裝到的內容一致。
+          以下元件全部來自 npm registry 的 2.0.0-beta.1（--tag next）——與產品端將安裝到的內容一致。
         </Typography>
       </div>
 
@@ -53,7 +53,7 @@ export default function Home() {
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         title="Modal 渲染正常"
-        helpText="head / body / footer 與動畫皆來自 tarball 版本。"
+        helpText="head / body / footer 與動畫皆來自 npm 發佈版本。"
         size="small"
         secondaryButton={{ title: "關閉", onClick: () => setModalOpen(false) }}
         primaryButton={{ title: "確認", onClick: () => setModalOpen(false) }}

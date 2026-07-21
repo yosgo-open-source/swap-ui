@@ -32,7 +32,7 @@ export default function App() {
         </Stack>
       </Box>
       <Typography variant="caption2" color="tertiary">
-        React Router + @yosgo/swap-ui v2 煙霧測試（tarball 安裝）
+        React Router + @yosgo/swap-ui v2 煙霧測試（npm registry 安裝 @next）
       </Typography>
       <Box sx={{ py: 3 }}>
         <Routes>

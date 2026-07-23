@@ -2946,18 +2946,6 @@
         "actualName": "Typography",
         "exportName": "default",
         "props": {
-          "variant": {
-            "required": false,
-            "tsType": {
-              "name": "MuiTypographyProps[\"variant\"]",
-              "raw": "MuiTypographyProps[\"variant\"]"
-            },
-            "description": "",
-            "defaultValue": {
-              "value": "\"body1\"",
-              "computed": false
-            }
-          },
           "color": {
             "required": false,
             "tsType": {
@@ -3224,23 +3212,17 @@
             },
             "description": ""
           },
-          "children": {
-            "required": false,
-            "tsType": {
-              "name": "ReactReactNode",
-              "raw": "React.ReactNode"
+          "variant": {
+            "defaultValue": {
+              "value": "\"body1\"",
+              "computed": false
             },
-            "description": ""
-          },
-          "style": {
-            "required": false,
-            "tsType": {
-              "name": "ReactCSSProperties",
-              "raw": "React.CSSProperties"
-            },
-            "description": ""
+            "required": false
           }
-        }
+        },
+        "composes": [
+          "Omit"
+        ]
       },
       "stories": [
         {
@@ -4696,6 +4678,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 849
+    "durationMs": 588
   }
 }

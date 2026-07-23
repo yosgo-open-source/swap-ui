@@ -28,3 +28,24 @@ test("語意色 primary 在 light 為黑", () => {
   );
   expect(screen.getByText("標題")).toHaveStyle({ color: "#000000" });
 });
+
+test("sx 透傳且可複寫我方預設 color", () => {
+  renderWithTheme(
+    <Typography variant="body1" color="primary400" sx={{ color: "#FF0000", fontWeight: 900 }}>
+      複寫
+    </Typography>,
+  );
+  const el = screen.getByText("複寫");
+  expect(el).toHaveStyle({ color: "#FF0000" }); // 使用者 sx 蓋過 primary400
+  expect(el).toHaveStyle({ fontWeight: "900" });
+});
+
+test("其他 MUI props 透傳（align 生成 MUI class）", () => {
+  renderWithTheme(
+    <Typography variant="body1" align="center">
+      置中
+    </Typography>,
+  );
+  // MUI 以 class 套用 align，class 存在即證明 prop 有透傳到底層元件
+  expect(screen.getByText("置中").className).toMatch(/MuiTypography-alignCenter/);
+});

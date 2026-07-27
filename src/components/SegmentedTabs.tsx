@@ -10,13 +10,20 @@ const SegmentedTabs = React.forwardRef<HTMLDivElement, SegmentedTabsProps>(funct
 ) {
   const innerRef = React.useRef<HTMLDivElement | null>(null);
 
-  // scrollable 時確保 selected tab 進入視野（v9 目標瀏覽器原生支援 smooth，不需 polyfill）
+  // scrollable 時把 selected tab 水平置中。只捲動 tabs 自己的 scroller 水平軸——
+  // 不可用 scrollIntoView：它同時捲垂直軸，頁面重整還原到中段時會把整頁拉到 tab 列位置。
   React.useEffect(() => {
     if (innerRef.current && rest.variant === "scrollable") {
       const el = innerRef.current.querySelector(".MuiTab-root.Mui-selected");
-      if (el) {
+      const scroller = innerRef.current.querySelector(".MuiTabs-scroller");
+      if (el && scroller) {
         setTimeout(() => {
-          el.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+          const elRect = el.getBoundingClientRect();
+          const scRect = scroller.getBoundingClientRect();
+          scroller.scrollTo({
+            left: scroller.scrollLeft + (elRect.left - scRect.left) - (scRect.width - elRect.width) / 2,
+            behavior: "smooth",
+          });
         }, 1000);
       }
     }

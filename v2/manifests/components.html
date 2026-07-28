@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note info" style="margin-bottom: 16px;">
-            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.8s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
+            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.7s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
             <pre><code>typescript: {
   reactDocgen: 'react-docgen-typescript',
 }</code></pre>
@@ -1273,14 +1273,18 @@ import Stack from "@mui/material/Stack";</code></pre>
               
               
               <pre><code>const States = () =&gt; (
-  &lt;Stack direction=&quot;row&quot; spacing={2}&gt;
-    &lt;Button variant=&quot;primary&quot;&gt;normal&lt;/Button&gt;
-    &lt;Button variant=&quot;primary&quot; disabled&gt;
-      disabled
-    &lt;/Button&gt;
-    &lt;Button variant=&quot;primary&quot; loading&gt;
-      loading
-    &lt;/Button&gt;
+  &lt;Stack spacing={2}&gt;
+    {VARIANTS.map((v) =&gt; (
+      &lt;Stack key={v} direction=&quot;row&quot; spacing={2} sx={{ alignItems: &quot;center&quot; }}&gt;
+        &lt;Button variant={v}&gt;{v}&lt;/Button&gt;
+        &lt;Button variant={v} disabled&gt;
+          disabled
+        &lt;/Button&gt;
+        &lt;Button variant={v} loading&gt;
+          loading
+        &lt;/Button&gt;
+      &lt;/Stack&gt;
+    ))}
   &lt;/Stack&gt;
 );</code></pre>
             </div>
@@ -1353,7 +1357,9 @@ import * as ButtonStories from &quot;./Button.stories&quot;;
 
 ## 狀態
 
-`disabled` 半透明且不可點；`loading` 顯示轉圈並鎖住點擊（用 v9 原生 `loading` prop）。
+`disabled` 轉為灰字＋淡色底（保留 variant 色系身分）；`loading` 顯示 variant 色系的轉圈並鎖住點擊（用 v9 原生 `loading` prop）。兩種狀態滑鼠移入都顯示 🚫（not-allowed）游標。
+
+⚠️ `loading` 請永遠傳布林（`loading={isFetching}`），不要條件展開（`{...(isFetching &amp;&amp; { loading: true })}`）——`undefined ↔ true` 切換會重組 loading 的 DOM 結構，遇到 Google 翻譯等會修改 DOM 的瀏覽器擴充功能可能 crash。
 
 &lt;Canvas of={ButtonStories.States} /&gt;
 </code></pre></div>
@@ -6178,14 +6184,18 @@ import Stack from "@mui/material/Stack";</code></pre>
               
               
               <pre><code>const States = () =&gt; (
-  &lt;Stack direction=&quot;row&quot; spacing={2}&gt;
-    &lt;Button variant=&quot;primary&quot;&gt;normal&lt;/Button&gt;
-    &lt;Button variant=&quot;primary&quot; disabled&gt;
-      disabled
-    &lt;/Button&gt;
-    &lt;Button variant=&quot;primary&quot; loading&gt;
-      loading
-    &lt;/Button&gt;
+  &lt;Stack spacing={2}&gt;
+    {VARIANTS.map((v) =&gt; (
+      &lt;Stack key={v} direction=&quot;row&quot; spacing={2} sx={{ alignItems: &quot;center&quot; }}&gt;
+        &lt;Button variant={v}&gt;{v}&lt;/Button&gt;
+        &lt;Button variant={v} disabled&gt;
+          disabled
+        &lt;/Button&gt;
+        &lt;Button variant={v} loading&gt;
+          loading
+        &lt;/Button&gt;
+      &lt;/Stack&gt;
+    ))}
   &lt;/Stack&gt;
 );</code></pre>
             </div>
@@ -6258,7 +6268,9 @@ import * as ButtonStories from &quot;./Button.stories&quot;;
 
 ## 狀態
 
-`disabled` 半透明且不可點；`loading` 顯示轉圈並鎖住點擊（用 v9 原生 `loading` prop）。
+`disabled` 轉為灰字＋淡色底（保留 variant 色系身分）；`loading` 顯示 variant 色系的轉圈並鎖住點擊（用 v9 原生 `loading` prop）。兩種狀態滑鼠移入都顯示 🚫（not-allowed）游標。
+
+⚠️ `loading` 請永遠傳布林（`loading={isFetching}`），不要條件展開（`{...(isFetching &amp;&amp; { loading: true })}`）——`undefined ↔ true` 切換會重組 loading 的 DOM 結構，遇到 Google 翻譯等會修改 DOM 的瀏覽器擴充功能可能 crash。
 
 &lt;Canvas of={ButtonStories.States} /&gt;
 </code></pre></div>

@@ -319,7 +319,7 @@
         {
           "id": "inputs-button--states",
           "name": "States",
-          "snippet": "const States = () => (\n  <Stack direction=\"row\" spacing={2}>\n    <Button variant=\"primary\">normal</Button>\n    <Button variant=\"primary\" disabled>\n      disabled\n    </Button>\n    <Button variant=\"primary\" loading>\n      loading\n    </Button>\n  </Stack>\n);"
+          "snippet": "const States = () => (\n  <Stack spacing={2}>\n    {VARIANTS.map((v) => (\n      <Stack key={v} direction=\"row\" spacing={2} sx={{ alignItems: \"center\" }}>\n        <Button variant={v}>{v}</Button>\n        <Button variant={v} disabled>\n          disabled\n        </Button>\n        <Button variant={v} loading>\n          loading\n        </Button>\n      </Stack>\n    ))}\n  </Stack>\n);"
         },
         {
           "id": "inputs-button--playground",
@@ -334,7 +334,7 @@
           "name": "Docs",
           "path": "./src/components/Button.mdx",
           "title": "Inputs/Button",
-          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as ButtonStories from \"./Button.stories\";\n\n<Meta of={ButtonStories} />\n\n# Button\n\n觸發主要動作的按鈕。以 `variant` 決定視覺層級。用法與原生 MUI Button 相同——\n從 `@mui/material/Button` 匯入即可，SWAP 品牌樣式由 theme 自動套用（需在最外層包一層 `SWAPThemeProvider`）。\n\n## 使用時機\n\n- **主要動作**（送出、確認、下一步）→ `variant=\"primary\"`\n- **次要動作**（取消、上一步）→ `variant=\"secondary\"`\n- **低強度動作**（更多、輔助操作）→ `variant=\"tertiary\"` 或 `variant=\"text\"`\n- **危險動作**（刪除、解除綁定）→ `variant=\"danger\"`\n- 一個畫面**聚焦一顆 primary**，避免多顆主按鈕分散注意力。\n\n## 基本用法\n\n<Source\n  language=\"tsx\"\n  code={`import Button from \"@mui/material/Button\";\n\n<Button variant=\"primary\" onClick={handleSubmit}>\n  送出\n</Button>`}\n/>\n\n## variant 一覽\n\n六種視覺層級。切到下方範例的「Show code」可看並複製對應寫法。\n\n<Canvas of={ButtonStories.Variants} />\n\n## 尺寸\n\n以 `size` 配合版面密度：`small` 40px、`medium` 48px、`large` 56px。\n\n<Canvas of={ButtonStories.Sizes} />\n\n## 狀態\n\n`disabled` 半透明且不可點；`loading` 顯示轉圈並鎖住點擊（用 v9 原生 `loading` prop）。\n\n<Canvas of={ButtonStories.States} />\n",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as ButtonStories from \"./Button.stories\";\n\n<Meta of={ButtonStories} />\n\n# Button\n\n觸發主要動作的按鈕。以 `variant` 決定視覺層級。用法與原生 MUI Button 相同——\n從 `@mui/material/Button` 匯入即可，SWAP 品牌樣式由 theme 自動套用（需在最外層包一層 `SWAPThemeProvider`）。\n\n## 使用時機\n\n- **主要動作**（送出、確認、下一步）→ `variant=\"primary\"`\n- **次要動作**（取消、上一步）→ `variant=\"secondary\"`\n- **低強度動作**（更多、輔助操作）→ `variant=\"tertiary\"` 或 `variant=\"text\"`\n- **危險動作**（刪除、解除綁定）→ `variant=\"danger\"`\n- 一個畫面**聚焦一顆 primary**，避免多顆主按鈕分散注意力。\n\n## 基本用法\n\n<Source\n  language=\"tsx\"\n  code={`import Button from \"@mui/material/Button\";\n\n<Button variant=\"primary\" onClick={handleSubmit}>\n  送出\n</Button>`}\n/>\n\n## variant 一覽\n\n六種視覺層級。切到下方範例的「Show code」可看並複製對應寫法。\n\n<Canvas of={ButtonStories.Variants} />\n\n## 尺寸\n\n以 `size` 配合版面密度：`small` 40px、`medium` 48px、`large` 56px。\n\n<Canvas of={ButtonStories.Sizes} />\n\n## 狀態\n\n`disabled` 轉為灰字＋淡色底（保留 variant 色系身分）；`loading` 顯示 variant 色系的轉圈並鎖住點擊（用 v9 原生 `loading` prop）。兩種狀態滑鼠移入都顯示 🚫（not-allowed）游標。\n\n⚠️ `loading` 請永遠傳布林（`loading={isFetching}`），不要條件展開（`{...(isFetching && { loading: true })}`）——`undefined ↔ true` 切換會重組 loading 的 DOM 結構，遇到 Google 翻譯等會修改 DOM 的瀏覽器擴充功能可能 crash。\n\n<Canvas of={ButtonStories.States} />\n",
           "summary": "# Button 觸發主要動作的按鈕。以 `variant` 決定視覺層級。用法與原生 MUI Button 相同—— 從 `@mui/material/Button` 匯入即可，..."
         }
       }
@@ -4678,6 +4678,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 763
+    "durationMs": 656
   }
 }

@@ -70,7 +70,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(function Card(
               }}
               onClick={b.onClick}
               disabled={b.disabled}
-              loading={b.loading}
+              loading={b.loading ?? false} // 保持布林：undefined↔true 切換會重組 MUI loading DOM（官方警告）
             >
               {b.title}
             </Button>

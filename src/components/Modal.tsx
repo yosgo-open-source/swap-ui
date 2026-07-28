@@ -35,7 +35,7 @@ function FooterButton({
       size="small"
       onClick={item.onClick}
       disabled={item.disabled}
-      loading={item.loading}
+      loading={item.loading ?? false} // 保持布林：undefined↔true 切換會重組 MUI loading DOM（官方警告）
       style={item.style}
     >
       {item.title}

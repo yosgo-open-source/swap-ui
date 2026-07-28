@@ -41,6 +41,8 @@ import * as ButtonStories from "./Button.stories";
 
 ## 狀態
 
-`disabled` 半透明且不可點；`loading` 顯示轉圈並鎖住點擊（用 v9 原生 `loading` prop）。
+`disabled` 轉為灰字＋淡色底（保留 variant 色系身分）；`loading` 顯示 variant 色系的轉圈並鎖住點擊（用 v9 原生 `loading` prop）。兩種狀態滑鼠移入都顯示 🚫（not-allowed）游標。
+
+⚠️ `loading` 請永遠傳布林（`loading={isFetching}`），不要條件展開（`{...(isFetching && { loading: true })}`）——`undefined ↔ true` 切換會重組 loading 的 DOM 結構，遇到 Google 翻譯等會修改 DOM 的瀏覽器擴充功能可能 crash。
 
 <Canvas of={ButtonStories.States} />

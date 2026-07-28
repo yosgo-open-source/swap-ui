@@ -158,6 +158,8 @@ AutoComplete、Banner、Breadcrumb、BreadcrumbItem、Card、CheckBox、CheckBox
 
 其餘 Button props(六種 `variant`、三種 `size`、`loading`)全部照舊。
 
+⚠️ `loading` 請**永遠傳布林**(`loading={isFetching}`),不要條件展開(`{...(isFetching && { loading: true })}`)——`undefined ↔ true` 切換會重組 MUI 的 loading DOM 結構,遇到 Google 翻譯等會修改 DOM 的瀏覽器擴充功能可能 crash([MUI 官方警告](https://mui.com/material-ui/react-button/))。
+
 ### 5.2 TextField 預設高度 48px
 
 v1 的 TextField 未設定高度時會塌陷(實際上是 bug);v2 預設高度 48px(`multiline` 不受影響),label 依高度自動垂直置中。若版面依賴 v1 的塌陷高度,傳 `height` 調整。

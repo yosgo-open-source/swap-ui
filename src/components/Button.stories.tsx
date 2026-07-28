@@ -38,16 +38,21 @@ export const Sizes: Story = {
   ),
 };
 
+// 全 variant × normal/disabled/loading 對照矩陣
 export const States: Story = {
   render: () => (
-    <Stack direction="row" spacing={2}>
-      <Button variant="primary">normal</Button>
-      <Button variant="primary" disabled>
-        disabled
-      </Button>
-      <Button variant="primary" loading>
-        loading
-      </Button>
+    <Stack spacing={2}>
+      {VARIANTS.map((v) => (
+        <Stack key={v} direction="row" spacing={2} sx={{ alignItems: "center" }}>
+          <Button variant={v}>{v}</Button>
+          <Button variant={v} disabled>
+            disabled
+          </Button>
+          <Button variant={v} loading>
+            loading
+          </Button>
+        </Stack>
+      ))}
     </Stack>
   ),
 };

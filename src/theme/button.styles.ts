@@ -8,6 +8,12 @@ export const buttonRootStyles = {
   fontWeight: 700,
   lineHeight: 1.125,
   whiteSpace: "nowrap" as const, // v1 將 children 包 nowrap 容器：按鈕文字不換行
+  // disabled/loading 顯示禁止游標。MUI 預設 pointer-events:none 會吃掉滑鼠事件使 cursor 無效，
+  // 開回 auto——原生 <button disabled> 仍擋 click，安全；hover 樣式另以 :not(:disabled) 守衛
+  "&.Mui-disabled": {
+    pointerEvents: "auto" as const,
+    cursor: "not-allowed",
+  },
 };
 
 // 每個 variant 一組色彩；狀態（hover/active/focus-visible/disabled）以巢狀選擇器表達
@@ -20,6 +26,10 @@ const variantColor = [
     hoverBg: c.primary.primary300,
     activeBg: c.primary.primary500,
     focusShadow: "0px 0px 0px 4px #D7DFF8",
+    disabledColor: c.black.black700, // 灰字＝停用訊號；on primary50 ≈ 4.1:1
+    disabledBg: c.primary.primary50,
+    disabledBorder: `1px solid ${c.primary.primary100}`,
+    spinnerColor: c.primary.primary400,
   },
   {
     variant: "secondary",
@@ -29,6 +39,10 @@ const variantColor = [
     hoverBg: c.primary.primary50,
     activeBg: c.primary.primary100,
     focusShadow: "0px 0px 0px 4px #D7DFF8",
+    disabledColor: c.black.black600,
+    disabledBg: c.black.white,
+    disabledBorder: `1px solid ${c.black.black500}`,
+    spinnerColor: c.primary.primary300,
   },
   {
     variant: "tertiary",
@@ -38,6 +52,10 @@ const variantColor = [
     hoverBg: c.black.black500,
     activeBg: c.black.black600,
     focusShadow: "0px 0px 0px 4px rgba(0, 0, 0, 0.1)",
+    disabledColor: c.black.black700, // on black200 ≈ 4.6:1
+    disabledBg: c.black.black200,
+    disabledBorder: "none",
+    spinnerColor: c.black.black700,
   },
   {
     variant: "text",
@@ -47,6 +65,10 @@ const variantColor = [
     hoverBg: c.primary.primary50,
     activeBg: c.primary.primary100,
     focusShadow: "0px 0px 0px 4px #D7DFF8",
+    disabledColor: c.black.black600,
+    disabledBg: c.black.white,
+    disabledBorder: "none",
+    spinnerColor: c.primary.primary300,
   },
   {
     variant: "black",
@@ -56,6 +78,10 @@ const variantColor = [
     hoverBg: c.black.black400,
     activeBg: c.black.black500,
     focusShadow: "0px 0px 0px 4px #CCCCCC",
+    disabledColor: c.black.black600,
+    disabledBg: c.black.white,
+    disabledBorder: "none",
+    spinnerColor: c.black.black600,
   },
   {
     variant: "danger",
@@ -65,6 +91,10 @@ const variantColor = [
     hoverBg: c.danger.danger600,
     activeBg: c.danger.danger900,
     focusShadow: "0px 0px 0px 4px #FFCCD0",
+    disabledColor: c.black.black700, // 灰字＝停用訊號；紅系身分由 danger50 底色保留
+    disabledBg: c.danger.danger50,
+    disabledBorder: `1px solid ${c.danger.danger100}`,
+    spinnerColor: c.danger.danger700,
   },
 ] as const;
 
@@ -81,13 +111,18 @@ export const buttonVariants = [
       color: v.color,
       backgroundColor: v.backgroundColor,
       border: v.border,
-      "&:hover": { backgroundColor: v.hoverBg },
-      "&:active": { backgroundColor: v.activeBg },
+      "&:hover:not(:disabled)": { backgroundColor: v.hoverBg },
+      "&:active:not(:disabled)": { backgroundColor: v.activeBg },
       "&:focus-visible": { boxShadow: v.focusShadow },
-      // 只夾透明度：文字色/底色由 root 提供，覆蓋會擋掉 MUI loading 時隱藏文字的機制
-      "&:disabled": { opacity: 0.4 },
-      // loading spinner 顏色跟隨 variant 文字色（否則 MUI 預設灰 rgba(0,0,0,0.26) 幾乎隱形）
-      "& .MuiButton-loadingIndicator": { color: v.color },
+      // disabled 用明確配色（v1 的整顆 opacity 0.4 會把文案對比稀釋到 ~2:1 難以閱讀）
+      "&:disabled": {
+        backgroundColor: v.disabledBg,
+        border: v.disabledBorder,
+      },
+      // color 只能在「非 loading」時指定——loading 時 MUI 靠文字色隱藏 label，蓋掉會讓文案疊在 spinner 上
+      "&:disabled:not(.MuiButton-loading)": { color: v.disabledColor },
+      // spinner 色與 disabled 灰字脫鉤：維持 variant 色系（在 disabledBg 上可見，loading 視覺已驗收）
+      "& .MuiButton-loadingIndicator": { color: v.spinnerColor },
     },
   })),
   ...sizeStyle.map((s) => ({

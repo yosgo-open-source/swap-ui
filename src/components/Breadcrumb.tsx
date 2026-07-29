@@ -5,7 +5,7 @@ import Typography from "./Typography";
 import type { BreadcrumbProps } from "./Breadcrumb.types";
 
 const Sep: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <Typography variant="body2" style={{ margin: "0 8px" }}>
+  <Typography variant="body2" component="span" style={{ margin: "0 8px" }}>
     {children}
   </Typography>
 );

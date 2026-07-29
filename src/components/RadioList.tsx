@@ -32,6 +32,7 @@ export function SelectionListInner({
           <Box sx={{ display: "flex", alignItems: "center", marginLeft: "4px" }}>
             <Typography
               variant="title"
+              component="div"
               style={{ maxWidth: 56, minWidth: 56, textAlign: "center", wordBreak: "break-word" }}
             >
               {title}
@@ -41,6 +42,7 @@ export function SelectionListInner({
               <Typography
                 variant="body2_loose"
                 color="black800"
+                component="div"
                 style={{ width: "100%", wordBreak: "break-word" }}
               >
                 {subtitle}
@@ -49,9 +51,11 @@ export function SelectionListInner({
           </Box>
         ) : (
           <Box sx={{ display: "flex", flexDirection: "column" }}>
-            <Typography variant="title">{title}</Typography>
+            <Typography variant="title" component="div">
+              {title}
+            </Typography>
             {multiline ? (
-              <Typography variant="body2_loose" color="black800">
+              <Typography variant="body2_loose" color="black800" component="div">
                 {subtitle}
               </Typography>
             ) : null}
@@ -59,7 +63,7 @@ export function SelectionListInner({
         )}
       </Box>
       {!multiline && !line ? (
-        <Typography variant="body2_loose" color="black800">
+        <Typography variant="body2_loose" color="black800" component="div">
           {subtitle}
         </Typography>
       ) : null}

@@ -77,6 +77,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(function Progre
             <Typography
               variant="caption1"
               color={i + 1 === step ? "black1000" : "black700"}
+              component="div"
               style={{ marginTop: 8 }}
             >
               {label ? label[i] : null}

@@ -65,7 +65,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
         }}
       >
         <Box sx={{ padding: "16px 16px 8px 16px", fontWeight: 600 }}>
-          <Typography variant="caption1" color="black800">
+          <Typography variant="caption1" color="black800" component="div">
             {title}
           </Typography>
         </Box>

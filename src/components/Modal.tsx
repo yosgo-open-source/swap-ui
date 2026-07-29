@@ -177,9 +177,11 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(function Modal(props,
             {checked ? <CheckCircleIcon sx={iconSx} /> : null}
             {failed ? <WarningIcon sx={iconSx} /> : null}
             <div>
-              <Typography variant={!mobile ? "h6" : "title"}>{title}</Typography>
+              <Typography variant={!mobile ? "h6" : "title"} component="h6">
+                {title}
+              </Typography>
               {helpText ? (
-                <Typography variant="body2_loose" color="black800" style={{ marginTop: 4 }}>
+                <Typography variant="body2_loose" color="black800" component="div" style={{ marginTop: 4 }}>
                   {helpText}
                 </Typography>
               ) : null}

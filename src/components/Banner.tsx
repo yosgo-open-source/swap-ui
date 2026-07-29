@@ -63,7 +63,12 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Banner(
       <Box sx={{ width: 24, height: 24, marginRight: "8px", flexShrink: 0 }}>
         {icon ?? defaultIcon(variant)}
       </Box>
-      <Typography variant="caption2">{children}</Typography>
+      {/* component="div"：caption2 預設映射為 <p>，而 <p> 只能容納 phrasing content，
+          使用者若在 children 放 div/Typography 會是非法巢狀（SSR 下為 hydration error）。
+          variant 只決定樣式、component 只決定標籤，故視覺不變。 */}
+      <Typography variant="caption2" component="div">
+        {children}
+      </Typography>
     </Box>
   );
 });

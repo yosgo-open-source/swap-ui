@@ -83,6 +83,12 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
 
   const selectedIcon = (active: boolean) => (active ? checkSvg : null);
 
+  // 桌機兩欄等寬（flex-basis 0 均分剩餘空間；minWidth 0 解除 min-content 下限，
+  // 否則內容較寬的欄位——如「9A 執行業務所得」——會被撐寬造成左右不等）
+  const columnStyle: React.CSSProperties = mobile
+    ? { width: "100%" }
+    : { flexGrow: 1, flexShrink: 1, flexBasis: 0, minWidth: 0 };
+
   return (
     <div
       style={{
@@ -93,7 +99,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
       }}
     >
       {/* 選擇申報類別 */}
-      <div style={{ width: "100%" }}>
+      <div style={columnStyle}>
         <TextField
           focused={codeFocused}
           fullWidth
@@ -134,7 +140,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
         </TextField>
       </div>
       {codeValue === "9A" || codeValue === "9B" ? (
-        <div style={{ width: "100%", margin: mobile ? "24px 0 0 0" : "0 0 0 8px" }}>
+        <div style={{ ...columnStyle, margin: mobile ? "24px 0 0 0" : "0 0 0 8px" }}>
           {codeValue === "9B" ? (
             // 9B：下拉選單
             <TextField

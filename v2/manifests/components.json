@@ -95,6 +95,13 @@
             },
             "description": ""
           },
+          "autoFocus": {
+            "required": false,
+            "tsType": {
+              "name": "boolean"
+            },
+            "description": "展開時搜尋框自動聚焦。預設 false——手機上會強制彈出鍵盤（v1 恆為 true）"
+          },
           "title": {
             "required": false,
             "tsType": {
@@ -4678,6 +4685,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 587
+    "durationMs": 791
   }
 }

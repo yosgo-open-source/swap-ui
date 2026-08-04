@@ -594,7 +594,7 @@
 <main>
   <div class="wrap">
     <div class="note info" style="margin-bottom: 16px;">
-            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.6s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
+            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.8s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
             <pre><code>typescript: {
   reactDocgen: 'react-docgen-typescript',
 }</code></pre>
@@ -616,7 +616,7 @@
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> AutoComplete</h2>
       <div class="badges">
-        <label for="c-0-inputs-autocomplete-props" class="badge ok as-toggle">14 prop types</label>
+        <label for="c-0-inputs-autocomplete-props" class="badge ok as-toggle">15 prop types</label>
         <label for="c-0-inputs-autocomplete-info" class="badge info as-toggle">1 info</label>
         <label for="c-0-inputs-autocomplete-stories" class="badge ok as-toggle">3 stories</label>
         <label for="c-0-inputs-autocomplete-docs" class="badge ok as-toggle">1 doc</label>
@@ -652,7 +652,7 @@
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen)</small></span>
-              <span class="badge ok">14 prop types</span>
+              <span class="badge ok">15 prop types</span>
             </div>
             <pre><code>Component: src/components/AutoComplete.tsx::default</code></pre>
             <pre><code>Props:</code></pre>
@@ -667,6 +667,11 @@ anchorEl?: null | HTMLElement
  * 調整 Popper 位置（對應 v1：margin 偏移，預設 vertical -65 / horizontal 0）
  */
 anchorOrigin?: { horizontal?: string | number; vertical?: string | number }
+
+/**
+ * 展開時搜尋框自動聚焦。預設 false——手機上會強制彈出鍵盤（v1 恆為 true）
+ */
+autoFocus?: boolean
 
 /**
  * 關閉自由輸入（無選項時只顯示「無此選項」）

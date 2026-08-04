@@ -168,11 +168,25 @@ v1 的 TextField 未設定高度時會塌陷(實際上是 bug);v2 預設高度 4
 
 內部由自製日曆改為 MUI X Date Pickers 的 `DateCalendar`,**外觀與 v1 不同**(更現代的 MUI 風格)。對外介面不變:`format`(year/month/day)、`min`/`max`、`value`、`getValue`、`ModalProps`、`mobile` 照舊,`getValue` 回傳字串格式與 v1 完全一致(`"2026"` / `"2026-7"` / `"2026-7-17"`,不補零)。
 
-### 5.4 MenuItem 的 `button` prop 失效
+### 5.4 AutoComplete 搜尋框不再自動聚焦
+
+v1 的下拉搜尋框展開時**恆自動聚焦**,在手機上會強制彈出鍵盤。v2 預設不聚焦;桌機需要「展開即打字」體驗時,顯式傳 `autoFocus`:
+
+```tsx
+<AutoComplete autoFocus ... />   // 恢復 v1 行為
+```
+
+`TaxTextField`(內部使用 AutoComplete)同步生效:任何裝置展開選單都不再彈鍵盤。
+
+### 5.5 Modal 高度自動封頂(行為改善,但值得知道)
+
+v1 置中 Modal 的高度隨內容無限成長,超出視窗時上下被裁、按鈕不可及(手機長表單必踩)。v2 預設封頂於視窗高(`100dvh - 64px`):標題與按鈕恆在畫面內,內容區自動出捲軸。`bodyMaxHeight` 仍可傳入以指定**更小**的上限;原依賴「modal 撐高」的版面需留意。
+
+### 5.6 MenuItem 的 `button` prop 失效
 
 MUI v4 遺留 prop,v9 已無此概念。型別上保留(標 `@deprecated`)所以既有程式碼不會編譯錯誤,但無任何作用,建議順手移除。
 
-### 5.5 環境需求
+### 5.7 環境需求
 
 - React >= 18(建議 19)、`@mui/material` v9 為 peerDependencies。
 - `@emotion/react`、`@emotion/styled` 必須明確安裝(§2.1)。

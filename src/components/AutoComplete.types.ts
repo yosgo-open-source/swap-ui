@@ -19,6 +19,8 @@ export interface AutoCompleteProps extends Partial<BaseProps> {
     | "right-end" | "right-start" | "right"
     | "top-end" | "top-start" | "top";
   anchorEl?: null | HTMLElement;
+  /** 展開時搜尋框自動聚焦。預設 false——手機上會強制彈出鍵盤（v1 恆為 true） */
+  autoFocus?: boolean;
   title?: React.ReactNode;
   placeholder?: string;
   width?: string | number;

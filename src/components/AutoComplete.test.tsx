@@ -36,3 +36,20 @@ test("無選項時自由輸入回呼帶入輸入值", async () => {
   await userEvent.pointer({ keys: "[MouseLeft>]", target: link });
   expect(fn).toHaveBeenCalledWith("不存在的銀行");
 });
+
+// 手機體驗：預設不自動聚焦（v1 恆聚焦會強制彈出鍵盤）；需要時顯式開啟
+test("搜尋框預設不自動聚焦；autoFocus 可開啟", () => {
+  const { unmount } = render(
+    <SWAPThemeProvider>
+      <AutoComplete open title="t" options={["a"]} getOptionLabel={(o) => String(o)} />
+    </SWAPThemeProvider>,
+  );
+  expect(document.activeElement).not.toBe(screen.getByRole("combobox"));
+  unmount();
+  render(
+    <SWAPThemeProvider>
+      <AutoComplete open autoFocus title="t" options={["a"]} getOptionLabel={(o) => String(o)} />
+    </SWAPThemeProvider>,
+  );
+  expect(document.activeElement).toBe(screen.getByRole("combobox"));
+});

@@ -135,6 +135,9 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(function Modal(props,
         ...(slide
           ? {}
           : {
+              // 置中模式的高度上限：內容再多也不超出視窗（head/footer 恆在畫面內，
+              // body 以 flex 壓縮後啟動自身捲軸），不需呼叫端傳 bodyMaxHeight
+              maxHeight: "calc(100dvh - 64px)",
               animation: open ? "swap-modal-in 200ms ease-in-out" : "none",
               "@keyframes swap-modal-in": {
                 from: { opacity: 0, transform: "translateY(50px)" },
@@ -153,6 +156,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(function Modal(props,
           justifyContent: "space-between",
           position: "relative",
           pointerEvents: onExit ? "none" : "unset",
+          flexShrink: 0, // panel 到達 maxHeight 時只壓縮 body，head 恆完整可見
         }}
         style={titleStyle}
       >
@@ -208,6 +212,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(function Modal(props,
               maxHeight: fullScreen
                 ? "calc(100dvh - 146px)"
                 : (cssSize(bodyMaxHeight) ?? (fullWidth ? clientHeight : "unset")),
+              minHeight: 0, // 允許 flex 壓縮（配合 panel maxHeight），超出時啟動下方捲軸
               overflowY: !onExit ? "scroll" : "hidden",
               "&::-webkit-scrollbar": { backgroundColor: "transparent", width: 5 },
               "&::-webkit-scrollbar-thumb": {
@@ -259,6 +264,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(function Modal(props,
           flexDirection: mobile ? "column" : "row",
           alignItems: "center",
           justifyContent: "space-between",
+          flexShrink: 0, // panel 到達 maxHeight 時只壓縮 body，footer 按鈕恆可點擊
         }}
       >
         {footer ?? (

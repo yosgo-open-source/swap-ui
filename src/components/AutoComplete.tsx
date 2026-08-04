@@ -24,6 +24,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
   const [inputValue, setInputValue] = React.useState("");
   const {
     open = false,
+    autoFocus = false,
     helperText,
     value,
     handleNoOptionsValueChange,
@@ -162,7 +163,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
                   placeholder={placeholder}
                   ref={params.slotProps.input.ref}
                   inputProps={params.slotProps.htmlInput}
-                  autoFocus
+                  autoFocus={autoFocus}
                   sx={{
                     padding: "0 16px 16px 16px",
                     width: "100%",

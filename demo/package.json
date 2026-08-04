@@ -13,7 +13,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/material": "^9.2.0",
-    "@yosgo/swap-ui": "^2.0.0-beta.9",
+    "@yosgo/swap-ui": "^2.0.0-beta.10",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.18.1"

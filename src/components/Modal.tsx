@@ -126,7 +126,10 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(function Modal(props,
     <Paper
       sx={{
         width: resolvedWidth,
-        maxWidth: cssSize(maxWidth),
+        maxWidth: cssSize(maxWidth) ?? "100%",
+        // 內容含不可斷行長字串時，flex 縮不過 min-content 會把 paper 撐得比視窗寬，
+        // 圓角被推出畫面外（產品端回報「fullWidth 圓角消失」的真因）——解除下限
+        minWidth: 0,
         borderRadius: fullScreen ? 0 : fullWidth ? "12px 12px 0px 0px" : "12px",
         border: "unset",
         boxShadow: fullScreen ? "unset" : swapShadows.l,

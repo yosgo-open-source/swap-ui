@@ -85,3 +85,18 @@ test("置中模式 size 照舊生效", () => {
   const paper = baseElement.querySelector(".MuiPaper-root") as HTMLElement;
   expect(getComputedStyle(paper).width).toBe("480px");
 });
+
+// 圓角出界防線：不可斷行長內容的 min-content 不得把 paper 撐得比視窗寬
+// （產品端「fullWidth 圓角消失」真因——圓角沒被蓋掉，是被推出畫面外）
+test("paper 有 maxWidth 100% 與 minWidth 0，長內容不撐寬", () => {
+  const { baseElement } = render(
+    <SWAPThemeProvider>
+      <Modal open fullWidth mobile title="t" onClose={() => {}}>
+        <div>超級無敵宇宙1234567890123456789012345678901234567890專案</div>
+      </Modal>
+    </SWAPThemeProvider>,
+  );
+  const paper = baseElement.querySelector(".MuiPaper-root") as HTMLElement;
+  expect(getComputedStyle(paper).maxWidth).toBe("100%");
+  expect(getComputedStyle(paper).minWidth).toBe("0px");
+});

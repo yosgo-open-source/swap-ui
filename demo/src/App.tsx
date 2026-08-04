@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import { Container, SWAPLogo, Typography } from "@yosgo/swap-ui";
 import Home from "./pages/Home";
 import Form from "./pages/Form";
+import CornerRepro from "./pages/CornerRepro";
 
 export default function App() {
   const { pathname } = useLocation();
@@ -38,6 +39,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/form" element={<Form />} />
+          <Route path="/corner" element={<CornerRepro />} />
         </Routes>
       </Box>
     </Container>

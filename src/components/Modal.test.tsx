@@ -60,3 +60,28 @@ test("置中模式 panel 有視窗高度上限，head/footer 不可壓縮", () =
   const footer = paper.lastElementChild as HTMLElement;
   expect(getComputedStyle(footer).flexShrink).toBe("0");
 });
+
+// fullWidth 滿寬語意優先：size 被忽略（桌機 size + 手機 fullWidth 是常見組合）
+test("fullWidth 時忽略 size，寬度為 100%", () => {
+  const { baseElement } = render(
+    <SWAPThemeProvider>
+      <Modal open fullWidth mobile size="small" title="t" onClose={() => {}}>
+        內容
+      </Modal>
+    </SWAPThemeProvider>,
+  );
+  const paper = baseElement.querySelector(".MuiPaper-root") as HTMLElement;
+  expect(getComputedStyle(paper).width).toBe("100%");
+});
+
+test("置中模式 size 照舊生效", () => {
+  const { baseElement } = render(
+    <SWAPThemeProvider>
+      <Modal open size="small" title="t" onClose={() => {}}>
+        內容
+      </Modal>
+    </SWAPThemeProvider>,
+  );
+  const paper = baseElement.querySelector(".MuiPaper-root") as HTMLElement;
+  expect(getComputedStyle(paper).width).toBe("480px");
+});

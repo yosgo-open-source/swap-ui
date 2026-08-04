@@ -98,9 +98,11 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(function Modal(props,
 
   const matchXS = useBreakpoints("xs");
   const slide = fullWidth || fullScreen;
+  // fullWidth（bottom sheet）時忽略 size：滿寬語意優先，
+  // 否則「桌機 size + 手機 fullWidth」的常見組合會得到 480px 非滿寬的怪 sheet
   const resolvedWidth = fullScreen
     ? "100vw"
-    : (cssSize(width) ?? (size ? SIZE_WIDTH[size] : "100%"));
+    : (cssSize(width) ?? (size && !fullWidth ? SIZE_WIDTH[size] : "100%"));
   const iconSx = {
     "& path": { width: 20, height: 20 },
     color:

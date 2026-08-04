@@ -1,8 +1,10 @@
 import * as React from "react";
 import dayjs, { type Dayjs } from "dayjs";
+import "dayjs/locale/zh-tw"; // 月份/星期顯示中文（僅註冊，不改全域 locale）
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import { zhTW } from "@mui/x-date-pickers/locales";
 import Modal from "./Modal";
 import type { DatePickerProps } from "./DatePicker.types";
 
@@ -42,10 +44,15 @@ const DatePicker: React.FC<DatePickerProps> = ({
       mobile={mobile}
       {...ModalProps}
     >
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <LocalizationProvider
+        dateAdapter={AdapterDayjs}
+        adapterLocale="zh-tw"
+        localeText={zhTW.components.MuiLocalizationProvider.defaultProps.localeText}
+      >
         <DateCalendar
           views={[...VIEWS[format]]}
           openTo={format}
+          slotProps={{ calendarHeader: { format: "YYYY年M月" } }}
           value={parsed && parsed.isValid() ? parsed : null}
           minDate={min ? dayjs(min) : undefined}
           maxDate={max ? dayjs(max) : undefined}

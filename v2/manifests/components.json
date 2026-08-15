@@ -2152,6 +2152,26 @@
             },
             "description": ""
           },
+          "height": {
+            "required": false,
+            "tsType": {
+              "name": "union",
+              "raw": "number | string",
+              "elements": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "string"
+                }
+              ]
+            },
+            "description": "兩個輸入欄的高度，預設 56（同 v1）。接受 48、\"48px\" 等",
+            "defaultValue": {
+              "value": "56",
+              "computed": false
+            }
+          },
           "codeFocused": {
             "required": false,
             "tsType": {
@@ -2182,7 +2202,7 @@
         {
           "id": "inputs-taxtextfield--playground",
           "name": "Playground",
-          "snippet": "const Playground = () => <TaxTextField\n    mobile={false}\n    codeError={false}\n    codeHelperText=\"\"\n    domainError={false}\n    domainHelperText=\"\"\n    codeValue=\"9A\"\n    domainValue=\"\" />;"
+          "snippet": "const Playground = () => <TaxTextField\n    mobile={false}\n    height={56}\n    codeError={false}\n    codeHelperText=\"\"\n    domainError={false}\n    domainHelperText=\"\"\n    codeValue=\"9A\"\n    domainValue=\"\" />;"
         }
       ],
       "import": "import Stack from \"@mui/material/Stack\";\nimport { TaxTextField, Typography } from \"@yosgo/swap-ui\";",
@@ -4685,6 +4705,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 768
+    "durationMs": 787
   }
 }

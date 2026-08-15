@@ -5364,7 +5364,7 @@ import * as TabStories from &quot;./Tab.stories&quot;;
     <div class="title">
       <h2><span class="status-dot dot-ok"></span> TaxTextField</h2>
       <div class="badges">
-        <label for="c-28-inputs-taxtextfield-props" class="badge ok as-toggle">13 prop types</label>
+        <label for="c-28-inputs-taxtextfield-props" class="badge ok as-toggle">14 prop types</label>
         <label for="c-28-inputs-taxtextfield-info" class="badge info as-toggle">1 info</label>
         <label for="c-28-inputs-taxtextfield-stories" class="badge ok as-toggle">3 stories</label>
         <label for="c-28-inputs-taxtextfield-docs" class="badge ok as-toggle">1 doc</label>
@@ -5400,7 +5400,7 @@ import * as TabStories from &quot;./Tab.stories&quot;;
           <div class="note ok">
             <div class="row">
               <span class="ex-name">Prop types <small>(react-docgen)</small></span>
-              <span class="badge ok">13 prop types</span>
+              <span class="badge ok">14 prop types</span>
             </div>
             <pre><code>Component: src/components/TaxTextField.tsx::default</code></pre>
             <pre><code>Props:</code></pre>
@@ -5425,6 +5425,11 @@ domainHelperText?: React.ReactNode
 domainOnClick?: () =&gt; void
 
 domainValue?: any
+
+/**
+ * 兩個輸入欄的高度，預設 56（同 v1）。接受 48、&quot;48px&quot; 等
+ */
+height?: number | string = 56
 
 mobile?: boolean
 
@@ -5472,6 +5477,7 @@ import { TaxTextField, Typography } from "@yosgo/swap-ui";</code></pre>
               
               <pre><code>const Playground = () =&gt; &lt;TaxTextField
     mobile={false}
+    height={56}
     codeError={false}
     codeHelperText=&quot;&quot;
     domainError={false}

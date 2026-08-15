@@ -20,6 +20,8 @@ export interface TaxTextFieldProps {
   domainError?: boolean;
   domainHelperText?: React.ReactNode;
   mobile?: boolean;
+  /** 兩個輸入欄的高度，預設 56（同 v1）。接受 48、"48px" 等 */
+  height?: number | string;
   codeFocused?: boolean;
   domainFocused?: boolean;
 }

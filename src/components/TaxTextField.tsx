@@ -44,6 +44,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
   codeOnClick,
   domainOnClick,
   mobile,
+  height = 56,
   codeFocused,
   domainFocused,
 }) => {
@@ -106,7 +107,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
           select
           error={codeError}
           helperText={codeHelperText}
-          height={56}
+          height={height}
           label="選擇申報類別"
           value={codeValue ?? ""}
           onClick={handleCodeClick}
@@ -149,7 +150,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
               fullWidth
               error={domainError}
               helperText={domainHelperText}
-              height={56}
+              height={height}
               label="輸入執行業務類別"
               value={domainCodeValue ?? ""}
               onClick={handleDomainClick}
@@ -190,7 +191,7 @@ const TaxTextField: React.FC<TaxTextFieldProps> = ({
                 helperText={domainHelperText}
                 fullWidth
                 label="輸入執行業務類別"
-                height={56}
+                height={height}
                 value={domainValue ?? ""}
                 onClick={handleDomainClick}
                 slotProps={{

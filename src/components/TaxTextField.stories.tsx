@@ -33,10 +33,11 @@ export const Basic: Story = { render: () => <Demo /> };
 export const Mobile: Story = { render: () => <Demo mobile /> };
 
 export const Playground: Story = {
-  parameters: { controls: { include: ["mobile", "codeError", "codeHelperText", "domainError", "domainHelperText"] } },
-  args: { mobile: false, codeError: false, codeHelperText: "", domainError: false, domainHelperText: "" },
+  parameters: { controls: { include: ["mobile", "height", "codeError", "codeHelperText", "domainError", "domainHelperText"] } },
+  args: { mobile: false, height: 56, codeError: false, codeHelperText: "", domainError: false, domainHelperText: "" },
   argTypes: {
     codeHelperText: { control: "text" },
+    height: { control: "number", description: "輸入欄高度（px），預設 56" },
     domainHelperText: { control: "text" },
   },
   render: (args) => (

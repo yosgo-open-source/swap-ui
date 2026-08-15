@@ -50,3 +50,25 @@ test("codeValue=50（薪資）無費用欄；9B 出現費用下拉", () => {
   );
   expect(screen.getByLabelText("輸入執行業務類別")).toBeInTheDocument();
 });
+
+test("height 傳遞至兩個輸入欄（預設 56）", () => {
+  const { container, rerender } = render(
+    <SWAPThemeProvider>
+      <TaxTextField codeValue="9B" height={48} />
+    </SWAPThemeProvider>,
+  );
+  // TextField 的 height 以 CSS 高度落在 OutlinedInput root 上
+  const inputs = container.querySelectorAll(".MuiOutlinedInput-root");
+  expect(inputs.length).toBe(2);
+  for (const el of inputs) {
+    expect(getComputedStyle(el).height).toBe("48px");
+  }
+  rerender(
+    <SWAPThemeProvider>
+      <TaxTextField codeValue="9B" />
+    </SWAPThemeProvider>,
+  );
+  for (const el of container.querySelectorAll(".MuiOutlinedInput-root")) {
+    expect(getComputedStyle(el).height).toBe("56px");
+  }
+});

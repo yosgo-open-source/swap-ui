@@ -33,8 +33,8 @@ npm i @mui/material @emotion/react @emotion/styled
 # 需要 icon 的話
 npm i @mui/icons-material
 
-# swap-ui v2(正式 2.0.0 上 latest 前,一律裝 next tag)
-npm i @yosgo/swap-ui@next
+# swap-ui v2
+npm i @yosgo/swap-ui@^2
 ```
 
 ### 2.2 bundler 需求
@@ -205,7 +205,7 @@ MUI v4 遺留 prop,v9 已無此概念。型別上保留(標 `@deprecated`)所以
 
 ## 7. 建議遷移步驟(playbook)
 
-1. **升依賴**:照 §2.1 執行(React → 移除 v4 生態 → 裝 MUI 9 + emotion → 裝 `@yosgo/swap-ui@next`)。
+1. **升依賴**:照 §2.1 執行(React → 移除 v4 生態 → 裝 MUI 9 + emotion → 裝 `@yosgo/swap-ui@^2`)。
 2. **換 Provider**:照 §3 替換 app 最外層,先讓專案能跑起來。
 3. **全域搜尋替換 import**:
    - `@material-ui/core` → `@mui/material`、`@material-ui/icons` → `@mui/icons-material`
@@ -213,7 +213,6 @@ MUI v4 遺留 prop,v9 已無此概念。型別上保留(標 `@deprecated`)所以
    - `SWAPTheme`/`createMuiTheme` 等 → 新名(§4.3);已移除者照 §4.4 替換
 4. **跑 `tsc`,逐一清錯**:Button `width`、移除的匯出等 breaking 幾乎都會被型別抓到;§5 是對照手冊。
 5. **逐頁驗證**:重點看表單頁(TextField 高度)、日期選擇(DatePicker 新視覺)、下拉選單(AutoComplete)。
-6. 驗證完成前,**產品的 package.json 不要指到 `latest`**;正式 `2.0.0` 發佈後再切換。
 
 ## 8. 常見錯誤對照
 

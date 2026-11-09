@@ -24,10 +24,10 @@ jobs:
           name: storybook-static
           path: storybook-static
 
-  # v2 分支 CI 綠燈後，自動部署 Storybook 到 gh-pages 的 v2/ 子目錄。
+  # master 分支 CI 綠燈後，自動部署 Storybook 到 gh-pages 的 v2/ 子目錄。
   # destination_dir 只覆蓋 v2/，根目錄的 v1 手冊不受影響。
   deploy-storybook:
-    if: github.ref == 'refs/heads/v2' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     needs: verify
     runs-on: ubuntu-latest
     permissions:

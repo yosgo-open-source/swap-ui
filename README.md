@@ -58,18 +58,22 @@ npm run build            # 打包（ESM + CJS + d.ts）
 
 # 發佈（⚠️ 安全規則）
 
-現役產品鎖定 `^1.x`，v2 發佈**不可**推上 `latest`，一律：
+`latest` 指向 v2。不帶 tag 的 `npm publish` 一律會蓋掉 `latest`，因此 v1 hotfix 與預發佈**必須**指定 tag：
 
 ```bash
-# 預發佈（beta/alpha）一律指定 next tag
+# v2 正式版（從 master 發佈）
+npm publish
+
+# v1 hotfix（從 v1 分支發佈）
+npm publish --tag v1
+
+# 預發佈（beta/alpha）
 npm publish --tag next
 
-# 發佈前後確認 dist-tags（latest 必須仍指向 1.x，直到正式切換）
+# 發佈前後確認 dist-tags
 npm dist-tag ls @yosgo/swap-ui
 ```
 
-正式 `2.0.0` 需待產品端遷移驗收完成後，才發佈至 `latest`。完整規則見 `docs/superpowers/specs/2026-07-14-mui-v9-theme-first-migration-design.md` §6.1。
-
 # v1 → v2
 
-v1 原始碼封存於 `legacy/v1-src/`（master 分支保持 v1 原樣）。**遷移指南見 [MIGRATION.md](https://github.com/yosgo-open-source/swap-ui/blob/v2/MIGRATION.md)**（import 對照表、breaking 清單、Next.js / React Router 接入、常見錯誤對照），Storybook 手冊側欄最上方亦有同步的「遷移指南」頁。
+v1 原始碼封存於 `legacy/v1-src/`（v1 維護分支為 `v1`）。**遷移指南見 [MIGRATION.md](https://github.com/yosgo-open-source/swap-ui/blob/master/MIGRATION.md)**（import 對照表、breaking 清單、Next.js / React Router 接入、常見錯誤對照），Storybook 手冊側欄最上方亦有同步的「遷移指南」頁。

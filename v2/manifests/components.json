@@ -3337,7 +3337,7 @@
             "tsType": {
               "name": "boolean"
             },
-            "description": ""
+            "description": "已無作用（icon 一律對齊第一行文字），保留以維持相容"
           },
           "width": {
             "required": false,
@@ -3394,6 +3394,54 @@
           "id": "feedback-banner--playground",
           "name": "Playground",
           "snippet": "const Playground = () => <Banner variant=\"info\" mobile={false}>提示訊息內容</Banner>;"
+        },
+        {
+          "id": "feedback-banner--single-line",
+          "name": "Single Line",
+          "error": {
+            "name": "Error",
+            "message": "Could not evaluate story expression\n  69 | });\n  70 |\n> 71 | export const SingleLine = lineStory(ONE_LINE, 1, 50);\n     |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  72 | export const TwoLines = lineStory(TWO_LINES, 2, 59.6);\n  73 | export const ThreeLines = lineStory(THREE_LINES, 3, 76.4);\n  74 |"
+          }
+        },
+        {
+          "id": "feedback-banner--two-lines",
+          "name": "Two Lines",
+          "error": {
+            "name": "Error",
+            "message": "Could not evaluate story expression\n  70 |\n  71 | export const SingleLine = lineStory(ONE_LINE, 1, 50);\n> 72 | export const TwoLines = lineStory(TWO_LINES, 2, 59.6);\n     |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  73 | export const ThreeLines = lineStory(THREE_LINES, 3, 76.4);\n  74 |\n  75 | /** 掛載後容器變窄、單行變多行，仍須對齊第一行 */"
+          }
+        },
+        {
+          "id": "feedback-banner--three-lines",
+          "name": "Three Lines",
+          "error": {
+            "name": "Error",
+            "message": "Could not evaluate story expression\n  71 | export const SingleLine = lineStory(ONE_LINE, 1, 50);\n  72 | export const TwoLines = lineStory(TWO_LINES, 2, 59.6);\n> 73 | export const ThreeLines = lineStory(THREE_LINES, 3, 76.4);\n     |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  74 |\n  75 | /** 掛載後容器變窄、單行變多行，仍須對齊第一行 */\n  76 | export const NarrowedContainer: Story = {"
+          }
+        },
+        {
+          "id": "feedback-banner--narrowed-container",
+          "name": "Narrowed Container",
+          "snippet": "const NarrowedContainer = () => (\n  <div style={{ width: 480 }}>\n    <Banner data-testid=\"banner\">{ONE_LINE}</Banner>\n  </div>\n);",
+          "description": "掛載後容器變窄、單行變多行，仍須對齊第一行"
+        },
+        {
+          "id": "feedback-banner--fixed-height",
+          "name": "Fixed Height",
+          "snippet": "const FixedHeight = () => (\n  <div style={{ width: 480 }}>\n    <Banner data-testid=\"banner\" height={56}>\n      {ONE_LINE}\n    </Banner>\n  </div>\n);",
+          "description": "指定 height 的單行 Banner 維持垂直置中，不可貼頂"
+        },
+        {
+          "id": "feedback-banner--small-fixed-height",
+          "name": "Small Fixed Height",
+          "snippet": "const SmallFixedHeight = () => (\n  <div style={{ width: 480 }}>\n    <Banner data-testid=\"banner\" height={40}>\n      {ONE_LINE}\n    </Banner>\n  </div>\n);",
+          "description": "指定的 height 小於預設最小高度時，以 height 為準"
+        },
+        {
+          "id": "feedback-banner--custom-icon-sizes",
+          "name": "Custom Icon Sizes",
+          "snippet": "const CustomIconSizes = () => (\n  <Stack spacing={2} sx={{ width: 480 }}>\n    <Banner data-testid=\"icon-16\" icon={customIcon(16)}>\n      {THREE_LINES}\n    </Banner>\n    <Banner data-testid=\"icon-40\" icon={customIcon(40)}>\n      {THREE_LINES}\n    </Banner>\n  </Stack>\n);",
+          "description": "自訂 icon 不論大小，都以第一行置中"
         }
       ],
       "import": "import { Banner } from \"@yosgo/swap-ui\";\nimport Stack from \"@mui/material/Stack\";",
@@ -3403,7 +3451,7 @@
           "name": "Docs",
           "path": "./src/components/Banner.mdx",
           "title": "Feedback/Banner",
-          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as BannerStories from \"./Banner.stories\";\n\n<Meta of={BannerStories} />\n\n# Banner\n\n頁面內的狀態提示橫幅。以 `variant` 決定語意配色與預設圖示。\n\n## 使用時機\n\n- 需要**常駐**在頁面/區塊內的提示（權限不足、功能維護中、操作結果說明）。\n- 操作後的**暫時**回饋用 Snackbar；重要決策用 Modal。\n- 內容較長時會自動改為頂部對齊（手機可強制 `mobile`）。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Banner } from \"@yosgo/swap-ui\";\n\n<Banner variant=\"warning\">此功能將於 7/20 進行維護，期間暫停服務。</Banner>`} />\n\n## 五種語意\n\n<Canvas of={BannerStories.Variants} />\n",
+          "content": "import { Meta, Canvas, Source } from \"@storybook/addon-docs/blocks\";\nimport * as BannerStories from \"./Banner.stories\";\n\n<Meta of={BannerStories} />\n\n# Banner\n\n頁面內的狀態提示橫幅。以 `variant` 決定語意配色與預設圖示。\n\n## 使用時機\n\n- 需要**常駐**在頁面/區塊內的提示（權限不足、功能維護中、操作結果說明）。\n- 操作後的**暫時**回饋用 Snackbar；重要決策用 Modal。\n- 不論一行或多行，圖示都與**第一行文字**垂直置中，容器寬度改變時也一樣。\n\n## 基本用法\n\n<Source language=\"tsx\" code={`import { Banner } from \"@yosgo/swap-ui\";\n\n<Banner variant=\"warning\">此功能將於 7/20 進行維護，期間暫停服務。</Banner>`} />\n\n## 五種語意\n\n<Canvas of={BannerStories.Variants} />\n",
           "summary": "# Banner 頁面內的狀態提示橫幅。以 `variant` 決定語意配色與預設圖示。 ## 使用時機 - 需要**常駐**在頁面/區塊內的提示（權限不足、功能維護中、操作結果說..."
         }
       }
@@ -4705,6 +4753,6 @@
   },
   "meta": {
     "docgen": "react-docgen",
-    "durationMs": 787
+    "durationMs": 902
   }
 }

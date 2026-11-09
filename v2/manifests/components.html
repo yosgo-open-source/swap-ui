@@ -588,13 +588,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">3/32 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">32/32 infos</a><span class="filter-pill ok" aria-disabled="true">91 stories ok</span><a class="filter-pill ok" data-k="docs" href="#filter-docs">34 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">3/32 prop type errors</a><a class="filter-pill info" data-k="infos" href="#filter-infos">32/32 infos</a><a class="filter-pill err" data-k="story-errors" href="#filter-story-errors">3/98 story errors</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">34 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note info" style="margin-bottom: 16px;">
-            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.8s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
+            <strong>Tip:</strong> You are using <code>react-docgen</code> (the default). Generation took <strong>0.9s</strong>. For higher quality prop types, consider switching to <code>react-docgen-typescript</code> in your <code>main.ts</code>:
             <pre><code>typescript: {
   reactDocgen: 'react-docgen-typescript',
 }</code></pre>
@@ -816,17 +816,17 @@ import * as AutoCompleteStories from &quot;./AutoComplete.stories&quot;;
   class="card 
   no-error 
   has-info 
-  no-story-error
+  has-story-error
   no-doc-error"
   role="listitem"
   aria-label="Banner">
   <div class="head">
     <div class="title">
-      <h2><span class="status-dot dot-ok"></span> Banner</h2>
+      <h2><span class="status-dot dot-err"></span> Banner</h2>
       <div class="badges">
         <label for="c-1-feedback-banner-props" class="badge ok as-toggle">5 prop types</label>
         <label for="c-1-feedback-banner-info" class="badge info as-toggle">1 info</label>
-        <label for="c-1-feedback-banner-stories" class="badge ok as-toggle">2 stories</label>
+        <label for="c-1-feedback-banner-stories" class="badge err as-toggle">3/9 story errors</label>
         <label for="c-1-feedback-banner-docs" class="badge ok as-toggle">1 doc</label>
         
       </div>
@@ -868,6 +868,9 @@ import * as AutoCompleteStories from &quot;./AutoComplete.stories&quot;;
 
 icon?: React.ReactNode
 
+/**
+ * 已無作用（icon 一律對齊第一行文字），保留以維持相容
+ */
 mobile?: boolean
 
 variant?: &quot;info&quot; | &quot;normal&quot; | &quot;success&quot; | &quot;warning&quot; | &quot;error&quot; = &quot;info&quot;
@@ -878,6 +881,57 @@ width?: string | number</code></pre>
     
         <div class="panel panel-stories">
           
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Single Line</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not evaluate story expression
+  69 | });
+  70 |
+&gt; 71 | export const SingleLine = lineStory(ONE_LINE, 1, 50);
+     |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  72 | export const TwoLines = lineStory(TWO_LINES, 2, 59.6);
+  73 | export const ThreeLines = lineStory(THREE_LINES, 3, 76.4);
+  74 |</code></pre>
+            </div>
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Two Lines</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not evaluate story expression
+  70 |
+  71 | export const SingleLine = lineStory(ONE_LINE, 1, 50);
+&gt; 72 | export const TwoLines = lineStory(TWO_LINES, 2, 59.6);
+     |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  73 | export const ThreeLines = lineStory(THREE_LINES, 3, 76.4);
+  74 |
+  75 | /** 掛載後容器變窄、單行變多行，仍須對齊第一行 */</code></pre>
+            </div>
+            <div class="note err">
+              <div class="row">
+                <span class="ex-name">Three Lines</span>
+                <span class="badge err">story error</span>
+              </div>
+              
+              
+              
+              <pre><code>Could not evaluate story expression
+  71 | export const SingleLine = lineStory(ONE_LINE, 1, 50);
+  72 | export const TwoLines = lineStory(TWO_LINES, 2, 59.6);
+&gt; 73 | export const ThreeLines = lineStory(THREE_LINES, 3, 76.4);
+     |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  74 |
+  75 | /** 掛載後容器變窄、單行變多行，仍須對齊第一行 */
+  76 | export const NarrowedContainer: Story = {</code></pre>
+            </div>
           
           
           <div class="note ok">
@@ -915,6 +969,67 @@ import Stack from "@mui/material/Stack";</code></pre>
               
               <pre><code>const Playground = () =&gt; &lt;Banner variant=&quot;info&quot; mobile={false}&gt;提示訊息內容&lt;/Banner&gt;;</code></pre>
             </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Narrowed Container</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              <div class="hint">掛載後容器變窄、單行變多行，仍須對齊第一行</div>
+              <pre><code>const NarrowedContainer = () =&gt; (
+  &lt;div style={{ width: 480 }}&gt;
+    &lt;Banner data-testid=&quot;banner&quot;&gt;{ONE_LINE}&lt;/Banner&gt;
+  &lt;/div&gt;
+);</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Fixed Height</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              <div class="hint">指定 height 的單行 Banner 維持垂直置中，不可貼頂</div>
+              <pre><code>const FixedHeight = () =&gt; (
+  &lt;div style={{ width: 480 }}&gt;
+    &lt;Banner data-testid=&quot;banner&quot; height={56}&gt;
+      {ONE_LINE}
+    &lt;/Banner&gt;
+  &lt;/div&gt;
+);</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Small Fixed Height</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              <div class="hint">指定的 height 小於預設最小高度時，以 height 為準</div>
+              <pre><code>const SmallFixedHeight = () =&gt; (
+  &lt;div style={{ width: 480 }}&gt;
+    &lt;Banner data-testid=&quot;banner&quot; height={40}&gt;
+      {ONE_LINE}
+    &lt;/Banner&gt;
+  &lt;/div&gt;
+);</code></pre>
+            </div>
+            <div class="note ok">
+              <div class="row">
+                <span class="ex-name">Custom Icon Sizes</span>
+                <span class="badge ok">story ok</span>
+              </div>
+              
+              <div class="hint">自訂 icon 不論大小，都以第一行置中</div>
+              <pre><code>const CustomIconSizes = () =&gt; (
+  &lt;Stack spacing={2} sx={{ width: 480 }}&gt;
+    &lt;Banner data-testid=&quot;icon-16&quot; icon={customIcon(16)}&gt;
+      {THREE_LINES}
+    &lt;/Banner&gt;
+    &lt;Banner data-testid=&quot;icon-40&quot; icon={customIcon(40)}&gt;
+      {THREE_LINES}
+    &lt;/Banner&gt;
+  &lt;/Stack&gt;
+);</code></pre>
+            </div>
         </div>
     
         <div class="panel panel-docs">
@@ -940,7 +1055,7 @@ import * as BannerStories from &quot;./Banner.stories&quot;;
 
 - 需要**常駐**在頁面/區塊內的提示（權限不足、功能維護中、操作結果說明）。
 - 操作後的**暫時**回饋用 Snackbar；重要決策用 Modal。
-- 內容較長時會自動改為頂部對齊（手機可強制 `mobile`）。
+- 不論一行或多行，圖示都與**第一行文字**垂直置中，容器寬度改變時也一樣。
 
 ## 基本用法
 
